@@ -26,10 +26,9 @@ set.seed(2025)
 library(tidyverse)
 library(lavaan)
 library(ggplot2)
-# library(piecewiseSEM)
+library(nnet)
 library(tidyLPA)
 library(poLCA)
-# library(MplusAutomation)
 
 # Read & Save ---------------------------------------------------------------
 
@@ -214,20 +213,20 @@ dallb <- bind_rows(
 
 # Filter & Trim for Part 2 ------------------------------------------------
 
-# Check if collapsing is necessary
-child.lik %>% dplyr::select(-max_post,-mins,-age,-eth) %>%
-  pivot_longer(
-    cols = everything(),   # or specify your Likert vars if df has other columns
-    names_to = "Variable",
-    values_to = "Response"
-  ) %>%
-  group_by(Variable, Response) %>%
-  summarise(n = n(), .groups = "drop_last") %>%
-  #"drop_last" drops the response variable,
-  #so that the next part (proportion) does not calculate within each response
-
-  mutate(prop = n / sum(n)) %>%
-  arrange(Variable, Response) %>% filter(prop < 0.05)
+# # Check if collapsing is necessary
+# child.lik %>% dplyr::select(-max_post,-mins,-age,-eth) %>%
+#   pivot_longer(
+#     cols = everything(),   # or specify your Likert vars if df has other columns
+#     names_to = "Variable",
+#     values_to = "Response"
+#   ) %>%
+#   group_by(Variable, Response) %>%
+#   summarise(n = n(), .groups = "drop_last") %>%
+#   #"drop_last" drops the response variable,
+#   #so that the next part (proportion) does not calculate within each response
+#
+#   mutate(prop = n / sum(n)) %>%
+#   arrange(Variable, Response) %>% filter(prop < 0.05)
 
 
 child.lik <- child.var %>%
@@ -266,7 +265,7 @@ child.lik <- child.var %>%
          ) %>%
   dplyr::select(-dsbl)
 
-
+child.lik.back <- child.lik
 
 adult.lik <- adult.var %>%
 
@@ -474,13 +473,12 @@ cohen_d_lavaan(f0, "oppb")
 
 
 # Part II LCA youths ------------------------------------------------------------
-
 child.lik <- child.lik.back
 child.lik <- child.lik %>% dplyr::select(-mins,-age,-gender,-eth)
 
 lca.f.child <- as.matrix(child.lik) ~ 1
 
-# run 2-7 classes
+# run 1-7 classes
 poLCA.child <- list()
 for(k in 1:7){
   poLCA.child[[k]] <- poLCA(lca.f.child, data = child.lik,
@@ -514,13 +512,10 @@ ggplot(lca.stats.child, aes(x = classes)) +
 # pick best model
 lca.best.ch <- poLCA.child[[3]]
 
-# posterior prob
-# max.prob.ch <- apply(lca.best.ch$posterior, 1, max)
-
-# Summary
-# summary(max.prob.ch)
-# hist(max.prob.ch, breaks = 20, main = "Max posterior probability per individual",
-#      xlab = "Max posterior probability")
+# check class size (need >0.5 per)
+child.lik$class <- lca.best.ch$predclass
+table(child.lik$class)  # modal assignment
+prop.table(table(child.lik$class))
 
 # entropy, <0.8 good, higher != better
 post.ch <- lca.best.ch$posterior
@@ -529,93 +524,24 @@ C <- ncol(post.ch)
 entro.ch <- 1 + (1/(N*log(C))) * sum(post.ch * log(post.ch))
 entro.ch  # ranges 0–1, higher = better separation
 
-
-
-# check class size (>0.5 per)
-child.lik$class <- lca.best.ch$predclass
-table(child.lik$class)  # modal assignment
-prop.table(table(child.lik$class))
-
-
 # check each class prob
-child.lik$max_post <- apply(lca.best.ch$posterior, 1, max)
-ggplot(child.lik, aes(x = max_post, fill = factor(class))) +
+child.lik$post <- apply(lca.best.ch$posterior, 1, max)
+ggplot(child.lik, aes(x = post, fill = factor(class))) +
   geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
   labs(x = "Max Posterior Probability", y = "Count", fill = "Class") +
   theme_minimal()
 
 # boxplot per class
-ggplot(child.lik, aes(x = factor(class), y = max_post)) +
+ggplot(child.lik, aes(x = factor(class), y = post)) +
   geom_boxplot(fill = "skyblue") +
   labs(x = "Class", y = "Max Posterior Probability") +
   theme_minimal()
 
-# interpret
-poLCA.child[[3]]$probs
-# poLCA.child[[4]]$probs
-# poLCA.child[[5]]$probs
-
-save(poLCA.child, file="poLCA.child.RData")
-
-
-probs.child <- poLCA.child[[3]]$probs
-# Convert list to a long data frame: one row per variable-response-class
-probs.child.l <- lapply(names(probs.child), function(var) {
-  mat <- probs.child[[var]]
-  df <- as.data.frame(mat)
-  df$Response <- rownames(mat)
-  df$Variable <- var
-  df
-}) %>%
-  bind_rows() %>%
-  pivot_longer(
-    cols = starts_with("Response"),
-    names_to = "Type",
-    values_to = "Class"
-  )
-
-
-class1.ch <- probs.child.l %>% filter(Class == "class 1: ") %>%
-  dplyr::select(-Type,-Class) %>%
-  arrange(Variable) %>%
-  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
-
-class2.ch <- probs.child.l %>% filter(Class == "class 2: ") %>%
-  dplyr::select(-Type,-Class) %>%
-  arrange(Variable) %>%
-  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
-
-class3.ch <- probs.child.l %>% filter(Class == "class 3: ") %>%
-  dplyr::select(-Type,-Class) %>%
-  arrange(Variable) %>%
-  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
-
-class1.ch
-class2.ch
-class3.ch
-
-#
-# child.lik %>%
-#   group_by(class) %>%
-#   summarise(
-#     mean_mins = mean(mins, na.rm = TRUE),
-#     median_mins = median(mins, na.rm = TRUE),
-#     sd_mins = sd(mins, na.rm = TRUE),
-#     n = n()
-#   )
-
-# ggplot(child.lik, aes(x = factor(class), y = mins)) +
-#   geom_boxplot() +
-#   labs(x = "Latent Class", y = "Weekly Exercise Minutes")
-#
-# ggplot(child.lik, aes(x = factor(class), y = mins)) +
-#   stat_summary(fun = mean, geom = "bar") +
-#   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
-#   labs(x = "Latent Class", y = "Mean Weekly Exercise Minutes")
-
-# kruskal.test(mins ~ class, data = child.lik)
-
-
+# Weighted means
+child.lik$mins <- child.lik.back$mins
+child.lik$age <- child.lik.back$age
+child.lik$gender <- child.lik.back$gender
+child.lik$eth <- child.lik.back$eth
 child.lik$mins.log <- log(child.lik$mins+1)
 
 # probability weighted means
@@ -650,6 +576,30 @@ ggplot(mins.child, aes(x = Class, y = Mean.log)) +
   geom_col() +
   labs(x = "Latent Class", y = "Probability-weighted mean minutes")
 
+
+# Part II Child Regression ------------------------------------------------
+# AGE
+fit.ch.age <- multinom(class ~ age,
+                       data = child.lik %>% dplyr::select(-post,-mins,-eth,-gender))
+summary(fit.ch.age)
+# Odds ratios for easier interpretation
+exp(coef(fit.ch.age))
+
+# ETHNICITY
+fit.ch.eth <- multinom(class ~ eth,
+                       data = child.lik %>% dplyr::select(-post,-mins,-age,-gender))
+summary(fit.ch.eth)
+# Odds ratios for easier interpretation
+exp(coef(fit.ch.eth))
+
+# GENDER
+fit.ch.gender <- multinom(class ~ gender,
+                          data = child.lik %>% dplyr::select(-post,-mins,-eth,-age))
+summary(fit.ch.gender)
+# Odds ratios for easier interpretation
+exp(coef(fit.ch.gender))
+
+or.ch <- cbind(exp(coef(fit.ch.age)),exp(coef(fit.ch.eth)),exp(coef(fit.ch.gender)))
 
 
 # Part II LCA adults  -----------------------------------------------------------
@@ -814,3 +764,85 @@ fit.ad.gender <- multinom(class ~ gender,
 summary(fit.ad.gender)
 # Odds ratios for easier interpretation
 exp(coef(fit.ad.gender))
+
+or.ad <- cbind(exp(coef(fit.ad.age)),exp(coef(fit.ad.eth)),exp(coef(fit.ad.gender)))
+
+# Interpretation Child ----------------------------------------------------------
+
+probs.child <- poLCA.child[[3]]$probs
+# Convert list to a long data frame: one row per variable-response-class
+probs.child.l <- lapply(names(probs.child), function(var) {
+  mat <- probs.child[[var]]
+  df <- as.data.frame(mat)
+  df$Response <- rownames(mat)
+  df$Variable <- var
+  df
+}) %>%
+  bind_rows() %>%
+  pivot_longer(
+    cols = starts_with("Response"),
+    names_to = "Type",
+    values_to = "Class"
+  )
+
+
+class1.ch <- probs.child.l %>% filter(Class == "class 1: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class2.ch <- probs.child.l %>% filter(Class == "class 2: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class3.ch <- probs.child.l %>% filter(Class == "class 3: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class1.ch
+class2.ch
+class3.ch
+
+or.ch
+# Interpretation Adults ---------------------------------------------------
+
+
+probs.adult <- poLCA.adult[[3]]$probs
+# Convert list to a long data frame: one row per variable-response-class
+probs.adult.l <- lapply(names(probs.adult), function(var) {
+  mat <- probs.adult[[var]]
+  df <- as.data.frame(mat)
+  df$Response <- rownames(mat)
+  df$Variable <- var
+  df
+}) %>%
+  bind_rows() %>%
+  pivot_longer(
+    cols = starts_with("Response"),
+    names_to = "Type",
+    values_to = "Class"
+  )
+
+
+class1.ad <- probs.adult.l %>% filter(Class == "class 1: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class2.ad <- probs.adult.l %>% filter(Class == "class 2: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class3.ad <- probs.adult.l %>% filter(Class == "class 3: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class1.ad
+class2.ad
+class3.ad
+
+or.ad
