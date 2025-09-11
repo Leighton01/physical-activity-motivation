@@ -8,6 +8,8 @@
 
 
 
+# note: child.bi+adult.bi=dallb, child.lik, adult.lik
+
 
 
 # 1. go throuhg checklist (ask for the checklist
@@ -20,10 +22,14 @@
 # focus on measurement invariance, fit, and robustness checks.
 
 # Libraries ---------------------------------------------------------------
+set.seed(2025)
 library(tidyverse)
 library(lavaan)
+library(ggplot2)
 # library(piecewiseSEM)
 library(tidyLPA)
+library(poLCA)
+# library(MplusAutomation)
 
 # Read & Save ---------------------------------------------------------------
 
@@ -53,7 +59,7 @@ child.var <- data.child %>% select('PL_Enjoy_bc_ans', 'PL_Conf_bc_ans',
 save(child.var, file = "child.var.RData")
 
 
-adult.var <- data.adult %>% select('Motiva_POP',
+adult.var <- data.adult %>% dplyr::select('Motiva_POP',
                                    'motivb_POP',
                                    'motivc_POP',
                                    'motivd_POP',
@@ -74,17 +80,15 @@ adult.var <- data.adult %>% select('Motiva_POP',
                                    'DUR_MOD_CAPPED_SPORTCOUNT_A01',
 
                                    # profile
-                                   'Age17',
-                                   'Disab2_POP',
-                                   'Gend3',
-                                   'Eth2',
-                                   'Eth7',
+                                   'Age17','Age3','AgeTGC',
+                                   'Age4','Age5','Age5_2',
+                                   'Age9','Disab2_POP',
+                                   'Gend3','Eth2','Eth7',
 
                                    # binary
                                    'Motiva_POP_GR2', 'motivex2c_GR2',
                                    'motivex2a_GR2', 'motivc_POP_GR2',
-                                   'READYOP1_POP_GR2'
-)
+                                   'READYOP1_POP_GR2')
 
 save(adult.var, file = "adult.var.RData")
 
@@ -139,6 +143,8 @@ child.bi <- child.var %>%
          mins=mins_modplus_outschool_Week_ALL
 
   ) %>%
+
+
   # change 2 (not strongly agree) to 0, consistent with adult
   mutate(across(c(enjoyb,socialb,fitb,guiltb,oppb), ~ ifelse(.x==2, 0, .x)),
          gender = case_when(gender == 2 ~ 0, TRUE ~ gender),# 2 was originally female, recode to 0
@@ -208,123 +214,100 @@ dallb <- bind_rows(
 
 # Filter & Trim for Part 2 ------------------------------------------------
 
-child.trim <- child.var %>%
-  filter(Disab_All_POP == 2,
-         gend3 %in% c(1,2),
-         eth2 %in% c(1,2),
-         if_all(c(PL_Enjoy_bc_ans, MO_Fun_c, MO_Fit_c,
-                  MO_Guilt_c, MO_Opp_c), ~ . < 6,),
+# Check if collapsing is necessary
+child.lik %>% dplyr::select(-max_post,-mins,-age,-eth) %>%
+  pivot_longer(
+    cols = everything(),   # or specify your Likert vars if df has other columns
+    names_to = "Variable",
+    values_to = "Response"
+  ) %>%
+  group_by(Variable, Response) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  #"drop_last" drops the response variable,
+  #so that the next part (proportion) does not calculate within each response
 
-         if_all(c(PL_Enjoy_bc_ans, MO_Fun_c, MO_Fit_c,
-              MO_Guilt_c, MO_Opp_c,
-              Try_bc, PL_GdMe_bc_ans,
-              gend3, age_11,
-              mins_modplus_outschool_Week_ALL), ~ .x > -1)) %>%
+  mutate(prop = n / sum(n)) %>%
+  arrange(Variable, Response) %>% filter(prop < 0.05)
 
-    select(enjoy=PL_Enjoy_bc_ans,
+
+child.lik <- child.var %>%
+
+  # 1-4, 1=strong agree, 4=strong disagree, 5=can't say
+  dplyr::select(enjoy=PL_Enjoy_bc_ans,
            social=MO_Fun_c,
            fit=MO_Fit_c,
            try=Try_bc,
-           guilt=MO_Guilt_c,
+           guilt=MO_Guilt_c, #99 instead of 5 for "can't say"
            know=PL_GdMe_bc_ans,
-           opp=MO_Opp_c,
+           opp=MO_Opp_c, #99 instead of 5 for "can't say"
+           conf=PL_Conf_bc_ans,
+           easy=PL_Easy_bc_ans,
+           more=Exeramt_bc, #only 3, 1=more,2=same,3=less
 
-           PL_Conf_bc_ans,
-           PL_Easy_bc_ans,
-           Exeramt_bc,
-
-           # relevant but lots na due to survey routing
-           # PL_Know_c_ans,
-           # MO_Relax_c,
-           # MO_Haveto_b_36,
-           # MO_Haveto_c_711,
-           # PR_Fam_c,
-           # PR_Oth_c,
-           # outdoor_bcd_Overall,
-           # ExeramtMore_bc1_2,
-           # ExeramtMore_bc2_2,
-           # ExeramtMore_bc3_2,
-
+           dsbl=Disab_All_POP,
            gender=gend3,
            age=age_11,
            eth=eth2,
            mins=mins_modplus_outschool_Week_ALL
+    ) %>%
 
-    )
+  filter(dsbl == 2,
+       gender %in% c(1,2),
+       eth %in% c(1,2),
+       mins > -1,
+       if_all(c(enjoy,social,fit,guilt,opp,know,try,conf,easy,more),
+              ~ .x > -1 & .x < 5)) %>%
+  mutate(
+         mins = ifelse(mins > 1680, 1680, mins),
+         across(c(conf,easy,enjoy,fit,know,more,opp,try),
+                ~ case_when(.x==4~3L, TRUE ~ as.integer(.x)))
+
+
+         ) %>%
+  dplyr::select(-dsbl)
 
 
 
-adult.trim <- adult.var %>% filter(Disab2_POP==2,
-                                   Gend3 %in% c(1,2),
-                                   Eth2 %in% c(1,2),
-                                   if_all(c(Motiva_POP,motivex2c,motivex2a,
-                                            motivc_POP,READYOP1_POP,
-                                            Age17,
-                                            DUR_MOD_SPORTCOUNT_A01,
-                                            DUR_HVY_SPORTCOUNT_A01
-                                            ), ~ .x > -1),
-                                   ) %>%
+adult.lik <- adult.var %>%
 
 
   mutate(mins=DUR_HVY_CAPPED_SPORTCOUNT_A01+DUR_MOD_CAPPED_SPORTCOUNT_A01) %>%
 
-
-  select(enjoy=Motiva_POP,
+# 1=strong agree, 5=strong disagree
+  dplyr::select(enjoy=Motiva_POP,
          social=motivex2c,
          fit=motivex2a,
          guilt=motivc_POP,
          opp=READYOP1_POP,
 
-         motivb_POP,
-         motivd_POP,
-         READYAB1_POP,
-         motivex2b,
-         motivex2d,
+         imp=motivb_POP,
+         dis=motivd_POP, #disappoint
+         abil=READYAB1_POP, #ability
+         relx=motivex2b,
+         chal=motivex2d,
 
-         # relevant but lots na due to survey routing
-         # know=motive_POP,
-         # try=indevtry,
-         # inclus_a,
-         # inclus_b,
-         # inclus_c,
-         # indev,
-         # workactlvl,
-
+         dsbl=Disab2_POP,
          gender=Gend3,
-         gender2=gend2_GR6,
-         age=Age17,
+         age=AgeTGC,
          eth=Eth2,
          mins
-         )
+         ) %>%
 
-dall <- bind_rows(
-  adult.trim %>% mutate(group = "adult"),
-  child.trim %>% mutate(group = "youth")
-) %>%
-  mutate(across(c(enjoy, social, fit, opp, guilt), ~ 6 - .),
-         mins = ifelse(mins > 1680, 1680, mins),
-         across(c(eth, gender), as.factor)
+  filter(dsbl==2,
+         if_all(c(gender,eth), ~ .x %in% c(1,2)),
+         if_all(everything(), ~ .x > -1),
+  ) %>%
 
-         )
-  # group_by(group) %>%
-  # mutate(
-  #   enjoy_r  = (enjoy - min(enjoy, na.rm=TRUE)) / (max(enjoy, na.rm=TRUE) - min(enjoy, na.rm=TRUE)),
-  #   guilt_r  = (guilt - min(guilt, na.rm=TRUE)) / (max(guilt, na.rm=TRUE) - min(guilt, na.rm=TRUE)),
-  #   opp_r    = (opp - min(opp, na.rm=TRUE)) / (max(opp, na.rm=TRUE) - min(opp, na.rm=TRUE)),
-  #   fit_r    = (fit - min(fit, na.rm=TRUE)) / (max(fit, na.rm=TRUE) - min(fit, na.rm=TRUE)),
-  #   social_r = (social - min(social, na.rm=TRUE)) / (max(social, na.rm=TRUE) - min(social, na.rm=TRUE)),
-  #   # mins_r = (mins - min(mins, na.rm=TRUE)) / (max(mins, na.rm=TRUE) - min(mins, na.rm=TRUE)),
-  #   age_r = (age - min(age, na.rm=TRUE)) / (max(age, na.rm=TRUE) - min(age, na.rm=TRUE))
-  #   ) %>%
-  # ungroup()
-
-# dall$mins_r <- (dall$mins - min(dall$mins, na.rm=TRUE)) / (max(dall$mins, na.rm=TRUE) - min(dall$mins, na.rm=TRUE))
-# # Standardize age globally
-# dall$age_r <- scale(dall$age)[,1]
+  mutate(dis = 6 - dis,
+         across(c(abil,chal,enjoy,fit,guilt,imp,opp,relx,dis),
+                ~ case_when(.x==5~4L, TRUE ~ as.integer(.x)))
+         ) %>%
 
 
+  dplyr::select(-dsbl)
 
 
+adult.lik.back <- adult.lik
 # Checks -------------------------------------------------------------------
 # Collinearity
 dallb1 <- dall %>% dplyr::select(enjoyb, socialb, fitb, guiltb, oppb)
@@ -490,6 +473,344 @@ cohen_d_lavaan(f0, "oppb")
 
 
 
-# PiecewiseSEM ------------------------------------------------------------
+# Part II LCA youths ------------------------------------------------------------
+
+child.lik <- child.lik.back
+child.lik <- child.lik %>% dplyr::select(-mins,-age,-gender,-eth)
+
+lca.f.child <- as.matrix(child.lik) ~ 1
+
+# run 2-7 classes
+poLCA.child <- list()
+for(k in 1:7){
+  poLCA.child[[k]] <- poLCA(lca.f.child, data = child.lik,
+                              nclass = k,
+                              maxiter = 5000,
+                              nrep = 10,          # multiple random starts
+                              na.rm = TRUE,       # not needed if NAs already removed
+                              verbose = TRUE)
+}
 
 
+save(poLCA.child, file="poLCA.child.RData")
+
+lca.stats.child <- data.frame(
+  classes = 1:7,
+  BIC = sapply(poLCA.child[1:7], function(x) x$bic),
+  AIC = sapply(poLCA.child[1:7], function(x) x$aic)
+)
+
+# elbow plot
+ggplot(lca.stats.child, aes(x = classes)) +
+  geom_line(aes(y = BIC), color = "blue") +
+  geom_point(aes(y = BIC), color = "blue") +
+  geom_line(aes(y = AIC), color = "red") +
+  geom_point(aes(y = AIC), color = "red") +
+  labs(y = "Information Criterion", x = "Number of Classes",
+       title = "Elbow Plot for poLCA Model Selection",
+       caption = "Blue = BIC, Red = AIC") +
+  theme_minimal()
+
+# pick best model
+lca.best.ch <- poLCA.child[[3]]
+
+# posterior prob
+# max.prob.ch <- apply(lca.best.ch$posterior, 1, max)
+
+# Summary
+# summary(max.prob.ch)
+# hist(max.prob.ch, breaks = 20, main = "Max posterior probability per individual",
+#      xlab = "Max posterior probability")
+
+# entropy, <0.8 good, higher != better
+post.ch <- lca.best.ch$posterior
+N <- nrow(post.ch)
+C <- ncol(post.ch)
+entro.ch <- 1 + (1/(N*log(C))) * sum(post.ch * log(post.ch))
+entro.ch  # ranges 0–1, higher = better separation
+
+
+
+# check class size (>0.5 per)
+child.lik$class <- lca.best.ch$predclass
+table(child.lik$class)  # modal assignment
+prop.table(table(child.lik$class))
+
+
+# check each class prob
+child.lik$max_post <- apply(lca.best.ch$posterior, 1, max)
+ggplot(child.lik, aes(x = max_post, fill = factor(class))) +
+  geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
+  labs(x = "Max Posterior Probability", y = "Count", fill = "Class") +
+  theme_minimal()
+
+# boxplot per class
+ggplot(child.lik, aes(x = factor(class), y = max_post)) +
+  geom_boxplot(fill = "skyblue") +
+  labs(x = "Class", y = "Max Posterior Probability") +
+  theme_minimal()
+
+# interpret
+poLCA.child[[3]]$probs
+# poLCA.child[[4]]$probs
+# poLCA.child[[5]]$probs
+
+save(poLCA.child, file="poLCA.child.RData")
+
+
+probs.child <- poLCA.child[[3]]$probs
+# Convert list to a long data frame: one row per variable-response-class
+probs.child.l <- lapply(names(probs.child), function(var) {
+  mat <- probs.child[[var]]
+  df <- as.data.frame(mat)
+  df$Response <- rownames(mat)
+  df$Variable <- var
+  df
+}) %>%
+  bind_rows() %>%
+  pivot_longer(
+    cols = starts_with("Response"),
+    names_to = "Type",
+    values_to = "Class"
+  )
+
+
+class1.ch <- probs.child.l %>% filter(Class == "class 1: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class2.ch <- probs.child.l %>% filter(Class == "class 2: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class3.ch <- probs.child.l %>% filter(Class == "class 3: ") %>%
+  dplyr::select(-Type,-Class) %>%
+  arrange(Variable) %>%
+  relocate(Variable, 'Pr(1)','Pr(2)','Pr(3)','Pr(4)')
+
+class1.ch
+class2.ch
+class3.ch
+
+#
+# child.lik %>%
+#   group_by(class) %>%
+#   summarise(
+#     mean_mins = mean(mins, na.rm = TRUE),
+#     median_mins = median(mins, na.rm = TRUE),
+#     sd_mins = sd(mins, na.rm = TRUE),
+#     n = n()
+#   )
+
+# ggplot(child.lik, aes(x = factor(class), y = mins)) +
+#   geom_boxplot() +
+#   labs(x = "Latent Class", y = "Weekly Exercise Minutes")
+#
+# ggplot(child.lik, aes(x = factor(class), y = mins)) +
+#   stat_summary(fun = mean, geom = "bar") +
+#   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width = 0.2) +
+#   labs(x = "Latent Class", y = "Mean Weekly Exercise Minutes")
+
+# kruskal.test(mins ~ class, data = child.lik)
+
+
+child.lik$mins.log <- log(child.lik$mins+1)
+
+# probability weighted means
+wmeans.child <- colSums(post.ch * child.lik$mins) / colSums(post.ch)
+wmeans.log.child <- colSums(post.ch * child.lik$mins.log) / colSums(post.ch)
+
+
+wsd.child <- sapply(1:ncol(post.ch), function(k) {
+  sqrt( sum(post.ch[,k] * (child.lik$mins - wmeans.child[k])^2)
+        / sum(post.ch[,k]) )
+})
+
+wsd.log.child <- sapply(1:ncol(post.ch), function(k) {
+  sqrt( sum(post.ch[,k] * (child.lik$mins.log - wmeans.log.child[k])^2)
+        / sum(post.ch[,k]) )
+})
+
+
+mins.child <- data.frame(
+  Class = factor(1:ncol(post.ch)),
+  Mean = wmeans.child,
+  Mean.log= exp(wmeans.log.child),
+  SD =wsd.child,
+  SD.log = wsd.log.child,
+  SD.low = exp(wmeans.log.child - wsd.log.child) - 1,
+  SD.up = exp(wmeans.log.child + wsd.log.child) - 1
+)
+
+mins.child
+
+ggplot(mins.child, aes(x = Class, y = Mean.log)) +
+  geom_col() +
+  labs(x = "Latent Class", y = "Probability-weighted mean minutes")
+
+
+
+# Part II LCA adults  -----------------------------------------------------------
+
+adult.lik <- adult.lik.back
+adult.lik <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth)
+
+lca.f.adult <- as.matrix(adult.lik) ~ 1
+# run 2-7 classes
+poLCA.adult <- list()
+for(k in 1:7){
+  poLCA.adult[[k]] <- poLCA(lca.f.adult, data = adult.lik,
+                            nclass = k,
+                            maxiter = 5000,
+                            nrep = 10,          # multiple random starts
+                            na.rm = TRUE,       # not needed if NAs already removed
+                            verbose = TRUE)
+}
+
+save(poLCA.adult, file="poLCA.adult.RData")
+
+lca.stats.adult <- data.frame(
+  Classes = 1:7,
+  BIC = sapply(poLCA.adult[1:7], function(x) x$bic),
+  AIC = sapply(poLCA.adult[1:7], function(x) x$aic)
+)
+
+# elbow plot
+ggplot(lca.stats.adult, aes(x = Classes)) +
+  geom_line(aes(y = BIC), color = "blue") +
+  geom_point(aes(y = BIC), color = "blue") +
+  geom_line(aes(y = AIC), color = "red") +
+  geom_point(aes(y = AIC), color = "red") +
+  labs(y = "Information Criterion", x = "Number of Classes",
+       title = "Elbow Plot for poLCA Model Selection",
+       caption = "Blue = BIC, Red = AIC") +
+  theme_minimal()
+
+
+# INDIVIDUAL CLASSES
+# 3, 5, or 6
+lca.best.ad <- poLCA.adult[[3]]
+
+# check class size (>0.5 per)
+adult.lik$class <- lca.best.ad$predclass
+# table(adult.lik$class)  # modal assignment
+prop.table(table(adult.lik$class))
+
+# # posterior prob
+# max.prob.ad <- apply(lca.best.ad$posterior, 1, max)
+
+# entropy, <0.8 good, higher != better
+post.ad <- lca.best.ad$posterior
+N <- nrow(post.ad)
+C <- ncol(post.ad)
+entro.ad <- 1 + (1/(N*log(C))) * sum(post.ad * log(post.ad))
+entro.ad  # ranges 0–1, higher = better separation
+
+
+
+# check each class prob
+adult.lik$post <- apply(lca.best.ad$posterior, 1, max)
+ggplot(adult.lik, aes(x = post, fill = factor(class))) +
+  geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
+  labs(x = "Max Posterior Probability", y = "Count", fill = "Class") +
+  theme_minimal()
+
+# boxplot per class
+ggplot(adult.lik, aes(x = factor(class), y = post)) +
+  geom_boxplot(fill = "skyblue") +
+  labs(x = "Class", y = "Max Posterior Probability") +
+  theme_minimal()
+
+# interpret
+poLCA.adult[[3]]$probs
+# poLCA.adult[[4]]$probs
+poLCA.adult[[5]]$probs
+#
+
+
+# Weighted means
+adult.lik$mins <- adult.lik.back$mins
+adult.lik$age <- adult.lik.back$age
+adult.lik$gender <- adult.lik.back$gender
+adult.lik$eth <- adult.lik.back$eth
+
+adult.lik$mins.log <- log(adult.lik$mins+1)
+
+# probability weighted means
+wmeans.adult <- colSums(post.ad * adult.lik$mins) / colSums(post.ad)
+wmeans.log.adult <- colSums(post.ad * adult.lik$mins.log) / colSums(post.ad)
+
+
+wsd.adult <- sapply(1:ncol(post.ad), function(k) {
+  sqrt( sum(post.ad[,k] * (adult.lik$mins - wmeans.adult[k])^2)
+        / sum(post.ad[,k]) )
+})
+
+wsd.log.adult <- sapply(1:ncol(post.ad), function(k) {
+  sqrt( sum(post.ad[,k] * (adult.lik$mins.log - wmeans.log.adult[k])^2)
+        / sum(post.ad[,k]) )
+})
+
+
+mins.adult <- data.frame(
+  Class = factor(1:ncol(post.ad)),
+  Mean = wmeans.adult,
+  Mean.log= exp(wmeans.log.adult)-1,
+  SD =wsd.adult,
+  SD.log = wsd.log.adult,
+  SD.low = exp(wmeans.log.adult - wsd.log.adult) - 1,
+  SD.up = exp(wmeans.log.adult + wsd.log.adult) - 1
+)
+
+mins.adult
+
+ggplot(mins.adult, aes(x = Class, y = Mean.log)) +
+  geom_col() +
+  labs(x = "Latent Class", y = "Probability-weighted mean minutes")
+
+#
+#
+# # Lieklihood
+#
+# mod_null <- poLCA.adult[[6]]
+# mod_alt <- poLCA.adult[[7]]
+#
+# # store values baseline model
+# n <- mod_null$Nobs #number of observations (should be equal in both models)
+# null_ll <- mod_null$llik #log-likelihood
+# null_param <- mod_null$npar # number of parameters
+# null_classes <- length(mod_null$P) # number of classes
+#
+# # Store values alternative model
+# alt_ll <- mod_alt$llik #log-likelihood
+# alt_param <- mod_alt$npar # number of parameters
+# alt_classes <- length(mod_alt$P) # number of classes
+#
+# # use calc_lrt from tidyLPA package
+# calc_lrt(n, null_ll, null_param, null_classes, alt_ll, alt_param, alt_classes)
+#
+
+
+# Part II Adults Regression --------------------------------------------------------------
+# AGE
+fit.ad.age <- multinom(class ~ age,
+                data = adult.lik %>% dplyr::select(-post,-mins,-eth,-gender))
+summary(fit.ad.age)
+# Odds ratios for easier interpretation
+exp(coef(fit.ad.age))
+
+# ETHNICITY
+fit.ad.eth <- multinom(class ~ eth,
+                       data = adult.lik %>% dplyr::select(-post,-mins,-age,-gender))
+summary(fit.ad.eth)
+# Odds ratios for easier interpretation
+exp(coef(fit.ad.eth))
+
+# GENDER
+fit.ad.gender <- multinom(class ~ gender,
+                       data = adult.lik %>% dplyr::select(-post,-mins,-eth,-age))
+summary(fit.ad.gender)
+# Odds ratios for easier interpretation
+exp(coef(fit.ad.gender))
