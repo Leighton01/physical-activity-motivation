@@ -83,6 +83,7 @@ adult.var <- data.adult %>% dplyr::select('Motiva_POP',
                                    'Age4','Age5','Age5_2',
                                    'Age9','Disab2_POP',
                                    'Gend3','Eth2','Eth7',
+                                   'Educ6',
 
                                    # binary
                                    'Motiva_POP_GR2', 'motivex2c_GR2',
@@ -267,9 +268,9 @@ child.lik <- child.var %>%
 
 child.lik.back <- child.lik
 
+
+
 adult.lik <- adult.var %>%
-
-
   mutate(mins=DUR_HVY_CAPPED_SPORTCOUNT_A01+DUR_MOD_CAPPED_SPORTCOUNT_A01) %>%
 
 # 1=strong agree, 5=strong disagree
@@ -289,17 +290,20 @@ adult.lik <- adult.var %>%
          gender=Gend3,
          age=AgeTGC,
          eth=Eth2,
+         edu=Educ6,
          mins
          ) %>%
 
   filter(dsbl==2,
          if_all(c(gender,eth), ~ .x %in% c(1,2)),
          if_all(everything(), ~ .x > -1),
+         edu != 5
   ) %>%
 
   mutate(dis = 6 - dis,
          across(c(abil,chal,enjoy,fit,guilt,imp,opp,relx,dis),
-                ~ case_when(.x==5~4L, TRUE ~ as.integer(.x)))
+                ~ case_when(.x==5~4L, TRUE ~ as.integer(.x))),
+         edu = case_when(edu==6~5L, TRUE~edu)
          ) %>%
 
 
@@ -578,34 +582,52 @@ ggplot(mins.child, aes(x = Class, y = Mean.log)) +
 
 
 # Part II Child Regression ------------------------------------------------
-# AGE
-fit.ch.age <- multinom(class ~ age,
-                       data = child.lik %>% dplyr::select(-post,-mins,-eth,-gender))
-summary(fit.ch.age)
-# Odds ratios for easier interpretation
-exp(coef(fit.ch.age))
 
-# ETHNICITY
-fit.ch.eth <- multinom(class ~ eth,
-                       data = child.lik %>% dplyr::select(-post,-mins,-age,-gender))
-summary(fit.ch.eth)
-# Odds ratios for easier interpretation
-exp(coef(fit.ch.eth))
+child.lik$age <- child.lik.back$age
+child.lik$gender <- child.lik.back$gender
+child.lik$eth <- child.lik.back$eth
 
-# GENDER
-fit.ch.gender <- multinom(class ~ gender,
-                          data = child.lik %>% dplyr::select(-post,-mins,-eth,-age))
-summary(fit.ch.gender)
-# Odds ratios for easier interpretation
-exp(coef(fit.ch.gender))
+child.lik$class <- relevel(factor(child.lik$class), ref = "3")
+child.lik$gender <- relevel(factor(child.lik$gender), ref = "1")
+child.lik$eth <- relevel(factor(child.lik$eth), ref = "1")
+# child.lik$age <- relevel(factor(child.lik$age), ref = "1")
 
-or.ch <- cbind(exp(coef(fit.ch.age)),exp(coef(fit.ch.eth)),exp(coef(fit.ch.gender)))
+
+fit.ch <- multinom(class ~ age + gender + eth,
+                   data = child.lik %>%
+                     dplyr::select(-post,-mins))
+
+or.ch <- exp(coef(fit.ch))
+
+or.ch
+# # AGE
+# fit.ch.age <- multinom(class ~ age,
+#                        data = child.lik %>% dplyr::select(-post,-mins,-eth,-gender))
+# summary(fit.ch.age)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ch.age))
+#
+# # ETHNICITY
+# fit.ch.eth <- multinom(class ~ eth,
+#                        data = child.lik %>% dplyr::select(-post,-mins,-age,-gender))
+# summary(fit.ch.eth)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ch.eth))
+#
+# # GENDER
+# fit.ch.gender <- multinom(class ~ gender,
+#                           data = child.lik %>% dplyr::select(-post,-mins,-eth,-age))
+# summary(fit.ch.gender)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ch.gender))
+#
+# or.ch <- cbind(exp(coef(fit.ch.age)),exp(coef(fit.ch.eth)),exp(coef(fit.ch.gender)))
 
 
 # Part II LCA adults  -----------------------------------------------------------
 
 adult.lik <- adult.lik.back
-adult.lik <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth)
+adult.lik <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth,-edu)
 
 lca.f.adult <- as.matrix(adult.lik) ~ 1
 # run 2-7 classes
@@ -676,15 +698,12 @@ ggplot(adult.lik, aes(x = factor(class), y = post)) +
 # interpret
 poLCA.adult[[3]]$probs
 # poLCA.adult[[4]]$probs
-poLCA.adult[[5]]$probs
+# poLCA.adult[[5]]$probs
 #
 
 
 # Weighted means
 adult.lik$mins <- adult.lik.back$mins
-adult.lik$age <- adult.lik.back$age
-adult.lik$gender <- adult.lik.back$gender
-adult.lik$eth <- adult.lik.back$eth
 
 adult.lik$mins.log <- log(adult.lik$mins+1)
 
@@ -744,28 +763,49 @@ ggplot(mins.adult, aes(x = Class, y = Mean.log)) +
 
 
 # Part II Adults Regression --------------------------------------------------------------
-# AGE
-fit.ad.age <- multinom(class ~ age,
-                data = adult.lik %>% dplyr::select(-post,-mins,-eth,-gender))
-summary(fit.ad.age)
-# Odds ratios for easier interpretation
-exp(coef(fit.ad.age))
 
-# ETHNICITY
-fit.ad.eth <- multinom(class ~ eth,
-                       data = adult.lik %>% dplyr::select(-post,-mins,-age,-gender))
-summary(fit.ad.eth)
-# Odds ratios for easier interpretation
-exp(coef(fit.ad.eth))
+adult.lik$age <- adult.lik.back$age
+adult.lik$gender <- adult.lik.back$gender
+adult.lik$eth <- adult.lik.back$eth
+adult.lik$edu <- adult.lik.back$edu
 
-# GENDER
-fit.ad.gender <- multinom(class ~ gender,
-                       data = adult.lik %>% dplyr::select(-post,-mins,-eth,-age))
-summary(fit.ad.gender)
-# Odds ratios for easier interpretation
-exp(coef(fit.ad.gender))
+adult.lik$class <- relevel(factor(adult.lik$class), ref = "3")
+adult.lik$gender <- relevel(factor(adult.lik$gender), ref = "1")
+adult.lik$eth <- relevel(factor(adult.lik$eth), ref = "1")
+adult.lik$age <- relevel(factor(adult.lik$age), ref = "1")
+adult.lik$edu <- relevel(factor(adult.lik$edu), ref = "1")
 
-or.ad <- cbind(exp(coef(fit.ad.age)),exp(coef(fit.ad.eth)),exp(coef(fit.ad.gender)))
+fit.ad <- multinom(class ~ age + edu + gender + eth,
+                   data = adult.lik %>%
+                     dplyr::select(-post,-mins))
+summary(fit.ad)
+# Odds ratios for easier interpretation
+exp(coef(fit.ad))
+
+or.ad <- exp(coef(fit.ad))
+
+# # AGE
+# fit.ad.age <- multinom(class ~ age,
+#                 data = adult.lik %>% dplyr::select(-post,-mins,-eth,-gender))
+# summary(fit.ad.age)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ad.age))
+#
+# # ETHNICITY
+# fit.ad.eth <- multinom(class ~ eth,
+#                        data = adult.lik %>% dplyr::select(-post,-mins,-age,-gender))
+# summary(fit.ad.eth)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ad.eth))
+#
+# # GENDER
+# fit.ad.gender <- multinom(class ~ gender,
+#                        data = adult.lik %>% dplyr::select(-post,-mins,-eth,-age))
+# summary(fit.ad.gender)
+# # Odds ratios for easier interpretation
+# exp(coef(fit.ad.gender))
+
+# or.ad <- cbind(exp(coef(fit.ad.age)),exp(coef(fit.ad.eth)),exp(coef(fit.ad.gender)))
 
 # Interpretation Child ----------------------------------------------------------
 
@@ -806,6 +846,10 @@ class2.ch
 class3.ch
 
 or.ch
+
+prop.table(table(child.lik$class))
+mins.child
+
 # Interpretation Adults ---------------------------------------------------
 
 
@@ -846,3 +890,6 @@ class2.ad
 class3.ad
 
 or.ad
+
+prop.table(table(adult.lik$class))
+mins.adult
