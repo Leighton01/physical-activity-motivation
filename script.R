@@ -130,7 +130,7 @@ child.bi <- child.var %>%
          if_all(c(PL_Enjoy_bc_SA_gr2, MO_Fun_c_SA, MO_Fit_c_SA,
                   MO_Guilt_c_SA, MO_Opp_c_SA), ~ .x > -1 & .x < 3)) %>%
 
-  select(enjoyb=PL_Enjoy_bc_SA_gr2,
+  dplyr::select(enjoyb=PL_Enjoy_bc_SA_gr2,
          socialb=MO_Fun_c_SA,
          fitb=MO_Fit_c_SA,
          guiltb=MO_Guilt_c_SA,
@@ -147,15 +147,16 @@ child.bi <- child.var %>%
 
   # change 2 (not strongly agree) to 0, consistent with adult
   mutate(across(c(enjoyb,socialb,fitb,guiltb,oppb), ~ ifelse(.x==2, 0, .x)),
-         gender = case_when(gender == 2 ~ 0, TRUE ~ gender),# 2 was originally female, recode to 0
-         eth = case_when(eth == 1 ~ 0, eth == 2 ~ 1, TRUE ~ eth))# 0 = white british, 1 = other
+         gender = gender-1,
+         eth = eth-1,
+         age = age-11)
 
 
 
 adult.bi <- adult.var %>% filter(Disab2_POP==2,
                                  Gend3 %in% c(1,2),
                                  Eth2 %in% c(1,2),
-                                 if_all(c(Age17,
+                                 if_all(c(AgeTGC,
                                           DUR_MOD_CAPPED_SPORTCOUNT_A01,
                                           DUR_HVY_CAPPED_SPORTCOUNT_A01),
                                         ~ .x > -1),
@@ -167,42 +168,23 @@ adult.bi <- adult.var %>% filter(Disab2_POP==2,
 
   mutate(mins=DUR_MOD_CAPPED_SPORTCOUNT_A01 +
            DUR_HVY_CAPPED_SPORTCOUNT_A01,
-         Gend3 = case_when(Gend3 == 2 ~ 0,TRUE ~ Gend3), # 2 was originally girl, recode to 0
-         Eth2 = case_when(Eth2 == 1 ~ 0, Eth2 == 2 ~ 1, TRUE ~ Eth2),
-         Age_mid = case_when(
-           Age17 == 1 ~ 17.5,  # 16–19
-           Age17 == 2 ~ 22,    # 20–24
-           Age17 == 3 ~ 27,    # 25–29
-           Age17 == 4 ~ 32,    # 30–34
-           Age17 == 5 ~ 37,    # 35–39
-           Age17 == 6 ~ 42,    # 40–44
-           Age17 == 7 ~ 47,    # 45–49
-           Age17 == 8 ~ 52,    # 50–54
-           Age17 == 9 ~ 57,    # 55–59
-           Age17 == 10 ~ 62,   # 60–64
-           Age17 == 11 ~ 67,   # 65–69
-           Age17 == 12 ~ 72,   # 70–74
-           Age17 == 13 ~ 77,   # 75–79
-           Age17 == 14 ~ 82,   # 80–84
-           Age17 == 15 ~ 87,   # 85–89
-           Age17 == 16 ~ 92,   # 90–94
-           Age17 == 17 ~ 97,    # 95+
-            TRUE ~ Age17),
-         age = Age_mid - mean(Age_mid)  # mean-centered, use this in sem
-         ) %>% # 0 = white british, 1 = other
+         Gend3 = Gend3-1,
+         Eth2 = Eth2-1,
+         age = case_when(Age9==2~3L,
+                         Age9==9~8L,
+                         TRUE~as.integer(Age9)),
+         age=as.integer(age-3)
+         ) %>%
 
 
-
-  select(enjoyb=Motiva_POP_GR2,
+  dplyr::select(enjoyb=Motiva_POP_GR2,
          socialb=motivex2c_GR2,
          fitb=motivex2a_GR2,
          guiltb=motivc_POP_GR2,
          oppb=READYOP1_POP_GR2,
-
          gender=Gend3,
          age,
          eth=Eth2,
-         # eth7=Eth7,
          mins
   )
 
@@ -211,6 +193,10 @@ dallb <- bind_rows(
   child.bi %>% mutate(group = "youth")
 ) %>%
   mutate(mins = ifelse(mins > 1680, 1680, mins))
+
+dallb$gender <- relevel(factor(dallb$gender), ref = "0")
+dallb$eth <- relevel(factor(dallb$eth), ref = "0")
+# dallb$age <- ordered(dallb$age, levels = c("0","1","2","3","4","5"))
 
 # Filter & Trim for Part 2 ------------------------------------------------
 
@@ -260,7 +246,8 @@ child.lik <- child.var %>%
   mutate(
          mins = ifelse(mins > 1680, 1680, mins),
          across(c(conf,easy,enjoy,fit,know,more,opp,try),
-                ~ case_when(.x==4~3L, TRUE ~ as.integer(.x)))
+                ~ case_when(.x==4~3L, TRUE ~ as.integer(.x))),
+         age=age-10
 
 
          ) %>%
@@ -288,7 +275,7 @@ adult.lik <- adult.var %>%
 
          dsbl=Disab2_POP,
          gender=Gend3,
-         age=AgeTGC,
+         age=Age9,
          eth=Eth2,
          edu=Educ6,
          mins
@@ -303,14 +290,15 @@ adult.lik <- adult.var %>%
   mutate(dis = 6 - dis,
          across(c(abil,chal,enjoy,fit,guilt,imp,opp,relx,dis),
                 ~ case_when(.x==5~4L, TRUE ~ as.integer(.x))),
-         edu = case_when(edu==6~5L, TRUE~edu)
+         edu = case_when(edu==6~5L, TRUE~edu),
+
          ) %>%
 
 
   dplyr::select(-dsbl)
 
-
 adult.lik.back <- adult.lik
+
 # Checks -------------------------------------------------------------------
 # Collinearity
 dallb1 <- dall %>% dplyr::select(enjoyb, socialb, fitb, guiltb, oppb)
@@ -336,91 +324,111 @@ dallb2 %>% group_by(group) %>%
 summary(dallb2$enjoyb)
 
 # Binary SEM --------------------------------------------------------------
-dallb <- dall %>% dplyr::select(enjoyb, socialb, fitb, guiltb, oppb,mins,
-                                age,gender, eth, group)
 
 m0 <- '
-  # Mediators: age and gender predicting motives, controlling for ethnicity
-  enjoyb ~ age + gender + eth
-  guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  # Mediators: controlling for age, gender, and ethnicity (group-specific coefficients)
+  enjoyb ~ c(a1_adult, a1_youth)*age + c(g1_adult, g1_youth)*gender + c(e1_adult, e1_youth)*eth
+  guiltb ~ c(a2_adult, a2_youth)*age + c(g2_adult, g2_youth)*gender + c(e2_adult, e2_youth)*eth
+  oppb   ~ c(a3_adult, a3_youth)*age + c(g3_adult, g3_youth)*gender + c(e3_adult, e3_youth)*eth
+  fitb   ~ c(a4_adult, a4_youth)*age + c(g4_adult, g4_youth)*gender + c(e4_adult, e4_youth)*eth
+  socialb~ c(a5_adult, a5_youth)*age + c(g5_adult, g5_youth)*gender + c(e5_adult, e5_youth)*eth
 
-  # Main outcome: motives predicting mins, controlling for ethnicity
-  mins ~ enjoyb +guiltb +oppb +fitb +socialb +eth
+  # Main outcome: motives predicting mins, controlling for demographics (group-specific coefficients)
+  mins ~ c(b1_adult, b1_youth)*enjoyb + c(b2_adult, b2_youth)*guiltb + c(b3_adult, b3_youth)*oppb +
+          c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(c_adult, c_youth)*age +
+          c(g6_adult, g6_youth)*gender + c(e6_adult, e6_youth)*eth
+
+# For Adults
+indirect_age_enjoyb_adult  := a1_adult * b1_adult
+indirect_age_guiltb_adult  := a2_adult * b2_adult
+indirect_age_oppb_adult    := a3_adult * b3_adult
+indirect_age_fitb_adult    := a4_adult * b4_adult
+indirect_age_socialb_adult := a5_adult * b5_adult
+total_age_adult := c_adult + indirect_age_enjoyb_adult + indirect_age_guiltb_adult +
+                    indirect_age_oppb_adult + indirect_age_fitb_adult + indirect_age_socialb_adult
+
+# For Youth
+indirect_age_enjoyb_youth  := a1_youth * b1_youth
+indirect_age_guiltb_youth  := a2_youth * b2_youth
+indirect_age_oppb_youth    := a3_youth * b3_youth
+indirect_age_fitb_youth    := a4_youth * b4_youth
+indirect_age_socialb_youth := a5_youth * b5_youth
+total_age_youth := c_youth + indirect_age_enjoyb_youth + indirect_age_guiltb_youth +
+                   indirect_age_oppb_youth + indirect_age_fitb_youth + indirect_age_socialb_youth
 '
 
+
 f0 <- sem(m0, data = dallb, group = "group")
-summary(f0, fit.measures = TRUE, standardized = TRUE)
+sem.free <- summary(f0, fit.measures = TRUE, standardized = TRUE)
+sem.free
 
 # Constrain all to be equal
 f.con <- sem(m0, dallb, group = "group",
              group.equal = c("intercepts", "regressions"))
-summary(f.con)
+# summary(f.con)
 
 #fit.con significantly worse
-anova(f0, fit.con)
+anova(f0, f.con)
 
 # Try some constraints..
 m1 <- '
   # Mediators
   enjoyb ~ age + gender + eth
   guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
 
   # Main outcome
-  mins ~ c("a1","a1")*enjoyb + guiltb + oppb + fitb + socialb + eth
+  mins ~ c("a1","a1")*enjoyb + guiltb + oppb + fitb + socialb + age + gender + eth
 '
 
 m2 <- '
   # Mediators
   enjoyb ~ age + gender + eth
   guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
 
   # Main outcome
-  mins ~ enjoyb + c(a,a)*guiltb + oppb + fitb + socialb + eth
+  mins ~ enjoyb + c(a,a)*guiltb + oppb + fitb + socialb + age + gender + eth
 '
 
 m3 <- '
   # Mediators
   enjoyb ~ age + gender + eth
   guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
 
   # Main outcome
-  mins ~ enjoyb + guiltb + c(a,a)*oppb + fitb + socialb + eth
+  mins ~ enjoyb + guiltb + c(a,a)*oppb + fitb + socialb + age + gender + eth
 '
 
 m4 <- '
   # Mediators
   enjoyb ~ age + gender + eth
   guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
 
   # Main outcome
-  mins ~ enjoyb + guiltb + oppb + c(a,a)*fitb + socialb + eth
+  mins ~ enjoyb + guiltb + oppb + c(a,a)*fitb + socialb + age + gender + eth
 '
 
 m5 <- '
   # Mediators
   enjoyb ~ age + gender + eth
   guiltb ~ age + gender + eth
-  oppb ~ age + eth
-  fitb ~ age + eth
-  socialb ~ eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
 
   # Main outcome
-  mins ~ enjoyb + guiltb + oppb + fitb + c(a,a)*socialb + eth
+  mins ~ enjoyb + guiltb + oppb + fitb + c(a,a)*socialb + age + gender + eth
 '
 
 # contrained all sig diff. FREE=BEST
@@ -590,7 +598,7 @@ child.lik$eth <- child.lik.back$eth
 child.lik$class <- relevel(factor(child.lik$class), ref = "3")
 child.lik$gender <- relevel(factor(child.lik$gender), ref = "1")
 child.lik$eth <- relevel(factor(child.lik$eth), ref = "1")
-# child.lik$age <- relevel(factor(child.lik$age), ref = "1")
+child.lik$age <- relevel(factor(child.lik$age), ref = "1")
 
 
 fit.ch <- multinom(class ~ age + gender + eth,
@@ -772,8 +780,11 @@ adult.lik$edu <- adult.lik.back$edu
 adult.lik$class <- relevel(factor(adult.lik$class), ref = "3")
 adult.lik$gender <- relevel(factor(adult.lik$gender), ref = "1")
 adult.lik$eth <- relevel(factor(adult.lik$eth), ref = "1")
-adult.lik$age <- relevel(factor(adult.lik$age), ref = "1")
 adult.lik$edu <- relevel(factor(adult.lik$edu), ref = "1")
+
+# adult.lik$age <- adult.lik.back$age
+
+adult.lik$age <- relevel(factor(adult.lik$age), ref = 1)
 
 fit.ad <- multinom(class ~ age + edu + gender + eth,
                    data = adult.lik %>%
@@ -808,6 +819,7 @@ or.ad <- exp(coef(fit.ad))
 # or.ad <- cbind(exp(coef(fit.ad.age)),exp(coef(fit.ad.eth)),exp(coef(fit.ad.gender)))
 
 # Interpretation Child ----------------------------------------------------------
+sem.free
 
 probs.child <- poLCA.child[[3]]$probs
 # Convert list to a long data frame: one row per variable-response-class
