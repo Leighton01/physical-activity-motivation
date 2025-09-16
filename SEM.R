@@ -1,0 +1,162 @@
+# Libraries ---------------------------------------------------------------
+set.seed(2025)
+library(tidyverse)
+library(lavaan)
+
+# SEM ---------------------------------------------------------------------
+
+# Free model
+m0 <- '
+  # Mediators: controlling for age, gender, and ethnicity (group-specific coefficients)
+  enjoyb ~ c(a1_adult, a1_youth)*age + c(g1_adult, g1_youth)*gender + c(e1_adult, e1_youth)*eth
+  guiltb ~ c(a2_adult, a2_youth)*age + c(g2_adult, g2_youth)*gender + c(e2_adult, e2_youth)*eth
+  oppb   ~ c(a3_adult, a3_youth)*age + c(g3_adult, g3_youth)*gender + c(e3_adult, e3_youth)*eth
+  fitb   ~ c(a4_adult, a4_youth)*age + c(g4_adult, g4_youth)*gender + c(e4_adult, e4_youth)*eth
+  socialb~ c(a5_adult, a5_youth)*age + c(g5_adult, g5_youth)*gender + c(e5_adult, e5_youth)*eth
+
+  # Main outcome: motives predicting mins, controlling for demographics (group-specific coefficients)
+  mins ~ c(b1_adult, b1_youth)*enjoyb + c(b2_adult, b2_youth)*guiltb + c(b3_adult, b3_youth)*oppb +
+          c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(c_adult, c_youth)*age +
+          c(g6_adult, g6_youth)*gender + c(e6_adult, e6_youth)*eth
+
+# For Adults
+indirect_age_enjoyb_adult  := a1_adult * b1_adult
+indirect_age_guiltb_adult  := a2_adult * b2_adult
+indirect_age_oppb_adult    := a3_adult * b3_adult
+indirect_age_fitb_adult    := a4_adult * b4_adult
+indirect_age_socialb_adult := a5_adult * b5_adult
+total_age_adult := c_adult + indirect_age_enjoyb_adult + indirect_age_guiltb_adult +
+                    indirect_age_oppb_adult + indirect_age_fitb_adult + indirect_age_socialb_adult
+
+# For Youth
+indirect_age_enjoyb_youth  := a1_youth * b1_youth
+indirect_age_guiltb_youth  := a2_youth * b2_youth
+indirect_age_oppb_youth    := a3_youth * b3_youth
+indirect_age_fitb_youth    := a4_youth * b4_youth
+indirect_age_socialb_youth := a5_youth * b5_youth
+total_age_youth := c_youth + indirect_age_enjoyb_youth + indirect_age_guiltb_youth +
+                   indirect_age_oppb_youth + indirect_age_fitb_youth + indirect_age_socialb_youth
+'
+
+
+f0 <- sem(m0, data = dallb, group = "group")
+sem.free <- summary(f0, fit.measures = TRUE, standardized = TRUE)
+
+# Constrain all to be equal
+f.con <- sem(m0, dallb, group = "group",
+             group.equal = c("intercepts", "regressions"))
+
+# Check if significantly different
+f0fcon <- anova(f0, f.con)
+f0fcon
+
+# Spec one constraint at a time
+m1 <- '
+  # Mediators
+  enjoyb ~ age + gender + eth
+  guiltb ~ age + gender + eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
+
+  # Main outcome
+  mins ~ c("a1","a1")*enjoyb + guiltb + oppb + fitb + socialb + age + gender + eth
+'
+
+m2 <- '
+  # Mediators
+  enjoyb ~ age + gender + eth
+  guiltb ~ age + gender + eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
+
+  # Main outcome
+  mins ~ enjoyb + c(a,a)*guiltb + oppb + fitb + socialb + age + gender + eth
+'
+
+m3 <- '
+  # Mediators
+  enjoyb ~ age + gender + eth
+  guiltb ~ age + gender + eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
+
+  # Main outcome
+  mins ~ enjoyb + guiltb + c(a,a)*oppb + fitb + socialb + age + gender + eth
+'
+
+m4 <- '
+  # Mediators
+  enjoyb ~ age + gender + eth
+  guiltb ~ age + gender + eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
+
+  # Main outcome
+  mins ~ enjoyb + guiltb + oppb + c(a,a)*fitb + socialb + age + gender + eth
+'
+
+m5 <- '
+  # Mediators
+  enjoyb ~ age + gender + eth
+  guiltb ~ age + gender + eth
+  oppb ~ age + gender + eth
+  fitb ~ age + gender + eth
+  socialb ~ age + gender + eth
+
+  # Main outcome
+  mins ~ enjoyb + guiltb + oppb + fitb + c(a,a)*socialb + age + gender + eth
+'
+
+# Small eigenvalue close to 0, does not matter
+f1 <- sem(m1, data = dallb, group = "group", meanstructure = TRUE)
+f2 <- sem(m2, data = dallb, group = "group", meanstructure = TRUE)
+f3 <- sem(m3, data = dallb, group = "group", meanstructure = TRUE)
+f4 <- sem(m4, data = dallb, group = "group", meanstructure = TRUE)
+f5 <- sem(m5, data = dallb, group = "group", meanstructure = TRUE)
+
+# Check all models are significantly different from m0
+anova(f0, f1)
+anova(f0, f2)
+anova(f0, f3)
+anova(f0, f4)
+anova(f0, f5)
+
+# Function for cohen D to check effect size
+
+cohen_d_lavaan <- function(model, param_name) {
+  slopes <- parameterEstimates(model, standardized = FALSE)
+  # filter for the path from enjoyb to mins
+  slopes_path <- slopes[slopes$lhs == "mins" & slopes$rhs == param_name, ]
+
+  # slopes_path$est will contain the slope for each group in the same order as your data
+  # group 1 = adult, 2 youth
+  slope_youth <- slopes_path$est[slopes_path$group == 2]
+  slope_adult <- slopes_path$est[slopes_path$group == 1]
+
+  # 2. Get pooled SD of your outcome variable (mins)
+  mins_youth <- dallb$mins[dallb$group=="youth"]
+  mins_adult <- dallb$mins[dallb$group=="adult"]
+  pooled_sd <- sqrt(((length(mins_youth)-1)*var(mins_youth) +
+                       (length(mins_adult)-1)*var(mins_adult)) /
+                      (length(mins_youth) + length(mins_adult) - 2))
+
+  # 3. Cohen's d-like effect of slope difference
+  cohen_d <- (slope_youth - slope_adult) / pooled_sd
+
+  return(c(cohen_d, cohen_d*pooled_sd))
+}
+
+# Check effect size of each variable
+
+cohen_d_lavaan(f0, "enjoyb")
+cohen_d_lavaan(f0, "socialb")
+cohen_d_lavaan(f0, "fitb")
+cohen_d_lavaan(f0, "guiltb")
+cohen_d_lavaan(f0, "oppb")
+
+
+

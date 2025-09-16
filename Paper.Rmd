@@ -1,0 +1,120 @@
+---
+title: "Dissertation"
+date: "2024-07-04"
+author: "Student ID: 11484265"
+output:
+  pdf_document: default
+  html_document: default
+  output: pdf_document
+  fontsize: 12pt
+  urlcolor: "blue"
+  geometry: margin=2in
+---
+
+# rmdwc::rmdcount('report.rmd')
+
+
+\pagenumbering{arabic}
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo=FALSE, 
+                      eval=TRUE, message=FALSE, 
+                      warning=FALSE, fig.align='center',
+                      fig.dim=c(5,3))
+                      
+# copy from scripts
+library(rmarkdown)
+library(tidyverse)
+library(tinytex)
+library(checkpoint)
+library(knitr)
+library(kableExtra)
+library(manipulateWidget)
+```
+
+```{=latex}
+\setcounter{tocdepth}{3}
+\tableofcontents
+```
+
+\newpage 
+
+
+```{r clean, cache=TRUE}
+source(file="data.R")
+```
+
+```{r model, cache=TRUE}
+source(file="SEM.R")
+```
+
+```{r model, cache=TRUE}
+source(file="LCA.R")
+```
+
+```{r vis}
+source(file="results.R")
+```
+
+# Use tab.cap when it's one kable
+# Use fig.cap when 
+
+
+```{r table1, fig.align='center',fig.cap=""}
+opts <- options(knitr.kable.NA = '')
+kable(list(PC1_rot,PC2_rot),align='c',booktabs = T) %>% 
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+
+```{r graph, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+plot_glmnet(lasso.mod.tr, label = 4,
+                                 main = 'Trace Plot by Lasso')
+
+plot_glmnet(ridge.mod.tr, label = 3,
+                                 main = 'Trace Plot by Ridge')
+
+```
+
+
+\newpage
+
+# Appendix A - R code: data cleaning
+
+```{r code1, comment = ""}
+source("clean.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
+
+\newpage 
+
+# Appendix B - R code: modelling
+
+```{r code2, comment = ""}
+source("model.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
+
+\newpage 
+
+# Appendix C - R code: visualization
+
+```{r code3, comment = ""}
+source("vis.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
+\newpage
+
+# Appendix D - R code: rmarkdown chunks
+
+```{r get-labels, echo=FALSE, eval=TRUE}
+labs = knitr::all_labels()
+labs = setdiff(labs, c("setup", "get-labels"))
+```
+
+```{r all-code, ref.label=labs, echo=TRUE, eval=FALSE}
+```
