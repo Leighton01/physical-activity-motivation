@@ -905,3 +905,78 @@ or.ad
 
 prop.table(table(adult.lik$class))
 mins.adult
+
+
+
+
+
+
+
+
+
+# Not used code -----------------------------------------------------------
+
+
+
+# Function for cohen D to check effect size
+#
+# cohen_d_lavaan <- function(model, param_name) {
+#   slopes <- parameterEstimates(model, standardized = FALSE)
+#   # filter for the path from enjoyb to mins
+#   slopes_path <- slopes[slopes$lhs == "mins" & slopes$rhs == param_name, ]
+#
+#   # slopes_path$est will contain the slope for each group in the same order as your data
+#   # group 1 = adult, 2 youth
+#   slope_youth <- slopes_path$est[slopes_path$group == 2]
+#   slope_adult <- slopes_path$est[slopes_path$group == 1]
+#
+#   # 2. Get pooled SD of your outcome variable (mins)
+#   mins_youth <- dallb$mins[dallb$group=="youth"]
+#   mins_adult <- dallb$mins[dallb$group=="adult"]
+#   pooled_sd <- sqrt(((length(mins_youth)-1)*var(mins_youth) +
+#                        (length(mins_adult)-1)*var(mins_adult)) /
+#                       (length(mins_youth) + length(mins_adult) - 2))
+#
+#   # 3. Cohen's d-like effect of slope difference
+#   cohen_d <- (slope_youth - slope_adult) / pooled_sd
+#
+#   return(c(cohen_d, cohen_d*pooled_sd))
+# }
+#
+# # Check effect size of each variable
+#
+# cohen.enj <- cohen_d_lavaan(f0, "enjoyb")
+# cohen.soc <- cohen_d_lavaan(f0, "socialb")
+# cohen.fit <- cohen_d_lavaan(f0, "fitb")
+# cohen.glt <- cohen_d_lavaan(f0, "guiltb")
+# cohen.opp <- cohen_d_lavaan(f0, "oppb")
+#
+#
+#
+# cohen_d_slope <- function(model, param_name) {
+# # 1. Extract slope estimates and SEs
+# slopes <- parameterEstimates(model, standardized = FALSE)
+# slopes_path <- slopes %>%
+#   filter(lhs == "mins", rhs == param_name)
+#
+# slope_adult <- slopes_path$est[slopes_path$group == 1]
+# slope_youth <- slopes_path$est[slopes_path$group == 2]
+#
+# se_adult <- slopes_path$se[slopes_path$group == 1]
+# se_youth <- slopes_path$se[slopes_path$group == 2]
+#
+# # 2. Standardized difference of slopes (like z-score)
+# se_diff <- sqrt(se_adult^2 + se_youth^2)
+# d_slope <- (slope_youth - slope_adult) / se_diff
+#
+# # 3. Optional: return slope difference in minutes too
+# slope_diff <- slope_youth - slope_adult
+#
+# return(list(
+#   d_slope = d_slope,
+#   slope_diff = slope_diff
+# ))
+# }
+#
+# cohen_d_slope(f0,"enjoyb")
+

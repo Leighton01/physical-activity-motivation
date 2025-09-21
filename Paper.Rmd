@@ -11,7 +11,14 @@ output:
   geometry: margin=2in
 ---
 
-# rmdwc::rmdcount('report.rmd')
+# get rid of later
+rmdwc::rmdcount('Paper.rmd')
+
+TODO
+DO TABLE FOR ACTUAL CLASSES
+INTRO
+DISCUSSION
+
 
 
 \pagenumbering{arabic}
@@ -23,7 +30,6 @@ knitr::opts_chunk$set(echo=FALSE,
                       warning=FALSE, fig.align='center',
                       fig.dim=c(5,3))
                       
-# copy from scripts
 library(rmarkdown)
 library(tidyverse)
 library(tinytex)
@@ -31,12 +37,17 @@ library(checkpoint)
 library(knitr)
 library(kableExtra)
 library(manipulateWidget)
+
+library(lavaan)
+library(car)
+library(ggplot2)
+library(nnet)
+library(tidyLPA)
+library(poLCA)
+library(poLCAExtra)
+
 ```
 
-```{=latex}
-\setcounter{tocdepth}{3}
-\tableofcontents
-```
 
 \newpage 
 
@@ -57,6 +68,204 @@ source(file="LCA.R")
 source(file="results.R")
 ```
 
+```{=latex}
+\setcounter{tocdepth}{3}
+\tableofcontents
+```
+
+# Introduction
+## Mention the context of the research topic and why it is important.
+
+Physical activity levels are decreasing/lacking throughout the world. There is a substantial amount of research on the link between different motivation types and physical activity in both youths and adults. 
+
+## Mention what is the research gap and why it matters.
+Most existing studies focus on either youths or adults in isolation. Your study directly compares the two groups, allowing you to see whether motivational influences on exercise are consistent across life stages. Motivational theories (e.g., self-determination theory) often imply mechanisms that should operate across ages, but without direct comparison, it’s unclear if the effect sizes or relative importance of motives differ. 
+
+## Discuss how you will answer the research question.
+
+
+The strenghts of relationships between each motive and PA will be compared between aadults and youths
+
+Within each group, profiles of motives will be identified. 
+
+Note that all exercise motives described below refer to participants’ self-reported perceptions of their motives.
+
+
+
+
+
+# Literature Review
+# Data and Methods
+## Data
+Data used involve survey responses from datasets provided by Ipsos on
+behalf of Sport England (2024, 2025). See appendix A for survey questions.
+
+Descriptive statistic, bivariate correlations, and VIF were computed for all motive variables.
+
+## Multigroup Structural Equation Modeling (SEM)
+
+The purpose of this part was to check the slope differences in different self-reported motives between youths and adults, while controlling for demographics. 
+
+Shared survey questions / responses are selected from both adults and youths datasets. Motivation variables include enjoyment, social, fitness, guilt, and opportunity. The binary version, strongly agree vs not straongly agree, of the vairables were used due to adults and youths having different likert scales. Demographic variables were gender, age, ethnicity. Gender only included female and male due to the small sample size of other genders. Ethnicity was collapsed into white british and non-white british for the same reason. Age for youths were in years, only youths aged 11 and up answered the relevant questions and hence inlcuded. However, in adults, actual age was not available. Hence age groups were used (16-34, 35-44, 45-54, 55-64, 65-74, 75+). The youngest and oldest 2 groups are larger and collapsed from the original dataset to ensure a balanced distribution and little skew. A cap of 1680 minutes was applied to both, due to possible clerical error when inputting the numbers and other reasons. 
+
+Cohen d statistic were calculated for the effect size. For both adults and youths, the response was minutes exercised per week, including moderate and heavy exercises. 
+
+A free model was constructed and compared with consstrained models, where each variable was constrianed individually and simultaneously.
+
+
+## Latent Profile Analysis (LCA)
+
+LCA was conducted to further explore the effect of age within the youths and adults groups, individually. The original Likert-scale was used. More predictors are included that are worded differently but capture similar motivation (see appendix). Motives were used as predictors, with ethnicity, gender, age, and education (for adults only) as covariates/control. 10 random starts were performed per class model. 
+
+Ideal number of classes was selected by considering elbow plots of BIC, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio test (BLRT), class proportion, and substantive interpretation. Class-specific stats were calculated. regression is performed with age to predict class membership. Odds ratios and 95% confidence intervals were obtained by exponentiating the multinomial logit coefficients and their standard errors, with intervals calculated as exp 
+\[
+\text{OR} = \exp(\hat{\beta}), \quad
+95\%\, CI = \exp \big( \hat{\beta} \pm 1.96 \times SE \big)
+\]
+
+This allows assessment of both the magnitude and statistical significance of age effects on class membership.
+
+
+# Results
+
+• Present the results of the analysis.
+• Try to focus on how the results answer your research questions and hypotheses.
+• Try to focus on substantive interpretation of the results (and not just if something is significant or not). Are the effects large? Are they substantively important?
+
+
+## SEM
+
+There are minor yet significant differences in the impact of every motive. 
+
+```{r slopes.diff, fig.align='center',fig.cap=""}
+opts <- options(knitr.kable.NA = '')
+kable(list(slopes.diff),align='c',booktabs = T) %>% 
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+Summary and spec of model in appendix.
+Motivational mediators contribute meaningfully to activity levels in both groups, with enjoyment and fitness motives being the strongest predictors.
+
+Youth show stronger effects of enjoyment and guilt on exercise minutes, with slopes about 23 minutes higher than adults. Adults show stronger effects of opportunity, fitness, and social motives, with differences ranging from 23 to 58 minutes. Age shows a smaller difference (~7 minutes), with exercise minutes decreasing slightly more with age among adults. 
+
+Opportunity has a bigger effect on adults, this makes sense since children have more free time and more access to facilities like parks school gym etc.
+
+Youths are more likely to feel guilty, also makes sense as adults (especially older) do not exercise as much for social recognition and appearnace goals. consistent with H1a. However, while social motive has a positive effect, it has a bigger impact on adults. Not sure why. fitness makes sense to matter more to adults.
+
+Age has a small but significant negative total effect on activity, more pronounced in adults than youths.
+
+
+
+
+
+
+
+## LCA
+
+Median mins per class, rather than mean due to skew in distribution of minutes exercised (right skew), is calculated. 
+
+### Youths
+
+BIC plot indicates 3 or four 4 to reduce BIC the most. BLRT preferred 4 classes. Relative entropy values are `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]` for 3 and 4 classes, respectively, which shows 3 to have slightly better separation between classes.
+The likelihood is similar between 3 and 4 classes. Average posterior probabilities are better in the 3-class model, as all classes have a >.80 pp.
+
+
+```{r vars.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.vars.ad
+
+```
+
+
+See appendix for elbow plot avereage pp etc
+Both 3 and 4- class models show promise.  BIC does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
+
+However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
+
+
+
+```{r distr.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+plot(LCAE.ch, nclass = 2)
+plot(LCAE.ch, nclass = 3)
+
+```
+
+```{r mins.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.mins.ch
+
+```
+
+#### Interpretation
+
+Class 1: A highly engaged group exercising for intrinsic (enjoyment, competence) and extrinsic (importance, fitness, social) reasons. (High across core motives: enjoyment, fitness, importance, ability → strong positive orientation to exercise. Moderate-to-high secondary motives: social, challenge, relaxation. Mixed guilt: not central.)
+
+Class 2: they agree exercise is valuable, but don’t strongly enjoy it. Low guilt and relaxation. They see exercise as important and somewhat social, but motivation is not driven by strong enjoyment or self-competence. This group might exercise out of social reinforcement or external values rather than intrinsic enjoyment. (Moderate enjoyment, social, fitness, opportunity, challenge, ability.)
+
+Class 3: They believe exercise is important (cognitive endorsement), but lack enjoyment, confidence, or social drive. Likely lower actual participation; motivation here is more abstract belief than emotional or social engagement. (Low enjoyment, fitness, challenge, social, guilt, ability, relaxation. Moderate opportunity and high importance.)
+
+
+```{r byage.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.byage.ch
+
+```
+
+Age: The youngest group is most likely to be in class 1. However, class 2 have only minor (<20%) deviations in each age group, indicating that age has little systematic effect. However, the youngest age group is only 20% as likely to belong in class 3, and the trend increases as age goes up. Ie. the older the youths are the more likely they are to be in class 3. This makes sense as youths become more e.g. self-conscious, entangled with other responsibilities, more autonomy and more ways to entertain themselves. 
+
+This supports hypothesis 2b, that younger youths are more likely to belong to enjoyment-dominant profiles.
+
+### Adults
+
+
+```{r vars.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.vars.ad
+
+```
+
+
+3, 4, and 5 classes all seem ok at first glance, with simlar relative entropy, BIC, and max posterior entropy per class. While BLRT recommends the 4-class model, upon closer inspection, 3 classes has the best substantive interpretation, 4- and 5- class models contain very similar classes with minor distribution differences in their responses. 
+
+```{r distr.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+plot(LCAE.ad, nclass = 2)
+
+```
+
+```{r mins.ad, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.mins.ch
+
+```
+ 
+* Class 1: this class strongly endorses intrinsic motives (enjoyment, ability, importance) and is confident in their capability. They are highly consistent in responses across items. With low levels of guilt
+
+
+* Class 2: Most items have higher probabilities on 3–4 (neutral to disagree) except moderate on opportunity and ability. Low on guilt and eagerness for challenges. They do not exercise to relax. 
+
+* Class 3: This class displays ocnsistently moderately positive attitudes toward PA, with the exception of social. 
+
+
+* Age: odds of being in the low motivation class increase with age, especially in the oldest group. odds of being in the moderate motivation class also increase with age, but not as strongly as the low motivation class. 
+
+```{r byage.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.byage.ad
+
+```
+
+
+Multinomial logistic regression examined the association between age and motivation profile, with the highly motivated class (Class 1) as the reference. Compared with the youngest adults (age1), older age groups had higher odds of being in the moderate (Class 3) or low motivation (Class 2) classes. The effect was strongest in the oldest group (age6), who were about twice as likely to belong to the low motivation class (OR = 2.06) and 1.84 times more likely to belong to the moderate motivation class, relative to the highly motivated class. These results indicate that motivation tends to decline with age, with fewer older adults exhibiting the highly positive/intrinsic profile.
+
+
+
+
+
+# Conclusions
 # Use tab.cap when it's one kable
 # Use fig.cap when 
 
@@ -83,7 +292,26 @@ plot_glmnet(ridge.mod.tr, label = 3,
 
 \newpage
 
-# Appendix A - R code: data cleaning
+# Appendix A - Graphs and tables
+
+```{r crit.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.elbow.ch
+gg.llik.ch
+
+```
+
+table of class sizes + AvePP
+
+```{r pp.ch, fig.align='center',fig.cap=""}
+opts <- options(knitr.kable.NA = '')
+kable(list(tb.class3.ch,tb.class4.ch),align='c',booktabs = T) %>% 
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+
 
 ```{r code1, comment = ""}
 source("clean.R", echo = T, print.eval = F,

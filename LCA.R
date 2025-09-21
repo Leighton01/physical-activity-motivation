@@ -1,6 +1,7 @@
 # Libraries ---------------------------------------------------------------
 set.seed(2025)
 library(tidyverse)
+library(Hmisc)
 library(ggplot2)
 library(nnet)
 library(tidyLPA)
@@ -9,138 +10,155 @@ library(poLCAExtra)
 
 
 # LCA, Youths -------------------------------------------------------------
-
+child.lik <- child.lik.back
 # Predictors (motives)
-child.lik.y <- as.matrix(child.lik %>% dplyr::select(-mins,-age,-gender,-eth))
+child.lik.y <- (child.lik %>%
+                           dplyr::select(-mins,-age,-gender,-eth))
+
+child.lik.y <- as.matrix(child.lik.y %>% mutate(across(everything(), as.integer)))
 
 # Spec formula for LCA
 lca.f.child <- child.lik.y ~ gender + eth
 
-LCAE.ch <- poLCAExtra::poLCA(lca.f.child, data = child.lik, nclass = 2:7)
+# Run LCA with 2-7 classes
+# LCAE.ch <- poLCA(lca.f.child, data = child.lik, nclass = 2:7)
 save(LCAE.ch, file="LCAE.ch.RData")
 # load(file="LCAE.ch.RData")
 
 # bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
-blrt.ch <- poLCA.blrt(LCAE.ch)
+blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=10)
 save(blrt.ch,file="blrt.ch.RData")
-# blrt.ch <- poLCA.blrt(LCAE.ch[3:5], nreps = 50)
 
 
-# Take relevant stats
+# Output
 ch.lca.output <- LCAE.ch$output %>% dplyr::select(nclass,llike,AIC,BIC,
                                                   Rel.Entropy,LMR,p)
 
 ch.lca.output
 
-# elbow plot
-elbow.ch <- ggplot(ch.lca.output, aes(x = nclass)) +
-  geom_line(aes(y = BIC), color = "blue") +
-  geom_point(aes(y = BIC), color = "blue") +
-  geom_line(aes(y = AIC), color = "red") +
-  geom_point(aes(y = AIC), color = "red") +
-  labs(y = "Information Criterion", x = "Number of Classes",
-       title = "Elbow Plot for poLCA Model Selection",
-       caption = "Blue = BIC, Red = AIC") +
-  theme_minimal()
-
-# elbow.ch
-poLCA.residual.pattern(LCAE.ch, nclass = 2)
-poLCA.cov(LCAE.ch, nclass = 2)
-
-
-# check posterior and boxplots
-for(k in 3:4){
+# check max posterior
+for(k in 2:4){
 
   child.lik$post <- apply(LCAE.ch$LCA[[k]]$posterior, 1, max)
+
   child.lik$class <- LCAE.ch$LCA[[k]]$predclass
 
   print(
     ggplot(child.lik, aes(x = post, fill = factor(class))) +
     geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
     labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-         title = paste0(k," Classes, Youths")) +
+         title = paste0(k+1," Classes, Youths")) +
     theme_minimal()
   )
 
   print(ggplot(child.lik, aes(x = factor(class), y = post)) +
     geom_boxplot(fill = "skyblue") +
     labs(x = "Class", y = "Max Posterior Probability",
-         title = paste0(k," Classes, Youths")) +
+         title = paste0(k+1," Classes, Youths")) +
     theme_minimal()
   )
 }
 
-# check class size of candidates (need >0.5 per)
-child.lik$class <- LCAE.ch$LCA[[3]]$predclass
-prop.table(table(child.lik$class))
+# Compare 3 and 4 class average posterior and class prop
+post4.ch <- LCAE.ch$LCA[[3]]$posterior
+class4.ch <- apply(post4.ch, 1, which.max)
+class.size4.ch <- prop.table(table(class4.ch))
 
+ave.pp4.ch <- sapply(1:ncol(post4.ch), function(k) {
+  inds <- which(class4.ch == k)
+  mean(post4.ch[inds, k])
+})
 
-# 4 classes is best
-lca.best.ch <- LCAE.ch$LCA[[3]]
+post3.ch <- LCAE.ch$LCA[[2]]$posterior
+class3.ch <- apply(post3.ch, 1, which.max)
+class.size3.ch <- prop.table(table(class3.ch))
+
+ave.pp3.ch <- sapply(1:ncol(post3.ch), function(k) {
+  inds <- which(class3.ch == k)
+  mean(post3.ch[inds, k])
+})
+
+# BEST CLASS decided
+# 3 classes is best
+lca.best.ch <- LCAE.ch$LCA[[2]]
 child.lik$class <- lca.best.ch$predclass
-child.lik$post <- lca.best.ch$posterior
-post.ch <- child.lik$post
+# child.lik$post <- apply(lca.best.ch$posterior, 1, max)
+
+# Calculate median minutes
+n.classes <- 3
+
+wmed.ch <- numeric(n.classes)
+wq25.ch <- numeric(n.classes)
+wq75.ch <- numeric(n.classes)
+for (k in 1:n.classes) {
+
+  q <- wtd.quantile(child.lik$mins,
+                    weights = lca.best.ch$posterior[,k],
+                    probs = c(0.25, 0.5, 0.75))
+  wq25.ch[k] <- q[1]
+  wmed.ch[k] <- q[2]
+  wq75.ch[k] <- q[3]
+}
 
 
-# Weighted means
-child.lik$mins.log <- log(child.lik$mins+1)
+# Regressions
+child.lik$age <- child.lik.back$age
+child.lik$class <- relevel(factor(child.lik$class), ref = "1")
+child.lik$age <- relevel(factor(child.lik$age), ref = "1")
 
+fit.ch <- multinom(class ~ age,
+                   data = child.lik %>%
+                     dplyr::select(-post,-mins))
+# odds ratio
+or.ch <- exp(coef(fit.ch))
+or.ch
 
-# probability weighted means
-wmeans.child <- colSums(post.ch * child.lik$mins) / colSums(post.ch)
-wmeans.log.child <- colSums(post.ch * child.lik$mins.log) / colSums(post.ch)
+sum.fit.ch <- summary(fit.ch)
+se <- sum.fit.ch$standard.errors
+# Coefficients
+coefs.ch <- coef(fit.ch)
 
-# weighted SD
-wsd.child <- sapply(1:ncol(post.ch), function(k) {
-  sqrt( sum(post.ch[,k] * (child.lik$mins - wmeans.child[k])^2)
-        / sum(post.ch[,k]) )
-})
+# 95% CI for odds ratios
+ci.l.ch <- exp(coefs.ch - 1.96 * se)
+ci.u.ch <- exp(coefs.ch + 1.96 * se)
 
-# weighted log sd
-wsd.log.child <- sapply(1:ncol(post.ch), function(k) {
-  sqrt( sum(post.ch[,k] * (child.lik$mins.log - wmeans.log.child[k])^2)
-        / sum(post.ch[,k]) )
-})
+# Odds ratios themselves
+or <- exp(coefs.ch)
 
-# Put everythign together
-mins.child <- data.frame(
-  Class = factor(1:ncol(post.ch)),
-  Mean = wmeans.child,
-  Mean.log= exp(wmeans.log.child),
-  SD =wsd.child,
-  SD.log = wsd.log.child,
-  SD.low = exp(wmeans.log.child - wsd.log.child) - 1,
-  SD.up = exp(wmeans.log.child + wsd.log.child) - 1
+# Combine into a table
+or.ci.ch <- data.frame(
+  CI.lower = round(ci.l.ch, 3),
+  CI.upper = round(ci.u.ch, 3)
 )
+colnames(or.ci.ch) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
+                        "Age5.L","Age6.L","Intercept.U","Age2.U", "Age3.U", "Age4.U",
+                        "Age5.U","Age6.U")
 
-mins.child
+# Check class distribution per age
 
-
-
-
-
-
+tb.byage.ch <- child.lik %>%
+count(age, class) %>%
+  pivot_wider(names_from = class, values_from = n, values_fill = 0)
 
 # LCA, Adults -------------------------------------------------------------
-# remove
-adult.lik.y <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth,-edu)
+## almost exactly the same as youths,
+## with the addition of Education as a covariate
 
-lca.f.adult <- as.matrix(adult.lik.y) ~ gender + eth + edu
+adult.lik <- adult.lik.back
+# Predictors (motives)
+adult.lik.y <- as.matrix(adult.lik %>%
+                           dplyr::select(-mins,-age,-gender,-eth,-edu))
 
-# 7 classes
-LCAE.ad <- poLCA(lca.f.adult, data = adult.lik, nclass = 1:7)
+# Spec formula for LCA
+lca.f.adult <- adult.lik.y ~ gender + eth + edu
 
-save(LCAE.ad, file="LCAE.ad.RData")
+# LCAE.ad <- poLCA(lca.f.adult, data = adult.lik, nclass = 2:7)
+# save(LCAE.ad, file="LCAE.ad.RData")
+load(file="LCAE.ad.RData")
 
-
-# bootstrap lrt, reduce computation time
-LCAE.ad1 <- poLCA(lca.f.adult, data = adult.lik, nclass = 3:6)
-blrt.ad <- poLCA.blrt(LCAE.ad1,nreps = 10)
-
+# bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
+blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 10)
 save(blrt.ad,file="blrt.ad.RData")
-
-
-LCAE.ad$output
 
 
 # Take relevant stats
@@ -149,26 +167,8 @@ ad.lca.output <- LCAE.ad$output %>% dplyr::select(nclass,llike,AIC,BIC,
 
 ad.lca.output
 
-# elbow plot
-elbow.ad <- ggplot(ad.lca.output, aes(x = nclass)) +
-  geom_line(aes(y = BIC), color = "blue") +
-  geom_point(aes(y = BIC), color = "blue") +
-  geom_line(aes(y = AIC), color = "red") +
-  geom_point(aes(y = AIC), color = "red") +
-  labs(y = "Information Criterion", x = "Number of Classes",
-       title = "Elbow Plot for poLCA Model Selection",
-       caption = "Blue = BIC, Red = AIC") +
-  theme_minimal()
-
-elbow.ad
-
-# elbow.ad
-poLCA.residual.pattern(LCAE.ad, nclass = 4)
-poLCA.cov(LCAE.ad, nclass = 4)
-
-
-# check posterior and boxplots
-for(k in 3:4){
+# adeck posterior and boxplots
+for(k in 2:5){
 
   adult.lik$post <- apply(LCAE.ad$LCA[[k]]$posterior, 1, max)
   adult.lik$class <- LCAE.ad$LCA[[k]]$predclass
@@ -177,59 +177,107 @@ for(k in 3:4){
     ggplot(adult.lik, aes(x = post, fill = factor(class))) +
       geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
       labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-           title = paste0(k," Classes, adults")) +
+           title = paste0(k+1," Classes, Adults")) +
       theme_minimal()
   )
 
   print(ggplot(adult.lik, aes(x = factor(class), y = post)) +
           geom_boxplot(fill = "skyblue") +
           labs(x = "Class", y = "Max Posterior Probability",
-               title = paste0(k," Classes, adults")) +
+               title = paste0(k+1," Classes, Adults")) +
           theme_minimal()
   )
 }
 
-# check class size of candidates (need >0.5 per)
-adult.lik$class <- LCAE.ad$LCA[[4]]$predclass
-prop.table(table(adult.lik$class))
+# Compare 3 and 4 class average posterior and class prop
+#
+# post5.ad <- LCAE.ad$LCA[[4]]$posterior
+# class5.ad <- apply(post5.ad, 1, which.max)
+# class.size5.ad <- prop.table(table(class5.ad))
+#
+# ave.pp5.ad <- sapply(1:ncol(post5.ad), function(k) {
+#   inds <- which(class5.ad == k)
+#   mean(post5.ad[inds, k])
+# })
+#
+# ave.pp5.ad
+#
+# post4.ad <- LCAE.ad$LCA[[3]]$posterior
+# class4.ad <- apply(post4.ad, 1, which.max)
+# class.size4.ad <- prop.table(table(class4.ad))
+#
+# ave.pp4.ad <- sapply(1:ncol(post4.ad), function(k) {
+#   inds <- which(class4.ad == k)
+#   mean(post4.ad[inds, k])
+# })
+# ave.pp4.ad
 
+post3.ad <- LCAE.ad$LCA[[2]]$posterior
+class3.ad <- apply(post3.ad, 1, which.max)
+class.size3.ad <- prop.table(table(class3.ad))
 
-# 4 classes is best
-lca.best.ad <- LCAE.ad$LCA[[4]]
+ave.pp3.ad <- sapply(1:ncol(post3.ad), function(k) {
+  inds <- which(class3.ad == k)
+  mean(post3.ad[inds, k])
+})
+ave.pp3.ad
+
+# BEST CLASS decided
+# 3 classes is best
+lca.best.ad <- LCAE.ad$LCA[[2]]
 adult.lik$class <- lca.best.ad$predclass
-adult.lik$post <- lca.best.ad$posterior
-post.ad <- adult.lik$post
+adult.lik$post <- apply(lca.best.ad$posterior, 1, max)
+
+# Calculate median minutes
+n.classes <- 3
+
+wmed.ad <- numeric(n.classes)
+wq25.ad <- numeric(n.classes)
+wq75.ad <- numeric(n.classes)
+for (k in 1:n.classes) {
+
+  q <- wtd.quantile(adult.lik$mins,
+                    weights = lca.best.ad$posterior[,k],
+                    probs = c(0.25, 0.5, 0.75))
+  wq25.ad[k] <- q[1]
+  wmed.ad[k] <- q[2]
+  wq75.ad[k] <- q[3]
+}
 
 
-# Weighted means
-adult.lik$mins.log <- log(adult.lik$mins+1)
+# Regressions
+adult.lik$age <- adult.lik.back$age
+adult.lik$class <- relevel(factor(adult.lik$class), ref = "1")
+adult.lik$age <- relevel(factor(adult.lik$age), ref = "1")
+
+fit.ad <- multinom(class ~ age,
+                   data = adult.lik %>%
+                     dplyr::select(-post,-mins))
+# odds ratio
+or.ad <- exp(coef(fit.ad))
+or.ad
+
+sum.fit.ad <- summary(fit.ad)
+se.ad <- sum.fit.ad$standard.errors
+# Coefficients
+coefs.ad <- coef(fit.ad)
+
+# 95% CI for odds ratios
+ci.l.ad <- exp(coefs.ad - 1.96 * se.ad)
+ci.u.ad <- exp(coefs.ad + 1.96 * se.ad)
 
 
-# probability weighted means
-wmeans.adult <- colSums(post.ad * adult.lik$mins) / colSums(post.ad)
-wmeans.log.adult <- colSums(post.ad * adult.lik$mins.log) / colSums(post.ad)
-
-# weighted SD
-wsd.adult <- sapply(1:ncol(post.ad), function(k) {
-  sqrt( sum(post.ad[,k] * (adult.lik$mins - wmeans.adult[k])^2)
-        / sum(post.ad[,k]) )
-})
-
-# weighted log sd
-wsd.log.adult <- sapply(1:ncol(post.ad), function(k) {
-  sqrt( sum(post.ad[,k] * (adult.lik$mins.log - wmeans.log.adult[k])^2)
-        / sum(post.ad[,k]) )
-})
-
-# Put everythign together
-mins.adult <- data.frame(
-  Class = factor(1:ncol(post.ad)),
-  Mean = wmeans.adult,
-  Mean.log= exp(wmeans.log.adult),
-  SD =wsd.adult,
-  SD.log = wsd.log.adult,
-  SD.low = exp(wmeans.log.adult - wsd.log.adult) - 1,
-  SD.up = exp(wmeans.log.adult + wsd.log.adult) - 1
+# Combine into a table
+or.ci.ad <- data.frame(
+  CI.lower = round(ci.l.ad, 3),
+  CI.upper = round(ci.u.ad, 3)
 )
+colnames(or.ci.ad) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
+                        "Age5.L","Age6.L","Intercept.U","Age2.U", "Age3.U", "Age4.U",
+                        "Age5.U","Age6.U")
 
-mins.adult
+# adeck class distribution per age
+
+tb.byage.ad <- adult.lik %>%
+  count(age, class) %>%
+  pivot_wider(names_from = class, values_from = n, values_fill = 0)

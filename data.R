@@ -194,13 +194,13 @@ child.lik <- child.var %>%
   dplyr::select(enjoy=PL_Enjoy_bc_ans,
                 social=MO_Fun_c,
                 fit=MO_Fit_c,
-                try=Try_bc,
+                opp=MO_Opp_c,
                 guilt=MO_Guilt_c, #99 instead of 5 for "can't say"
-                know=PL_GdMe_bc_ans,
-                opp=MO_Opp_c, #99 instead of 5 for "can't say"
-                conf=PL_Conf_bc_ans,
-                easy=PL_Easy_bc_ans,
-                more=Exeramt_bc, #only 3, 1=more,2=same,3=less
+
+                imp=PL_GdMe_bc_ans,
+                chal=Try_bc,
+                abil=PL_Conf_bc_ans,
+                relx=MO_Relax_c,
 
                 dsbl=Disab_All_POP,
                 gender=gend3,
@@ -213,11 +213,11 @@ child.lik <- child.var %>%
          gender %in% c(1,2),
          eth %in% c(1,2),
          mins > -1,
-         if_all(c(enjoy,social,fit,guilt,opp,know,try,conf,easy,more),
+         if_all(c(enjoy,social,fit,guilt,opp,imp,chal,abil,relx),
                 ~ .x > -1 & .x < 5)) %>%
   mutate(
     mins = ifelse(mins > 1680, 1680, mins),
-    across(c(conf,easy,enjoy,fit,know,more,opp,try),
+    across(c(enjoy,social,fit,guilt,imp,chal,opp,abil,relx),
            ~ case_when(.x==4~3L, TRUE ~ as.integer(.x))),
     age=age-10
 
@@ -240,10 +240,9 @@ adult.lik <- adult.var %>%
                 opp=READYOP1_POP,
 
                 imp=motivb_POP,
-                dis=motivd_POP, #disappoint
+                chal=motivex2d,
                 abil=READYAB1_POP, #ability
                 relx=motivex2b,
-                chal=motivex2d,
 
                 dsbl=Disab2_POP,
                 gender=Gend3,
@@ -259,10 +258,12 @@ adult.lik <- adult.var %>%
          edu != 5
   ) %>%
 
-  mutate(dis = 6 - dis,
-         across(c(abil,chal,enjoy,fit,guilt,imp,opp,relx,dis),
+  mutate(across(c(enjoy,social,fit,guilt,opp,imp,chal,abil,relx),
                 ~ case_when(.x==5~4L, TRUE ~ as.integer(.x))),
          edu = case_when(edu==6~5L, TRUE~edu),
+         age = as.integer(case_when(age==2~3L,
+                         age==9~8L,
+                         TRUE~as.integer(age)))-2
 
   ) %>%
 

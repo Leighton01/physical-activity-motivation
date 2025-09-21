@@ -125,38 +125,32 @@ anova(f0, f3)
 anova(f0, f4)
 anova(f0, f5)
 
-# Function for cohen D to check effect size
 
-cohen_d_lavaan <- function(model, param_name) {
-  slopes <- parameterEstimates(model, standardized = FALSE)
-  # filter for the path from enjoyb to mins
-  slopes_path <- slopes[slopes$lhs == "mins" & slopes$rhs == param_name, ]
-
-  # slopes_path$est will contain the slope for each group in the same order as your data
-  # group 1 = adult, 2 youth
-  slope_youth <- slopes_path$est[slopes_path$group == 2]
-  slope_adult <- slopes_path$est[slopes_path$group == 1]
-
-  # 2. Get pooled SD of your outcome variable (mins)
-  mins_youth <- dallb$mins[dallb$group=="youth"]
-  mins_adult <- dallb$mins[dallb$group=="adult"]
-  pooled_sd <- sqrt(((length(mins_youth)-1)*var(mins_youth) +
-                       (length(mins_adult)-1)*var(mins_adult)) /
-                      (length(mins_youth) + length(mins_adult) - 2))
-
-  # 3. Cohen's d-like effect of slope difference
-  cohen_d <- (slope_youth - slope_adult) / pooled_sd
-
-  return(c(cohen_d, cohen_d*pooled_sd))
-}
-
-# Check effect size of each variable
-
-cohen_d_lavaan(f0, "enjoyb")
-cohen_d_lavaan(f0, "socialb")
-cohen_d_lavaan(f0, "fitb")
-cohen_d_lavaan(f0, "guiltb")
-cohen_d_lavaan(f0, "oppb")
+# Put slope diff. in a table
+params <- parameterEstimates(f0, standardized = T)
+# filter
+slopes <- params %>%
+  filter(lhs == "mins", op == "~") %>%
+  dplyr::select(var=rhs, group, est, se)
+# filtre more
+slopes.ad <- slopes %>% filter(group == 1) %>%
+  dplyr::select(var, est.adult = est, se.adult = se)
+slopes.ch <- slopes %>% filter(group == 2) %>%
+  dplyr::select(var, est.youth = est, se.youth = se)
+# join!
+slopes.diff <- data.frame()
+slopes.diff <- left_join(slopes.ch, slopes.ad, by = "var")
+# calculate
+slopes.diff <- slopes.diff %>%
+  mutate(
+    diff = est.youth - est.adult
+    # se.diff = sqrt(se.adult^2 + se.youth^2),
+    # z = diff / se.diff,
+    # p = 2 * (1 - pnorm(abs(z)))
+  ) %>%
+  filter(!var %in% c("gender","eth")) %>%
+  dplyr::select(-se.youth, -se.adult)
 
 
+slopes.diff
 
