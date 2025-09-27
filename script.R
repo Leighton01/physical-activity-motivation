@@ -35,62 +35,62 @@ library(poLCA)
 # data.child <- read.csv('data/child_main.tab', header=T, sep='\t')
 # data.adult <- read.csv('data/adult.tab', header=T, sep='\t')
 #
-child.var <- data.child %>% select('PL_Enjoy_bc_ans', 'PL_Conf_bc_ans',
-                                   'PL_Easy_bc_ans', 'PL_GdMe_bc_ans',
-                                   'PL_Know_c_ans', 'MO_Opp_c',
-                                   'MO_Fit_c', 'MO_Relax_c', 'MO_Fun_c',
-                                   'MO_Guilt_c', 'MO_Haveto_b_36',
-                                   'MO_Haveto_c_711', 'PR_Fam_c', 'PR_Oth_c',
-                                   'Try_bc', 'outdoor_bcd_Overall',
-                                   'Exeramt_bc', 'ExeramtMore_bc1_2',
-                                   'ExeramtMore_bc2_2', 'ExeramtMore_bc3_2',
-                                   'mins_modplus_outschool_Week_ALL',
-
-                                   # profile
-                                   'age_11', 'eth2', 'gend3', 'eth6',
-                                   'Disab_All_POP',
-
-                                   # binary
-                                   'PL_Enjoy_bc_SA_gr2', 'MO_Fun_c_SA',
-                                   'MO_Fit_c_SA', 'MO_Guilt_c_SA', 'MO_Opp_c_SA'
-)
-
-save(child.var, file = "child.var.RData")
-
-
-adult.var <- data.adult %>% dplyr::select('Motiva_POP',
-                                   'motivb_POP',
-                                   'motivc_POP',
-                                   'motivd_POP',
-                                   'motive_POP',
-                                   'READYAB1_POP',
-                                   'READYOP1_POP',
-                                   'motivex2a',
-                                   'motivex2b',
-                                   'motivex2c',
-                                   'motivex2d',
-                                   'inclus_a',
-                                   'inclus_b',
-                                   'inclus_c',
-                                   'indev',
-                                   'indevtry',
-                                   'workactlvl',
-                                   'DUR_HVY_CAPPED_SPORTCOUNT_A01',
-                                   'DUR_MOD_CAPPED_SPORTCOUNT_A01',
-
-                                   # profile
-                                   'Age17','Age3','AgeTGC',
-                                   'Age4','Age5','Age5_2',
-                                   'Age9','Disab2_POP',
-                                   'Gend3','Eth2','Eth7',
-                                   'Educ6',
-
-                                   # binary
-                                   'Motiva_POP_GR2', 'motivex2c_GR2',
-                                   'motivex2a_GR2', 'motivc_POP_GR2',
-                                   'READYOP1_POP_GR2')
-
-save(adult.var, file = "adult.var.RData")
+# child.var <- data.child %>% select('PL_Enjoy_bc_ans', 'PL_Conf_bc_ans',
+#                                    'PL_Easy_bc_ans', 'PL_GdMe_bc_ans',
+#                                    'PL_Know_c_ans', 'MO_Opp_c',
+#                                    'MO_Fit_c', 'MO_Relax_c', 'MO_Fun_c',
+#                                    'MO_Guilt_c', 'MO_Haveto_b_36',
+#                                    'MO_Haveto_c_711', 'PR_Fam_c', 'PR_Oth_c',
+#                                    'Try_bc', 'outdoor_bcd_Overall',
+#                                    'Exeramt_bc', 'ExeramtMore_bc1_2',
+#                                    'ExeramtMore_bc2_2', 'ExeramtMore_bc3_2',
+#                                    'mins_modplus_outschool_Week_ALL',
+#
+#                                    # profile
+#                                    'age_11', 'eth2', 'gend3', 'eth6',
+#                                    'Disab_All_POP',
+#
+#                                    # binary
+#                                    'PL_Enjoy_bc_SA_gr2', 'MO_Fun_c_SA',
+#                                    'MO_Fit_c_SA', 'MO_Guilt_c_SA', 'MO_Opp_c_SA'
+# )
+#
+# save(child.var, file = "child.var.RData")
+#
+#
+# adult.var <- data.adult %>% dplyr::select('Motiva_POP',
+#                                    'motivb_POP',
+#                                    'motivc_POP',
+#                                    'motivd_POP',
+#                                    'motive_POP',
+#                                    'READYAB1_POP',
+#                                    'READYOP1_POP',
+#                                    'motivex2a',
+#                                    'motivex2b',
+#                                    'motivex2c',
+#                                    'motivex2d',
+#                                    'inclus_a',
+#                                    'inclus_b',
+#                                    'inclus_c',
+#                                    'indev',
+#                                    'indevtry',
+#                                    'workactlvl',
+#                                    'DUR_HVY_CAPPED_SPORTCOUNT_A01',
+#                                    'DUR_MOD_CAPPED_SPORTCOUNT_A01',
+#
+#                                    # profile
+#                                    'Age17','Age3','AgeTGC',
+#                                    'Age4','Age5','Age5_2',
+#                                    'Age9','Disab2_POP',
+#                                    'Gend3','Eth2','Eth7',
+#                                    'Educ6',
+#
+#                                    # binary
+#                                    'Motiva_POP_GR2', 'motivex2c_GR2',
+#                                    'motivex2a_GR2', 'motivc_POP_GR2',
+#                                    'READYOP1_POP_GR2')
+#
+# save(adult.var, file = "adult.var.RData")
 
 
 # Load & Check --------------------------------------------------------------------

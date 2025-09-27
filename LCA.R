@@ -22,12 +22,16 @@ lca.f.child <- child.lik.y ~ gender + eth
 
 # Run LCA with 2-7 classes
 # LCAE.ch <- poLCA(lca.f.child, data = child.lik, nclass = 2:7)
-save(LCAE.ch, file="LCAE.ch.RData")
+# save(LCAE.ch, file="LCAE.ch.RData")
+load("LCAE.ch.RData")
+
+
 # load(file="LCAE.ch.RData")
 
 # bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
-blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=10)
-save(blrt.ch,file="blrt.ch.RData")
+# blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=10)
+# save(blrt.ch,file="blrt.ch.RData")
+# load("blrt.ch.RData")
 
 
 # Output
@@ -37,27 +41,27 @@ ch.lca.output <- LCAE.ch$output %>% dplyr::select(nclass,llike,AIC,BIC,
 ch.lca.output
 
 # check max posterior
-for(k in 2:4){
-
-  child.lik$post <- apply(LCAE.ch$LCA[[k]]$posterior, 1, max)
-
-  child.lik$class <- LCAE.ch$LCA[[k]]$predclass
-
-  print(
-    ggplot(child.lik, aes(x = post, fill = factor(class))) +
-    geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
-    labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-         title = paste0(k+1," Classes, Youths")) +
-    theme_minimal()
-  )
-
-  print(ggplot(child.lik, aes(x = factor(class), y = post)) +
-    geom_boxplot(fill = "skyblue") +
-    labs(x = "Class", y = "Max Posterior Probability",
-         title = paste0(k+1," Classes, Youths")) +
-    theme_minimal()
-  )
-}
+# for(k in 2:4){
+#
+#   child.lik$post <- apply(LCAE.ch$LCA[[k]]$posterior, 1, max)
+#
+#   child.lik$class <- LCAE.ch$LCA[[k]]$predclass
+#
+#   print(
+#     ggplot(child.lik, aes(x = post, fill = factor(class))) +
+#     geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
+#     labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
+#          title = paste0(k+1," Classes, Youths")) +
+#     theme_minimal()
+#   )
+#
+#   print(ggplot(child.lik, aes(x = factor(class), y = post)) +
+#     geom_boxplot(fill = "skyblue") +
+#     labs(x = "Class", y = "Max Posterior Probability",
+#          title = paste0(k+1," Classes, Youths")) +
+#     theme_minimal()
+#   )
+# }
 
 # Compare 3 and 4 class average posterior and class prop
 post4.ch <- LCAE.ch$LCA[[3]]$posterior
@@ -107,8 +111,8 @@ child.lik$class <- relevel(factor(child.lik$class), ref = "1")
 child.lik$age <- relevel(factor(child.lik$age), ref = "1")
 
 fit.ch <- multinom(class ~ age,
-                   data = child.lik %>%
-                     dplyr::select(-post,-mins))
+                   data = child.lik)
+
 # odds ratio
 or.ch <- exp(coef(fit.ch))
 or.ch
@@ -157,8 +161,9 @@ lca.f.adult <- adult.lik.y ~ gender + eth + edu
 load(file="LCAE.ad.RData")
 
 # bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
-blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 10)
-save(blrt.ad,file="blrt.ad.RData")
+# blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 10)
+# save(blrt.ad,file="blrt.ad.RData")
+# load(file="blrt.ad.RData")
 
 
 # Take relevant stats
@@ -168,49 +173,49 @@ ad.lca.output <- LCAE.ad$output %>% dplyr::select(nclass,llike,AIC,BIC,
 ad.lca.output
 
 # adeck posterior and boxplots
-for(k in 2:5){
+# for(k in 2:5){
+#
+#   adult.lik$post <- apply(LCAE.ad$LCA[[k]]$posterior, 1, max)
+#   adult.lik$class <- LCAE.ad$LCA[[k]]$predclass
+#
+#   print(
+#     ggplot(adult.lik, aes(x = post, fill = factor(class))) +
+#       geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
+#       labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
+#            title = paste0(k+1," Classes, Adults")) +
+#       theme_minimal()
+#   )
+#
+#   print(ggplot(adult.lik, aes(x = factor(class), y = post)) +
+#           geom_boxplot(fill = "skyblue") +
+#           labs(x = "Class", y = "Max Posterior Probability",
+#                title = paste0(k+1," Classes, Adults")) +
+#           theme_minimal()
+#   )
+# }
 
-  adult.lik$post <- apply(LCAE.ad$LCA[[k]]$posterior, 1, max)
-  adult.lik$class <- LCAE.ad$LCA[[k]]$predclass
+# Compare class average posteriors and class prop
 
-  print(
-    ggplot(adult.lik, aes(x = post, fill = factor(class))) +
-      geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
-      labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-           title = paste0(k+1," Classes, Adults")) +
-      theme_minimal()
-  )
+post5.ad <- LCAE.ad$LCA[[4]]$posterior
+class5.ad <- apply(post5.ad, 1, which.max)
+class.size5.ad <- prop.table(table(class5.ad))
 
-  print(ggplot(adult.lik, aes(x = factor(class), y = post)) +
-          geom_boxplot(fill = "skyblue") +
-          labs(x = "Class", y = "Max Posterior Probability",
-               title = paste0(k+1," Classes, Adults")) +
-          theme_minimal()
-  )
-}
+ave.pp5.ad <- sapply(1:ncol(post5.ad), function(k) {
+  inds <- which(class5.ad == k)
+  mean(post5.ad[inds, k])
+})
 
-# Compare 3 and 4 class average posterior and class prop
-#
-# post5.ad <- LCAE.ad$LCA[[4]]$posterior
-# class5.ad <- apply(post5.ad, 1, which.max)
-# class.size5.ad <- prop.table(table(class5.ad))
-#
-# ave.pp5.ad <- sapply(1:ncol(post5.ad), function(k) {
-#   inds <- which(class5.ad == k)
-#   mean(post5.ad[inds, k])
-# })
-#
-# ave.pp5.ad
-#
-# post4.ad <- LCAE.ad$LCA[[3]]$posterior
-# class4.ad <- apply(post4.ad, 1, which.max)
-# class.size4.ad <- prop.table(table(class4.ad))
-#
-# ave.pp4.ad <- sapply(1:ncol(post4.ad), function(k) {
-#   inds <- which(class4.ad == k)
-#   mean(post4.ad[inds, k])
-# })
-# ave.pp4.ad
+ave.pp5.ad
+
+post4.ad <- LCAE.ad$LCA[[3]]$posterior
+class4.ad <- apply(post4.ad, 1, which.max)
+class.size4.ad <- prop.table(table(class4.ad))
+
+ave.pp4.ad <- sapply(1:ncol(post4.ad), function(k) {
+  inds <- which(class4.ad == k)
+  mean(post4.ad[inds, k])
+})
+ave.pp4.ad
 
 post3.ad <- LCAE.ad$LCA[[2]]$posterior
 class3.ad <- apply(post3.ad, 1, which.max)
@@ -251,8 +256,7 @@ adult.lik$class <- relevel(factor(adult.lik$class), ref = "1")
 adult.lik$age <- relevel(factor(adult.lik$age), ref = "1")
 
 fit.ad <- multinom(class ~ age,
-                   data = adult.lik %>%
-                     dplyr::select(-post,-mins))
+                   data = adult.lik)
 # odds ratio
 or.ad <- exp(coef(fit.ad))
 or.ad
@@ -281,3 +285,4 @@ colnames(or.ci.ad) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
 tb.byage.ad <- adult.lik %>%
   count(age, class) %>%
   pivot_wider(names_from = class, values_from = n, values_fill = 0)
+
