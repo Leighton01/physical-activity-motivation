@@ -5,62 +5,63 @@ library(car)
 
 # Read Data ---------------------------------------------------------------
 #
-# data.child <- read.csv('data/child_main.tab', header=T, sep='\t')
-# data.adult <- read.csv('data/adult.tab', header=T, sep='\t')
+data.child <- read.csv('data/child_main.tab', header=T, sep='\t')
+data.adult <- read.csv('data/adult.tab', header=T, sep='\t')
+
+# Read relevant fields
+child.var <- data.child %>% select(# likert predictors
+                                   'PL_Enjoy_bc_ans', 'PL_Conf_bc_ans',
+                                   'PL_Easy_bc_ans', 'PL_GdMe_bc_ans',
+                                   'PL_Know_c_ans', 'MO_Opp_c',
+                                   'MO_Fit_c', 'MO_Relax_c', 'MO_Fun_c',
+                                   'MO_Guilt_c', 'MO_Haveto_b_36',
+                                   'MO_Haveto_c_711', 'PR_Fam_c', 'PR_Oth_c',
+                                   'Try_bc', 'outdoor_bcd_Overall',
+                                   'Exeramt_bc', 'ExeramtMore_bc1_2',
+                                   'ExeramtMore_bc2_2', 'ExeramtMore_bc3_2',
+                                   'mins_modplus_outschool_Week_ALL',
+
+                                   # demographic
+                                   'age_11', 'eth2', 'gend3', 'eth6',
+                                   'Disab_All_POP',
+
+                                   # binary predictors
+                                   'PL_Enjoy_bc_SA_gr2', 'MO_Fun_c_SA',
+                                   'MO_Fit_c_SA',
+                                   'MO_Guilt_c_SA', 'MO_Opp_c_SA',
+                                   'MO_Relax_c_SA'
+)
+
+# Save to save computation time
+save(child.var, file = "child.var.RData")
 #
-# # Read relevant fields
-# child.var <- data.child %>% select(# likert predictors
-#                                    'PL_Enjoy_bc_ans', 'PL_Conf_bc_ans',
-#                                    'PL_Easy_bc_ans', 'PL_GdMe_bc_ans',
-#                                    'PL_Know_c_ans', 'MO_Opp_c',
-#                                    'MO_Fit_c', 'MO_Relax_c', 'MO_Fun_c',
-#                                    'MO_Guilt_c', 'MO_Haveto_b_36',
-#                                    'MO_Haveto_c_711', 'PR_Fam_c', 'PR_Oth_c',
-#                                    'Try_bc', 'outdoor_bcd_Overall',
-#                                    'Exeramt_bc', 'ExeramtMore_bc1_2',
-#                                    'ExeramtMore_bc2_2', 'ExeramtMore_bc3_2',
-#                                    'mins_modplus_outschool_Week_ALL',
-#
-#                                    # demographic
-#                                    'age_11', 'eth2', 'gend3', 'eth6',
-#                                    'Disab_All_POP',
-#
-#                                    # binary predictors
-#                                    'PL_Enjoy_bc_SA_gr2', 'MO_Fun_c_SA',
-#                                    'MO_Fit_c_SA',
-#                                    'MO_Guilt_c_SA', 'MO_Opp_c_SA'
-# )
-#
-# # Save to save computation time
-# save(child.var, file = "child.var.RData")
-#
-#
-# # Same process for adults, different variables
-# adult.var <- data.adult %>% dplyr::select('Motiva_POP','motivb_POP',
-#                                           'motivc_POP','motivd_POP',
-#                                           'motive_POP','READYAB1_POP',
-#                                           'READYOP1_POP','motivex2a',
-#                                           'motivex2b','motivex2c',
-#                                           'motivex2d','inclus_a',
-#                                           'inclus_b','inclus_c',
-#                                           'indev','indevtry',
-#                                           'workactlvl',
-#                                           'DUR_HVY_CAPPED_SPORTCOUNT_A01',
-#                                           'DUR_MOD_CAPPED_SPORTCOUNT_A01',
-#
-#                                           # demographic
-#                                           'Age17','Age3','AgeTGC',
-#                                           'Age4','Age5','Age5_2',
-#                                           'Age9','Disab2_POP',
-#                                           'Gend3','Eth2','Eth7',
-#                                           'Educ6',
-#
-#                                           # binary predictors
-#                                           'Motiva_POP_GR2', 'motivex2c_GR2',
-#                                           'motivex2a_GR2', 'motivc_POP_GR2',
-#                                           'READYOP1_POP_GR2')
-#
-# save(adult.var, file = "adult.var.RData")
+
+# Same process for adults, different variables
+adult.var <- data.adult %>% dplyr::select('Motiva_POP','motivb_POP',
+                                          'motivc_POP','motivd_POP',
+                                          'motive_POP','READYAB1_POP',
+                                          'READYOP1_POP','motivex2a',
+                                          'motivex2b','motivex2c',
+                                          'motivex2d','inclus_a',
+                                          'inclus_b','inclus_c',
+                                          'indev','indevtry',
+                                          'workactlvl',
+                                          'DUR_HVY_CAPPED_SPORTCOUNT_A01',
+                                          'DUR_MOD_CAPPED_SPORTCOUNT_A01',
+
+                                          # demographic
+                                          'Age17','Age3','AgeTGC',
+                                          'Age4','Age5','Age5_2',
+                                          'Age9','Disab2_POP',
+                                          'Gend3','Eth2','Eth7',
+                                          'Educ6',
+
+                                          # binary predictors
+                                          'Motiva_POP_GR2', 'motivex2c_GR2',
+                                          'motivex2a_GR2', 'motivc_POP_GR2',
+                                          'READYOP1_POP_GR2','motivex2b_GR2')
+
+save(adult.var, file = "adult.var.RData")
 
 # Basic Distributions and Stats -------------------------------------------
 
@@ -100,13 +101,14 @@ child.bi <- child.var %>%
          if_all(c(age_11, mins_modplus_outschool_Week_ALL), ~ .x > -1),
 
          if_all(c(PL_Enjoy_bc_SA_gr2, MO_Fun_c_SA, MO_Fit_c_SA,
-                  MO_Guilt_c_SA, MO_Opp_c_SA), ~ .x > -1 & .x < 3)) %>%
+                  MO_Guilt_c_SA, MO_Opp_c_SA, MO_Relax_c_SA), ~ .x > -1 & .x < 3)) %>%
 
   dplyr::select(enjoyb=PL_Enjoy_bc_SA_gr2,
                 socialb=MO_Fun_c_SA,
                 fitb=MO_Fit_c_SA,
                 guiltb=MO_Guilt_c_SA,
                 oppb=MO_Opp_c_SA,
+                relxb=MO_Relax_c_SA,
 
                 gender=gend3,
                 age=age_11,
@@ -133,7 +135,7 @@ adult.bi <- adult.var %>% filter(Disab2_POP==2,
                                         ~ .x > -1),
                                  if_all(c(Motiva_POP_GR2, motivex2c_GR2,
                                           motivex2a_GR2, motivc_POP_GR2,
-                                          READYOP1_POP_GR2),
+                                          READYOP1_POP_GR2, motivex2b_GR2),
                                         ~ .x %in% c(0,1))) %>%
 
 
@@ -153,6 +155,7 @@ adult.bi <- adult.var %>% filter(Disab2_POP==2,
                 fitb=motivex2a_GR2,
                 guiltb=motivc_POP_GR2,
                 oppb=READYOP1_POP_GR2,
+                relxb=motivex2b_GR2,
                 gender=Gend3,
                 age,
                 eth=Eth2,
@@ -194,10 +197,11 @@ child.lik <- child.var %>%
                 fit=MO_Fit_c,
                 opp=MO_Opp_c,
                 guilt=MO_Guilt_c, #99 instead of 5 for "can't say"
+                relx=MO_Relax_c,
 
+                abl=PL_Conf_bc_ans,
                 imp=PL_GdMe_bc_ans,
                 chal=Try_bc,
-                relx=MO_Relax_c,
 
                 dsbl=Disab_All_POP,
                 gender=gend3,
@@ -210,11 +214,11 @@ child.lik <- child.var %>%
          gender %in% c(1,2),
          eth %in% c(1,2),
          mins > -1,
-         if_all(c(enjoy,social,fit,guilt,opp,imp,chal,relx),
+         if_all(c(enjoy,social,fit,guilt,opp,imp,chal,relx,abl),
                 ~ .x > -1 & .x < 5)) %>%
   mutate(
     mins = ifelse(mins > 1680, 1680, mins),
-    across(c(enjoy,social,fit,guilt,imp,chal,opp,relx),
+    across(c(enjoy,social,fit,guilt,imp,chal,opp,relx,abl),
            ~ case_when(.x==4~3L, TRUE ~ as.integer(.x))),
     age=age-10
 
@@ -236,6 +240,7 @@ adult.lik <- adult.var %>%
                 guilt=motivc_POP,
                 opp=READYOP1_POP,
 
+                abl=READYAB1_POP,
                 imp=motivb_POP,
                 chal=motivex2d,
                 relx=motivex2b,
@@ -254,7 +259,7 @@ adult.lik <- adult.var %>%
          edu != 5
   ) %>%
 
-  mutate(across(c(enjoy,social,fit,guilt,opp,imp,chal,relx),
+  mutate(across(c(enjoy,social,fit,guilt,opp,imp,chal,relx,abl),
                 ~ case_when(.x==5~4L, TRUE ~ as.integer(.x))),
          edu = case_when(edu==6~5L, TRUE~edu),
          age = as.integer(case_when(age==2~3L,
@@ -271,21 +276,18 @@ adult.lik.back0 <- adult.lik
 # Checks -------------------------------------------------------------------
 # Collinearity
 dallb1 <- dallb %>% dplyr::select(-gender,-eth,-group)
-cor(dallb1, method = "pearson") # opp, fit and enjoy have mod corr with each other, others ok
-
-cor(child.lik.back0 %>% dplyr::select(-gender,-eth, -age), method = "pearson")
-
-# # remove easy, corrleation too high with confidence, which makes sense
-# child.lik <- child.lik.back %>% dplyr::select(-easy)
+cor(dallb1, method = "pearson")
+# opp, fit and enjoy have mod corr with each other, others ok
 
 # Check adult lik corr
-adult.lik <- adult.lik.back0
-cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")
-adult.lik1 <- adult.lik %>% dplyr::select(-gender,-eth, -imp)
-cor(adult.lik1, method = "pearson")
+cor(child.lik.back0 %>% dplyr::select(-gender,-eth, -age), method = "pearson")
+cor(adult.lik.back0 %>% dplyr::select(-gender,-eth,-age,-edu), method = "pearson")
+# adult.lik1 <- adult.lik %>% dplyr::select(-gender,-eth, -imp)
+# cor(adult.lik1, method = "pearson")
 
 # corrleation too high
-adult.lik <- adult.lik.back0 %>% dplyr::select(-imp)
+# child.lik <- child.lik.back0 %>% dplyr::select(-imp)
+# adult.lik <- adult.lik.back0 %>% dplyr::select(-imp)
 
 
 child.lik.back <- child.lik
@@ -293,22 +295,5 @@ adult.lik.back <- adult.lik
 
 
 # VIF
-vif_model <- lm(mins ~ enjoyb + socialb + fitb + guiltb + oppb, data = dallb1)
+vif_model <- lm(mins ~ enjoyb + socialb + fitb + guiltb + oppb + relxb, data = dallb1)
 vif(vif_model)
-
-# Proportions of each motive by group
-dallb2 <- dallb %>% dplyr::select(-gender,-eth)
-prop.table(table(dallb2$enjoyb,dallb2$group),2)
-prop.table(table(dallb2$socialb,dallb2$group),2)
-prop.table(table(dallb2$fitb,dallb2$group),2)
-prop.table(table(dallb2$guiltb,dallb2$group),2)
-prop.table(table(dallb2$oppb,dallb2$group),2)
-
-# Mean
-dallb2 %>% group_by(group) %>%
-  summarize(across(
-    .cols = all_of(setdiff(names(dallb2), "group")),
-    .fns = list(mean = mean, sd = sd)
-  ))
-
-

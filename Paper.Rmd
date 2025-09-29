@@ -69,37 +69,70 @@ source(file="Visualization.R")
 ```
 
 # Introduction
-## Mention the context of the research topic and why it is important.
+Mention the context of the research topic and why it is important.
+Mention what is the research gap and why it matters.
+Discuss how you will answer the research question.
 
-Nearly one third of global population suffer from insufficent physical activity, a 9% increase from 20 years ago (Strain et al, 2024). Understanding the factors that influence engagement in PA is critical, as regular activity supports cardiovascular health, metabolic function, mental well-being, and overall quality of life. Identifying the underlying determinants of PA can inform interventions, policies, and educational strategies aimed at improving health outcomes in both youths and adults.
 
-## Mention what is the research gap and why it matters.
+Physical inactivity remains widespread across different age groups and is considered a major public health issue (Mitchell, 2019). Nearly one third of global population suffer from insufficent physical activity, a 9% increase from 20 years ago (Strain et al, 2024). Understanding the factors that influence engagement in PA is critical, as regular activity supports cardiovascular health, metabolic function, mental well-being, and overall quality of life. Identifying the underlying determinants of PA can inform interventions, policies, and educational strategies aimed at improving health outcomes in both youths and adults. Motivation has consistently been identified as a central determinant of behaviour, including participation in physical activity (Daley & Duda, 2006; Deci & Ryan, 2008; Duncan et al., 2010; Falk et al., 2015; Flannery, 2017). However, most existing studies investigate age-related differences within youths or within adults, but rarely compare the two populations directly. This leaves unclear whether the same motives operate similarly across life stages, or whether different developmental contexts shape the salience of specific motives. To address this, the present study explores how different motives for PA manifest across youths and adults, using both observed differences and latent class analysis to identify distinct motivational profiles.
 
-Most existing studies focus on either youths or adults in isolation. Directly comparing these groups allows for examination of whether motivational influences on PA operate consistently across life stages. While motivational theories such as Self-Determination Theory suggest mechanisms that should be broadly applicable, the relative importance and extent of how different motives varies with age remain unclear.
-
-## Discuss how you will answer the research question.
-
-Research Questions
+* Research Questions
 1. Do perceived exercise motives influence physical activity differently in youths and adults?
 
 2. How do age differences shape dominant exercise motives within youth and adult groups?
 
+To test whether motives predict PA differently across youths and adults, multigroup structural equation modelling was used to examine associations between key motives and self-reported PA. Latent class analysis was used to identify motivational profiles within each group, enabling age-based comparisons.
 
-The research question will be addressed by examining the strength of the relationships between individual exercise motives and physical activity across youths and adults. Comparisons between the two groups will identify whether the associations differ in magnitude or pattern. Within each age group, profiles of motives will be characterized to capture how different motivations cluster together and contribute to activity levels. All analyses will be based on participants’ self-reported perceptions of their motives, ensuring that the study reflects subjective motivational experiences rather than externally imposed classifications.
+All analyses were based on self-reported perceptions of motives, reflecting subjective experiences rather than externally imposed classifications.
 
 
 # Literature Review
 
+Frameworks first: Introducing SDT, TPB, and SCT upfront provides a theoretical lens and allows the reader to interpret later findings in context.
+
+Dominant frameworks frequently cited include Self-Determination Theory, Theory of Planned Behaviour, and Social Cognitive Theory.
+
+## Self-Determination Theory (SDT)
+
+Self-Determination Theory (SDT) is a popular framework that has gained popularity in the past two decades. Developed by Deci & Ryan, it has shed light on the understanding of human motivation, emphasizing the degree to which behavior is self-determined versus controlled. Motivation is distinguished in terms of autonomy, with autonomous forms associated with volition and self-endorsement of behavior, and controlled forms reflecting pressure from external contingencies or internalized demands such as guilt or ego involvement. Within SDT, extrinsic motivation is subdivided into external regulation, introjected regulation, identified regulation, and integrated regulation, representing increasing internalization of instrumental behaviors. Intrinsic motivation, by contrast, arises from interest, enjoyment, or inherent satisfaction in the activity itself. These motivational types have implications for physical activity, as more autonomous motives are linked to sustained engagement, positive psychological outcomes, and long-term health (CITE).
+
+In physical activity and health behaviour research, this framework is especially influential because it links the quality of motivation, rather than its quantity, to long-term adherence and wellbeing. Empirical studies confirm that need-supportive interventions can improve exercise uptake, reduce dropout, and enhance both physical and psychological wellbeing (Teixeira et al., 2012; Ng et al., 2012). Consequently, SDT provides not just a descriptive model of motivation but also a prescriptive guide for designing effective physical activity and health promotion programmes.
+
+
+## Theory of Planned Behaviour (TPB)
+
+
+The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control. Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and perceived behavioral control represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although perceived behavioral control can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions—supported by favorable attitudes, positive social norms, and higher perceived control—are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behavior, highlighting the importance of situational constraints and individual capabilities.
+
+## Social Cognitive Theory (SCT)
+
+
+Age-specific motivations: Separating adults and youths, then considering life stage/age within each, makes the review nuanced and justifies hypotheses.
+
+## Age
+
+Motivational profiles: Ending with profiles flows naturally from general motivational correlates to discrete patterns that can predict outcomes.
+
+## Motivational Profiles
+
+
+
 • Discuss the main papers in your research area.
 • Try to summarise the current knowledge but also be critical of the limitations that you see and highlight gaps.
 
-Physical activity motivation varies across the lifespan, and understanding these differences is essential for designing effective interventions. Among adults, research using Self-Determination Theory (SDT) indicates that intrinsic and identified motivation tend to decline with age, while middle-aged and older adults are more likely to exercise for fitness and health reasons rather than for appearance or social recognition (Brunet & Sabiston, 2011; Davis et al., 1995). Autonomy support and enjoyment are higher in individuals with strong motivational profiles, suggesting that quality of motivation may interact with age-related patterns (Heredia-León et al., 2023). Social Cognitive Theory (SCT) research shows that self-efficacy and social support are key determinants of exercise behavior, with gender differences observed in adults (Oyibo, 2018). Similarly, the Theory of Planned Behavior (TPB) highlights perceived behavioral control as the strongest predictor of exercise intention, emphasizing the role of perceived capability in promoting activity across adulthood (Neipp et al., 2013).
+BE MORE CRITICAL OF PAPER METHODS (like social cognitive)
+
+
+Nascimento 2023
+Only the well-being factor is affected by age.
+
+Physical activity motivation varies across the lifespan, and understanding these differences is essential for designing effective interventions. Although prior work shows age-linked motivational patterns within either youths or adults, few studies directly compare these groups in the same framework. This limits our understanding of whether similar motives carry the same weight across developmental stages, or whether distinct clusters of motives emerge that reflect age-specific priorities. Among adults, research using Self-Determination Theory (SDT) indicates that along with geenral PA levels (Geller), intrinsic and identified motivation tend to decline with age, while middle-aged and older adults are more likely to exercise for fitness and health reasons rather than for appearance or social recognition (Brunet & Sabiston, 2011; Davis et al., 1995). Autonomy support and enjoyment are higher in individuals with strong motivational profiles, suggesting that quality of motivation may interact with age-related patterns (Heredia-León et al., 2023). Social Cognitive Theory (SCT) research shows that self-efficacy and social support are key determinants of exercise behavior, with gender differences observed in adults (Oyibo, 2018). Similarly, the Theory of Planned Behavior (TPB) highlights perceived behavioral control as the strongest predictor of exercise intention, emphasizing the role of perceived capability in promoting activity across adulthood (Neipp et al., 2013).
 
 In youths, SDT-based studies demonstrate that overall motivation tends to be higher than in adults, with social and relational contexts playing a central role. Children often link physical activity to interactions with friends or siblings, reflecting the importance of relatedness needs (Sebire et al., 2013). Motivation also varies by sex, age, school, and socioeconomic background, with students who exhibit high-quality motivation showing greater autonomy support, intention to be active, enjoyment, and lower boredom (Heredia-León et al., 2023; Tapia Serrano).
 
-Taken together, these findings suggest that the influence of specific exercise motives may differ between youths and adults. Enjoyment, guilt, and social motives appear more salient in youths, whereas fitness-related motives gain prominence in adults. Some factors, such as access to opportunities for activity, may operate similarly across age groups. Additionally, evidence for motivational profiles in both populations indicates the existence of distinct clusters of individuals characterized by differing motive dominance, with age-related patterns suggesting that younger youths tend toward enjoyment-dominant profiles, while middle-aged and older adults are more likely to be fitness-dominant.
+Most research on motivational influences in physical activity examines youths and adults separately, and often with distinct measurement tools tailored to each population. This makes it difficult to determine whether differences reflect true developmental patterns or simply methodological artifacts. By applying the same motive items across both groups, this study enables a more valid comparison of how motives relate to physical activity in youths versus adults (H1), while also identifying distinct motivational profiles within each group and examining how age predicts profile membership (H2). 
 
-Based on this synthesis, the following hypotheses are proposed:
+Given that enjoyment, social interaction, and guilt have been shown to play larger roles in youths, while fitness motives become more salient in adults, it is plausible that the strength of associations between motives and PA differs systematically between the groups. Testing this directly allows us to determine whether motivational influences are developmentally specific or broadly consistent. The influence of specific exercise motives may differ between youths and adults. Enjoyment, guilt, and social motives appear more salient in youths, whereas fitness-related motives gain prominence in middle-aged adults. Some factors, such as access to opportunities for activity, may operate similarly across age groups.
 
 * H1: The influence of exercise motives on physical activity differs between youths and adults.
 
@@ -109,6 +142,9 @@ Based on this synthesis, the following hypotheses are proposed:
 
 ** H1c: The influence of opportunity on physical activity is similar across age groups.
 
+
+Evidence for motivational profiles in both populations indicates the existence of distinct clusters of individuals characterized by differing motive dominance, with age-related patterns suggesting that younger youths tend toward enjoyment-dominant profiles, while middle-aged and older adults are more likely to be fitness-dominant. 
+
 * H2: Distinct motivational profiles exist within youths and within adults.
 
 ** H2a: Middle-aged and older adults are more likely than younger adults to belong to fitness-dominant profiles or score highly in fitness motives.
@@ -116,61 +152,14 @@ Based on this synthesis, the following hypotheses are proposed:
 ** H2b: Younger youths are more likely than older youths to belong to enjoyment-dominant profiles.
 
 
-
-
-
-
-
-
-
-
-
-
-### BOTH
-
-Nascimento 2023
-Only the well-being factor is affected by age.
-
-### ADULTS
-
-SDT
-geller
-physical activity rates decline as an individual ages.  it remains unclear why some individuals fail to maintain physical activity while others succeed.
-
-brunet
-associations between the motivational regulations and physical activity behavior varied across age groups. Identifying factors that influence intrinsic motivation and identified regulation for physical activity within each age segment is necessary to develop interventions to increase physical activity behavior across the lifespan.
-
-
-
-Oyibo, 2018 SCT 
-perceived self-efficacy and perceived social support are the strongest determinants of bodyweight exercise behavior, followed by outcome expectation.  Moreover, our results showed that the direct and total effect of self-efficacy on bodyweight exercise behavior is stronger for men than for women, while the direct and total effect of social support on bodyweight exercise behavior is stronger for women than for men.  
-
-
-TPB
-Perceived behavioral control was found to be the strongest predictor (Neipp et al., 2013), highlighting that interventions aiming to increase people’s sense of control could effectively promote physical activity.
-
-
-
-
-
-### Youths
-SDT
-Diego Andrés Heredia-León
-younger = more
-
-Tapiao serrano
-Moreover, there were significant differences in intrinsic motivation by school, integrated regulation, identified regulation and introjected regulation by sex, as well as in external regulation by sex, age and school (see Supplemental Table 2). This suggests that students' sex, age, school and SES were introduced as covariates into LPA modes.
-
-Wang, L., & Wang, L. (2015)
-The results of the current study indicated that intention, rather than PBC, was significantly associated with MVPA.  TPB performed better in the PA domain for boys than for girls. A significant relationship exists between attitude and MVPA intention among boys but not among girls. The second important finding of this study is that MVPA intention among boys is explained by their attitude and perceived behavioral control (PBC), whereas the sole TPB variable significantly associated with intention among girls is PBC. This finding agrees with other studies, which have found that the variables significantly related to PA intention and behavior for boys and girls are different.
-
-
-
 # Data and Methods
+
+* Discuss what variables you will use, how they are coded, the amount of missing data they have and present descriptive statistics.
+* Discuss the statistical models that you will use. Explain how the models will answer your research questions. Discuss what sequence of models you will run.
+
 ## Data
 
-The study uses survey responses from datasets collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were selected because the youth and adult surveys share a parallel structure, and several items are worded identically, providing a strong baseline for direct comparison between age groups. All motivational measures were captured using single-item survey questions. A list of relevant survey questions is provided in Appendix A. For motive variables, descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were calculated to assess distributional properties, relationships among variables.
-
+The study uses survey responses from datasets collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were selected because the youth and adult surveys share a parallel structure, and several items are worded identically, providing a strong baseline for direct comparison between age groups. All motivational measures were captured using single-item survey questions. A list of relevant survey questions is provided in Appendix A. For motive variables, descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were calculated to assess distributional properties, relationships among variables. Challenge and relaxation are only included in the LCA models due to different wording in the survey questions for adults and youths. A total of 117,247 adult and 30,670 youth observations were used in the SEM analyses, whereas 110,378 adult and 28,886 youth observations were included in the LCA. Only cisgender adults without disabilities were included in the analyses to maintain comparability and avoid skewed results due to small subgroup sizes. As ethnicity, education, and gender were included as control variables, these factors were retained alongside the analyzed items. Participants with missing responses on any relevant items were also excluded. 
 
 * Enjoyment – whether the individual finds exercise satisfying.
 
@@ -182,24 +171,21 @@ The study uses survey responses from datasets collected by Ipsos on behalf of Sp
 
 * Guilt – sense of personal obligation to exercise.
 
-* Importance – value placed on maintaining a regular exercise routine.
-
 * Challenge – exercising to push oneself or compete with others.
 
 * Relaxation – exercising to reduce stress and worry.
 
+* Minutes Exercised - weekly minutes of moderate-to-vigorous PA; see appendix for specific activities.
 
 ### Adult Dataset
 
 The adult dataset was drawn from households sampled via the Postcode Address File (PAF), with up to two residents aged 16 or older invited to participate through either an online survey or a paper questionnaire. Data were gathered in successive waves, aiming for approximately 500 responses per local authority, and were distributed as evenly as possible across the period from November 2022 to November 2023 to reduce seasonal bias. In total, 173,950 surveys were completed.
 
-
-
 Each item was rated on a five-point Likert scale ranging from 1 (strongly disagree) to 5 (strongly agree), with higher values reflecting stronger endorsement of the statement. 
 
-Item Importance was removed for adults due to its high correlation with enjoyment and fitness (>0.5). cor.imp
+Several items, such as importance of exercise, were removed for adults due to its high correlation with enjoyment and fitness (>0.5).
 
-```{r adult.summary, fig.align='center',fig.cap=""}
+```{r adult.summary, fig.align='center',fig.cap="Summary of variables for adults."}
 opts <- options(knitr.kable.NA = '')
 kable(list(adult.summary),align='c',booktabs = T) %>%
   kable_styling(position = 'center', font_size = 10,
@@ -207,7 +193,8 @@ kable(list(adult.summary),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
+
+```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap='Negative values are mising responses.'}
 
 gg.ad.dsbl
 gg.ad.gend
@@ -215,6 +202,7 @@ gg.ad.age
 ```
 
 ```{r gg.ad.demo2, fig.pos = "!h", out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
+
 gg.ad.eth
 gg.ad.edu
 
@@ -223,6 +211,8 @@ gg.ad.edu
 
 
 ### Youths Dataset
+
+Data for youths were collected via a school-focused, stratified sampling approach.  Only responses from Year 7 to Year 11 were utilized. Younger cohorts completed a simplified survey or had responses recorded on their behalf, and are thus excluded due to reduced comparability.
 
 ```{r child.summary, fig.align='center',fig.cap=""}
 opts <- options(knitr.kable.NA = '')
@@ -242,27 +232,16 @@ gg.ch.eth
 
 ```
 
-* Discuss what variables you will use, how they are coded, the amount of missing data they have and present descriptive statistics.
-
-
-
-
-* Discuss the statistical models that you will use. Explain how the models will answer your research questions. Discuss what sequence of models you will run.
 
 ## Multigroup Structural Equation Modeling (SEM)
 
-Differences in the relationships between self-reported motives and PA levels across youths and adults were examined while controlling for demographic factors. Shared survey questions and responses were selected from both datasets. 
-
-CHUNK FOR MODEL SPECS!
+Differences in the relationships between self-reported motives and PA levels across youths and adults were examined while controlling for demographic factors (see appendix for code and model specs). 
 
 Motivation variables included enjoyment, social, fitness, guilt, and opportunity. To account for differences in Likert scales between adults and youths, all motivation variables were dichotomized into “strongly agree” and “not strongly agree.” Demographic covariates included gender, age, and ethnicity. Gender was limited to female and male due to small sample sizes of other categories. Ethnicity was collapsed into White British and Non-White British for similar reasons. Youth participants included only those aged 11 and older who responded to the relevant items. Adult participants were grouped by age ranges (16–34, 35–44, 45–54, 55–64, 65–74, 75+) because exact ages were unavailable. The youngest and oldest two groups were further collapsed to reduce skew and ensure balanced distributions. A cap of 1680 minutes per week was applied to reported PA to minimize the impact of potential data entry errors and extreme values.
 
-CHUNK FOR DESCRIPTIVE!
-
-The response variable was weekly minutes of moderate-to-vigorous PA. Multigroup SEM was used to assess how each motive predicts PA levels, allowing direct comparison of pathway strengths between youths and adults. A freely estimated model was compared to constrained models in which individual or all motive pathways were fixed to equality, enabling evaluation of whether the effects of motives differ across age groups. Differences in the predictive strength of each motive on physical activity minutes were also calculated.
+Multigroup SEM was used to assess how each motive predicts PA levels, allowing direct comparison of pathway strengths between youths and adults. A freely estimated model was compared to constrained models in which individual or all motive pathways were fixed to equality, enabling evaluation of whether the effects of motives differ across age groups. Differences in the predictive strength of each motive on physical activity minutes were also calculated.
 
 ## Latent Profile Analysis (LCA)
-
 
 Latent class analysis (LCA) was conducted separately within the youths and adults groups to explore age-related differences in motivational profiles. 
 
@@ -276,6 +255,14 @@ The optimal number of classes was determined by evaluating BIC elbow plots, rela
 )
 
 This procedure allows assessment of both the magnitude and statistical significance of age effects on class membership and, consequently, on PA-related motivational profiles.
+
+There exist clear patterns in the response distrbution by age group in both adults and youths.
+```{r vars, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.vars.ad
+gg.vars.ch
+
+```
 
 
 # Results
@@ -315,69 +302,16 @@ ADD IMPLICATIONS OF SUBSTANTIVE INTERPRETATION
 
 Median mins per class, rather than mean due to skew in distribution of minutes exercised (right skew), is calculated. 
 
-### Youths
-
-BIC plot indicates 3 or four 4 to reduce BIC the most. BLRT preferred 4 classes. Relative entropy values are `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]` for 3 and 4 classes, respectively, which shows 3 to have slightly better separation between classes.
-The likelihood is similar between 3 and 4 classes. Average posterior probabilities are better in the 3-class model, as all classes have a >.80 pp.
-
-
-```{r vars.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
-
-gg.vars.ch
-
-```
-
-
-See appendix for elbow plot avereage pp etc
-Both 3 and 4- class models show promise.  BIC does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
-
-However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
-
-
-
-```{r distr.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
-
-plot(LCAE.ch, nclass = 2)
-plot(LCAE.ch, nclass = 3)
-
-```
-
-```{r mins.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
-
-gg.mins.ch
-
-```
-
-#### Interpretation
-
-Class 1: A highly engaged group exercising for intrinsic (enjoyment, competence) and extrinsic (importance, fitness, social) reasons. (High across core motives: enjoyment, fitness, importance, ability → strong positive orientation to exercise. Moderate-to-high secondary motives: social, challenge, relaxation. Mixed guilt: not central.)
-
-Class 2: they agree exercise is valuable, but don’t strongly enjoy it. Low guilt and relaxation. They see exercise as important and somewhat social, but motivation is not driven by strong enjoyment or self-competence. This group might exercise out of social reinforcement or external values rather than intrinsic enjoyment. (Moderate enjoyment, social, fitness, opportunity, challenge, ability.)
-
-Class 3: They believe exercise is important (cognitive endorsement), but lack enjoyment, confidence, or social drive. Likely lower actual participation; motivation here is more abstract belief than emotional or social engagement. (Low enjoyment, fitness, challenge, social, guilt, ability, relaxation. Moderate opportunity and high importance.)
-
-
-```{r byage.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
-
-gg.byage.ch
-
-```
-
-Age: The youngest group is most likely to be in class 1. However, class 2 have only minor (<20%) deviations in each age group, indicating that age has little systematic effect. However, the youngest age group is only 20% as likely to belong in class 3, and the trend increases as age goes up. Ie. the older the youths are the more likely they are to be in class 3. This makes sense as youths become more e.g. self-conscious, entangled with other responsibilities, more autonomy and more ways to entertain themselves. 
-
-This supports hypothesis 2b, that younger youths are more likely to belong to enjoyment-dominant profiles.
-
 ### Adults
 
+```{r elbow.llik.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
 
-```{r vars.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
-
-gg.vars.ad
+gg.elbow.ad
+gg.llik.ad
 
 ```
 
-
-3, 4, and 5 classes all seem ok at first glance, with simlar relative entropy, BIC, and max posterior entropy per class. While BLRT recommends the 4-class model, upon closer inspection, 3 classes has the best substantive interpretation, 4- and 5- class models contain very similar classes with minor distribution differences in their responses. 
+3 and 4 classes both seem ok at first glance, with simlar relative entropy, BIC, and max posterior entropy per class. While BLRT recommends the 4-class model, upon closer inspection, 3 classes has the best substantive interpretation, 4- and 5- class models contain very similar classes with minor distribution differences in their responses. 
 
 ```{r distr.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
 
@@ -411,7 +345,56 @@ gg.byage.ad
 Multinomial logistic regression examined the association between age and motivation profile, with the highly motivated class (Class 1) as the reference. Compared with the youngest adults (age1), older age groups had higher odds of being in the moderate (Class 3) or low motivation (Class 2) classes. The effect was strongest in the oldest group (age6), who were about twice as likely to belong to the low motivation class (OR = 2.06) and 1.84 times more likely to belong to the moderate motivation class, relative to the highly motivated class. These results indicate that motivation tends to decline with age, with fewer older adults exhibiting the highly positive/intrinsic profile.
 
 
+### Youths
 
+BIC plot indicates 3 or four 4 to reduce BIC the most. BLRT preferred 4 classes. Relative entropy values are `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]` for 3 and 4 classes, respectively, which shows 3 to have slightly better separation between classes.
+The likelihood is similar between 3 and 4 classes. Average posterior probabilities are better in the 3-class model, as all classes have a >.80 pp.
+
+
+```{r elbow.llik.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.elbow.ch
+gg.llik.ch
+
+```
+
+
+See appendix for elbow plot avereage pp etc
+Both 3 and 4- class models show promise.  BIC plot does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
+
+However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
+
+
+
+```{r distr.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+plot(LCAE.ch, nclass = 2)
+plot(LCAE.ch, nclass = 3)
+
+```
+
+```{r mins.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.mins.ch
+
+```
+
+Class 1: A highly engaged group exercising for intrinsic (enjoyment, competence) and extrinsic (importance, fitness, social) reasons. (High across core motives: enjoyment, fitness, importance, ability → strong positive orientation to exercise. Moderate-to-high secondary motives: social, challenge, relaxation. Mixed guilt: not central.)
+
+Class 2: they agree exercise is valuable, but don’t strongly enjoy it. Low guilt and relaxation. They see exercise as important and somewhat social, but motivation is not driven by strong enjoyment or self-competence. This group might exercise out of social reinforcement or external values rather than intrinsic enjoyment. (Moderate enjoyment, social, fitness, opportunity, challenge, ability.)
+
+Class 3: They believe exercise is important (cognitive endorsement), but lack enjoyment, confidence, or social drive. Likely lower actual participation; motivation here is more abstract belief than emotional or social engagement. (Low enjoyment, fitness, challenge, social, guilt, ability, relaxation. Moderate opportunity and high importance.)
+
+
+```{r byage.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.byage.ch
+
+```
+
+Age: The youngest group is most likely to be in class 1. However, class 2 have only minor (<20%) deviations in each age group, indicating that age has little systematic effect. However, the youngest age group is only 20% as likely to belong in class 3, and the trend increases as age goes up. Ie. the older the youths are the more likely they are to be in class 3. This makes sense as youths become more e.g. self-conscious, entangled with other responsibilities, more autonomy and more ways to entertain themselves. 
+
+This supports hypothesis 2b, that younger youths are more likely to belong to enjoyment-dominant profiles.
 
 
 # Conclusions
@@ -419,11 +402,45 @@ Multinomial logistic regression examined the association between age and motivat
 • Summarise what you have found. Restate your questions and hypotheses and show
 how you answer them.
 • Discuss possible limitations and implications they might have for the results.
+No factor analysis
+Wording slightly different between datasets for 2 vars 
+Correlation moderate in sem
+interpreattion may be diff despite same 
+skewed data (like most self-reports
+did not log transform minutes, rather just took the median, results are extremely similar and does not detract from comparison
+removed "does not know" from youths rather than using it as neutral answer
+only counted moderate to heavy exercises, but for older adults they may only be able to perform and benefit equally from light exercises
+
+demogrpahics like gender, ethnicity, disability, relationship, not considered
+
+motive items limited to only the ones that are worded the same or extremely similar
+data is cross sectinoal
+
 • Discuss implications for theory and/or policy based on what you found.
 
 
 # References
 
+Ajzen, Icek (1991). "The theory of planned behavior". Organizational Behavior and Human Decision Processes. 50 (2): 179–211. doi:10.1016/0749-5978(91)90020-T. hdl:11323/1038. S2CID 260959149.
+
+Dishman, R. K., McIver, K. L., Dowda, M., & Pate, R. R. (2018). Declining Physical Activity and Motivation from Middle School to High School. Medicine and science in sports and exercise, 50(6), 1206–1215. https://doi.org/10.1249/MSS.0000000000001542
+
+Varma, V. R., Dey, D., Leroux, A., Di, J., Urbanek, J., Xiao, L., & Zipunnikov, V. (2017). Re-evaluating the effect of age on physical activity over the lifespan. Preventive medicine, 101, 102–108. https://doi.org/10.1016/j.ypmed.2017.05.030
+
+Salvy, S. J., Roemmich, J. N., Bowker, J. C., Romero, N. D., Stadler, P. J., & Epstein, L. H. (2009). Effect of peers and friends on youth physical activity and motivation to be physically active. Journal of pediatric psychology, 34(2), 217–225. https://doi.org/10.1093/jpepsy/jsn071
+
+Biddle, Stuart J. H. , Atkin, Andrew J. , Cavill, Nick and Foster, Charlie(2011) 'Correlates of physical activity in youth: a review of quantitative systematic reviews', International Review of Sport and Exercise Psychology, 4:1, 25 — 49. URL:http://dx.doi.org/10.1080/1750984X.2010.548528
+
+Shao, T., & Zhou, X. (2023). Correlates of physical activity habits in adolescents: A systematic review. Frontiers in physiology, 14, 1131195. https://doi.org/10.3389/fphys.2023.1131195
+
+Choi, J., Lee, M., Lee, Jk. et al. Correlates associated with participation in physical activity among adults: a systematic review of reviews and update. BMC Public Health 17, 356 (2017). https://doi.org/10.1186/s12889-017-4255-2
+
+Alixe H M Kilgour, Matthew Rutherford, Joanna Higson, Samantha J Meredith, Jessica McNiff, Stephanie Mitchell, Anusan Wijayendran, Stephen E R Lim, Susan D Shenkin, Barriers and motivators to undertaking physical activity in adults over 70—a systematic review of the quantitative literature, Age and Ageing, Volume 53, Issue 4, April 2024, afae080, https://doi.org/10.1093/ageing/afae080
+
+
+Lee IM, Shiroma EJ, Lobelo F, Puska P, Blair SN, Katzmarzyk PT. Effect of physical inactivity on major non-communicable diseases worldwide: an analysis of burden of disease and life expectancy. Lancet (London, England). 2012, 380(9838):219–229.
+
+Hallal PC, Andersen LB, Bull FC, Guthold R, Haskell W, Ekelund U. Global physical activity levels: surveillance progress, pitfalls, and prospects. Lancet (London, England). 2012, 380(9838):247–257.
 
 
 Miguel Ángel Tapia-Serrano, Miguel Ángel López-Gajardo, Pedro Antonio Sánchez-Miguel, Rubén Llanos-Muñoz, Rafael Burgueño,
@@ -459,83 +476,49 @@ Neipp, Mª & Quiles, María & Leon, Eva & Rodríguez-Marín, Jesús. (2013). The
 
 Wang, L., & Wang, L. (2015). Using Theory of Planned Behavior to Predict the Physical Activity of Children: Probing Gender Differences. BioMed research international, 2015, 536904. https://doi.org/10.1155/2015/536904
 
-<!-- # Use tab.cap when it's one kable -->
-<!-- # Use fig.cap when  -->
 
 
-<!-- ```{r table1, fig.align='center',fig.cap=""} -->
-<!-- opts <- options(knitr.kable.NA = '') -->
-<!-- kable(list(PC1_rot,PC2_rot),align='c',booktabs = T) %>% -->
-<!--   kable_styling(position = 'center', font_size = 10, -->
-<!--                 latex_options = c('striped', -->
-<!--                                   'hold_position')) -->
-<!-- ``` -->
+\newpage
+# Appendix A - Survey Questions
 
 
-# ```{r graph, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
-# 
-# plot_glmnet(lasso.mod.tr, label = 4,
-#                                  main = 'Trace Plot by Lasso')
-# 
-# plot_glmnet(ridge.mod.tr, label = 3,
-#                                  main = 'Trace Plot by Ridge')
-# 
-# ```
+\newpage
+# Appendix B - R Code
 
+```{r data.R, comment = ""}
+source("data.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
 
-<!-- \newpage -->
+\newpage
 
-<!-- # Appendix A - Graphs and tables -->
+```{r SEM.R, comment = ""}
+source("SEM.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
 
-<!-- ```{r crit.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''} -->
+\newpage
 
-<!-- gg.elbow.ch -->
-<!-- gg.llik.ch -->
+```{r LCA.R, comment = ""}
+source("LCA.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
 
-<!-- ``` -->
+\newpage
 
-<!-- table of class sizes + AvePP -->
+```{r Visualization.R, comment = ""}
+source("Visualization.R", echo = T, print.eval = F,
+       max.deparse.length=Inf, keep.source=T)
+```
 
-<!-- ```{r pp.ch, fig.align='center',fig.cap=""} -->
-<!-- opts <- options(knitr.kable.NA = '') -->
-<!-- kable(list(tb.class3.ch,tb.class4.ch),align='c',booktabs = T) %>%  -->
-<!--   kable_styling(position = 'center', font_size = 10, -->
-<!--                 latex_options = c('striped', -->
-<!--                                   'hold_position')) -->
-<!-- ``` -->
+\newpage
 
+# Appendix C - R code: rmarkdown chunks
 
+```{r get-labels, echo=FALSE, eval=TRUE}
+labs = knitr::all_labels()
+labs = setdiff(labs, c("setup", "get-labels"))
+```
 
-<!-- ```{r code1, comment = ""} -->
-<!-- source("clean.R", echo = T, print.eval = F, -->
-<!--        max.deparse.length=Inf, keep.source=T) -->
-<!-- ``` -->
-
-<!-- \newpage  -->
-
-<!-- # Appendix B - R code: modelling -->
-
-<!-- ```{r code2, comment = ""} -->
-<!-- source("model.R", echo = T, print.eval = F, -->
-<!--        max.deparse.length=Inf, keep.source=T) -->
-<!-- ``` -->
-
-<!-- \newpage  -->
-
-<!-- # Appendix C - R code: visualization -->
-
-<!-- ```{r code3, comment = ""} -->
-<!-- source("vis.R", echo = T, print.eval = F, -->
-<!--        max.deparse.length=Inf, keep.source=T) -->
-<!-- ``` -->
-<!-- \newpage -->
-
-<!-- # Appendix D - R code: rmarkdown chunks -->
-
-<!-- ```{r get-labels, echo=FALSE, eval=TRUE} -->
-<!-- labs = knitr::all_labels() -->
-<!-- labs = setdiff(labs, c("setup", "get-labels")) -->
-<!-- ``` -->
-
-<!-- ```{r all-code, ref.label=labs, echo=TRUE, eval=FALSE} -->
-<!-- ``` -->
+```{r all-code, ref.label=labs, echo=TRUE, eval=FALSE}
+```

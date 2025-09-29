@@ -26,8 +26,6 @@ lca.f.child <- child.lik.y ~ gender + eth
 load("LCAE.ch.RData")
 
 
-# load(file="LCAE.ch.RData")
-
 # bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
 # blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=10)
 # save(blrt.ch,file="blrt.ch.RData")
