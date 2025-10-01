@@ -155,6 +155,8 @@ Hypothesis 2: Distinct motivational profiles exist within youths and within adul
 
 * Discuss the statistical models that you will use. Explain how the models will answer your research questions. Discuss what sequence of models you will run.
 
+
+
 ## Data
 
 The study uses survey responses from datasets collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were selected because the youth and adult surveys share a parallel structure, and several items are worded identically, providing a strong baseline for direct comparison between age groups. All motivational measures were captured using single-item survey questions. A list of relevant survey questions is provided in Appendix A. For motive variables, descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were calculated to assess distributional properties, relationships among variables. Challenge and relaxation are only included in the LCA models due to different wording in the survey questions for adults and youths. A total of 117,247 adult and 30,670 youth observations were used in the SEM analyses, whereas 110,378 adult and 28,886 youth observations were included in the LCA. Only cisgender adults without disabilities were included in the analyses to maintain comparability and avoid skewed results due to small subgroup sizes. As ethnicity, education, and gender were included as control variables, these factors were retained alongside the analyzed items. Participants with missing responses on any relevant items were also excluded. 
@@ -282,6 +284,7 @@ The optimal number of classes was determined by evaluating BIC elbow plots, rela
 
 This procedure allows assessment of both the magnitude and statistical significance of age effects on class membership and, consequently, on PA-related motivational profiles.
 
+Residual diagnostics for conditional independence, such as standardized bivariate chi-square or bivariate residuals, were computed for the PA-related items. Some cells in the cross-tabulations of item responses were extremely sparse (proportions <1%), which mathematically inflates these statistics. As a result, the standardized bivariate chi-square values were unrealistically large and not interpretable as indicators of local dependence. Given this, local dependence statistics are not reported. Instead, model evaluation relied on standard LCA fit indices (BIC, aBIC, entropy) and the interpretability and stability of the latent classes, which were robust.
 
 \newpage 
 

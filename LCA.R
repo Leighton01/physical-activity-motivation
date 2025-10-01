@@ -282,3 +282,28 @@ tb.byage.ad <- adult.lik %>%
   count(age, class) %>%
   pivot_wider(names_from = class, values_from = n, values_fill = 0)
 
+
+
+
+
+lca_data <- child.lik[, c("abl", "enjoy")]
+
+lca_model <- lcae.ch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
