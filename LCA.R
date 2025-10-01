@@ -143,16 +143,14 @@ count(age, class) %>%
   pivot_wider(names_from = class, values_from = n, values_fill = 0)
 
 # LCA, Adults -------------------------------------------------------------
-## almost exactly the same as youths,
-## with the addition of Education as a covariate
 
 adult.lik <- adult.lik.back
 # Predictors (motives)
 adult.lik.y <- as.matrix(adult.lik %>%
-                           dplyr::select(-mins,-age,-gender,-eth,-edu))
+                           dplyr::select(-mins,-age,-gender,-eth))
 
 # Spec formula for LCA
-lca.f.adult <- adult.lik.y ~ gender + eth + edu
+lca.f.adult <- adult.lik.y ~ gender + eth
 
 # LCAE.ad <- poLCA(lca.f.adult, data = adult.lik, nclass = 2:7)
 # save(LCAE.ad, file="LCAE.ad.RData")

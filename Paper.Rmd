@@ -11,7 +11,6 @@ output:
   geometry: margin=2in
 ---
 
-<!-- # get rid of later -->
 rmdwc::rmdcount('Paper.rmd')
 
 
@@ -68,27 +67,21 @@ source(file="Visualization.R")
 \tableofcontents
 ```
 
-# Introduction
-Mention the context of the research topic and why it is important.
-Mention what is the research gap and why it matters.
-Discuss how you will answer the research question.
+\newpage 
 
+# Introduction
 
 Physical inactivity remains widespread across different age groups and is considered a major public health issue (Mitchell, 2019). Nearly one third of global population suffer from insufficent physical activity, a 9% increase from 20 years ago (Strain et al, 2024). Understanding the factors that influence engagement in PA is critical, as regular activity supports cardiovascular health, metabolic function, mental well-being, and overall quality of life. Identifying the underlying determinants of PA can inform interventions, policies, and educational strategies aimed at improving health outcomes in both youths and adults. Motivation has consistently been identified as a central determinant of behaviour, including participation in physical activity (Daley & Duda, 2006; Deci & Ryan, 2008; Duncan et al., 2010; Falk et al., 2015; Flannery, 2017). However, most existing studies investigate age-related differences within youths or within adults, but rarely compare the two populations directly. This leaves unclear whether the same motives operate similarly across life stages, or whether different developmental contexts shape the salience of specific motives. To address this, the present study explores how different motives for PA manifest across youths and adults, using both observed differences and latent class analysis to identify distinct motivational profiles.
 
-* Research Questions
+  Research Questions
+
 1. Do perceived exercise motives influence physical activity differently in youths and adults?
 
 2. How do age differences shape dominant exercise motives within youth and adult groups?
 
 To test whether motives predict PA differently across youths and adults, multigroup structural equation modelling was used to examine associations between key motives and self-reported PA. Latent class analysis was used to identify motivational profiles within each group, enabling age-based comparisons.
 
-All analyses were based on self-reported perceptions of motives, reflecting subjective experiences rather than externally imposed classifications.
-
-
 # Literature Review
-
-Frameworks first: Introducing SDT, TPB, and SCT upfront provides a theoretical lens and allows the reader to interpret later findings in context.
 
 Dominant frameworks frequently cited include Self-Determination Theory, Theory of Planned Behaviour, and Social Cognitive Theory.
 
@@ -101,60 +94,65 @@ In physical activity and health behaviour research, this framework is especially
 
 ## Theory of Planned Behaviour (TPB)
 
-
 The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control. Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and perceived behavioral control represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although perceived behavioral control can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions—supported by favorable attitudes, positive social norms, and higher perceived control—are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behavior, highlighting the importance of situational constraints and individual capabilities.
 
 ## Social Cognitive Theory (SCT)
 
 
-Age-specific motivations: Separating adults and youths, then considering life stage/age within each, makes the review nuanced and justifies hypotheses.
 
-## Age
 
-Motivational profiles: Ending with profiles flows naturally from general motivational correlates to discrete patterns that can predict outcomes.
+\newpage 
+
+## Age Differences
+
+Across multiple studies, autonomous motivations, such as intrinsic motivation and identified regulation, are consistently associated with higher levels of physical activity. However, it was also consistently found that intrinsic motivation decreases with age (Brunet & Sabiston, 2011; Dishman et al., 2018; Nascimento et al., 2023). 
+
+Longitudinal evidence from adolescents indicates that intrinsic motivation and integrated regulation can mitigate age-related declines in physical activity, but their effects are conditional on goal contents. Specifically, Dishman et al. (2018) found that adolescents who maintained higher intrinsic motivation or integrated regulation remained more active when they also maintained higher enjoyment goals. Declines in appearance, social, or competence goals could either weaken or strengthen the protective influence of autonomous motivation depending on the interaction. These findings suggest that enjoyment- and social-oriented motives play a critical role in sustaining physical activity in youths, and that interventions targeting these motives should consider the interaction with specific goal contents.
+
+Among adults, Brunet and Sabiston (2011) observed that identified regulation remained high and external regulation low across age groups, suggesting that adults engage in activity because it aligns with personal values rather than external incentives. However, middle-age adults exhibited lower intrinsic motivation, introjected regulation, and physical activity than younger adults. Nascimento et al. (2023) similarly found that adolescents and younger adults were motivated more by extrinsic factors such as appearance and social approval, whereas older adults emphasized intrinsic motives related to psychological well-being. These studies collectively indicate that fitness- and health-related motives gain prominence with age.
+
+In adolescents, intrinsic motivation, self-efficacy, and enjoyment of physical activity are strong predictors of habitual engagement, with social support from parents, teachers, and peers playing a facilitative role (Shao & Zhou, 2023). Boys consistently report higher overall physical activity, whereas girls tend to engage more in moderate-to-vigorous activities, and a gradual decline in activity is observed across adolescence. These findings align with longitudinal evidence suggesting that intrinsic motivation in youths helps buffer against age-related declines in physical activity, particularly when coupled with the maintenance of personally meaningful goals such as enjoyment or competence (Dishman et al., 2018). Social and goal-oriented factors may act as effect modifiers, amplifying or mitigating the influence of autonomous motivation on behavior during this critical developmental period.
+
+In contrast, studies focusing on adults over 70 highlight a shift in motivational determinants, with barriers increasingly dominated by concerns about health, functional ability, and fear of injury, including fear of falling (Kilgour et al., 2024). Social motivators, such as support from family or the opportunity for interaction during activity, emerge as key facilitators, while personal fulfillment and accessible facilities are also cited, albeit less consistently. Notably, intrinsic or autonomous forms of motivation are less frequently reported as primary drivers in this population, suggesting that the relative importance of autonomous versus controlled motivation may decline with advanced age. The evidence also indicates gendered differences in motivators and barriers, with women valuing social aspects more strongly and men more often citing lack of interest as a barrier, highlighting the need for tailored interventions.
+
+Evidence also suggests that certain contextual factors, such as opportunity or access to facilities, may influence physical activity similarly across age groups. While the specific motives driving activity vary with age, supportive environmental contexts appear to facilitate activity regardless of life stage, consistent with SDT’s emphasis on autonomy-supportive environments (Brunet & Sabiston, 2011; Dishman et al., 2018).
+
+While the body of literature provides valuable insights into the determinants of physical activity across different age groups, several limitations temper the conclusions. Many studies of adolescents, including Dishman et al., Shao and Zhou, rely on self-report measures for both activity and motivation, which introduces potential biases such as social desirability or inaccurate recall. Even in longitudinal designs, as in Dishman et al., causality cannot be firmly established; observed associations between intrinsic motivation, goal content, and physical activity may be confounded by unmeasured factors such as peer influences, family context, or school policies. Most data are derived from high-income countries with predominantly white participants, limiting cross-cultural generalizability. Functional impairments and comorbidities are inconsistently measured, making it difficult to disentangle the effects of physical limitations from motivational factors. Across the lifespan, gender differences are inconsistently explored, with some studies noting divergent patterns but few systematically testing interactions between sex, age, and motivation type.
+
+Hypothesis 1: The influence of exercise motives on physical activity differs between youths and adults.
+
+* H1a: Enjoyment, social, and guilt motives are more influential in youths than in adults.
+
+* H1b: Fitness related motives are more influential in adults than in youths, particularly in middle-aged and older groups.
+
+* H1c: Environmental opportunities influence physical activity similarly across age groups.
 
 ## Motivational Profiles
 
+In adults, Ostendorf et al. (2021) identified three primary motivational profiles in individuals with overweight or obesity: high autonomous, high combined, and moderate combined. The high autonomous profile was characterized by strong intrinsic and identified motivations, with minimal influence of external or introjected regulation. The high combined profile reflected elevated levels across all regulatory types, while the moderate combined profile exhibited intermediate levels on all regulations. Notably, baseline device-measured moderate-to-vigorous physical activity (MVPA) did not differ significantly across profiles, in contrast to prior studies relying on self-reported PA that suggested higher autonomous profiles correlate with greater activity (Friederichs et al., 2015; Gourlan et al., 2016). Longitudinally, the high autonomous profile demonstrated the least decline in MVPA during transitions from supervised to unsupervised exercise, suggesting that intrinsic and identified motivations support sustained behavior, whereas moderate-to-high external regulation may necessitate continued support for adherence. Limitations of this study include a small, predominantly female and motivated sample, the absence of amotivation as a profile dimension, reliance on baseline-only motivation measurement, and potential dropout-related attenuation of observed associations, limiting generalizability to broader adult populations.
 
+In adolescents, Moreno-Murcia et al. (2011) found two primary motivational profiles in physical education students: a self-determined profile, with high scores on intrinsic and identified regulation, and a non-self-determined profile, characterized by elevated external, introjected, and amotivated scores. The self-determined profile was positively associated with Theory of Planned Behavior constructs such as intention, subjective norm, perceived behavioral control, and attitude, suggesting that autonomous motivation supports both favorable cognitions and participation behaviors. However, the study relied on self-reported measures, was conducted in a non-representative sample of Spanish children, and integrated regulatory forms that may not fully emerge in younger populations, limiting developmental generalizability.
 
-• Discuss the main papers in your research area.
-• Try to summarise the current knowledge but also be critical of the limitations that you see and highlight gaps.
+Cross-sectional studies of secondary school and PE students provide converging evidence. Manzano-Sánchez et al. (2019) identified distinct motivational profiles among adolescents aged 12–16, showing that higher motivation profiles were associated with adaptive outcomes such as greater responsibility, resilience, and perceived social support. Similarly, Heredia-León et al. (2021) found that students with high-quality and high-quantity motivational profiles demonstrated greater autonomous motivation, intention to be physically active, and enjoyment in PE classes, whereas low-quality or low-quantity profiles corresponded to higher boredom and lower engagement. Both studies support the idea that motivation is multifaceted and that enjoyment- and autonomy-oriented motives are particularly salient for younger populations, which aligns with H1a.
 
-BE MORE CRITICAL OF PAPER METHODS (like social cognitive)
+Tapia-Serrano et al. (2022) further extended the understanding of motivational profiles in children, identifying five profiles: highly amotivated, moderately amotivated, averagely motivated, controlled motivated, and autonomously motivated. While autonomously motivated students maintained higher PA intentions long-term, controlled motivated students also demonstrated elevated PA behavior in the short term, highlighting that controlled motivation may, in specific contexts, promote adaptive engagement. Nonetheless, the study relied exclusively on self-reported PA and did not capture objective long-term behavior, limiting confidence in the persistence of these effects.
 
+Nuss et al. (2023) identified four motivational profiles in a sample of Canadian adults: high controlled and high autonomous (HCHA), high autonomous and introjected (HAI), high amotivation and external (HAE), and low overall motivation (LOM). Contrary to expectations, HCHA participants reported the highest MVPA levels across three time points, including during COVID-19 stay-at-home orders, suggesting that combinations of controlled and autonomous motivation may synergistically support activity in some contexts. Limitations include the cross-sectional assessment of motivation, reliance on retrospective self-report for multiple time points, and potential instability of profiles over time.
 
-Nascimento 2023
-Only the well-being factor is affected by age.
+It's likely that neither youths nor adults form a single homogeneous motivational category. Rather, multiple profiles coexist within each population, differing in the prevalence of motives. However, methodological limitations—including reliance on self-report, limited longitudinal tracking, small or non-representative samples hinder analysis.
 
-Physical activity motivation varies across the lifespan, and understanding these differences is essential for designing effective interventions. Although prior work shows age-linked motivational patterns within either youths or adults, few studies directly compare these groups in the same framework. This limits our understanding of whether similar motives carry the same weight across developmental stages, or whether distinct clusters of motives emerge that reflect age-specific priorities. Among adults, research using Self-Determination Theory (SDT) indicates that along with geenral PA levels (Geller), intrinsic and identified motivation tend to decline with age, while middle-aged and older adults are more likely to exercise for fitness and health reasons rather than for appearance or social recognition (Brunet & Sabiston, 2011; Davis et al., 1995). Autonomy support and enjoyment are higher in individuals with strong motivational profiles, suggesting that quality of motivation may interact with age-related patterns (Heredia-León et al., 2023). Social Cognitive Theory (SCT) research shows that self-efficacy and social support are key determinants of exercise behavior, with gender differences observed in adults (Oyibo, 2018). Similarly, the Theory of Planned Behavior (TPB) highlights perceived behavioral control as the strongest predictor of exercise intention, emphasizing the role of perceived capability in promoting activity across adulthood (Neipp et al., 2013).
+Hypothesis 2: Distinct motivational profiles exist within youths and within adults.
 
-In youths, SDT-based studies demonstrate that overall motivation tends to be higher than in adults, with social and relational contexts playing a central role. Children often link physical activity to interactions with friends or siblings, reflecting the importance of relatedness needs (Sebire et al., 2013). Motivation also varies by sex, age, school, and socioeconomic background, with students who exhibit high-quality motivation showing greater autonomy support, intention to be active, enjoyment, and lower boredom (Heredia-León et al., 2023; Tapia Serrano).
+* H2a: Middle-aged and older adults are more likely than younger adults to belong to fitness-dominant profiles.
 
-Most research on motivational influences in physical activity examines youths and adults separately, and often with distinct measurement tools tailored to each population. This makes it difficult to determine whether differences reflect true developmental patterns or simply methodological artifacts. By applying the same motive items across both groups, this study enables a more valid comparison of how motives relate to physical activity in youths versus adults (H1), while also identifying distinct motivational profiles within each group and examining how age predicts profile membership (H2). 
+* H2b: Younger youths are more likely than older youths to belong to enjoyment-dominant profiles.
 
-Given that enjoyment, social interaction, and guilt have been shown to play larger roles in youths, while fitness motives become more salient in adults, it is plausible that the strength of associations between motives and PA differs systematically between the groups. Testing this directly allows us to determine whether motivational influences are developmentally specific or broadly consistent. The influence of specific exercise motives may differ between youths and adults. Enjoyment, guilt, and social motives appear more salient in youths, whereas fitness-related motives gain prominence in middle-aged adults. Some factors, such as access to opportunities for activity, may operate similarly across age groups.
-
-* H1: The influence of exercise motives on physical activity differs between youths and adults.
-
-** H1a: Enjoyment, guilt, and social motives have a stronger influence in youths than in adults.
-
-** H1b: Fitness motives have a stronger influence in adults than in youths.
-
-** H1c: The influence of opportunity on physical activity is similar across age groups.
-
-
-Evidence for motivational profiles in both populations indicates the existence of distinct clusters of individuals characterized by differing motive dominance, with age-related patterns suggesting that younger youths tend toward enjoyment-dominant profiles, while middle-aged and older adults are more likely to be fitness-dominant. 
-
-* H2: Distinct motivational profiles exist within youths and within adults.
-
-** H2a: Middle-aged and older adults are more likely than younger adults to belong to fitness-dominant profiles or score highly in fitness motives.
-
-** H2b: Younger youths are more likely than older youths to belong to enjoyment-dominant profiles.
-
+\newpage 
 
 # Data and Methods
 
 * Discuss what variables you will use, how they are coded, the amount of missing data they have and present descriptive statistics.
+
 * Discuss the statistical models that you will use. Explain how the models will answer your research questions. Discuss what sequence of models you will run.
 
 ## Data
@@ -177,13 +175,21 @@ The study uses survey responses from datasets collected by Ipsos on behalf of Sp
 
 * Minutes Exercised - weekly minutes of moderate-to-vigorous PA; see appendix for specific activities.
 
+
+\newpage 
+
 ### Adult Dataset
+
+The adult dataset analysed in this dissertation is derived from the Active Lives Adult Survey (Year 8: 2022–2023), conducted by Ipsos on behalf of Sport England with additional funding from the Office for Health Improvement and Disparities (OHID). The survey is designed as a large-scale, nationally representative measure of adult participation in sport and physical activity in England. It follows a push-to-web methodology, whereby sampled households received up to four postal mailings inviting participation. The first two mailings provided instructions and passcodes to complete the survey online, while the third included a paper self-completion questionnaire to maximise response rates. A final reminder letter encouraged online participation. Data were collected between November 2022 and November 2023, with responses obtained from 172,968 adults aged 16 and above across England.
+
+The questionnaire focused on a wide range of topics related to sport and physical activity, including frequency, duration, and location of participation, alongside attendance at sporting events, volunteering, club membership, and motivational and attitudinal measures. Standard demographic questions were also included, covering age, gender, socio-economic status, education, household composition, sexual identity, and religion. To balance questionnaire length and data breadth, some modules were administered only to subsamples of respondents, particularly in the online version.
+
+The sample was drawn using random probability sampling from the Postcode Address File (PAF). A total of 562,644 addresses were invited, with up to two adults per household eligible to respond. Multiple reminders ensured greater response coverage, helping mitigate nonresponse bias. The combination of online and postal modes, alongside stratified sampling and weighting, was intended to enhance representativeness of the adult population in England.
+
 
 The adult dataset was drawn from households sampled via the Postcode Address File (PAF), with up to two residents aged 16 or older invited to participate through either an online survey or a paper questionnaire. Data were gathered in successive waves, aiming for approximately 500 responses per local authority, and were distributed as evenly as possible across the period from November 2022 to November 2023 to reduce seasonal bias. In total, 173,950 surveys were completed.
 
-Each item was rated on a five-point Likert scale ranging from 1 (strongly disagree) to 5 (strongly agree), with higher values reflecting stronger endorsement of the statement. 
-
-Several items, such as importance of exercise, were removed for adults due to its high correlation with enjoyment and fitness (>0.5).
+Each item was rated on a five-point Likert scale ranging from 1 (strongly agree) to 5 (strongly disagree). All motive items had responses 4 (disagree) and 5 (strongly disagree) collapsed into a single category due to the low proportion of responses to minimize distortion.
 
 ```{r adult.summary, fig.align='center',fig.cap="Summary of variables for adults."}
 opts <- options(knitr.kable.NA = '')
@@ -194,25 +200,34 @@ kable(list(adult.summary),align='c',booktabs = T) %>%
 ```
 
 
-```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap='Negative values are mising responses.'}
 
-gg.ad.dsbl
-gg.ad.gend
+
+```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
 gg.ad.age
-```
-
-```{r gg.ad.demo2, fig.pos = "!h", out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
-
+gg.ad.gend
 gg.ad.eth
-gg.ad.edu
+```
+
+Females constitute 53.89% of the sample while males constitute 46.11%. 82.25% are white British.
+The youngest and oldest two age groups are collapsed together due to the samll size of most extreme groups. The decision to collapse the oldest adult categories (64–75 and 76+) was made because motivational profiles in these two groups did not differ meaningfully in preliminary analyses, and because the very small number of 76+ respondents would have produced unstable estimates if analyzed independently. Combining them ensured more robust model performance without obscuring theoretically important distinctions, which were not expected to be as pronounced at that stage of life.
+
+
+```{r vars.ad,fig.height= '150%',fig.show='hold',fig.align='center', fig.cap='Distribution of adult responses.'}
+
+gg.vars.ad
 
 ```
 
+Across most motive items, the proportion of adults expressing strong positive agreement declines as age increases. In practical terms, older adults are less likely than their younger counterparts to strongly endorse beliefs such as feeling capable of engaging in physical activity, valuing it for the challenge, or pursuing it for enjoyment and fitness. They are also less likely to report strong feelings of guilt if they do not exercise, to believe they have sufficient opportunities to be active, or to view physical activity as an important way to relax.
 
+
+\newpage 
 
 ### Youths Dataset
 
-Data for youths were collected via a school-focused, stratified sampling approach.  Only responses from Year 7 to Year 11 were utilized. Younger cohorts completed a simplified survey or had responses recorded on their behalf, and are thus excluded due to reduced comparability.
+The youth dataset used in this dissertation is drawn from the Active Lives Children and Young People Survey (Year 6: 2022–2023), conducted by Ipsos on behalf of Sport England. It is a large-scale, school-based online survey administered to pupils in Years 1–11, their parents (for Years 1–2 pupils), and teachers. Only pupil responses from year 6-11 (age 11-16) were used in this dissertation. The pupil questionnaire focused on participation in sport and physical activity over the previous week, alongside items on swimming, cycling, volunteering, wellbeing, and attitudes towards physical activity. It also included classification questions such as gender, disability, and long-term health conditions. 
+
+The sampling strategy was designed to permit analysis at both national and local authority levels. A stratified three-stage sampling process was used: schools were first sampled from the January 2021 school census, then three year groups were randomly selected within each participating school, and finally, one mixed-ability class was chosen per selected year group. Fieldwork was carried out in three phases aligned with the academic terms (September 2022–July 2023). Pupils typically completed the survey at school under teacher supervision, although in some secondary schools it could also be set as homework. To encourage participation, schools received credits for sports equipment and, if response thresholds were met, school-level feedback reports. 
 
 ```{r child.summary, fig.align='center',fig.cap=""}
 opts <- options(knitr.kable.NA = '')
@@ -222,16 +237,30 @@ kable(list(child.summary),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
+Each item was rated on a four-point Likert scale ranging from 1 (strongly agree) to 4 (strongly disagree). Similar to the adults dataset, the 3 (disagree) and 4 (stronlgy disagree) responses were collapsed into a single cateogry due to low proportions of those resopness. Missing responses and "I don't know" were removed from the dataset.
 
-```{r gg.ch.demo, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r gg.ch.demo, out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
 
-gg.ch.dsbl
-gg.ch.gend
 gg.ch.age
+gg.ch.gend
 gg.ch.eth
 
 ```
 
+52.79% are male, while 47.21% are female.
+69.92% are white British.
+Most youths are between 12-15 years old. There are only 4.63% of 16 year olds. Although 16-year-olds make up only about 5% of the youth sample, they were not collapsed with the 15-year-olds. This decision reflects a substantive rather than purely numerical consideration: the transition from 15 to 16 often marks a distinct developmental and social stage (e.g., legal thresholds, end of compulsory schooling, increased autonomy), which may correspond to meaningful differences in PA motives. Retaining this separation allows us to examine whether these turning points are reflected in motivational patterns, even with a relatively small subgroup.
+
+```{r vars.ch,,fig.height= '130%', fig.show='hold',fig.align='center', fig.cap=''}
+
+gg.vars.ch
+
+```
+
+The response patterns among youths are less consistent than those observed in adults. With increasing age, youths become less likely to report exercising for challenge or social reasons. A greater proportion report exercising because they would feel guilty if they did not, or because it helps them relax. Among the oldest youth group, there is a slight but noticeable reversal: a sudden uptick in the proportion who “strongly agree” that ability and fitness are motivating factors. It is also notable that only a small minority of youths, regardless of age, indicate a lack of understanding about the importance of PA. 
+
+
+\newpage 
 
 ## Multigroup Structural Equation Modeling (SEM)
 
@@ -241,29 +270,20 @@ Motivation variables included enjoyment, social, fitness, guilt, and opportunity
 
 Multigroup SEM was used to assess how each motive predicts PA levels, allowing direct comparison of pathway strengths between youths and adults. A freely estimated model was compared to constrained models in which individual or all motive pathways were fixed to equality, enabling evaluation of whether the effects of motives differ across age groups. Differences in the predictive strength of each motive on physical activity minutes were also calculated.
 
+\newpage 
+
 ## Latent Profile Analysis (LCA)
 
 Latent class analysis (LCA) was conducted separately within the youths and adults groups to explore age-related differences in motivational profiles. 
 
 The original Likert-scale responses were retained. Additional predictors capturing similar motivational constructs but worded differently were included (see Appendix B). Motives served as predictors, while ethnicity, gender, age, and education (for adults only) were included as covariates. Ten random starts were used per class model to ensure stable solutions.
 
-The optimal number of classes was determined by evaluating BIC elbow plots, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio tests (BLRT), class proportions, and substantive interpretability. Class-specific statistics were calculated, and multinomial logistic regression was performed with age predicting class membership. Odds ratios and 95% confidence intervals were derived by exponentiating the estimated coefficients and their standard errors (
-\[
-\text{OR} = \exp(\hat{\beta}), \quad
-95\%\, CI = \exp \big( \hat{\beta} \pm 1.96 \times SE \big)
-\]
-)
+The optimal number of classes was determined by evaluating BIC elbow plots, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio tests (BLRT), class proportions, and substantive interpretability. Class-specific statistics were calculated, and multinomial logistic regression was performed with age predicting class membership. Odds ratios and 95% confidence intervals were derived by exponentiating the estimated coefficients and their standard errors (\[\text{OR} = \exp(\hat{\beta}), \quad 95\%\, CI = \exp \big( \hat{\beta} \pm 1.96 \times SE \big) \]).
 
 This procedure allows assessment of both the magnitude and statistical significance of age effects on class membership and, consequently, on PA-related motivational profiles.
 
-There exist clear patterns in the response distrbution by age group in both adults and youths.
-```{r vars, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
 
-gg.vars.ad
-gg.vars.ch
-
-```
-
+\newpage 
 
 # Results
   
@@ -297,6 +317,8 @@ Age has a small but significant negative total effect on activity, more pronounc
 
 ADD IMPLICATIONS OF SUBSTANTIVE INTERPRETATION
 
+
+\newpage 
 
 ## LCA
 
@@ -344,6 +366,8 @@ gg.byage.ad
 
 Multinomial logistic regression examined the association between age and motivation profile, with the highly motivated class (Class 1) as the reference. Compared with the youngest adults (age1), older age groups had higher odds of being in the moderate (Class 3) or low motivation (Class 2) classes. The effect was strongest in the oldest group (age6), who were about twice as likely to belong to the low motivation class (OR = 2.06) and 1.84 times more likely to belong to the moderate motivation class, relative to the highly motivated class. These results indicate that motivation tends to decline with age, with fewer older adults exhibiting the highly positive/intrinsic profile.
 
+
+\newpage 
 
 ### Youths
 
@@ -397,11 +421,26 @@ Age: The youngest group is most likely to be in class 1. However, class 2 have o
 This supports hypothesis 2b, that younger youths are more likely to belong to enjoyment-dominant profiles.
 
 
+\newpage 
+
 # Conclusions
 
 • Summarise what you have found. Restate your questions and hypotheses and show
 how you answer them.
 • Discuss possible limitations and implications they might have for the results.
+
+
+## Limitations
+
+adult data
+Push-to-web design: Reliance on online completion may underrepresent groups with lower digital literacy or internet access (e.g., older adults, lower-income households), even though a paper option was provided at the third mailing. Response bias: Out of over 560,000 households invited, only ~173,000 valid responses were obtained. This implies a relatively low response rate, raising the possibility that respondents are more health-conscious or sport-engaged than non-respondents. Household-level sampling: Allowing up to two respondents per household could introduce intra-household clustering, potentially inflating similarities between responses. Mode effects: Differences between online and paper responses could influence reported activity levels or willingness to disclose sensitive demographic details. Split questionnaire design: Some questions were only asked to subsets of participants, which led to the exclusion of data from participants who did not answer key questions required for this analysis.
+
+
+youths data
+Self-report data: Pupils’ answers, especially younger ones, may be influenced by recall issues, comprehension, or social desirability (e.g., overreporting activity). Mode of administration: Conducted in schools, often under teacher supervision, which may affect how candid pupils are in reporting behaviours or wellbeing. 
+
+
+
 No factor analysis
 Wording slightly different between datasets for 2 vars 
 Correlation moderate in sem
@@ -419,7 +458,15 @@ data is cross sectinoal
 • Discuss implications for theory and/or policy based on what you found.
 
 
+\newpage 
+
 # References
+
+Ostendorf, D.M., Schmiege, S.J., Conroy, D.E. et al. Motivational profiles and change in physical activity during a weight loss intervention: a secondary data analysis. Int J Behav Nutr Phys Act 18, 158 (2021). https://doi.org/10.1186/s12966-021-01225-5
+
+Moreno-Murcia, J. A., Cervelló Gimeno, E., Hernández, E. H., Pedreño, N. B., & Rodríguez Marín, J. J. (2013). Motivational profiles in physical education and their relation to the theory of planned behavior. Journal of sports science & medicine, 12(3), 551–558. 
+
+Nuss, K., Sui, W., Rhodes, R., & Liu, S. (2023). Motivational Profiles and Associations With Physical Activity Before, During, and After the COVID-19 Pandemic: Retrospective Study. JMIR formative research, 7, e43411. https://doi.org/10.2196/43411
 
 Ajzen, Icek (1991). "The theory of planned behavior". Organizational Behavior and Human Decision Processes. 50 (2): 179–211. doi:10.1016/0749-5978(91)90020-T. hdl:11323/1038. S2CID 260959149.
 
@@ -437,20 +484,11 @@ Choi, J., Lee, M., Lee, Jk. et al. Correlates associated with participation in p
 
 Alixe H M Kilgour, Matthew Rutherford, Joanna Higson, Samantha J Meredith, Jessica McNiff, Stephanie Mitchell, Anusan Wijayendran, Stephen E R Lim, Susan D Shenkin, Barriers and motivators to undertaking physical activity in adults over 70—a systematic review of the quantitative literature, Age and Ageing, Volume 53, Issue 4, April 2024, afae080, https://doi.org/10.1093/ageing/afae080
 
-
 Lee IM, Shiroma EJ, Lobelo F, Puska P, Blair SN, Katzmarzyk PT. Effect of physical inactivity on major non-communicable diseases worldwide: an analysis of burden of disease and life expectancy. Lancet (London, England). 2012, 380(9838):219–229.
 
 Hallal PC, Andersen LB, Bull FC, Guthold R, Haskell W, Ekelund U. Global physical activity levels: surveillance progress, pitfalls, and prospects. Lancet (London, England). 2012, 380(9838):247–257.
 
-
-Miguel Ángel Tapia-Serrano, Miguel Ángel López-Gajardo, Pedro Antonio Sánchez-Miguel, Rubén Llanos-Muñoz, Rafael Burgueño,
-Analysis of motivational profiles of physical activity behavior in primary school students: A self-determination theory-based perspective,
-Personality and Individual Differences,
-Volume 231,
-2024,
-112837,
-ISSN 0191-8869,
-https://doi.org/10.1016/j.paid.2024.112837.
+Tapia-Serrano, M. Á., López-Gajardo, M. Á., Sánchez-Miguel, P. A., Llanos-Muñoz, R., & Burgueño, R. (2024). Analysis of motivational profiles of physical activity behavior in primary school students: A self-determination theory-based perspective. Personality and Individual Differences, 231, 112837. https://doi.org/10.1016/j.paid.2024.112837
 
 Sebire, S.J., Jago, R., Fox, K.R. et al. Testing a self-determination theory model of children’s physical activity motivation: a cross-sectional study. Int J Behav Nutr Phys Act 10, 111 (2013). https://doi.org/10.1186/1479-5868-10-111
 
@@ -479,8 +517,17 @@ Wang, L., & Wang, L. (2015). Using Theory of Planned Behavior to Predict the Phy
 
 
 \newpage
-# Appendix A - Survey Questions
 
+# Appendix A - Survey Questions
+## Adults
+## Youths
+
+\newpage
+
+# Appendix B - Exercise Types
+
+## Adults
+## Youths
 
 \newpage
 # Appendix B - R Code

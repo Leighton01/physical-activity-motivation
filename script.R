@@ -277,20 +277,20 @@ adult.lik <- adult.var %>%
          gender=Gend3,
          age=Age9,
          eth=Eth2,
-         edu=Educ6,
+         # edu=Educ6,
          mins
          ) %>%
 
   filter(dsbl==2,
          if_all(c(gender,eth), ~ .x %in% c(1,2)),
-         if_all(everything(), ~ .x > -1),
-         edu != 5
+         if_all(everything(), ~ .x > -1)
+         # edu != 5
   ) %>%
 
   mutate(dis = 6 - dis,
          across(c(abil,chal,enjoy,fit,guilt,imp,opp,relx,dis),
-                ~ case_when(.x==5~4L, TRUE ~ as.integer(.x))),
-         edu = case_when(edu==6~5L, TRUE~edu),
+                ~ case_when(.x==5~4L, TRUE ~ as.integer(.x)))
+         # edu = case_when(edu==6~5L, TRUE~edu),
 
          ) %>%
 
@@ -635,7 +635,7 @@ or.ch
 # Part II LCA adults  -----------------------------------------------------------
 
 adult.lik <- adult.lik.back
-adult.lik <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth,-edu)
+adult.lik <- adult.lik %>% dplyr::select(-mins,-age,-gender,-eth)
 
 lca.f.adult <- as.matrix(adult.lik) ~ 1
 # run 2-7 classes
@@ -775,12 +775,12 @@ ggplot(mins.adult, aes(x = Class, y = Mean.log)) +
 adult.lik$age <- adult.lik.back$age
 adult.lik$gender <- adult.lik.back$gender
 adult.lik$eth <- adult.lik.back$eth
-adult.lik$edu <- adult.lik.back$edu
+# adult.lik$edu <- adult.lik.back$edu
 
 adult.lik$class <- relevel(factor(adult.lik$class), ref = "3")
 adult.lik$gender <- relevel(factor(adult.lik$gender), ref = "1")
 adult.lik$eth <- relevel(factor(adult.lik$eth), ref = "1")
-adult.lik$edu <- relevel(factor(adult.lik$edu), ref = "1")
+# adult.lik$edu <- relevel(factor(adult.lik$edu), ref = "1")
 
 # adult.lik$age <- adult.lik.back$age
 

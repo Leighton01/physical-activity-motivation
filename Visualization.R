@@ -81,58 +81,71 @@ child.summary <- rbind(child.summary, c.mins)
 # get demographic overview (gender, edu, eth, mins)
 # adult
 #
-# Disability
-gg.ad.dsbl <- ggplot(adult.var, aes(x = as.factor(Disab2_POP))) +
-  geom_bar() +
-  labs(x = "Disability") +
-  theme_clean()
+# # Disability
+# gg.ad.dsbl <- ggplot(adult.var, aes(x = as.factor(Disab2_POP))) +
+#   geom_bar() +
+#   labs(x = "Disability") +
+#   theme_clean()
 
 # Gender
-gg.ad.gend <- ggplot(adult.var, aes(x = as.factor(Gend3))) +
+adult.lik$gender <- factor(adult.lik$gender, levels = c(1, 2),
+                           labels = c("Male", "Female"))
+gg.ad.gend <- ggplot(adult.lik, aes(x = as.factor(gender))) +
   geom_bar() +
   labs(x = "Gender") +
   theme_clean()
 
 # Age
-gg.ad.age <-ggplot(adult.var, aes(x = as.factor(Age9))) +
+adult.lik$age <- factor(adult.lik$age, levels = c(1,2,3,4,5,6),
+                        labels = c("16-34", "35-44", "45-54",
+                                   "55-64", "65-74", "75+"))
+gg.ad.age <-ggplot(adult.lik, aes(x = as.factor(age))) +
   geom_bar() +
   labs(x = "Age Group") +
   theme_clean()
 
-  # Ethnicity
-gg.ad.eth <- ggplot(adult.var, aes(x = as.factor(Eth2))) +
+# Ethnicity
+adult.lik$eth <- factor(adult.lik$eth, levels = c(1, 2),
+                        labels = c("White British", "Other"))
+gg.ad.eth <- ggplot(adult.lik, aes(x = as.factor(eth))) +
   geom_bar() +
   labs(x = "Ethnicity") +
   theme_clean()
 
 # Education
-gg.ad.edu <- ggplot(adult.var, aes(x = as.factor(Educ6))) +
-  geom_bar() +
-  labs(x = "Education") +
-  theme_clean()
+# gg.ad.edu <- ggplot(adult.lik, aes(x = as.factor(edu))) +
+#   geom_bar() +
+#   labs(x = "Education") +
+#   theme_clean()
 
 # YOuths
 #
 # Disability
-gg.ch.dsbl <- ggplot(child.var, aes(x = as.factor(Disab_All_POP))) +
-  geom_bar() +
-  labs(x = "Disability") +
-  theme_clean()
+# gg.ch.dsbl <- ggplot(child.var, aes(x = as.factor(Disab_All_POP))) +
+#   geom_bar() +
+#   labs(x = "Disability") +
+#   theme_clean()
 
 # Gender
-gg.ch.gend <- ggplot(child.var, aes(x = as.factor(gend3))) +
+child.lik$gender <- factor(child.lik$gender, levels = c(1, 2),
+                           labels = c("Male", "Female"))
+gg.ch.gend <- ggplot(child.lik, aes(x = as.factor(gender))) +
   geom_bar() +
   labs(x = "Gender") +
   theme_clean()
 
 # Age
-gg.ch.age <- ggplot(child.var, aes(x = as.factor(age_11))) +
+child.lik$age <- factor(child.lik$age, levels = c(1,2,3,4,5,6),
+                        labels = c(11,12,13,14,15,16))
+gg.ch.age <- ggplot(child.lik, aes(x = as.factor(age))) +
   geom_bar() +
   labs(x = "Age") +
   theme_clean()
 
 # Ethnicity
-gg.ch.eth <- ggplot(child.var, aes(x = as.factor(eth2))) +
+child.lik$eth <- factor(child.lik$eth, levels = c(1, 2),
+                        labels = c("White British", "Other"))
+gg.ch.eth <- ggplot(child.lik, aes(x = as.factor(eth))) +
   geom_bar() +
   labs(x = "Ethnicity") +
   theme_clean()
@@ -264,7 +277,7 @@ gg.vars.ch <- ggplot(child.lik_long, aes(x = factor(age), y = prop, fill = facto
   labs(x = "Age group", y = "Proportion", fill = "Score") +
   scale_y_continuous(labels = percent_format()) +
   theme_clean() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom", axis.text.y = element_text(size = 6))
 
 # LCA Adults --------------------------------------------------------------
 
@@ -385,5 +398,5 @@ gg.vars.ad <- ggplot(adult.lik_long, aes(x = factor(age), y = prop, fill = facto
   labs(x = "Age group", y = "Proportion", fill = "Score") +
   scale_y_continuous(labels = percent_format()) +
   theme_clean() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom", axis.text.y = element_text(size = 6))
 gg.vars.ad
