@@ -170,11 +170,8 @@ slopes.diff <- left_join(slopes.ch, slopes.ad, by = "var")
 slopes.diff <- slopes.diff %>%
   mutate(
     diff = est.youth - est.adult
-    # se.diff = sqrt(se.adult^2 + se.youth^2),
-    # z = diff / se.diff,
-    # p = 2 * (1 - pnorm(abs(z)))
   ) %>%
-  filter(!var %in% c("gender","eth")) %>%
+  filter(!var %in% c("gender","eth","age")) %>%
   dplyr::select(-se.youth, -se.adult)
 
 

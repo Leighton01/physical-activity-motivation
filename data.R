@@ -188,7 +188,7 @@ dallb$eth <- relevel(factor(dallb$eth), ref = "0")
 #   mutate(prop = n / sum(n)) %>%
 #   arrange(Variable, Response) %>% filter(prop < 0.05)
 
-# Check which motives need to be collapsed
+# Check which motive responses need to be collapsed
 prop.table(table(child.var$PL_Enjoy_bc_ans))
 prop.table(table(child.var$MO_Fun_c))
 prop.table(table(child.var$MO_Fit_c))
@@ -199,7 +199,6 @@ prop.table(table(child.var$PL_Conf_bc_ans))
 prop.table(table(child.var$PL_GdMe_bc_ans))
 prop.table(table(child.var$Try_bc))
 
-# Only motivex2c, motivex2d had barely above 5%
 prop.table(table(adult.var$Motiva_POP))
 prop.table(table(adult.var$motivex2c))
 prop.table(table(adult.var$motivex2a))
@@ -303,12 +302,14 @@ cor(dallb1, method = "pearson")
 # Check adult lik corr
 cor(child.lik.back0 %>% dplyr::select(-gender,-eth, -age), method = "pearson")
 cor(adult.lik.back0 %>% dplyr::select(-gender,-eth,-age), method = "pearson")
-# adult.lik1 <- adult.lik %>% dplyr::select(-gender,-eth, -imp)
-# cor(adult.lik1, method = "pearson")
 
-# corrleation too high
-# child.lik <- child.lik.back0 %>% dplyr::select(-imp)
-# adult.lik <- adult.lik.back0 %>% dplyr::select(-imp)
+# Check sparsity of highly correlated (>.05) items
+prop.table(table(child.lik$abl, child.lik$enjoy))
+
+prop.table(table(adult.lik$fit, adult.lik$enjoy))
+prop.table(table(adult.lik$imp, adult.lik$enjoy))
+prop.table(table(adult.lik$fit, adult.lik$imp))
+prop.table(table(adult.lik$abl, adult.lik$opp))
 
 
 child.lik.back <- child.lik

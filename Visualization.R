@@ -330,6 +330,30 @@ tb.class3.ad <- data.frame(
 
 tb.class3.ad
 
+tb.class4.ad <- data.frame(
+  Class = 1:ncol(post4.ad),
+  Proportion = as.numeric(class.size4.ad),
+  Avg_Posterior = round(ave.pp4.ad, 4)
+)
+
+tb.class4.ad
+
+tb.class5.ad <- data.frame(
+  Class = 1:ncol(post5.ad),
+  Proportion = as.numeric(class.size5.ad),
+  Avg_Posterior = round(ave.pp5.ad, 5)
+)
+
+tb.class5.ad
+
+tb.class6.ad <- data.frame(
+  Class = 1:ncol(post6.ad),
+  Proportion = as.numeric(class.size6.ad),
+  Avg_Posterior = round(ave.pp6.ad, 6)
+)
+
+tb.class6.ad
+
 mins.adult <- data.frame(
   Class = 1:n.classes,
   Weighted.Median = wmed.ad,
@@ -398,5 +422,6 @@ gg.vars.ad <- ggplot(adult.lik_long, aes(x = factor(age), y = prop, fill = facto
   labs(x = "Age group", y = "Proportion", fill = "Score") +
   scale_y_continuous(labels = percent_format()) +
   theme_clean() +
-  theme(legend.position = "bottom", axis.text.y = element_text(size = 6))
+  theme(legend.position = "bottom", axis.text.y = element_text(size = 6),
+        axis.text.x = element_text(size = 6))
 gg.vars.ad

@@ -192,6 +192,17 @@ ad.lca.output
 
 # Compare class average posteriors and class prop
 
+post6.ad <- LCAE.ad$LCA[[5]]$posterior
+class6.ad <- apply(post6.ad, 1, which.max)
+class.size6.ad <- prop.table(table(class6.ad))
+
+ave.pp6.ad <- sapply(1:ncol(post6.ad), function(k) {
+  inds <- which(class6.ad == k)
+  mean(post6.ad[inds, k])
+})
+
+ave.pp6.ad
+
 post5.ad <- LCAE.ad$LCA[[4]]$posterior
 class5.ad <- apply(post5.ad, 1, which.max)
 class.size5.ad <- prop.table(table(class5.ad))
@@ -281,29 +292,5 @@ colnames(or.ci.ad) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
 tb.byage.ad <- adult.lik %>%
   count(age, class) %>%
   pivot_wider(names_from = class, values_from = n, values_fill = 0)
-
-
-
-
-
-lca_data <- child.lik[, c("abl", "enjoy")]
-
-lca_model <- lcae.ch
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

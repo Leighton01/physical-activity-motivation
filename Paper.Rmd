@@ -13,7 +13,8 @@ output:
 
 rmdwc::rmdcount('Paper.rmd')
 
-
+add that LCA also uses same motives, but 2 with diff wording
+add that social cognitive theory is outdated (if time)
 
 \pagenumbering{arabic}
 
@@ -83,7 +84,7 @@ To test whether motives predict PA differently across youths and adults, multigr
 
 # Literature Review
 
-Dominant frameworks frequently cited include Self-Determination Theory, Theory of Planned Behaviour, and Social Cognitive Theory.
+While other frameworks, such as Social Cognitive Theory, are widely cited, this dissertation focuses on Self-Determination Theory and the Theory of Planned Behaviour, which provide useful conceptual perspectives for understanding and interpreting motivational patterns.
 
 ## Self-Determination Theory (SDT)
 
@@ -95,11 +96,6 @@ In physical activity and health behaviour research, this framework is especially
 ## Theory of Planned Behaviour (TPB)
 
 The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control. Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and perceived behavioral control represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although perceived behavioral control can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions—supported by favorable attitudes, positive social norms, and higher perceived control—are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behavior, highlighting the importance of situational constraints and individual capabilities.
-
-## Social Cognitive Theory (SCT)
-
-
-
 
 \newpage 
 
@@ -121,11 +117,11 @@ While the body of literature provides valuable insights into the determinants of
 
 Hypothesis 1: The influence of exercise motives on physical activity differs between youths and adults.
 
-* H1a: Enjoyment, social, and guilt motives are more influential in youths than in adults.
+* H1(a). Enjoyment, social, and guilt motives are more influential in youths than in adults.
 
-* H1b: Fitness related motives are more influential in adults than in youths, particularly in middle-aged and older groups.
+* H1(b). Fitness related motives are more influential in adults than in youths, particularly in middle-aged and older groups.
 
-* H1c: Environmental opportunities influence physical activity similarly across age groups.
+* H1(c). Environmental opportunities influence physical activity similarly across age groups.
 
 ## Motivational Profiles
 
@@ -284,7 +280,7 @@ The optimal number of classes was determined by evaluating BIC elbow plots, rela
 
 This procedure allows assessment of both the magnitude and statistical significance of age effects on class membership and, consequently, on PA-related motivational profiles.
 
-Residual diagnostics for conditional independence, such as standardized bivariate chi-square or bivariate residuals, were computed for the PA-related items. Some cells in the cross-tabulations of item responses were extremely sparse (proportions <1%), which mathematically inflates these statistics. As a result, the standardized bivariate chi-square values were unrealistically large and not interpretable as indicators of local dependence. Given this, local dependence statistics are not reported. Instead, model evaluation relied on standard LCA fit indices (BIC, aBIC, entropy) and the interpretability and stability of the latent classes, which were robust.
+Residual diagnostics for conditional independence, such as standardized bivariate chi-square or bivariate residuals, were computed for the PA-related items. Some cells in the cross-tabulations of item responses were extremely sparse (proportions <1%), which mathematically inflates these statistics. As a result, the standardized bivariate chi-square values were unrealistically large and cannot serve as reliable indicators of local dependence. Given this, and that the motives (ability, importance, fitness, enjoyment, and opportunity) are substantively distinct, local dependence statistics are not reported. Instead, model evaluation relied on standard LCA fit indices (BIC, aBIC, entropy) and the interpretability and stability of the latent classes, which were robust.
 
 \newpage 
 
@@ -308,17 +304,14 @@ kable(list(slopes.diff),align='c',booktabs = T) %>%
 ```
 
 Summary and spec of model in appendix.
-Motivational mediators contribute meaningfully to activity levels in both groups, with enjoyment and fitness motives being the strongest predictors.
 
-Youth show stronger effects of enjoyment and guilt on exercise minutes, with slopes about 23 minutes higher than adults. Adults show stronger effects of opportunity, fitness, and social motives, with differences ranging from 23 to 58 minutes. Age shows a smaller difference (~7 minutes), with exercise minutes decreasing slightly more with age among adults. 
+All motivational items in the model influenced physical activity in the same direction for youths and adults, with the exception of the relaxation motive, which was negatively associated with exercise in youths but positively in adults. Since the variables are binary (1 = strongly agree, 0 = not strongly agree), the coefficients represent the estimated difference in minutes of activity between participants who strongly endorse a motive and those who do not. While all differences between age groups were statistically significant, effect sizes were generally modest, except for opportunity (greater impact in adults) and relaxation (divergent effect), which showed substantively larger differences. Other motives, including enjoyment, guilt/obligation, fitness, and social factors, exhibited smaller differences, indicating broadly similar motivational mechanisms across age groups.
 
-Opportunity has a bigger effect on adults, this makes sense since children have more free time and more access to facilities like parks school gym etc.
+Youths were most strongly influenced by enjoyment and guilt/obligation, highlighting the role of intrinsic and internalized motivation in shaping adolescent activity. Adults, by contrast, responded more strongly to opportunity, fitness, and social motives, underscoring the importance of external facilitation, health awareness, and social engagement. The relaxation motive’s opposite associations suggest that exercise competes with leisure priorities in youths but functions as a stress-relief mechanism for adults. 
 
-Youths are more likely to feel guilty, also makes sense as adults (especially older) do not exercise as much for social recognition and appearnace goals. consistent with H1a. However, while social motive has a positive effect, it has a bigger impact on adults. Not sure why. fitness makes sense to matter more to adults.
+From an SDT perspective, these findings align with the framework’s distinction between intrinsic, internalized, and external regulation. Youths’ strong responses to enjoyment and guilt/obligation reflect intrinsic and internalized motivations, emphasizing autonomy and internalized norms as key drivers. Adults’ stronger responsiveness to opportunity, fitness, and social motives reflects identified and external regulation, where structured opportunities, competence-related goals, and social reinforcement play a larger role. The relaxation motive’s divergent effects illustrate a developmental shift in how intrinsic and extrinsic motives operate: adolescents may view exercise as competing with leisure, whereas adults use it to satisfy broader self-regulatory needs such as stress reduction.
 
-Age has a small but significant negative total effect on activity, more pronounced in adults than youths.
-
-ADD IMPLICATIONS OF SUBSTANTIVE INTERPRETATION
+Within the TPB framework, behavior is determined by intention, which is influenced by attitudes, subjective norms, and perceived behavioral control (PBC). For youths, full endorsement of enjoyment and guilt/obligation likely reflects favorable attitudes and perceived social norms supporting activity. For adults, stronger effects of opportunity, fitness, and social motives suggest that PBC, shaped by access to resources and social support, is a key driver of activity. The relaxation motive’s opposite effects indicate that perceived behavioral control may be constrained by competing priorities in youths, whereas it reinforces positive intentions in adults.
 
 
 \newpage 
@@ -336,7 +329,12 @@ gg.llik.ad
 
 ```
 
-3 and 4 classes both seem ok at first glance, with simlar relative entropy, BIC, and max posterior entropy per class. While BLRT recommends the 4-class model, upon closer inspection, 3 classes has the best substantive interpretation, 4- and 5- class models contain very similar classes with minor distribution differences in their responses. 
+ADD PLOT?
+ad.lca.output?
+add plot(LCAE.ad, nclass = 3) and maybe 4? to appendix
+
+3 to 6 classes all have relative high likelihood and low AIC and BIC, and average posterior entropy per class. From the elbow plot, 4 classes seem to be the number of classes that start displaying diminishing return. However, the 3-class model has significantly higher relative entropy, and the four-class solution produced two classes with highly similar endorsement patterns, effectively splitting the moderate group without adding meaningful differentiation. The three-class model provides a clearer, more parsimonious representation of motivational profiles while still capturing the small but conceptually important subgroup with generally negative attitudes.
+
 
 ```{r distr.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
 
@@ -344,21 +342,27 @@ plot(LCAE.ad, nclass = 2)
 
 ```
 
+
+Class 1
+
+This class shows high probabilities of strongly agreeing with enjoyment, fitness, ability, opportunity, and importance. Members also moderately endorsed social, challenge, and guilt motives, and showed relatively high agreement with relaxation. Overall, this class represents adults who consistently report strong agreement with a broad range of motivations. This class is labelled the High Engagement class.
+
+Class 2
+
+This class is characterized by very low probabilities of strongly agreeing with enjoyment and ability, and by a higher prevalence of neutral or negative responses across most items. Members of this class express the least favorable attitudes toward PA. This class is labelled the Low Engagement class. While this class represents a relatively small proportion of the sample (~6%), it aligns with the raw data, in which very few respondents selected negative responses.
+
+Class 3
+
+This class has a mixed attitude toward many motives, with moderate positive endorsement toward enjoyment, fitness, opportunity, ability and importance It represents adults with more ambivalent responses. This class is labelled the Mixed Motivation class.
+
+
 ```{r mins.ad, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
 
-gg.mins.ch
+gg.mins.ad
 
 ```
  
-* Class 1: this class strongly endorses intrinsic motives (enjoyment, ability, importance) and is confident in their capability. They are highly consistent in responses across items. With low levels of guilt
-
-
-* Class 2: Most items have higher probabilities on 3–4 (neutral to disagree) except moderate on opportunity and ability. Low on guilt and eagerness for challenges. They do not exercise to relax. 
-
-* Class 3: This class displays ocnsistently moderately positive attitudes toward PA, with the exception of social. 
-
-
-* Age: odds of being in the low motivation class increase with age, especially in the oldest group. odds of being in the moderate motivation class also increase with age, but not as strongly as the low motivation class. 
+Analysis of weekly minutes of physical activity across the adult latent classes highlights substantial differences in exercise behavior. The High Engagement class exhibits the highest levels, with a weighted median of 445 minutes per week and a wide interquartile range of 180 to 840 minutes, indicating considerable variability even among this highly active group. The Mixed Motivation class reports intermediate activity, with a median of 182.5 minutes per week and an IQR of 30 to 457.5 minutes, reflecting both moderate overall engagement and substantial individual differences. In contrast, the Low Engagement class shows markedly lower activity, with a median of only 45 minutes per week and an IQR from 0 to 225.25 minutes, highlighting that while most members are minimally active, some still achieve higher levels. Overall, the broad IQRs across all classes indicate that even within latent classes defined by motivation, actual exercise behavior varies considerably.
 
 ```{r byage.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
 
@@ -367,8 +371,17 @@ gg.byage.ad
 ```
 
 
-Multinomial logistic regression examined the association between age and motivation profile, with the highly motivated class (Class 1) as the reference. Compared with the youngest adults (age1), older age groups had higher odds of being in the moderate (Class 3) or low motivation (Class 2) classes. The effect was strongest in the oldest group (age6), who were about twice as likely to belong to the low motivation class (OR = 2.06) and 1.84 times more likely to belong to the moderate motivation class, relative to the highly motivated class. These results indicate that motivation tends to decline with age, with fewer older adults exhibiting the highly positive/intrinsic profile.
+The distribution of age groups across the three latent classes highlights notable differences in motivational profiles. The High Engagement class is consistently the second most populous across age groups, though its representation declines gradually with increasing age. The Low Engagement class remains the smallest in all age groups, representing a relatively rare subgroup with low endorsement of motives, and its relative size is largely stable across ages. In contrast, the Mixed Motivation class contains the largest number of adults in every age group, with membership increasing steadily as age rises, suggesting that some individuals may shift from high engagement to mixed motivation over time.
 
+```{r or.ad, fig.align='center',fig.cap=""}
+opts <- options(knitr.kable.NA = '')
+kable(list(or.ad),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+Multinomial logistic regression examined the association between age and motivation profile, with the High Engagement class as reference. Examination of the odds of latent class membership across adult age groups, using the youngest group (16–34 years) as the reference, reveals clear age-related patterns. Adults in the youngest age group are over 6.6 times more likely to belong to the High Engagement class than to the Low Engagement class. Conversely, a slightly higher proportion of young adults belong to the Mixed Motivation class, which may partly reflect the overall larger size of this class. For the Low Engagement class, older age groups generally show modestly higher odds of membership compared with the reference, though the differences for age groups 35–44 and 55–64 are not statistically significant. The highest odds are observed in the oldest age group (75+), suggesting that adults in this group are 1.5 times more likely to belong to the Low Engagement class than younger adults. In the Mixed Motivation class, the odds of membership increase consistently with age, with adults aged 65–74 being 1.45 times, and those 75+ being 1.93 times more likely than 16–34-year-olds to belong to this class rather than High Engagement. 
 
 \newpage 
 
@@ -387,42 +400,55 @@ gg.llik.ch
 
 
 See appendix for elbow plot avereage pp etc
+
 Both 3 and 4- class models show promise.  BIC plot does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
 
 However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
 
-
-
-```{r distr.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r distr.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap=''}
 
 plot(LCAE.ch, nclass = 2)
-plot(LCAE.ch, nclass = 3)
 
 ```
 
-```{r mins.ch, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+#### Class 1
+
+This class exhibits very high probabilities of strongly agreeing with enjoyment, fitness, opportunity, importance, and ability. Endorsement of social, challenge, and relaxation motives is somewhat more moderate, though still leaning toward agreement, and guilt shows a more even split across response options. This group is characterized by consistently positive attitudes toward a wide range of motives. This class will be labelled the High Engagement class.
+
+#### Class 2
+
+This class shows very low probabilities of strongly agreeing with all motives, and negative attitudes toward social, guilt, relaxation, and ability motives. This class will be labelled the Low Engagement class.
+
+#### Class 3
+
+This class primarily endorsed “agree” across most motives, with the exception of guilt. Disagreement is relatively uncommon, but strong agreement is also less prevalent than in the High Engagement class. This class falls between the other two, representing generally positive but not strongly emphatic motivation toward PA. This class will be labelled the Moderate Engagement class.
+
+```{r mins.ch, out.width='100%', fig.show='hold',fig.align='center', fig.cap=''}
 
 gg.mins.ch
 
 ```
 
-Class 1: A highly engaged group exercising for intrinsic (enjoyment, competence) and extrinsic (importance, fitness, social) reasons. (High across core motives: enjoyment, fitness, importance, ability → strong positive orientation to exercise. Moderate-to-high secondary motives: social, challenge, relaxation. Mixed guilt: not central.)
+Analysis of weekly minutes of physical activity across the youth latent classes reveals meaningful differences in exercise behavior. The High Engagement class reports the highest levels, with a weighted median of 405 minutes per week and an interquartile range of 185 to 745 minutes, indicating substantial variability even among the most motivated youths. The Mixed Motivation class shows intermediate activity, with a median of 235 minutes per week and an IQR from 90 to 455 minutes, reflecting moderate engagement with considerable individual differences. The Low Engagement class exhibits the lowest activity, with a median of 125 minutes per week and an interquartile range of 30 to 300 minutes, suggesting that while most members are less active, some still achieve moderate levels. These patterns imply that, similar to adults, class membership captures meaningful distinctions in motivation that are associated with actual physical activity.
 
-Class 2: they agree exercise is valuable, but don’t strongly enjoy it. Low guilt and relaxation. They see exercise as important and somewhat social, but motivation is not driven by strong enjoyment or self-competence. This group might exercise out of social reinforcement or external values rather than intrinsic enjoyment. (Moderate enjoyment, social, fitness, opportunity, challenge, ability.)
-
-Class 3: They believe exercise is important (cognitive endorsement), but lack enjoyment, confidence, or social drive. Likely lower actual participation; motivation here is more abstract belief than emotional or social engagement. (Low enjoyment, fitness, challenge, social, guilt, ability, relaxation. Moderate opportunity and high importance.)
-
-
-```{r byage.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r byage.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap=''}
 
 gg.byage.ch
 
 ```
 
-Age: The youngest group is most likely to be in class 1. However, class 2 have only minor (<20%) deviations in each age group, indicating that age has little systematic effect. However, the youngest age group is only 20% as likely to belong in class 3, and the trend increases as age goes up. Ie. the older the youths are the more likely they are to be in class 3. This makes sense as youths become more e.g. self-conscious, entangled with other responsibilities, more autonomy and more ways to entertain themselves. 
+The distribution of age groups across the three latent classes highlights notable differences in motivational profiles among youths. The High Engagement and Mixed Motivation classes are roughly similar in size, with the High Engagement class generally decreasing across age groups but showing a sudden increase at age 16. The Low Engagement class is smaller than the other two but not as rare as in the adult sample; it increases steadily with age, with a slight dip at age 16. These patterns suggest that while high engagement may decline during adolescence, a substantial portion of youths maintain strong or mixed motivation, and low engagement gradually becomes more common over time. The sudden increase in High Engagement at age 16 indicates that some youths may experience a late boost in motivation during this stage of adolescence.
 
-This supports hypothesis 2b, that younger youths are more likely to belong to enjoyment-dominant profiles.
 
+```{r or.ch, fig.align='center',fig.cap=""}
+opts <- options(knitr.kable.NA = '')
+kable(list(or.ch),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+Examination of the odds of latent class membership across youth age groups, using 11-year-olds as the reference, reveals distinct developmental patterns. At age 11, youths are approximately 5 times less likely to belong to the Low Engagement class compared with High Engagement, whereas they are about equal in odds to belong to the Mixed Motivation class. For the Low Engagement class, the odds of membership increase steadily with age, with 12-year-olds about 1.2 times more likely, 13-year-olds 1.6 times more likely, 14-year-olds 1.7 times more likely, and 15-year-olds 2 times more likely than 11-year-olds to belong to this class, before slightly declining at age 16 (1.4 times more likely). In the Mixed Motivation class, the odds of membership increase modestly from ages 12–15, ranging from 1.0 to 1.2 times more likely than 11-year-olds, before declining slightly at age 16 (0.9 times as likely). These patterns indicate that as youths age, they increasingly shift from High Engagement toward Low Engagement or Mixed Motivation, with a subtle rise in motivation at age 16 suggesting that some youths regain or consolidate engagement in physical activity.
 
 \newpage 
 
