@@ -119,7 +119,7 @@ child.bi <- child.var %>%
 
 
   # change 2 (not strongly agree) to 0, consistent with adult
-  mutate(across(c(enjoyb,socialb,fitb,guiltb,oppb), ~ ifelse(.x==2, 0, .x)),
+  mutate(across(c(enjoyb,socialb,fitb,guiltb,oppb,relxb), ~ ifelse(.x==2, 0, .x)),
          gender = gender-1,
          eth = eth-1,
          age = age-11)

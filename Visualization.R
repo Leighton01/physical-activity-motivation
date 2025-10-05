@@ -8,7 +8,16 @@ library(ggthemes)
 
 
 # Descriptive -------------------------------------------------------------
-#
+child.summary.bi <- data.frame(colMeans(
+  child.bi[, setdiff(names(child.bi),
+                     c("gender", "eth", "age"))], na.rm = TRUE))
+colnames(child.summary.bi) <- ("Mean")
+
+adult.summary.bi <- data.frame(colMeans(
+  adult.bi[, setdiff(names(adult.bi),
+                     c("gender", "eth", "age"))], na.rm = TRUE))
+colnames(adult.summary.bi) <- ("Mean")
+
 cor.ie <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,1]
 cor.if <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,3]
 cor.imp <- data.frame("Imp,Enjoy"=cor.ie, "Imp,Fit"=cor.if)
