@@ -144,23 +144,27 @@ In adolescents, Moreno-Murcia et al. (2011) found two primary motivational profi
 
 ## Data
 
-The study uses survey responses from datasets collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were selected because the youth and adult surveys share a parallel structure, and several items are worded identically, providing a strong baseline for direct comparison between age groups. All motivational measures were captured using single-item survey questions. A list of relevant survey questions is provided in Appendix A. For motive variables, descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were calculated to assess distributional properties, relationships among variables. Challenge and relaxation are only included in the LCA models due to different wording in the survey questions for adults and youths. A total of 117,247 adult and 30,670 youth observations were used in the SEM analyses, whereas 110,378 adult and 28,886 youth observations were included in the LCA. Only cisgender adults without disabilities were included in the analyses to maintain comparability and avoid skewed results due to small subgroup sizes. As ethnicity, education, and gender were included as control variables, these factors were retained alongside the analyzed items. Participants with missing responses on any relevant items were also excluded. 
+The study uses survey responses from datasets collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were selected because the youth and adult surveys share a parallel structure, and several items are worded identically, providing a strong baseline for direct comparison between age groups. All motivational measures were captured using single-item survey questions. A list of relevant survey questions is provided in Appendix A. For motive variables, descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were calculated to assess distributional properties, relationships among variables. Challenge and relaxation are only included in the LCA models due to different wording in the survey questions for adults and youths. A total of `r prettyNum(nrow(adult.bi), big.mark=",")` adult and `r prettyNum(nrow(child.bi), big.mark=",")` youth observations were used in the SEM analyses, whereas `r prettyNum(nrow(adult.lik), big.mark=",")` adult and `r prettyNum(nrow(child.lik), big.mark=",")` youth observations were included in the LCA. Only cisgender adults without disabilities were included in the analyses to maintain comparability and avoid skewed results due to small subgroup sizes. As ethnicity, education, and gender were included as control variables, these factors were retained alongside the analyzed items. Participants with missing responses on any relevant items were also excluded. 
 
 * Enjoyment – whether the individual finds exercise satisfying.
 
-* Social engagement – exercising for fun with friends.
+* Social – exercising for fun with friends.
 
-* Health and fitness – exercising to maintain physical well-being.
-
-* Opportunity – having the chance to exercise.
+* Fitness – exercising to maintain physical well-being.
 
 * Guilt – sense of personal obligation to exercise.
 
-* Challenge – exercising to push oneself or compete with others.
+* Opportunity – having the chance to exercise.
 
 * Relaxation – exercising to reduce stress and worry.
 
-* Minutes Exercised - weekly minutes of moderate-to-vigorous PA; see appendix for specific activities.
+* Ability - self-perceived competence and confidence in engaging in PA.
+
+* Importance - perceived personal importance and understanding of the value of PA.
+
+* Challenge – tendency to pursue and persist through challenges.
+
+* Minutes - weekly minutes of moderate-to-vigorous PA; see Appendix B for specific activities included.
 
 
 \newpage 
@@ -176,10 +180,23 @@ The sample was drawn using random probability sampling from the Postcode Address
 
 The adult dataset was drawn from households sampled via the Postcode Address File (PAF), with up to two residents aged 16 or older invited to participate through either an online survey or a paper questionnaire. Data were gathered in successive waves, aiming for approximately 500 responses per local authority, and were distributed as evenly as possible across the period from November 2022 to November 2023 to reduce seasonal bias. In total, 173,950 surveys were completed.
 
-Each item was rated on a five-point Likert scale ranging from 1 (strongly agree) to 5 (strongly disagree). All motive items had responses 4 (disagree) and 5 (strongly disagree) collapsed into a single category due to the low proportion of responses to minimize distortion.
 
 
-```{r adult.summary.bi, fig.align='center',fig.cap=""}
+
+
+```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap='Distribution of age, gender, and ethnicity in adults.'}
+gg.ad.age
+gg.ad.gend
+gg.ad.eth
+```
+
+Proportions of gender and ethnicity are extremely similar in the subsamples used for SEM and LCA models. Females constitute `r prettyNum(prop.table(table(adult.bi$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample, while white British constitute `r prettyNum(prop.table(table(adult.lik$eth))[[1]]*100, big.mark=",", digits = 2)`% of the total sample. The youngest and oldest two age groups were collapsed together due to the small size of most extreme groups. The decision to collapse the oldest adult categories (64–75 and 76+) was made because motivational profiles in these two groups did not differ meaningfully in preliminary analyses, and because the very small number of 76+ respondents would have produced unstable estimates if analyzed independently. Combining them ensured more robust model performance without obscuring theoretically important distinctions, which were not expected to be as pronounced at that stage of life. After collapsing, there are only some skewness. Responses with missing value in any of the motives are removed. 
+
+
+
+
+
+```{r adult.summary.bi, fig.align='center',tab.cap="Proportion of positive responses in adults."}
 opts <- options(knitr.kable.NA = '')
 kable(list(adult.summary.bi),align='c',booktabs = T) %>%
   kable_styling(position = 'center', font_size = 10,
@@ -187,74 +204,29 @@ kable(list(adult.summary.bi),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-For SEM, `r nrow(adult.bi)` are left to be analyzed. There's a general left skew, indicating most did not answer strongly agree to most items.
-
-```{r adult.summary, fig.align='center',fig.cap="Summary of variables for adults."}
-opts <- options(knitr.kable.NA = '')
-kable(list(adult.summary),align='c',booktabs = T) %>%
-  kable_styling(position = 'center', font_size = 10,
-                latex_options = c('striped',
-                                  'hold_position'))
-```
-
-After collapsing, the items are fairly balanced. Responses with missing value in any of the motives are removed. 
-
-For LCA, `r nrow(adult.lik)` are left to be analyzed.
+There's a general left skew in responses, indicating most did not answer strongly agree to most items.
 
 
-```{r gg.ad.demo1, out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
-gg.ad.age
-gg.ad.gend
-gg.ad.eth
-```
-
-Females constitute 53.89% of the sample while males constitute 46.11%. 82.25% are white British.
-The youngest and oldest two age groups are collapsed together due to the samll size of most extreme groups. The decision to collapse the oldest adult categories (64–75 and 76+) was made because motivational profiles in these two groups did not differ meaningfully in preliminary analyses, and because the very small number of 76+ respondents would have produced unstable estimates if analyzed independently. Combining them ensured more robust model performance without obscuring theoretically important distinctions, which were not expected to be as pronounced at that stage of life.
-
-
-```{r vars.ad,fig.height= '150%',fig.show='hold',fig.align='center', fig.cap='Distribution of adult responses.'}
+```{r vars.ad,fig.height= '150%',fig.show='hold',fig.align='center', fig.cap='Distribution of adult responses for each motive on the Likert scale.'}
 
 gg.vars.ad
 
 ```
 
-Across most motive items, the proportion of adults expressing strong positive agreement declines as age increases. In practical terms, older adults are less likely than their younger counterparts to strongly endorse beliefs such as feeling capable of engaging in physical activity, valuing it for the challenge, or pursuing it for enjoyment and fitness. They are also less likely to report strong feelings of guilt if they do not exercise, to believe they have sufficient opportunities to be active, or to view physical activity as an important way to relax.
+Each item was rated on a five-point Likert scale ranging from 1 (strongly agree) to 5 (strongly disagree). All motive items had responses 4 (disagree) and 5 (strongly disagree) collapsed into a single category due to the low proportion of responses to minimize distortion.
 
+Across most motive items, the proportion of adults expressing strong positive agreement declines as age increases. In practical terms, older adults are less likely than their younger counterparts to strongly endorse beliefs such as feeling capable of engaging in physical activity, valuing it for the challenge, or pursuing it for enjoyment and fitness. They are also less likely to report strong feelings of guilt if they do not exercise, to believe they have sufficient opportunities to be active, or to view physical activity as an important way to relax. See Appendix C for additional information on the mean, median, standard deviation, and percentage of missing values (NAs), which were excluded from the final dataset.
 
 \newpage 
 
-### Youths Dataset
+### Youth Dataset
 
 The youth dataset used in this dissertation is drawn from the Active Lives Children and Young People Survey (Year 6: 2022–2023), conducted by Ipsos on behalf of Sport England. It is a large-scale, school-based online survey administered to pupils in Years 1–11, their parents (for Years 1–2 pupils), and teachers. Only pupil responses from year 6-11 (age 11-16) were used in this dissertation. The pupil questionnaire focused on participation in sport and physical activity over the previous week, alongside items on swimming, cycling, volunteering, wellbeing, and attitudes towards physical activity. It also included classification questions such as gender, disability, and long-term health conditions. 
 
 The sampling strategy was designed to permit analysis at both national and local authority levels. A stratified three-stage sampling process was used: schools were first sampled from the January 2021 school census, then three year groups were randomly selected within each participating school, and finally, one mixed-ability class was chosen per selected year group. Fieldwork was carried out in three phases aligned with the academic terms (September 2022–July 2023). Pupils typically completed the survey at school under teacher supervision, although in some secondary schools it could also be set as homework. To encourage participation, schools received credits for sports equipment and, if response thresholds were met, school-level feedback reports. 
 
-Each item was rated on a four-point Likert scale ranging from 1 (strongly agree) to 4 (strongly disagree). Similar to the adults dataset, the 3 (disagree) and 4 (stronlgy disagree) responses were collapsed into a single cateogry due to low proportions of those resopness. Missing responses and "I don't know" were removed from the dataset.
 
-After collapsing, the items are fairly balanced with the exception of social, guilt, and relaxation. Responses with missing value in any of the motives are removed. 
-
-```{r child.summary.bi, fig.align='center',fig.cap=""}
-opts <- options(knitr.kable.NA = '')
-kable(list(child.summary.bi),align='c',booktabs = T) %>%
-  kable_styling(position = 'center', font_size = 10,
-                latex_options = c('striped',
-                                  'hold_position'))
-```
-
-For SEM, `r nrow(child.bi)` are left to be analyzed. 
-
-```{r child.summary, fig.align='center',fig.cap=""}
-opts <- options(knitr.kable.NA = '')
-kable(list(child.summary),align='c',booktabs = T) %>%
-  kable_styling(position = 'center', font_size = 10,
-                latex_options = c('striped',
-                                  'hold_position'))
-```
-
-
-For LCA, `r nrow(child.lik)` are left to be analyzed.
-
-```{r gg.ch.demo, out.width='32%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r gg.ch.demo, out.width='32%',fig.show='hold',fig.align='center', fig.cap='Distribution of age, gender, and ethnicity in youths.'}
 
 gg.ch.age
 gg.ch.gend
@@ -262,24 +234,40 @@ gg.ch.eth
 
 ```
 
-52.79% are male, while 47.21% are female.
-69.92% are white British.
+`r prettyNum(prop.table(table(child.lik$gender))[[2]]*100, big.mark=",", digits = 2)`% are female.
+`r prettyNum(prop.table(table(child.lik$eth))[[1]]*100, big.mark=",", digits = 2)`% are white British.
 Most youths are between 12-15 years old. There are only 4.63% of 16 year olds. Although 16-year-olds make up only about 5% of the youth sample, they were not collapsed with the 15-year-olds. This decision reflects a substantive rather than purely numerical consideration: the transition from 15 to 16 often marks a distinct developmental and social stage (e.g., legal thresholds, end of compulsory schooling, increased autonomy), which may correspond to meaningful differences in PA motives. Retaining this separation allows us to examine whether these turning points are reflected in motivational patterns, even with a relatively small subgroup.
 
-```{r vars.ch,,fig.height= '130%', fig.show='hold',fig.align='center', fig.cap=''}
+```{r child.summary.bi, fig.align='center',tab.cap="Proportion of positive responses in youths."}
+opts <- options(knitr.kable.NA = '')
+kable(list(child.summary.bi),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+
+There's a general left skew in responses, indicating most did not answer strongly agree to most items.
+
+
+```{r vars.ch,,fig.height= '130%', fig.show='hold',fig.align='center', fig.cap='Distribution of youth responses for each motive on the Likert scale.'}
 
 gg.vars.ch
 
 ```
 
-The response patterns among youths are less consistent than those observed in adults. With increasing age, youths become less likely to report exercising for challenge or social reasons. A greater proportion report exercising because they would feel guilty if they did not, or because it helps them relax. Among the oldest youth group, there is a slight but noticeable reversal: a sudden uptick in the proportion who “strongly agree” that ability and fitness are motivating factors. It is also notable that only a small minority of youths, regardless of age, indicate a lack of understanding about the importance of PA. 
+
+Each item was rated on a four-point Likert scale ranging from 1 (strongly agree) to 4 (strongly disagree). Similar to the adults dataset, the 3 (disagree) and 4 (stronlgy disagree) responses were collapsed into a single cateogry due to low proportions of those resopness. Missing responses and "I don't know" were removed from the dataset.
+
+After collapsing, the items are fairly balanced with the exception of social, guilt, and relaxation. Responses with missing value in any of the motives are removed. 
+The response patterns among youths are less consistent than those observed in adults. With increasing age, youths become less likely to report exercising for challenge or social reasons. A greater proportion report exercising because they would feel guilty if they did not, or because it helps them relax. Among the oldest youth group, there is a slight but noticeable reversal: a sudden uptick in the proportion who “strongly agree” that ability and fitness are motivating factors. It is also notable that only a small minority of youths, regardless of age, indicate a lack of understanding about the importance of PA. See Appendix C for additional information on the mean, median, standard deviation, and percentage of missing values (NAs), which were excluded from the final dataset.
 
 
 \newpage 
 
 ## Multigroup Structural Equation Modeling (SEM)
 
-Differences in the relationships between self-reported motives and PA levels across youths and adults were examined while controlling for demographic factors (see appendix for code and model specs). 
+Differences in the relationships between self-reported motives and PA levels across youths and adults were examined while controlling for demographic factors (see Appendix E for code and model specs). 
 
 Motivation variables included enjoyment, social, fitness, guilt, and opportunity. To account for differences in Likert scales between adults and youths, all motivation variables were dichotomized into “strongly agree” and “not strongly agree.” Demographic covariates included gender, age, and ethnicity. Gender was limited to female and male due to small sample sizes of other categories. Ethnicity was collapsed into White British and Non-White British for similar reasons. Youth participants included only those aged 11 and older who responded to the relevant items. Adult participants were grouped by age ranges (16–34, 35–44, 45–54, 55–64, 65–74, 75+) because exact ages were unavailable. The youngest and oldest two groups were further collapsed to reduce skew and ensure balanced distributions. A cap of 1680 minutes per week was applied to reported PA to minimize the impact of potential data entry errors and extreme values.
 
@@ -312,15 +300,13 @@ Residual diagnostics for conditional independence, such as standardized bivariat
 
 There are minor yet significant differences in the impact of every motive. 
 
-```{r slopes.diff, fig.align='center',fig.cap=""}
+```{r slopes.diff, fig.align='center',tab.cap="Estimated slopes of each motivational factor in the SEM, with differences calculated as youth minus adult values."}
 opts <- options(knitr.kable.NA = '')
 kable(list(slopes.diff),align='c',booktabs = T) %>% 
   kable_styling(position = 'center', font_size = 10,
                 latex_options = c('striped',
                                   'hold_position'))
 ```
-
-Summary and spec of model in appendix.
 
 All motivational items in the model influenced physical activity in the same direction for youths and adults. Since the variables are binary (1 = strongly agree, 0 = not strongly agree), the coefficients represent the estimated difference in minutes of activity between participants who strongly endorse a motive and those who do not. While all differences between age groups were statistically significant, effect sizes were generally modest, except for opportunity, which had a greater impact in adults. Other motives, including enjoyment, guilt, fitness, and social factors, exhibited smaller differences, indicating broadly similar motivational mechanisms across age groups.
 
@@ -352,41 +338,40 @@ Median mins per class, rather than mean due to skew in distribution of minutes e
 
 ### Adults
 
-```{r elbow.llik.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r elbow.llik.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Elbow plot showing AIC and BIC values, and maximum likelihood plot, across different numbers of latent classes in adults.'}
 
 gg.elbow.ad
 gg.llik.ad
 
 ```
 
-ADD PLOT?
 ad.lca.output?
-add plot(LCAE.ad, nclass = 3) and maybe 4? to appendix
+
 
 3 to 6 classes all have relative high likelihood and low AIC and BIC, and average posterior entropy per class. From the elbow plot, 4 classes seem to be the number of classes that start displaying diminishing return. However, the 3-class model has significantly higher relative entropy, and the four-class solution produced two classes with highly similar endorsement patterns, effectively splitting the moderate group without adding meaningful differentiation. The three-class model provides a clearer, more parsimonious representation of motivational profiles while still capturing the small but conceptually important subgroup with generally negative attitudes.
 
 
-```{r distr.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r distr.ad, fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
 
 plot(LCAE.ad, nclass = 2)
 
 ```
 
 
-Class 1
+#### Class 1
 
 This class shows high probabilities of strongly agreeing with enjoyment, fitness, ability, opportunity, and importance. Members also moderately endorsed social, challenge, and guilt motives, and showed relatively high agreement with relaxation. Overall, this class represents adults who consistently report strong agreement with a broad range of motivations. This class is labelled the High Engagement class.
 
-Class 2
+#### Class 2
 
 This class is characterized by very low probabilities of strongly agreeing with enjoyment and ability, and by a higher prevalence of neutral or negative responses across most items. Members of this class express the least favorable attitudes toward PA. This class is labelled the Low Engagement class. While this class represents a relatively small proportion of the sample (~6%), it aligns with the raw data, in which very few respondents selected negative responses.
 
-Class 3
+#### Class 3
 
 This class has a mixed attitude toward many motives, with moderate positive endorsement toward enjoyment, fitness, opportunity, ability and importance It represents adults with more ambivalent responses. This class is labelled the Mixed Motivation class.
 
 
-```{r mins.ad, out.width='49%', fig.show='hold',fig.align='center', fig.cap=''}
+```{r mins.ad, out.width='49%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for adults by class.'}
 
 gg.mins.ad
 
@@ -394,7 +379,7 @@ gg.mins.ad
  
 Analysis of weekly minutes of physical activity across the adult latent classes highlights substantial differences in exercise behavior. The High Engagement class exhibits the highest levels, with a weighted median of 445 minutes per week and a wide interquartile range of 180 to 840 minutes, indicating considerable variability even among this highly active group. The Mixed Motivation class reports intermediate activity, with a median of 182.5 minutes per week and an IQR of 30 to 457.5 minutes, reflecting both moderate overall engagement and substantial individual differences. In contrast, the Low Engagement class shows markedly lower activity, with a median of only 45 minutes per week and an IQR from 0 to 225.25 minutes, highlighting that while most members are minimally active, some still achieve higher levels. Overall, the broad IQRs across all classes indicate that even within latent classes defined by motivation, actual exercise behavior varies considerably.
 
-```{r byage.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r byage.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Proportion of adults in each class across age groups.'}
 
 gg.byage.ad
 
@@ -403,7 +388,7 @@ gg.byage.ad
 
 The distribution of age groups across the three latent classes highlights notable differences in motivational profiles. The High Engagement class is consistently the second most populous across age groups, though its representation declines gradually with increasing age. The Low Engagement class remains the smallest in all age groups, representing a relatively rare subgroup with low endorsement of motives, and its relative size is largely stable across ages. In contrast, the Mixed Motivation class contains the largest number of adults in every age group, with membership increasing steadily as age rises, suggesting that some individuals may shift from high engagement to mixed motivation over time.
 
-```{r or.ad, fig.align='center',fig.cap=""}
+```{r or.ad, fig.align='center',tab.cap="Odds ratios for adult class membership across age groups, with the youngest group (16–34 years) as the reference."}
 opts <- options(knitr.kable.NA = '')
 kable(list(or.ad),align='c',booktabs = T) %>%
   kable_styling(position = 'center', font_size = 10,
@@ -425,7 +410,7 @@ BIC plot indicates 3 or four 4 to reduce BIC the most. BLRT preferred 4 classes.
 The likelihood is similar between 3 and 4 classes. Average posterior probabilities are better in the 3-class model, as all classes have a >.80 pp.
 
 
-```{r elbow.llik.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r elbow.llik.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Elbow plot showing AIC and BIC values, and maximum likelihood plot, across different numbers of latent classes in youths.'}
 
 gg.elbow.ch
 gg.llik.ch
@@ -433,13 +418,11 @@ gg.llik.ch
 ```
 
 
-See appendix for elbow plot avereage pp etc
-
 Both 3 and 4- class models show promise.  BIC plot does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
 
 However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
 
-```{r distr.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r distr.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
 
 plot(LCAE.ch, nclass = 2)
 
@@ -457,7 +440,7 @@ This class shows very low probabilities of strongly agreeing with all motives, a
 
 This class primarily endorsed “agree” across most motives, with the exception of guilt. Disagreement is relatively uncommon, but strong agreement is also less prevalent than in the High Engagement class. This class falls between the other two, representing generally positive but not strongly emphatic motivation toward PA. This class will be labelled the Moderate Engagement class.
 
-```{r mins.ch, out.width='100%', fig.show='hold',fig.align='center', fig.cap=''}
+```{r mins.ch, out.width='100%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for youths by class.'}
 
 gg.mins.ch
 
@@ -465,7 +448,7 @@ gg.mins.ch
 
 Analysis of weekly minutes of physical activity across the youth latent classes reveals meaningful differences in exercise behavior. The High Engagement class reports the highest levels, with a weighted median of 405 minutes per week and an interquartile range of 185 to 745 minutes, indicating substantial variability even among the most motivated youths. The Mixed Motivation class shows intermediate activity, with a median of 235 minutes per week and an IQR from 90 to 455 minutes, reflecting moderate engagement with considerable individual differences. The Low Engagement class exhibits the lowest activity, with a median of 125 minutes per week and an interquartile range of 30 to 300 minutes, suggesting that while most members are less active, some still achieve moderate levels. These patterns imply that, similar to adults, class membership captures meaningful distinctions in motivation that are associated with actual physical activity.
 
-```{r byage.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap=''}
+```{r byage.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap='Proportion of youths in each class by age.'}
 
 gg.byage.ch
 
@@ -474,7 +457,7 @@ gg.byage.ch
 The distribution of age groups across the three latent classes highlights notable differences in motivational profiles among youths. The High Engagement and Mixed Motivation classes are roughly similar in size, with the High Engagement class generally decreasing across age groups but showing a sudden increase at age 16. The Low Engagement class is smaller than the other two but not as rare as in the adult sample; it increases steadily with age, with a slight dip at age 16. These patterns suggest that while high engagement may decline during adolescence, a substantial portion of youths maintain strong or mixed motivation, and low engagement gradually becomes more common over time. The sudden increase in High Engagement at age 16 indicates that some youths may experience a late boost in motivation during this stage of adolescence.
 
 
-```{r or.ch, fig.align='center',fig.cap=""}
+```{r or.ch, fig.align='center',tab.cap="Odds ratios for youth class membership across ages, with 11-year-olds as the reference."}
 opts <- options(knitr.kable.NA = '')
 kable(list(or.ch),align='c',booktabs = T) %>%
   kable_styling(position = 'center', font_size = 10,
@@ -526,6 +509,12 @@ data is cross sectinoal
 \newpage 
 
 # References
+
+Sport England. (2024). Active Lives Children and Young People Survey, 2022-2023. [data
+collection]. UK Data Service. SN: 9286, DOI: http://doi.org/10.5255/UKDA-SN-9286-1
+
+Sport England, Ipsos. (2025). Active Lives Adults Survey, 2022-2023. [data collection].
+2nd Edition. UK Data Service. SN: 9288, DOI: http://doi.org/10.5255/UKDA-SN-9288-2
 
 Vuckovic, V., & Duric, S. (2024). Motivational variations in fitness: a population study of exercise modalities, gender and relationship status. Frontiers in psychology, 15, 1377947. https://doi.org/10.3389/fpsyg.2024.1377947
 
@@ -581,23 +570,217 @@ Neipp, Mª & Quiles, María & Leon, Eva & Rodríguez-Marín, Jesús. (2013). The
 
 Wang, L., & Wang, L. (2015). Using Theory of Planned Behavior to Predict the Physical Activity of Children: Probing Gender Differences. BioMed research international, 2015, 536904. https://doi.org/10.1155/2015/536904
 
-
-
 \newpage
 
 # Appendix A - Survey Questions
+
 ## Adults
+
+```{r va, fig.align='center',tab.cap="Adult survey questions."}
+opts <- options(knitr.kable.NA = '')
+kable(list(va),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+
 ## Youths
+
+```{r vc, fig.align='center',tab.cap="Youth survey questions."}
+opts <- options(knitr.kable.NA = '')
+kable(list(vc),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
 
 \newpage
 
 # Appendix B - Exercise Types
 
 ## Adults
+
+The total minutes of exercise in this dissertation are calculated as the sum of vigorous (original variable: DUR_HVY_CAPPED_SPORTCOUNT_A01) and moderate plus (original variable: DUR_MOD_CAPPED_SPORTCOUNT_A01) activities.
+
+### Vigorous Exercises
+Definition
+Activity capped: Moderate intensity minutes per week: Sport (count definition), capped at 1680 mins/wk.
+
+* 11 a-side football
+* 13 a-side rugby league
+* 15 a-side rugby union
+* Bootcamp (e.g. drill sergeant military fitness)
+* Boxing
+* Boxing class (e.g. Boxercise body combat)
+* Cardio class (e.g. aerobics step aerobics body attack)
+* Circuit or cross training, cross fit, HIT or boot camp
+* Circuit training
+* Cross fit
+* Cross training
+* Cycle class (e.g. spinning RPM)
+* Cyclo-cross
+* Fell or trail running
+* Field hockey
+* Futsal
+* High intensity (e.g.  HIT insanity)
+* Hockey
+* Indoor cycling - in a class
+* Ju-Jitsu
+* Karate
+* Mountain biking
+* Obstacle course (e.g. Tough Mudder Spartan Rat Race)
+* Parkour or free running
+* Road cycling or racing
+* Rugby union
+* Running or jogging
+* Small sided football
+* Squash or racketball
+* Taekwondo
+* Track and field athletics
+* Triathlon (includes aquathlon and duathlon)
+* Weightlifting or powerlifting (using a barbell)
+
+
+### Moderate Exercises
+Definition: Activity capped: Moderate intensity minutes per week: Sport (count definition), capped at 1680 mins/wk.
+
+* A session combining several gym or fitness machines or activities
+* Aikido
+* Badminton
+* Baseball or softball
+* Basketball
+* BMX
+* Body weight exercises (e.g. pull ups press ups sit ups)
+* Cheerleading
+* Chinese martial arts
+* Climbing or bouldering wall
+* Climbing or mountaineering
+* Cross training machine (e.g. Cross trainer SkiErg)
+* Cycling for leisure
+* Cycling for leisure
+* Cycling for Leisure and all other cycling
+* Cycling for travel (including commuting)
+* Cycling for travel incl commuting
+* Dance-based class (e.g. Zumba fitsteps ravercise or body jam)
+* Dance-based class (e.g. Zumba, fitsteps, ravercise or body jam) 
+* Dressage
+* Eventing
+* Exercise bike
+* Exercise machine
+* Football
+* Free weights (includes kettlebells and dumb-bells)
+* Gymnastics
+* Gymnastics or trampolining
+* Handball
+* Hill and mountain walking, hiking, mountaineering
+* Hill or mountain walking or hiking
+* Hill or mountain walking or hiking
+* Indoor cycling - not in a class
+* Judo
+* Lacrosse
+* Martial arts
+* Mountaineering and scrambling
+* Netball
+* Other exercise machine
+* Other football
+* Other horse riding
+* Resistance weights machines
+* Rock climbing or bouldering
+* Rounders
+* Rounders
+* Rowing
+* Rowing machine
+* Rowing machine
+* Rugby league
+* Rugby sevens
+* Running machine or treadmill
+* Schooling
+* Show jumping
+* Skiing
+* Skiing or snowboarding
+* Skipping
+* Snowboarding
+* Step machine
+* Surfing, body surfing or body boarding
+* Tag or other rugby league
+* Tag or other rugby union
+* Tennis
+* Touch rugby
+* Touch rugby league
+* Touch rugby league
+* Touch rugby union
+* Touch rugby union
+* Track cycling
+* Trampolining
+* Treadmill
+* Volleyball
+* Walking football
+* Water based rowing
+* Water polo
+* Water polo
+* Water-based class (e.g. aquaerobics aquafit)
+* Weights (did not specify whether free weights or resistance weights)
+* Weights-based class (e.g. body pump kettlebell)
+* Wrestling
+
 ## Youths
 
+Moderate and vigorous activities are encompassed under the same variable (original variable name: mins_modplus_outschool_Week_ALL). 
+Deinition: Mins spent in week (moderate plus mins) outside school: All activities
+
+According to Sports England (2024), activities were categorized based on the following definition:
+
+> Moderate activity: This is defined as activity where you raise your heart rate and feel a little out of breath (In academic year 2017-18 (Year 1) pupils were asked whether it made them breathe faster, but since academic year 2019-20 (Year 3) have been asked whether it made them breathe faster than sitting down reading. In Year 2 (18-19), half the children were asked the year 3 version and half were asked the year 1 version across the whole year).
+
+> Vigorous activity: This is defined as when you are out of breath or are sweating - you may not be able to say more than a few words without pausing for breath (pupils were asked whether it made them hot or tired).
+
+More specifically, these acvities were included
+
+* Cycling for fun
+* Dancing (include online or TV led e.g. TikTok dances)
+* Trampolining (including in a garden, at a trampoline centre, or as part of a club)
+* Playing it, tag, chase, sardines or other running game
+* Football
+* Netball
+* Hockey
+* Rugby (including tag rugby)
+* Touch or tag Rugby
+* Contact rugby (rugby union)
+* Rugby league (contact)
+* Basketball
+* Cheerleading
+* Running, jogging, cross-country
+* Field athletics
+* Gym or fitness (fitness/online class e.g., push-ups, sit-ups, yoga, etc or using exercise machines e.g. rowing machine, exercise bike, running machine)
+* Judo, karate, taekwondo and other martial arts
+* Sports day events
+* Boxing
+
+
 \newpage
-# Appendix B - R Code
+
+# Appendix C - Other tables
+
+```{r adult.summary, fig.align='center',tab.cap="Statistics on Likert-scale responses in adults."}
+opts <- options(knitr.kable.NA = '')
+kable(list(adult.summary),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+```{r child.summary, fig.align='center',tab.cap="Statistics on Likert-scale responses in youths."}
+opts <- options(knitr.kable.NA = '')
+kable(list(child.summary),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+\newpage
+
+# Appendix D - R Code (Data Cleaning)
 
 ```{r data.R, comment = ""}
 source("data.R", echo = T, print.eval = F,
@@ -606,6 +789,7 @@ source("data.R", echo = T, print.eval = F,
 
 \newpage
 
+# Appendix E - R Code (SEM)
 ```{r SEM.R, comment = ""}
 source("SEM.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -613,6 +797,7 @@ source("SEM.R", echo = T, print.eval = F,
 
 \newpage
 
+# Appendix F - R Code (LCA)
 ```{r LCA.R, comment = ""}
 source("LCA.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -620,6 +805,7 @@ source("LCA.R", echo = T, print.eval = F,
 
 \newpage
 
+# Appendix G - R Code (Visualization)
 ```{r Visualization.R, comment = ""}
 source("Visualization.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -627,7 +813,7 @@ source("Visualization.R", echo = T, print.eval = F,
 
 \newpage
 
-# Appendix C - R code: rmarkdown chunks
+# Appendix H - R code (R Markdown)
 
 ```{r get-labels, echo=FALSE, eval=TRUE}
 labs = knitr::all_labels()

@@ -6,17 +6,17 @@ library(poLCAExtra)
 library(scales)
 library(ggthemes)
 
-
+options(digits = 4)
 # Descriptive -------------------------------------------------------------
 child.summary.bi <- data.frame(colMeans(
   child.bi[, setdiff(names(child.bi),
-                     c("gender", "eth", "age"))], na.rm = TRUE))
-colnames(child.summary.bi) <- ("Mean")
+                     c("gender", "eth", "age", "mins"))], na.rm = TRUE))
+colnames(child.summary.bi) <- ("Proportion")
 
 adult.summary.bi <- data.frame(colMeans(
   adult.bi[, setdiff(names(adult.bi),
-                     c("gender", "eth", "age"))], na.rm = TRUE))
-colnames(adult.summary.bi) <- ("Mean")
+                     c("gender", "eth", "age","mins"))], na.rm = TRUE))
+colnames(adult.summary.bi) <- ("Proportion")
 
 cor.ie <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,1]
 cor.if <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,3]
@@ -434,3 +434,41 @@ gg.vars.ad <- ggplot(adult.lik_long, aes(x = factor(age), y = prop, fill = facto
   theme(legend.position = "bottom", axis.text.y = element_text(size = 6),
         axis.text.x = element_text(size = 6))
 gg.vars.ad
+
+
+
+# Survey questions
+# youths
+vc1 <- c('enjoy','social','fit','opp','guilt','imp','chal','abil','relx')
+vc2 <- c('PL_Enjoy_bc_ans','MO_Fun_c','MO_Fit_c','MO_Opp_c','MO_Guilt_c',
+         'PL_GdMe_bc_ans','Try_bc','PL_Conf_bc_ans','MO_Relax_c')
+vc3 <- c("I enjoy taking part in exercise and sports.",
+         "I exercise socially for fun with friends.",
+         "I exercise to stay fit and healthy.",
+         "I feel that I have the opportunity to be physically active.",
+         "I feel guilty when I don't exercise.",
+         "I understand why exercise and sports are good for me.",
+         "If I find something difficult, I keep trying until I can do it.",
+         "I feel confident when I exercise and play sports.",
+         "I exercise to help me relax and worry less about things ."
+         )
+
+vc <- data.frame(vc1,vc2,vc3)
+colnames(vc) <- c("Variable", "Origianl Variable Name", "Survey Question")
+
+va1 <- c('enjoy','social','fit','opp','guilt','imp','chal','abil','relx')
+va2 <- c('Motiva_POP','motivex2c','motivex2a','READYOP1_POP','motivc_POP',
+         'motivb_POP','motivex2d','READYAB1_POP','motivex2b')
+va3 <- c("Motivation for sport/exercise: I find sport/exercise enjoyable and satisfying.",
+         "I exercise socially for fun with friends.",
+         "I exercise to stay fit and healthy.",
+         "Readiness for activity: Opportunity,",
+         "Motivation for sport/exercise: I feel guilty when I don't do sport/exercise.",
+         "Motivation for sport/exercise: It's important to me to do sport/exercise regularly.",
+         "I exercise to challenge myself (either against myself or others).",
+         "Readiness for activity: Ability.",
+         "I exercise to help me relax and worry less about things."
+         )
+
+va <- data.frame(va1,va2,va3)
+colnames(va) <- c("Variable", "Origianl Variable Name", "Survey Question")
