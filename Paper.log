@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  9 OCT 2025 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  17 OCT 2025 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,7 +578,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [4]
 
 [5]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 301.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 320.
 (c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -588,53 +588,50 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [7]
 
 [8]
-<Paper_files/figure-latex/gg.ad.demo1-1.pdf, id=115, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ad.demo1-1.pdf, id=117, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-1.pdf  used on input line 486.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-1.pdf  used on input line 497.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-<Paper_files/figure-latex/gg.ad.demo1-2.pdf, id=116, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ad.demo1-2.pdf, id=118, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-2.pdf  used on input line 486.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-2.pdf  used on input line 497.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-<Paper_files/figure-latex/gg.ad.demo1-3.pdf, id=117, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ad.demo1-3.pdf, id=119, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-3.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-3.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-3.pdf  used on input line 486.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-3.pdf  used on input line 497.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Paper_files/figure-latex/vars.ad-1.pdf, id=118, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/vars.ad-1.pdf, id=120, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/vars.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/vars.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/vars.ad-1.pdf  used on input line 532.
+Package pdftex.def Info: Paper_files/figure-latex/vars.ad-1.pdf  used on input line 543.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
 [9 <./Paper_files/figure-latex/gg.ad.demo1-1.pdf> <./Paper_files/figure-latex/gg.ad.demo1-2.pdf> <./Paper_files/figure-latex/gg.ad.demo1-3.pdf>]
 
 [10 <./Paper_files/figure-latex/vars.ad-1.pdf>]
-<Paper_files/figure-latex/gg.ch.demo-1.pdf, id=151, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ch.demo-1.pdf, id=153, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-1.pdf  used on input line 586.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-1.pdf  used on input line 597.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-<Paper_files/figure-latex/gg.ch.demo-2.pdf, id=152, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ch.demo-2.pdf, id=154, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-2.pdf  used on input line 586.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-2.pdf  used on input line 597.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-<Paper_files/figure-latex/gg.ch.demo-3.pdf, id=153, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/gg.ch.demo-3.pdf, id=155, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-3.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-3.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-3.pdf  used on input line 586.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-3.pdf  used on input line 597.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
-<Paper_files/figure-latex/vars.ch,-1.pdf, id=154, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/vars.ch,-1.pdf, id=156, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/vars.ch,-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/vars.ch,-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/vars.ch,-1.pdf  used on input line 629.
+Package pdftex.def Info: Paper_files/figure-latex/vars.ch,-1.pdf  used on input line 642.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
@@ -647,33 +644,33 @@ Package pdftex.def Info: Paper_files/figure-latex/vars.ch,-1.pdf  used on input 
 [14{c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
 [15]
-<Paper_files/figure-latex/elbow.llik.ad-1.pdf, id=206, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/elbow.llik.ad-1.pdf, id=208, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-1.pdf  used on input line 828.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-1.pdf  used on input line 865.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
-<Paper_files/figure-latex/elbow.llik.ad-2.pdf, id=207, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/elbow.llik.ad-2.pdf, id=209, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ad-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ad-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-2.pdf  used on input line 828.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-2.pdf  used on input line 865.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
-<Paper_files/figure-latex/distr.ad-1.pdf, id=208, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/distr.ad-1.pdf, id=210, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/distr.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/distr.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/distr.ad-1.pdf  used on input line 850.
+Package pdftex.def Info: Paper_files/figure-latex/distr.ad-1.pdf  used on input line 887.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
 [16 <./Paper_files/figure-latex/elbow.llik.ad-1.pdf> <./Paper_files/figure-latex/elbow.llik.ad-2.pdf> <./Paper_files/figure-latex/distr.ad-1.pdf>]
-<Paper_files/figure-latex/mins.ad-1.pdf, id=233, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/mins.ad-1.pdf, id=235, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/mins.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/mins.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/mins.ad-1.pdf  used on input line 885.
+Package pdftex.def Info: Paper_files/figure-latex/mins.ad-1.pdf  used on input line 922.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
-<Paper_files/figure-latex/byage.ad-1.pdf, id=234, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/byage.ad-1.pdf, id=236, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/byage.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/byage.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/byage.ad-1.pdf  used on input line 909.
+Package pdftex.def Info: Paper_files/figure-latex/byage.ad-1.pdf  used on input line 946.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -683,33 +680,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [17 <./Paper_files/figure-latex/mins.ad-1.pdf>]
 
 [18 <./Paper_files/figure-latex/byage.ad-1.pdf>]
-<Paper_files/figure-latex/elbow.llik.ch-1.pdf, id=261, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/elbow.llik.ch-1.pdf, id=263, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-1.pdf  used on input line 994.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-1.pdf  used on input line 1031.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
-<Paper_files/figure-latex/elbow.llik.ch-2.pdf, id=262, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/elbow.llik.ch-2.pdf, id=264, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ch-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ch-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-2.pdf  used on input line 994.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-2.pdf  used on input line 1031.
 (pdftex.def)             Requested size: 230.18253pt x 138.1095pt.
-<Paper_files/figure-latex/distr.ch-1.pdf, id=263, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/distr.ch-1.pdf, id=265, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/distr.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/distr.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/distr.ch-1.pdf  used on input line 1012.
+Package pdftex.def Info: Paper_files/figure-latex/distr.ch-1.pdf  used on input line 1049.
 (pdftex.def)             Requested size: 469.75502pt x 281.85626pt.
 
 
 [19 <./Paper_files/figure-latex/elbow.llik.ch-1.pdf> <./Paper_files/figure-latex/elbow.llik.ch-2.pdf> <./Paper_files/figure-latex/distr.ch-1.pdf>]
-<Paper_files/figure-latex/mins.ch-1.pdf, id=290, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/mins.ch-1.pdf, id=292, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/mins.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/mins.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/mins.ch-1.pdf  used on input line 1046.
+Package pdftex.def Info: Paper_files/figure-latex/mins.ch-1.pdf  used on input line 1083.
 (pdftex.def)             Requested size: 469.75502pt x 281.85626pt.
-<Paper_files/figure-latex/byage.ch-1.pdf, id=291, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/byage.ch-1.pdf, id=293, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/byage.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/byage.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/byage.ch-1.pdf  used on input line 1070.
+Package pdftex.def Info: Paper_files/figure-latex/byage.ch-1.pdf  used on input line 1107.
 (pdftex.def)             Requested size: 469.75502pt x 281.85626pt.
 
 
@@ -724,19 +721,19 @@ Package pdftex.def Info: Paper_files/figure-latex/byage.ch-1.pdf  used on input 
 [24]
 
 [25]
-Overfull \hbox (65.44066pt too wide) in paragraph at lines 1347--1363
+Overfull \hbox (65.44066pt too wide) in paragraph at lines 1384--1400
  [][] 
  []
 
 
 
 [26]
-Underfull \hbox (badness 1496) in paragraph at lines 1396--1400
+Underfull \hbox (badness 1496) in paragraph at lines 1433--1437
 \T1/lmr/m/n/10 The to-tal min-utes of ex-er-cise in this dis-ser-ta-tion are cal-cu-lated as the sum of vig-or-ous (orig-i-
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 1396--1400
+Underfull \hbox (badness 2005) in paragraph at lines 1433--1437
 \T1/lmr/m/n/10 nal vari-able: DUR_HVY_CAPPED_SPORTCOUNT_A01) and mod-er-ate plus (orig-i-nal vari-able:
  []
 
@@ -751,7 +748,7 @@ Underfull \hbox (badness 2005) in paragraph at lines 1396--1400
 [30]
 
 [31]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1770.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1807.
 (c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -771,54 +768,54 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [38]
 
 [39]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   enjoyb ~ c(a1_adult, a1_youth)*age + c(g1_adult, g1_youth)*gender + c(e1_adult, e1_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   guiltb ~ c(a2_adult, a2_youth)*age + c(g2_adult, g2_youth)*gender + c(e2_adult, e2_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   oppb   ~ c(a3_adult, a3_youth)*age + c(g3_adult, g3_youth)*gender + c(e3_adult, e3_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   fitb   ~ c(a4_adult, a4_youth)*age + c(g4_adult, g4_youth)*gender + c(e4_adult, e4_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   socialb~ c(a5_adult, a5_youth)*age + c(g5_adult, g5_youth)*gender + c(e5_adult, e5_youth)*eth[] 
  []
 
 
-Overfull \hbox (28.99353pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   relxb~ c(a6_adult, a6_youth)*age + c(g6_adult, g6_youth)*gender + c(e6_adult, e6_youth)*eth[] 
  []
 
 
-Overfull \hbox (70.99341pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (70.99341pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   # Main outcome: motives predicting mins, controlling for demographics (group-specific coefficients)[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +   mins ~ c(b1_adult, b1_youth)*enjoyb + c(b2_adult, b2_youth)*guiltb + c(b3_adult, b3_youth)*oppb +[] 
  []
 
 
-Overfull \hbox (55.24345pt too wide) in paragraph at lines 2249--2249
+Overfull \hbox (55.24345pt too wide) in paragraph at lines 2286--2286
 []\T1/lmtt/m/n/10 +           c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(b6_adult, b6_youth)*relxb[] 
  []
 
 
 
 [40]
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 2348--2348
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 2385--2385
 []\T1/lmtt/m/n/10 +   mins ~ c("a1","a1")*enjoyb + guiltb + oppb + fitb + socialb + age + gender + eth + relxb[] 
  []
 
@@ -845,17 +842,17 @@ Overfull \hbox (13.24358pt too wide) in paragraph at lines 2348--2348
 [50]
 
 [51]
-Overfull \hbox (112.99329pt too wide) in paragraph at lines 3056--3056
+Overfull \hbox (112.99329pt too wide) in paragraph at lines 3094--3094
 []\T1/lmtt/m/n/10 +             Mean = mean(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0 ], na.rm = TRUE),[] 
  []
 
 
-Overfull \hbox (128.74324pt too wide) in paragraph at lines 3056--3056
+Overfull \hbox (128.74324pt too wide) in paragraph at lines 3094--3094
 []\T1/lmtt/m/n/10 +             Median = median(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0], na.rm = TRUE),[] 
  []
 
 
-Overfull \hbox (86.74336pt too wide) in paragraph at lines 3056--3056
+Overfull \hbox (86.74336pt too wide) in paragraph at lines 3094--3094
 []\T1/lmtt/m/n/10 +             SD = sd(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0], na.rm = TRUE),[] 
  []
 
@@ -866,19 +863,19 @@ Overfull \hbox (86.74336pt too wide) in paragraph at lines 3056--3056
 [53]
 
 [54]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3056.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3094.
 (c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<Paper_files/figure-latex/Visualization.R-1.pdf, id=493, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/Visualization.R-1.pdf, id=495, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/Visualization.R-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/Visualization.R-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/Visualization.R-1.pdf  used on input line 3058.
+Package pdftex.def Info: Paper_files/figure-latex/Visualization.R-1.pdf  used on input line 3096.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
 [55]
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 3205--3205
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 3243--3243
 []\T1/lmtt/m/n/10 > gg.vars.ch <- ggplot(child.lik_long, aes(x = factor(age), y = prop, fill = factor(score))) +[] 
  []
 
@@ -889,30 +886,30 @@ Overfull \hbox (23.74355pt too wide) in paragraph at lines 3205--3205
 [57]
 
 [58]
-<Paper_files/figure-latex/Visualization.R-2.pdf, id=518, 361.35pt x 216.81pt>
+<Paper_files/figure-latex/Visualization.R-2.pdf, id=520, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/Visualization.R-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/Visualization.R-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/Visualization.R-2.pdf  used on input line 3207.
+Package pdftex.def Info: Paper_files/figure-latex/Visualization.R-2.pdf  used on input line 3245.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
 [59 <./Paper_files/figure-latex/Visualization.R-2.pdf>]
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 3298--3298
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 3336--3336
 []\T1/lmtt/m/n/10 > gg.vars.ad <- ggplot(adult.lik_long, aes(x = factor(age), y = prop, fill = factor(score))) +[] 
  []
 
 
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 3298--3298
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 3336--3336
 []\T1/lmtt/m/n/10 > va3 <- c("Motivation for sport/exercise: I find sport/exercise enjoyable and satisfying.",[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 3298--3298
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 3336--3336
 []\T1/lmtt/m/n/10 +          "Motivation for sport/exercise: I feel guilty when I don't do sport/exercise.",[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 3298--3298
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 3336--3336
 []\T1/lmtt/m/n/10 +          "Motivation for sport/exercise: It's important to me to do sport/exercise regularly.",[] 
  []
 
@@ -922,9 +919,9 @@ Overfull \hbox (39.4935pt too wide) in paragraph at lines 3298--3298
 
 [61]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3307.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3345.
 
-Overfull \vbox (1.23935pt too high) detected at line 3405
+Overfull \vbox (1.23935pt too high) detected at line 3443
  []
 
 
@@ -938,18 +935,18 @@ L3 programming layer <2024-05-08>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13776 strings out of 475559
- 221065 string characters out of 5775834
+ 13779 strings out of 475559
+ 221111 string characters out of 5775834
  1961893 words of memory out of 5000000
- 36015 multiletter control sequences out of 15000+600000
+ 36017 multiletter control sequences out of 15000+600000
  611503 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,9n,93p,610b,590s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Paper.pdf (63 pages, 417234 bytes).
+Output written on Paper.pdf (63 pages, 418839 bytes).
 PDF statistics:
- 738 PDF objects out of 1000 (max. 8388607)
- 603 compressed objects within 7 object streams
- 128 named destinations out of 1000 (max. 500000)
- 373 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 743 PDF objects out of 1000 (max. 8388607)
+ 608 compressed objects within 7 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

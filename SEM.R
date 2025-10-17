@@ -175,5 +175,6 @@ slopes.diff <- slopes.diff %>%
   dplyr::select(-se.youth, -se.adult)
 
 
-slopes.diff
+# check residual
+resid(f0, type = "cor")
 
