@@ -83,9 +83,9 @@ However, most existing studies examine age-related differences within either you
 
 # Literature Review
 
-Motivation in physical activity research has been interpreted through several theoretical lenses. Among these, Self-Determination Theory (SDT) and the Theory of Planned Behaviour (TPB) provide complementary perspectives: SDT explains the quality and internalisation of motives, whereas TPB models the intentional processes linking attitudes and perceived control to behaviour.
+Motivation in physical activity research has been interpreted through several theoretical lenses. 
 
-## Self-Determination Theory (SDT)
+## Self-Determination Theory
 
 Self-Determination Theory (SDT) is a popular framework that has gained popularity in the past two decades. Developed by Deci & Ryan, it has shed light on the understanding of human motivation, emphasizing the degree to which behavior is self-determined versus controlled. Motivation is distinguished in terms of autonomy, with autonomous forms associated with volition and self-endorsement of behavior, and controlled forms reflecting pressure from external contingencies or internalized demands such as guilt or ego involvement. Within SDT, extrinsic motivation is subdivided into external regulation, introjected regulation, identified regulation, and integrated regulation, representing increasing internalization of instrumental behaviors. Intrinsic motivation, by contrast, arises from interest, enjoyment, or inherent satisfaction in the activity itself. These motivational types have implications for physical activity, as more autonomous motives are linked to sustained engagement, positive psychological outcomes, and long-term health (CITE).
 
@@ -94,9 +94,9 @@ In physical activity and health behaviour research, this framework is especially
 However, SDT research on physical activity often relies on self-reported motivation and activity measures, which may inflate associations due to shared method variance. Moreover, longitudinal tests of SDT in adulthood remain limited, making developmental generalisations tentative.
 
 
-## Theory of Planned Behaviour (TPB)
+## Theory of Planned Behaviour
 
-The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control. Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and perceived behavioral control represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although perceived behavioral control can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions—supported by favorable attitudes, positive social norms, and higher perceived control—are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behavior, highlighting the importance of situational constraints and individual capabilities.
+The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control (PBC). Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and PBC represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although PBC can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions—supported by favorable attitudes, positive social norms, and higher perceived control—are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behavior, highlighting the importance of situational constraints and individual capabilities.
 
 TPB has been criticised for its limited explanatory power beyond intention formation, neglecting affective and identity-related processes emphasised in SDT. Meta-analytic evidence shows that TPB variables explain intention well but only moderate proportions of actual behaviour (Rhodes & de Bruijn, 2013).
 
@@ -131,7 +131,7 @@ Hypothesis 2: Distinct motivational profiles exist within youths and within adul
 
 In adults, Ostendorf et al. (2021) identified three primary motivational profiles among individuals with overweight or obesity: high autonomous, high combined, and moderate combined. The high autonomous profile was characterized by strong intrinsic and identified motivations, with minimal influence of external or introjected regulation. The high combined profile reflected elevated levels across all regulatory types, while the moderate combined profile exhibited intermediate levels on all regulations. Longitudinally, the high autonomous profile demonstrated the least decline in moderate-to-vigorous physical activity during transitions from supervised to unsupervised exercise, suggesting that intrinsic and identified motivations support sustained behavior, whereas moderate-to-high external regulation may require additional support for continued engagement. Nuss et al. (2023) further identified four motivational profiles in Canadian adults, showing that combinations of controlled and autonomous motivation may synergistically support activity, with low overall motivation corresponding to minimal engagement. Collectively, these findings highlight that adult populations are not homogeneous in their motivational profiles, and that the prevalence of lower-engagement profiles increases with age. This supports the hypothesis that, with increasing age, adults are progressively more likely to belong to classes characterized by lower overall agreement across motivational items, with the oldest adults showing the sharpest decline.
 
-In adolescents, Moreno-Murcia et al. (2011) found two primary motivational profiles in physical education students: a self-determined profile, with high intrinsic and identified motivation, and a non-self-determined profile, with elevated external, introjected, and amotivated scores. The self-determined profile was positively associated with Theory of Planned Behavior constructs such as intention, subjective norm, perceived behavioral control, and attitude, indicating that higher autonomous motivation supports favorable cognitions and participation behaviors. Cross-sectional studies further corroborate these trends. Manzano-Sánchez et al. (2019) identified higher motivation profiles among adolescents aged 12–16, which were associated with adaptive outcomes such as responsibility, resilience, and perceived social support. Heredia-León et al. (2021) reported that students with high-quality and high-quantity motivational profiles demonstrated greater intention to be physically active and enjoyment in PE classes, whereas low-quality profiles corresponded to higher boredom and lower engagement. Tapia-Serrano et al. (2022) identified five profiles in children, ranging from highly amotivated to autonomously motivated, showing that even controlled motivation can promote short-term engagement, though autonomy supports more sustained activity. While these studies collectively demonstrate heterogeneity in motivational orientation, they differ in sample characteristics, activity settings, and profile extraction methods, complicating direct comparison across age groups. Few have tested whether the same latent structures hold equivalently in youths and adults, underscoring the need for multigroup analysis. Nevertheless, younger populations exhibit a range of motivational profiles, and the likelihood of belonging to profiles with lower motivation increases with age. This aligns with the hypothesis that, as age increases, youths are progressively more likely to belong to classes characterized by lower overall agreement across motivational items.
+In adolescents, Moreno-Murcia et al. (2011) found two primary motivational profiles in physical education students: a self-determined profile, with high intrinsic and identified motivation, and a non-self-determined profile, with elevated external, introjected, and amotivated scores. The self-determined profile was positively associated with TPB constructs such as intention, subjective norm, PBC, and attitude, indicating that higher autonomous motivation supports favorable cognitions and participation behaviors. Cross-sectional studies further corroborate these trends. Manzano-Sánchez et al. (2019) identified higher motivation profiles among adolescents aged 12–16, which were associated with adaptive outcomes such as responsibility, resilience, and perceived social support. Heredia-León et al. (2021) reported that students with high-quality and high-quantity motivational profiles demonstrated greater intention to be physically active and enjoyment in PE classes, whereas low-quality profiles corresponded to higher boredom and lower engagement. Tapia-Serrano et al. (2022) identified five profiles in children, ranging from highly amotivated to autonomously motivated, showing that even controlled motivation can promote short-term engagement, though autonomy supports more sustained activity. While these studies collectively demonstrate heterogeneity in motivational orientation, they differ in sample characteristics, activity settings, and profile extraction methods, complicating direct comparison across age groups. Few have tested whether the same latent structures hold equivalently in youths and adults, underscoring the need for multigroup analysis. Nevertheless, younger populations exhibit a range of motivational profiles, and the likelihood of belonging to profiles with lower motivation increases with age. This aligns with the hypothesis that, as age increases, youths are progressively more likely to belong to classes characterized by lower overall agreement across motivational items.
 
 * H2(a). With increasing age, the likelihood of adults belonging to classes with lower overall agreement across motivational items increases, reflecting a gradual decline in motivation, with the oldest adults showing the steepest decrease.
 
@@ -296,7 +296,7 @@ All analyses were conducted in R (version 4.4.3). Multigroup structural equation
 
 ## SEM
 
-There are minor yet significant differences in the impact of every motive. 
+There were significant differences in the impact of each motivational factor between youths and adults. As the variables were binary, the coefficients represent how strongly agreeing to the specific variable changes weekly minutes of PA.
 
 ```{r slopes.diff, fig.align='center',tab.cap="Estimated slopes of each motivational factor in the SEM, with differences calculated as youth minus adult values."}
 opts <- options(knitr.kable.NA = '')
@@ -306,33 +306,22 @@ kable(list(slopes.diff),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-All motivational items in the model influenced physical activity in the same direction for youths and adults. Since the variables are binary (1 = strongly agree, 0 = not strongly agree), the coefficients represent the estimated difference in minutes of activity between participants who strongly endorse a motive and those who do not. While all differences between age groups were statistically significant, effect sizes were generally modest, except for opportunity, which had a greater impact in adults. Other motives, including enjoyment, guilt, fitness, and social factors, exhibited smaller differences, indicating broadly similar motivational mechanisms across age groups.
+For H1(a), the difference in the effect of enjoyment between youths and adults was 24 minutes, with youths showing a stronger effect (139 minutes) compared to adults (115 minutes). Similarly, guilt had a greater influence on youths, with a difference of 17 minutes (29 minutes for youths vs. 12 minutes for adults). In contrast, social motives had a larger effect in adults, with a difference of 24 minutes (57 minutes for adults vs. 33 minutes for youths). This hypothesis is partially supported, as enjoyment and guilt were more influential in youths, but social influence was stronger in adults. Fitness had a difference of -25 minutes, with adults showing a stronger effect (93 minutes) compared to youths (67 minutes). On the other hand, relaxation was more impactful in youths, with a difference of 16 minutes (59 minutes for youths vs. 43 minutes for adults). This aligns with H1(b), which is largely supported—fitness was a stronger motivator in adults, while relaxation had a greater impact on youths. Opportunity showed a difference of -63 minutes, with adults showing a significantly stronger effect (96 minutes) compared to youths (33 minutes). This finding does not support H1(c), as environmental opportunities had a stronger effect on adults than on youths.
 
-Youths were most strongly influenced by enjoyment and guilt, highlighting the role of intrinsic and internalized motivation in shaping adolescent activity. Adults, by contrast, responded more strongly to opportunity, fitness, and social motives, underscoring the importance of external facilitation, health awareness, and social engagement. 
+The results suggest a shift in motivational drivers as individuals age. For youths, internal factors such as enjoyment and guilt play a central role in driving physical activity. This aligns with the framework of SDT, which posits that intrinsic motivation and internalized social norms are key drivers of behavior, particularly in younger individuals. The stronger influence of enjoyment and guilt in youths reflects their higher engagement in physical activity when these factors are internally rewarding. This suggests that youths are more likely to engage in physical activity when it is personally enjoyable or when they feel a sense of obligation, aligning with the intrinsic and internalized forms of motivation emphasized in SDT.
 
-From an SDT perspective, these findings align with the framework’s distinction between intrinsic, internalized, and external regulation. Youths’ strong responses to enjoyment and guilt/obligation reflect intrinsic and internalized motivations, emphasizing autonomy and internalized norms as key drivers. Adults’ stronger responsiveness to opportunity, fitness, and social motives reflects identified and external regulation, where structured opportunities, competence-related goals, and social reinforcement play a larger role. 
+In contrast, adults are more influenced by external factors such as opportunity, fitness, and social motives. This finding is consistent with SDT's concept of external regulation, where structured opportunities and social reinforcement become more important as individuals age. The stronger influence of opportunity in adults—marked by a difference of 63 minutes—highlights how external environmental factors, such as access to fitness programs or support systems, play a more significant role in motivating adults. In SDT terms, this reflects a shift from intrinsic to more extrinsic motivations as individuals age, with external factors like access to resources and social validation becoming increasingly central to sustaining activity.
 
-Within the TPB framework, behavior is determined by intention, which is influenced by attitudes, subjective norms, and perceived behavioral control (PBC). For youths, full endorsement of enjoyment and guilt/obligation likely reflects favorable attitudes and perceived social norms supporting activity. For adults, stronger effects of opportunity, fitness, and social motives suggest that PBC, shaped by access to resources and social support, is a key driver of activity. 
+From a TPB perspective, the results suggest that intention, which is influenced by attitudes, subjective norms, and PBC, varies across age groups. For youths, the stronger response to enjoyment and guilt aligns with the idea that personal attitudes and subjective norms are more influential for this group. These internal motives likely reflect youths’ favorable attitudes toward physical activity and their internalized perceptions of social norms around exercise. In contrast, adults’ greater responsiveness to opportunity and social motives indicates that PBC, or perceived control over the ability to engage in activity, plays a more significant role in their behavior. The greater impact of opportunity in adults, in particular, suggests that their physical activity is more contingent on external factors such as availability of resources, structured opportunities, and social support systems. 
 
-H1(a) is partially correct. The social aspect is more prominent in adults.
-* H1(a). Enjoyment, social, and guilt motives are more influential in youths than in adults.
-
-H1(b) is correct. Will check the second part of hypothesis in lca.
-(add in paragraph in intro, Marcelo de Maio Nascimento, Vojko Vuckovic, Alixe H M Kilgour)
-* H1(b). Fitness and relaxation are more influential motives in adults than in youths, particularly in middle-aged and older groups.
-
-
-Actually opportunity affects adults a lot more :O
-* H1(c). Environmental opportunities influence physical activity similarly across age groups.
-
-
+These results highlight a shift in the motivational landscape from intrinsic to extrinsic motivations as individuals transition from youth to adulthood. For youths, intrinsic factors such as enjoyment and internalized norms are key drivers of behavior, consistent with SDT's focus on autonomy and intrinsic motivation. In adulthood, external factors, such as social support and structured opportunities, become more influential, reflecting the external regulation emphasized in SDT and the PBC component of TPB. This shift in motivational influences suggests that interventions targeting physical activity in youths may benefit from focusing on enhancing intrinsic enjoyment and leveraging internalized norms, while interventions for adults may be more effective if they focus on providing external opportunities and fostering social support. The stronger influence of opportunity in adults aligns with SDT’s notion that as individuals age, external factors such as access to resources, competence-building opportunities, and social reinforcement become increasingly important. For youths, however, the higher influence of enjoyment and guilt reinforces SDT’s emphasis on intrinsic motivation, where fostering a sense of enjoyment and aligning physical activity with personal values are more effective strategies.
 
 
 \newpage 
 
 ## LCA
 
-Median mins per class, rather than mean due to skew in distribution of minutes exercised (right skew), is calculated. 
+Due to the skewed distribution of minutes exercised (right-skewed), median minutes per class were calculated rather than the mean.
 
 ### Adults
 
@@ -343,10 +332,7 @@ gg.llik.ad
 
 ```
 
-ad.lca.output?
-
-
-3 to 6 classes all have relative high likelihood and low AIC and BIC, and average posterior entropy per class. From the elbow plot, 4 classes seem to be the number of classes that start displaying diminishing return. However, the 3-class model has significantly higher relative entropy, and the four-class solution produced two classes with highly similar endorsement patterns, effectively splitting the moderate group without adding meaningful differentiation. The three-class model provides a clearer, more parsimonious representation of motivational profiles while still capturing the small but conceptually important subgroup with generally negative attitudes.
+Latent class models ranging from 3 to 6 classes all demonstrated relatively high likelihoods, low AIC and BIC values, and reasonable average posterior entropy per class. From the elbow plot, the 4-class model appeared to show diminishing returns, suggesting that adding more than three classes did not provide a substantial improvement in model fit. However, the 3-class model displayed significantly higher relative entropy, indicating a more nuanced classification of individuals. While they both have good entropy values at  `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]`, the 4-class solution resulted in two groups with nearly identical endorsement patterns, effectively splitting the moderate group without introducing meaningful differentiation. Hence, the three-class model is favored for its balance between simplicity and the ability to distinguish meaningful motivational profiles.
 
 
 ```{r distr.ad, fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
@@ -358,15 +344,15 @@ plot(LCAE.ad, nclass = 2)
 
 #### Class 1
 
-This class shows high probabilities of strongly agreeing with enjoyment, fitness, ability, opportunity, and importance. Members also moderately endorsed social, challenge, and guilt motives, and showed relatively high agreement with relaxation. Overall, this class represents adults who consistently report strong agreement with a broad range of motivations. This class is labelled the High Engagement class.
+Class 1 represents adults who consistently report strong agreement across a broad range of motivations. Members show high probabilities of strongly agreeing with motives related to enjoyment, fitness, ability, opportunity, and importance. They also moderately endorse social, challenge, and guilt motives, and express relatively high agreement with relaxation. This group is labeled the High Engagement class.
 
 #### Class 2
 
-This class is characterized by very low probabilities of strongly agreeing with enjoyment and ability, and by a higher prevalence of neutral or negative responses across most items. Members of this class express the least favorable attitudes toward PA. This class is labelled the Low Engagement class. While this class represents a relatively small proportion of the sample (~6%), it aligns with the raw data, in which very few respondents selected negative responses.
+Class 2 is characterized by very low probabilities of strongly agreeing with enjoyment and ability, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward physical activity. Labelled the Low Engagement class, it represents a relatively small proportion of the sample (~6%). Despite its size, this class aligns with the raw data, where very few respondents selected negative responses.
 
 #### Class 3
 
-This class has a mixed attitude toward many motives, with moderate positive endorsement toward enjoyment, fitness, opportunity, ability and importance It represents adults with more ambivalent responses. This class is labelled the Mixed Motivation class.
+Class 3 exhibits a mixed attitude toward various motives, with moderate positive endorsements of enjoyment, fitness, opportunity, ability, and importance. It represents adults who show more ambivalent responses overall. This group is labeled the Mixed Motivation class.
 
 
 ```{r mins.ad, out.width='49%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for adults by class.'}
@@ -383,7 +369,6 @@ gg.byage.ad
 
 ```
 
-
 The distribution of age groups across the three latent classes highlights notable differences in motivational profiles. The High Engagement class is consistently the second most populous across age groups, though its representation declines gradually with increasing age. The Low Engagement class remains the smallest in all age groups, representing a relatively rare subgroup with low endorsement of motives, and its relative size is largely stable across ages. In contrast, the Mixed Motivation class contains the largest number of adults in every age group, with membership increasing steadily as age rises, suggesting that some individuals may shift from high engagement to mixed motivation over time.
 
 ```{r or.ad, fig.align='center',tab.cap="Odds ratios for adult class membership across age groups, with the youngest group (16–34 years) as the reference."}
@@ -396,17 +381,12 @@ kable(list(or.ad),align='c',booktabs = T) %>%
 
 Multinomial logistic regression examined the association between age and motivation profile, with the High Engagement class as reference. Examination of the odds of latent class membership across adult age groups, using the youngest group (16–34 years) as the reference, reveals clear age-related patterns. Adults in the youngest age group are over 6.6 times more likely to belong to the High Engagement class than to the Low Engagement class. Conversely, a slightly higher proportion of young adults belong to the Mixed Motivation class, which may partly reflect the overall larger size of this class. For the Low Engagement class, older age groups generally show modestly higher odds of membership compared with the reference, though the differences for age groups 35–44 and 55–64 are not statistically significant. The highest odds are observed in the oldest age group (75+), suggesting that adults in this group are 1.5 times more likely to belong to the Low Engagement class than younger adults. In the Mixed Motivation class, the odds of membership increase consistently with age, with adults aged 65–74 being 1.45 times, and those 75+ being 1.93 times more likely than 16–34-year-olds to belong to this class rather than High Engagement. 
 
-These results support H2(a), which posited that the likelihood of adults belonging to classes with lower overall agreement across motivational items increases with age. The observed shift in class membership with age suggests a substantive decline in overall motivation among adults, particularly in the oldest age groups. This pattern implies that interventions targeting physical activity may need to be tailored to address the motivational needs of older adults, who are disproportionately represented in classes with lower agreement across motivational items. The steep decline among the 75+ group indicates that standard approaches effective for younger adults may be insufficient for maintaining engagement in later life. Conceptually, these findings support the idea that motivation is not static across adulthood; rather, it gradually diminishes, with older adults potentially requiring additional support, reinforcement, or environmental facilitation to sustain participation. In practical terms, understanding these shifts can inform program design, policy decisions, and public health strategies aimed at reducing age-related decreases in activity and engagement.
-
+These results support H2(a), which posited that the likelihood of adults belonging to classes with lower overall agreement across motivational items increases with age. The observed shift in class membership with age suggests a substantive decline in overall motivation among adults, particularly in the oldest age groups. This pattern implies that interventions targeting physical activity may need to be tailored to address the motivational needs of older adults, who are disproportionately represented in classes with lower agreement across motivational items. The steep decline among the 75+ group indicates that standard approaches effective for younger adults may be insufficient for maintaining engagement in later life. Conceptually, these findings support the idea that motivation is gradually diminishes with older adults potentially requiring additional support, reinforcement, or environmental facilitation to sustain participation. 
 
 
 \newpage 
 
 ### Youths
-
-BIC plot indicates 3 or four 4 to reduce BIC the most. BLRT preferred 4 classes. Relative entropy values are `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]` for 3 and 4 classes, respectively, which shows 3 to have slightly better separation between classes.
-The likelihood is similar between 3 and 4 classes. Average posterior probabilities are better in the 3-class model, as all classes have a >.80 pp.
-
 
 ```{r elbow.llik.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Elbow plot showing AIC and BIC values, and maximum likelihood plot, across different numbers of latent classes in youths.'}
 
@@ -415,10 +395,8 @@ gg.llik.ch
 
 ```
 
+The AIC/BIC plot did not show the typical elbow shape, as adding more classes beyond four actually resulted in a decrease in model fit. This could be due to the log-likelihood not increasing significantly with the addition of more classes, causing BIC’s penalty for model complexity to outweigh any improvement in fit. Nevertheless, both the 3-class and 4-class solutions resulted in the most substantial reductions in BIC. The Bootstrap Likelihood Ratio Test (BLRT) preferred the 4-class model. However, when considering relative entropy values, which were `r LCAE.ch$output[2,6]` for the 3-class model and `r LCAE.ch$output[3,6]` for the 4-class model, the 3-class solution provided better separation between classes. The likelihood values for the 3-class and 4-class models were similar, but the average posterior probabilities were higher in the 3-class model, with all classes exhibiting a posterior probability greater than 0.80. Additionally, the 4-class model resulted in two very similar classes, suggesting that the additional class did not add meaningful differentiation. Given these considerations, the 3-class model was selected for its better separation and more parsimonious structure.
 
-Both 3 and 4- class models show promise.  BIC plot does not show a typical elbow shape, as adding more classes beyond 4 actually diminished the fit. This is possibly due to the log-likelihood not increasing significantly with more classes, and BIC's penalty for higher complexity outweighs the improvement
-
-However, the 4-class model contains 2 very similar classes. Hence the 3-class model was chosen.
 
 ```{r distr.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
 
@@ -426,17 +404,17 @@ plot(LCAE.ch, nclass = 2)
 
 ```
 
-#### Class 1
+Class 1
 
-This class exhibits very high probabilities of strongly agreeing with enjoyment, fitness, opportunity, importance, and ability. Endorsement of social, challenge, and relaxation motives is somewhat more moderate, though still leaning toward agreement, and guilt shows a more even split across response options. This group is characterized by consistently positive attitudes toward a wide range of motives. This class will be labelled the High Engagement class.
+Class 1 represents youths who consistently report strong agreement across a broad range of motivations. Members show high probabilities of strongly agreeing with motives related to enjoyment, fitness, opportunity, importance, and ability. They also moderately endorse social, challenge, and relaxation motives, and express relatively high agreement with guilt. This group is characterized by consistently positive attitudes toward a wide range of motives. This class is labeled the High Engagement class.
 
-#### Class 2
+Class 2
 
-This class shows very low probabilities of strongly agreeing with all motives, and negative attitudes toward social, guilt, relaxation, and ability motives. This class will be labelled the Low Engagement class.
+Class 2 is characterized by very low probabilities of strongly agreeing with any motives, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward physical activity. Labeled the Low Engagement class, this group represents a relatively small proportion of the sample, aligning with the raw data in which very few respondents selected negative responses.
 
-#### Class 3
+Class 3
 
-This class primarily endorsed “agree” across most motives, with the exception of guilt. Disagreement is relatively uncommon, but strong agreement is also less prevalent than in the High Engagement class. This class falls between the other two, representing generally positive but not strongly emphatic motivation toward PA. This class will be labelled the Moderate Engagement class.
+Class 3 exhibits a mixed attitude toward various motives, with moderate positive endorsements of enjoyment, fitness, opportunity, ability, and importance. Disagreement is relatively uncommon, but strong agreement is also less prevalent than in the High Engagement class. This group falls between the other two, representing generally positive but not strongly emphatic motivation toward physical activity. This class is labeled the Moderate Engagement class.
 
 ```{r mins.ch, out.width='100%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for youths by class.'}
 
@@ -454,7 +432,6 @@ gg.byage.ch
 
 The distribution of age groups across the three latent classes highlights notable differences in motivational profiles among youths. The High Engagement and Mixed Motivation classes are roughly similar in size, with the High Engagement class generally decreasing across age groups but showing a sudden increase at age 16. The Low Engagement class is smaller than the other two but not as rare as in the adult sample; it increases steadily with age, with a slight dip at age 16. These patterns suggest that while high engagement may decline during adolescence, a substantial portion of youths maintain strong or mixed motivation, and low engagement gradually becomes more common over time. The sudden increase in High Engagement at age 16 indicates that some youths may experience a late boost in motivation during this stage of adolescence.
 
-
 ```{r or.ch, fig.align='center',tab.cap="Odds ratios for youth class membership across ages, with 11-year-olds as the reference."}
 opts <- options(knitr.kable.NA = '')
 kable(list(or.ch),align='c',booktabs = T) %>%
@@ -467,6 +444,33 @@ Examination of the odds of latent class membership across youth age groups, usin
 
 The trends indicate a gradual decline in motivation throughout adolescence, with older youths more frequently represented in classes showing moderate or lower endorsement of motivational items, aligning with H2(b). This pattern suggests that interventions aimed at promoting physical activity in younger populations may need to account for declining motivation with age, emphasizing strategies that sustain engagement through the middle to late teen years. The relative stability in the youngest ages followed by a shift around 15–16 years highlights a critical period for reinforcing positive attitudes toward physical activity. Conceptually, these results indicate that motivation in youths is dynamic and susceptible to age-related changes, reinforcing the importance of early and sustained intervention to maintain high levels of agreement across motivational factors.
 
+
+## Conceptual Interpretation
+
+The results from both youth and adult latent class analyses highlight significant age-related changes in motivation and physical activity patterns. 
+
+### Adults
+
+The High Engagement class in adults is most prevalent among younger adults. This finding is consistent with SDT, which posits that younger individuals are more likely to engage in physical activity for intrinsic reasons, driven by autonomy and competence. As adults age, however, there is a noticeable shift toward external regulation, as seen in the Mixed Motivation and Low Engagement classes. As people grow older, they begin to internalize external motivations, such as health, fitness, or social norms, which gradually shift toward extrinsic forms of motivation. This transition from intrinsic to extrinsic regulation is also observable in the Mixed Motivation class, which blends both intrinsic and extrinsic motivations. The Low Engagement class, characterized by low motivation and disengagement, is particularly prominent in older adults. This class potentially reflects amotivation, where individuals lack both intrinsic and extrinsic reasons to engage in physical activity. SDT would argue that this decline in motivation can be attributed to a lack of autonomy (e.g., reduced opportunities) and competence (e.g. physical decline), leading to lower participation in physical activity.
+
+As people age, their PBC likely diminishes. This could be due to physical limitations, reduced access to exercise opportunities, or less social support. TPB suggests that if an individual perceives a lack of control over their behavior, they are less likely to engage in that behavior. This is consistent with the higher likelihood of older adults falling into the Low Engagement class, which likely reflects lower perceived behavioral control and a decline in intrinsic motivation.
+
+### Youths
+
+For youths, the latent class results show a pattern of strong intrinsic motivation at younger ages, followed by a gradual decline as they age, consistent with the SDT framework. The High Engagement class in youths, which is characterized by high intrinsic motivation (e.g., enjoyment, fitness, ability), is most prominent among younger adolescents and declines with age. SDT suggests that early adolescence is a time when youths are still driven by intrinsic motivation—they engage in physical activity because it is inherently enjoyable and satisfying, and their autonomy is high.
+
+As youths age, particularly around the ages of 12–15, there is a shift toward more mixed motivation and increasing external regulation. This shift is reflected in the growing prominence of the Mixed Motivation and Low Engagement classes. According to SDT, this transition could be due to an erosion of autonomy as adolescents encounter increasing external pressures (e.g., academic demands, peer influences). As autonomy decreases, youths may internalize external regulations (e.g., health or social approval) to maintain their participation, but this internalization may not be fully integrated, leading to the Mixed Motivation class. These adolescents may engage in physical activity because of social pressures, such as fitting in with peers or conforming to societal expectations, rather than for enjoyment or personal satisfaction.
+
+The Low Engagement class in youths is particularly notable because it reflects a group that, unlike the Mixed Motivation class, shows low endorsement of all motivational factors. As youths age, the likelihood of falling into the Low Engagement class increases, particularly at ages 15–16. This pattern is consistent with the SDT framework, which would attribute this decline to a perceived lack of competence and autonomy in physical activity. In adolescence, when individuals are still in the process of developing a sense of self and competence, a lack of self-determined activity and failure to internalize positive values about physical activity may result in amotivation—the lack of motivation to engage in physical activity.
+
+### Age-Related Trends
+
+In both youth and adult groups, the shift from High Engagement to Mixed Motivation and Low Engagement suggests a general trend toward external regulation and disengagement as individuals age. This trend aligns with the SDT understanding that motivation evolves from intrinsic to extrinsic regulation, and as autonomy and competence decrease, amotivation becomes more common. The role of PBC may also explain this trend, particularly in adults and older youths, as reduced PBC leads to decreased participation in physical activity.
+
+The fact that both youth and adult samples show this shift emphasizes the importance of addressing autonomy, competence, and PBC at each developmental stage. For youths, interventions should focus on maintaining intrinsic motivation and autonomy in early adolescence, helping them develop internalized, self-determined reasons for engaging in physical activity. For adults, particularly older adults, interventions should focus on enhancing PBC, addressing barriers such as physical limitations, and fostering environments where external support and motivation can maintain engagement in physical activity.
+
+
+
 \newpage 
 
 # Conclusions
@@ -474,7 +478,11 @@ The trends indicate a gradual decline in motivation throughout adolescence, with
 • Summarise what you have found. Restate your questions and hypotheses and show
 how you answer them.
 • Discuss possible limitations and implications they might have for the results.
+### Interventions and Theoretical Implications
 
+The observed patterns of motivation and physical activity engagement across age groups suggest that interventions aimed at promoting physical activity must be tailored to the specific motivational needs of each age group. SDT suggests that, for younger individuals, interventions should prioritize promoting intrinsic motivation by fostering feelings of autonomy and competence. Programs that focus on enjoyment and mastery, rather than on external rewards, are likely to be most effective in engaging youths in physical activity.
+
+For older adults, interventions should focus on improving PBC by reducing barriers to physical activity, such as limited access to resources or physical limitations, and increasing social support. TPB suggests that interventions should emphasize the role of subjective norms (e.g., social support networks) and PBC, making it easier for individuals to engage in physical activity despite external constraints.
 
 ## Limitations
 
