@@ -91,24 +91,24 @@ To answer these questions, multigroup structural equation modeling (SEM) to test
 
 # Literature Review
 
-## Self-Determination Theory
+## Self-Determination Theory (SDT)
 
-SDT is a popular framework that has gained popularity in the past two decades. Developed by Deci & Ryan, it emphasizes the degree to which behaviour is self-determined versus controlled. Motivation is distinguished in terms of autonomy, with autonomous forms associated with volition and self-endorsement of behavior, and controlled forms reflecting pressure from external contingencies or internalized demands such as guilt or ego involvement. Within SDT, extrinsic motivation is subdivided into external regulation, introjected regulation, identified regulation, and integrated regulation, representing increasing internalization of instrumental behaviors. Intrinsic motivation, by contrast, arises from interest, enjoyment, or inherent satisfaction in the activity itself. These distinctions have implications for physical activity, as more autonomous motives are linked to sustained engagement, positive psychological outcomes, and long-term health (CITE).
+SDT is a popular framework that has gained popularity in the past two decades. Developed by Deci & Ryan (2000), it emphasizes the degree to which behaviour is self-determined versus controlled. Motivation is distinguished in terms of autonomy, with autonomous forms associated with volition and self-endorsement of behavior, and controlled forms reflecting pressure from external contingencies or internalized demands such as guilt or ego involvement. Within SDT, extrinsic motivation is subdivided into external regulation, introjected regulation, identified regulation, and integrated regulation, representing increasing internalization of instrumental behaviors. Intrinsic motivation, by contrast, arises from interest, enjoyment, or inherent satisfaction in the activity itself. These distinctions have implications for physical activity, as more autonomous motives are linked to sustained engagement, positive psychological outcomes, and long-term health (CITE).
 
 SDT has been influential in health behaviour research because it prioritizes the quality of motivation over mere quantity. Empirical evidence indicates that need-supportive interventions can enhance exercise uptake, reduce dropout, and improve both physical and psychological wellbeing (Teixeira et al., 2012; Ng et al., 2012). The framework thus functions both as a descriptive model and as a prescriptive guide for intervention design.
 
 Nevertheless, while SDT posits that autonomy-supportive environments foster intrinsic motivation, recent studies suggest that this relationship may not be as straightforward as previously thought. For instance, interventions designed to enhance autonomy support have shown inconsistent effects on long-term physical activity adherence, possibly due to individual differences in baseline motivation or contextual factors (Trigueros et al). Additionally, the application of SDT in physical activity research often overlooks the role of external constraints and structural factors, such as socioeconomic status, that can impede motivation and behaviour change. These external factors may interact with psychological needs in complex ways that SDT does not fully address.
 
 
-## Theory of Planned Behaviour
+## Theory of Planned Behaviour (TPB)
 
-The Theory of Planned Behavior (TPB), proposed by Ajzen in 1991, is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control (PBC). Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and PBC represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although PBC can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions, supported by favourable attitudes, positive social norms, and higher perceived control, are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behaviour, highlighting the importance of situational constraints and individual capabilities.
+Proposed by Ajzen in 1991, TPB is a widely used framework for predicting and understanding human behavior, emphasizing the role of intention as the proximal determinant of action. According to TPB, behavioral intentions are influenced by three key factors: attitudes toward the behavior, subjective norms, and perceived behavioral control (PBC). Attitudes reflect an individual’s positive or negative evaluation of performing the behavior, subjective norms capture perceived social pressure from significant others to engage or not engage, and PBC represents the perceived ease or difficulty of performing the behavior, akin to self-efficacy. These factors interact to shape intention, which in turn predicts behavior, although PBC can also have a direct effect on behavior. In the context of physical activity, TPB has been used to explain variations in exercise participation across age groups, demonstrating that stronger intentions, supported by favourable attitudes, positive social norms, and higher perceived control, are associated with higher levels of activity. However, the framework also recognizes that intentions do not always translate into behaviour, highlighting the importance of situational constraints and individual capabilities.
 
 Like SDT, TPB has faced several critiques. Its constructs are typically measured through self-report instruments, which are vulnerable to biases such as social desirability and inaccuracies in introspection. Ajzen (2020) highlighted the complexity of assessing the beliefs underlying attitudes, subjective norms, and perceived behavioural control, noting that these measures do not always correspond perfectly with actual behaviour. In addition, TPB primarily focuses on individual-level factors and may insufficiently consider broader social, cultural, or structural influences. Its emphasis on personal perceptions of control can overlook systemic barriers or facilitators that shape behaviour.
 
 \newpage 
 
-## Age Differences
+## Age-Related Differences
 
 Across the lifespan, intrinsic and personally meaningful motivations are consistently associated with higher levels of physical activity. However, intrinsic motivation tends to decline with age (Brunet & Sabiston, 2011; Dishman et al., 2018; de Maio Nascimento, 2023), suggesting that the factors driving engagement shift across developmental stages. Environmental opportunities, such as access to facilities or structured programs, appear to facilitate activity regardless of age, providing a common context that supports engagement across populations.
 
@@ -144,15 +144,9 @@ Hypothesis 2: Distinct motivational profiles exist within youths and within adul
 
 \newpage 
 
-# Data and Methods
+# Data and Variables
 
-## Data
-
-The analyses draw on large-scale survey data collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were chosen because the youth and adult surveys share a parallel structure, with several items identically worded across both instruments. This allows direct comparison of motivational mechanisms across life stages. All motive items are self-reported, single-item measures. Appendix A lists the corresponding survey questions.
-
-Descriptive statistics, bivariate correlations, and variance inflation factors (VIF) were computed for all motive variables to assess distributional properties and multicollinearity. Challenge and relaxation were excluded from the structural equation models (SEM) due to non-equivalent wording between the youth and adult questionnaires but retained for latent class analysis (LCA).
-
-The SEM analyses included `r prettyNum(nrow(adult.bi), big.mark=",")` adult and `r prettyNum(nrow(child.bi), big.mark=",")` youth respondents; the LCA included `r prettyNum(nrow(adult.lik), big.mark=",")` and `r prettyNum(nrow(child.lik), big.mark=",")`, respectively . To maintain comparability and avoid skew from small subgroups, only cisgender adults without disabilities were retained. Ethnicity and gender were included as control variables. Observations with missing data on relevant items were likewise deleted.
+The analyses draw on large-scale survey data collected by Ipsos on behalf of Sport England (2024, 2025). These datasets were chosen because the youth and adult surveys share a parallel structure, with several items identically worded across both instruments. This allows direct comparison of motivational mechanisms across life stages. All motive items are self-reported, single-item measures. Appendix A lists the corresponding survey questions. To maintain comparability and avoid skew from small subgroups, only cisgender adults without disabilities were retained. Ethnicity and gender were included as control variables. Observations with missing data or “I don’t know” answers on any used item were likewise excluded. Additional descriptive statistics, including means, medians, standard deviations, and percentages of missing values (excluded from analysis), are provided in Appendix C.
 
 Motivational and behavioural variables:
 
@@ -174,12 +168,12 @@ Motivational and behavioural variables:
 
 * Challenge – persistence and enjoyment in pursuing difficult tasks.
 
-* Minutes – total weekly minutes of moderate-to-vigorous physical activity (see Appendix B for included activities).
+* Minutes – total weekly minutes of moderate-to-vigorous physical activity (see Appendix B for list of activities).
 
 
 \newpage 
 
-### Adult Dataset
+## Adult Dataset
 
 The adult data derive from the Active Lives Adult Survey (Year 8: 2022–2023), conducted by Ipsos for Sport England with additional support from the Office for Health Improvement and Disparities (OHID). The survey is designed to provide a nationally representative picture of adult participation in sport and physical activity in England.
 
@@ -194,7 +188,7 @@ gg.ad.gend
 gg.ad.eth
 ```
 
-Gender and ethnicity distributions were highly similar across the subsamples used for the SEM and LCA analyses. Females comprised `r prettyNum(prop.table(table(adult.bi$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample, and White British participants accounted for `r prettyNum(prop.table(table(adult.lik$eth))[[1]]*100, big.mark=",", digits = 2)`%. The youngest and oldest age groups were collapsed due to small cell sizes at the extremes. Specifically, adults aged 64–75 and 76+ were combined, as preliminary analyses indicated no meaningful differences in their motivational profiles. Collapsing these categories improved model stability without obscuring theoretically relevant distinctions, which are less pronounced in later adulthood. After adjustment, the age distribution remained moderately skewed but acceptable for analysis. Cases with missing values on any motivational variables were excluded from all models.
+Females comprised `r prettyNum(prop.table(table(adult.bi$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample, and White British participants accounted for `r prettyNum(prop.table(table(adult.lik$eth))[[1]]*100, big.mark=",", digits = 2)`%. The youngest and oldest age groups were collapsed due to small cell sizes at the extremes. Specifically, adults aged 64–75 and 76+ were combined, as preliminary analyses indicated no meaningful differences in their motivational profiles. Collapsing these categories improved model stability without obscuring theoretically relevant distinctions, which are less pronounced in later adulthood. After adjustment, the age distribution remained moderately skewed but acceptable for analysis. Cases with missing values on any motive items were excluded from all models.
 
 ```{r adult.summary.bi, fig.align='center',tab.cap="Proportion of positive responses in adults."}
 opts <- options(knitr.kable.NA = '')
@@ -213,15 +207,15 @@ gg.vars.ad
 
 ```
 
-Each item was rated on a five-point Likert scale ranging from 1 (strongly agree) to 5 (strongly disagree). Due to low frequencies in the higher disagreement categories, responses of 4 (disagree) and 5 (strongly disagree) were combined to reduce sparsity and minimize distortion.
+Each item was rated on a five-point Likert scale ranging from 1 (strongly agree) to 5 (strongly disagree). Due to low frequencies in the higher disagreement categories, negative responses of (disagree and strongly disagree) were combined to reduce sparsity and minimize distortion.
 
-For most motive items, the proportion of adults expressing strong positive agreement declines with age. Older adults are less likely than younger adults to strongly endorse beliefs such as feeling capable of engaging in physical activity, valuing it for the challenge, or pursuing it for enjoyment and fitness. They are also less likely to report strong guilt for not exercising, to perceive sufficient opportunities for activity, or to consider physical activity an important means of relaxation. Additional descriptive statistics, including mean, median, standard deviation, and the percentage of missing values (excluded from the final dataset), are provided in Appendix C.
+For most motive items, the proportion of adults expressing strong positive agreement declines with age. Older adults are less likely than younger adults to strongly endorse beliefs such as feeling capable of engaging in physical activity, valuing it for the challenge, or pursuing it for enjoyment and fitness. They are also less likely to report strong guilt for not exercising, to perceive sufficient opportunities for activity, or to consider physical activity an important means of relaxation. 
 
 \newpage 
 
-### Youth Dataset
+## Youth Dataset
 
-The youth dataset used in this dissertation is drawn from the Active Lives Children and Young People Survey (Year 6: 2022–2023), conducted by Ipsos on behalf of Sport England. It is a large-scale, school-based online survey administered to pupils in Years 1–11, their parents (for Years 1–2 pupils), and teachers. Only pupil responses from year 6-11 (age 11-16) were used in this dissertation. The pupil questionnaire focused on participation in sport and physical activity over the previous week, alongside items on swimming, cycling, volunteering, wellbeing, and attitudes towards physical activity. It also included classification questions such as gender, disability, and long-term health conditions. 
+The youth data come from the Active Lives Children and Young People Survey (Year 6: 2022–2023), conducted by Ipsos on behalf of Sport England, which parallels the adult survey in design and content. It is a large-scale, school-based online survey administered to pupils in Years 1–11, their parents (for Years 1–2 pupils), and teachers. Only pupil responses from year 6-11 (age 11-16) were used in this dissertation. The pupil questionnaire focused on participation in sport and physical activity over the previous week, alongside items on swimming, cycling, volunteering, wellbeing, and attitudes towards physical activity. It also included classification questions such as gender, disability, and long-term health conditions. 
 
 The sampling strategy was designed to permit analysis at both national and local authority levels. A stratified three-stage sampling process was used: schools were first sampled from the January 2021 school census, then three year groups were randomly selected within each participating school, and finally, one mixed-ability class was chosen per selected year group. Fieldwork was carried out in three phases aligned with the academic terms (September 2022–July 2023). Pupils typically completed the survey at school under teacher supervision, although in some secondary schools it could also be set as homework. To encourage participation, schools received credits for sports equipment and, if response thresholds were met, school-level feedback reports. 
 
@@ -251,41 +245,37 @@ gg.vars.ch
 
 ```
 
-
-Each item was rated on a four-point Likert scale ranging from 1 (strongly agree) to 4 (strongly disagree). As with the adult dataset, responses of 3 (disagree) and 4 (strongly disagree) were combined due to low frequencies. Missing responses and “I don’t know” answers were excluded from the dataset.
-
-After collapsing, the items are generally balanced, except for social, guilt, and relaxation. Response patterns among youths are less consistent than those observed in adults. With increasing age, youths are less likely to report exercising for challenge or social reasons, while a larger proportion indicate exercising due to guilt or for relaxation. Among the oldest youth group, there is a slight but noticeable increase in the proportion who “strongly agree” that ability and fitness are motivating factors. Across all ages, only a small minority report lacking understanding of the importance of physical activity. Additional descriptive statistics, including means, medians, standard deviations, and percentages of missing values (excluded from analysis), are provided in Appendix C.
+Each item was rated on a four-point Likert scale ranging from 1 (strongly agree) to 4 (strongly disagree). As with the adult data, lower-frequency disagreement categories were collapsed to reduce sparsity. After collapsing, the items are generally balanced, except for social, guilt, and relaxation. Response patterns among youths are less consistent than those observed in adults. With increasing age, youths are less likely to report exercising for challenge or social reasons, while a larger proportion indicate exercising due to guilt or for relaxation. Among the oldest youth group, there is a slight but noticeable increase in the proportion who “strongly agree” that ability and fitness are motivating factors. Across all ages, only a small minority report lacking understanding of the importance of physical activity. 
 
 \newpage 
 
+# Statistical Analysis 
+
+Multigroup structural equation modeling was used to examine whether the strength of associations between motivational items and physical activity differs by age group. Latent class analysis was conducted separately for youth and adult samples to identify distinct motivational profiles within each group. Two motive items (challenge and importance) were excluded from SEM due to non-equivalent wording across the surveys but were retained for LCA. Subsamples used for the two analyses were similar in terms of gender and ethnicity distributions. 
+
 ## Multigroup Structural Equation Modeling (SEM)
 
-Differences in the relationships between self-reported motives and PA levels across youths and adults were examined while controlling for demographic factors (see Appendix E for code and model specifications).
+Differences in the slopes of motive items were examined while controlling for demographic factors (see Appendix E for model specifications). This approach directly addresses Hypothesis 1 by testing whether the strength of association between each exercise motive and weekly physical activity varies between youths and adults. Specifically, it allows assessment of whether enjoyment, social, and guilt motives exert stronger effects in youths (H1a), fitness and relaxation motives are more influential in adults (H1b), and whether environmental opportunities have comparable effects across age groups (H1c).
 
-Motivation variables included enjoyment, social, fitness, guilt, and opportunity. To account for differences in Likert scales between adults and youths, all motivation variables were dichotomized into “strongly agree” versus “not strongly agree.” Demographic covariates included gender, age, and ethnicity. Gender was limited to female and male due to small sample sizes in other categories, and ethnicity was collapsed into White British and Non-White British. Youth participants included only those aged 11 and older who responded to the relevant items. Adults were grouped into age ranges (16–34, 35–44, 45–54, 55–64, 65–74, 75+) because exact ages were unavailable. The youngest and oldest two adult groups were further collapsed to reduce skew and ensure more balanced distributions. A cap of 1,680 minutes per week was applied to reported PA to minimize the influence of extreme values or potential data entry errors.
+To account for differences in Likert scales between adults and youths, all motivation variables were dichotomized into “strongly agree” versus “not strongly agree.” Youth participants included only those aged 11 and older who responded to the relevant items. Adults were grouped into age ranges (16–34, 35–44, 45–54, 55–64, 65–74, 75+) because exact ages were unavailable. The youngest and oldest two adult groups were further collapsed to reduce skew and ensure more balanced distributions. A cap of 1,680 minutes per week was applied to reported PA to minimize the influence of extreme values or potential data entry errors. `r prettyNum(nrow(adult.bi), big.mark=",")` adult and `r prettyNum(nrow(child.bi), big.mark=",")` youth respondents were included. 
 
-Multigroup SEM was used to assess how each motive predicts weekly minutes of PA, allowing direct comparison of pathway strengths between youths and adults. A freely estimated model was first fitted and then compared to constrained models, in which individual or all motive pathways were fixed to equality across groups. This approach enabled evaluation of whether the effects of specific motives differed by age group. Differences in the predictive strength of each motive on PA minutes were also calculated. 
+A freely estimated model was first fitted, followed by a series of constrained models in which individual or all motive pathways were fixed to equality across groups. This stepwise approach allowed assessment of whether the predictive strength of specific motives differed significantly between youths and adults.
 
-Prior to fitting SEM models, assumptions were assessed. Moderate correlations were observed among the motivational predictors in both youth and adult samples, with most values ranging between 0.2 and 0.5. The highest correlations were between enjoyment and ability in youths (r = 0.656) and between enjoyment and perceived importance in adults (r = 0.674), slightly exceeding the conventional threshold of r = 0.6 for concern about multicollinearity. Standardized residual correlations were also examined to evaluate local fit for both youth and adult SEMs. Most residuals were below 0.35, indicating generally acceptable correspondence between observed and model-implied correlations. The largest residuals occurred among closely related motivational items (enjoyment, fitness, opportunity, and relaxation), with several exceeding 0.4, reflecting misfit due to conceptual overlap and the use of dichotomized indicators. Residuals involving demographics and physical activity minutes were consistently low. These localized discrepancies do not affect the primary purpose of testing whether the strengths of associations between motives and physical activity differ across groups.
+Prior to fitting the SEM models, assumptions were assessed. Moderate correlations were observed among the motivational predictors in both youth and adult samples, with most values ranging between 0.2 and 0.5. The highest correlations were between enjoyment and ability in youths (r = 0.656) and between enjoyment and perceived importance in adults (r = 0.674), slightly exceeding the conventional threshold of r = 0.6 for concern about multicollinearity. Standardized residual correlations were also examined to evaluate local fit for both youth and adult SEMs. Most residuals were below 0.35, indicating generally acceptable correspondence between observed and model-implied correlations. The largest residuals occurred among closely related motivational items (enjoyment, fitness, opportunity, and relaxation), with several exceeding 0.4, reflecting misfit due to conceptual overlap and the use of dichotomized indicators. Residuals involving demographics and physical activity minutes were consistently low. These localized discrepancies do not affect the primary purpose of testing whether the strengths of associations between motives and physical activity differ across groups.
 
 \newpage 
 
 ## Latent Profile Analysis (LCA)
 
-Latent class analysis (LCA) was conducted separately for youths and adults to explore age-related differences in motivational profiles, using the same set of motivation variables included in the SEM, with the addition of two items with slightly different wording.
+LCA was used to identify distinct motivational profiles within youths and adults, with the original Likert-scale motive items serving as indicators. Ethnicity, gender, and age were included as covariates. Ten random starts were used per class model to ensure solution stability, and `r prettyNum(nrow(adult.lik), big.mark=",")` adult and `r prettyNum(nrow(child.lik), big.mark=",")` youth respondents were included.
 
-The original Likert-scale responses were retained. Additional items capturing similar motivational constructs but worded differently were included (see Appendix B). Motivation variables served as indicators, while ethnicity, gender, age, and education (for adults only) were included as covariates. Ten random starts were used per class model to ensure solution stability.
+The optimal number of classes was determined based on BIC elbow plots, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio tests (BLRT), class proportions, and substantive interpretability. Multinomial logistic regression with age as a predictor was then applied, and odds ratios with 95% confidence intervals were calculated by exponentiating the estimated coefficients. This approach directly addresses Hypothesis 2 by testing whether the probability of belonging to lower-agreement profiles increases with age among adults (H2a) and youths (H2b).
 
-The optimal number of classes was determined based on BIC elbow plots, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio tests (BLRT), class proportions, and substantive interpretability. Class-specific statistics were calculated, and multinomial logistic regression was used to assess the effect of age on class membership. Odds ratios and 95% confidence intervals were derived by exponentiating the estimated coefficients and their standard errors:
+Conditional independence among PA-related items was assessed using standardized bivariate chi-square statistics. Extremely sparse cells (<1% of observations) inflated these values, making them unreliable indicators of local dependence. Given that the key motivational items represent conceptually distinct constructs, minor violations are less concerning than for highly overlapping indicators. Model evaluation relied on conventional LCA fit indices, including BIC and entropy, alongside substantive interpretability. These criteria indicated that the identified profiles were robust and meaningful despite the limitations of the conditional independence tests. 
 
- (\[\text{OR} = \exp(\hat{\beta}), \quad 95\%\, CI = \exp \big( \hat{\beta} \pm 1.96 \times SE \big) \])
+## Software and Packages
 
-Conditional independence among PA-related items was assessed using standardized bivariate chi-square statistics. However, extremely sparse cells (<1% of observations) inflated these values, making them unreliable indicators of local dependence. Additionally, the key motivational items represent conceptually distinct constructs, so minor violations of conditional independence are less concerning than they would be for highly overlapping indicators. Instead, model evaluation relied on conventional LCA fit indices, including BIC and entropy, alongside substantive interpretability. These criteria indicated that the identified profiles were robust and meaningful despite the limitations of the conditional independence tests.
-
-
-## Software and Packages (CHECK
-
-All analyses were conducted in R (version 4.4.3). Multigroup structural equation modeling was performed using the lavaan package (Rosseel, 2012), which allows for flexible specification of path models, multigroup comparisons, and model fit evaluation. Latent class analysis (LCA) was conducted separately for youths and adults using poLCA (Linzer & Lewis, 2011) and poLCAExtra (Choi, 2023), providing tools for estimation of class probabilities, fit statistics, and post-hoc regression of class membership on covariates.
+All analyses were conducted in R (version 4.4.3). Multigroup SEM was performed using the lavaan package (Rosseel, 2012). LCA and related statistics were conducted using packages poLCA (Linzer & Lewis, 2011) and poLCAExtra (Choi, 2023).
 
 
 \newpage 
