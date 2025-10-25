@@ -1,3 +1,4 @@
+################### LCA Process ###################
 # Libraries ---------------------------------------------------------------
 set.seed(2025)
 library(tidyverse)
@@ -36,30 +37,6 @@ load("LCAE.ch.RData")
 ch.lca.output <- LCAE.ch$output %>% dplyr::select(nclass,llike,AIC,BIC,
                                                   Rel.Entropy,LMR,p)
 
-ch.lca.output
-
-# check max posterior
-# for(k in 2:4){
-#
-#   child.lik$post <- apply(LCAE.ch$LCA[[k]]$posterior, 1, max)
-#
-#   child.lik$class <- LCAE.ch$LCA[[k]]$predclass
-#
-#   print(
-#     ggplot(child.lik, aes(x = post, fill = factor(class))) +
-#     geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
-#     labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-#          title = paste0(k+1," Classes, Youths")) +
-#     theme_minimal()
-#   )
-#
-#   print(ggplot(child.lik, aes(x = factor(class), y = post)) +
-#     geom_boxplot(fill = "skyblue") +
-#     labs(x = "Class", y = "Max Posterior Probability",
-#          title = paste0(k+1," Classes, Youths")) +
-#     theme_minimal()
-#   )
-# }
 
 # Compare 3 and 4 class average posterior and class prop
 post4.ch <- LCAE.ch$LCA[[3]]$posterior
@@ -80,11 +57,11 @@ ave.pp3.ch <- sapply(1:ncol(post3.ch), function(k) {
   mean(post3.ch[inds, k])
 })
 
-# BEST CLASS decided
+# BEST CLASS
 # 3 classes is best
 lca.best.ch <- LCAE.ch$LCA[[2]]
 child.lik$class <- lca.best.ch$predclass
-# child.lik$post <- apply(lca.best.ch$posterior, 1, max)
+
 
 # Calculate median minutes
 n.classes <- 3
@@ -156,39 +133,16 @@ lca.f.adult <- adult.lik.y ~ gender + eth
 # save(LCAE.ad, file="LCAE.ad.RData")
 load(file="LCAE.ad.RData")
 
-# bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
+## bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
 # blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 10)
 # save(blrt.ad,file="blrt.ad.RData")
-# load(file="blrt.ad.RData")
+load(file="blrt.ad.RData")
 
 
 # Take relevant stats
 ad.lca.output <- LCAE.ad$output %>% dplyr::select(nclass,llike,AIC,BIC,
                                                   Rel.Entropy,LMR,p)
 
-ad.lca.output
-
-# adeck posterior and boxplots
-# for(k in 2:5){
-#
-#   adult.lik$post <- apply(LCAE.ad$LCA[[k]]$posterior, 1, max)
-#   adult.lik$class <- LCAE.ad$LCA[[k]]$predclass
-#
-#   print(
-#     ggplot(adult.lik, aes(x = post, fill = factor(class))) +
-#       geom_histogram(binwidth = 0.05, alpha = 0.7, position = "identity") +
-#       labs(x = "Max Posterior Probability", y = "Count", fill = "Class",
-#            title = paste0(k+1," Classes, Adults")) +
-#       theme_minimal()
-#   )
-#
-#   print(ggplot(adult.lik, aes(x = factor(class), y = post)) +
-#           geom_boxplot(fill = "skyblue") +
-#           labs(x = "Class", y = "Max Posterior Probability",
-#                title = paste0(k+1," Classes, Adults")) +
-#           theme_minimal()
-#   )
-# }
 
 # Compare class average posteriors and class prop
 

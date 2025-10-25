@@ -1,10 +1,13 @@
+################### Data Cleaning ###################
+
 # Library -----------------------------------------------------------------
 set.seed(2025)
 library(tidyverse)
 library(car)
 
 # Read Data ---------------------------------------------------------------
-#
+
+
 # data.child <- read.csv('data/child_main.tab', header=T, sep='\t')
 # data.adult <- read.csv('data/adult.tab', header=T, sep='\t')
 
@@ -172,22 +175,6 @@ dallb$gender <- relevel(factor(dallb$gender), ref = "0")
 dallb$eth <- relevel(factor(dallb$eth), ref = "0")
 
 # Clean Data for LCA ------------------------------------------------------
-
-# # Check if collapsing is necessary
-# child.lik %>% dplyr::select(-max_post,-mins,-age,-eth) %>%
-#   pivot_longer(
-#     cols = everything(),   # or specify your Likert vars if df has other columns
-#     names_to = "Variable",
-#     values_to = "Response"
-#   ) %>%
-#   group_by(Variable, Response) %>%
-#   summarise(n = n(), .groups = "drop_last") %>%
-#   #"drop_last" drops the response variable,
-#   #so that the next part (proportion) does not calculate within each response
-#
-#   mutate(prop = n / sum(n)) %>%
-#   arrange(Variable, Response) %>% filter(prop < 0.05)
-
 # Check which motive responses need to be collapsed
 prop.table(table(child.var$PL_Enjoy_bc_ans))
 prop.table(table(child.var$MO_Fun_c))
@@ -292,6 +279,9 @@ adult.lik <- adult.var %>%
   dplyr::select(-dsbl)
 
 adult.lik.back0 <- adult.lik
+
+
+
 
 # Checks -------------------------------------------------------------------
 # Collinearity
