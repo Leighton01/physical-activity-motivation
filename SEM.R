@@ -22,28 +22,6 @@ m0 <- '
           c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(b6_adult, b6_youth)*relxb
           + c(c_adult, c_youth)*age +
           c(g7_adult, g7_youth)*gender + c(e7_adult, e7_youth)*eth
-
-# For Adults
-indirect_age_enjoyb_adult  := a1_adult * b1_adult
-indirect_age_guiltb_adult  := a2_adult * b2_adult
-indirect_age_oppb_adult    := a3_adult * b3_adult
-indirect_age_fitb_adult    := a4_adult * b4_adult
-indirect_age_socialb_adult := a5_adult * b5_adult
-indirect_age_relxb_adult := a6_adult * b6_adult
-total_age_adult := c_adult + indirect_age_enjoyb_adult + indirect_age_guiltb_adult +
-                    indirect_age_oppb_adult + indirect_age_fitb_adult +
-                    indirect_age_socialb_adult + indirect_age_relxb_adult
-
-# For Youth
-indirect_age_enjoyb_youth  := a1_youth * b1_youth
-indirect_age_guiltb_youth  := a2_youth * b2_youth
-indirect_age_oppb_youth    := a3_youth * b3_youth
-indirect_age_fitb_youth    := a4_youth * b4_youth
-indirect_age_socialb_youth := a5_youth * b5_youth
-indirect_age_relxb_youth := a6_youth * b6_youth
-total_age_youth := c_youth + indirect_age_enjoyb_youth + indirect_age_guiltb_youth +
-                   indirect_age_oppb_youth + indirect_age_fitb_youth +
-                   indirect_age_socialb_youth + indirect_age_relxb_youth
 '
 
 

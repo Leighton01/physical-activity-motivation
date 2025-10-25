@@ -180,9 +180,7 @@ gg.ad.gend
 gg.ad.eth
 ```
 
-Females comprised `r prettyNum(prop.table(table(adult.bi$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample, and White British participants accounted for `r prettyNum(prop.table(table(adult.lik$eth))[[1]]*100, big.mark=",", digits = 2)`%. The youngest and oldest age groups were collapsed due to small cell sizes at the extremes. Specifically, adults aged 64–75 and 76+ were combined, as preliminary analyses indicated no meaningful differences in their motivational profiles. Collapsing these categories improved model stability without obscuring theoretically relevant distinctions. After adjustment, the age distribution remained moderately skewed but acceptable for analysis.
-
-
+Females comprised `r prettyNum(prop.table(table(adult.bi$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample, and White British participants accounted for `r prettyNum(prop.table(table(adult.lik$eth))[[1]]*100, big.mark=",", digits = 2)`%. Given no indication of meaningful differences between motivational profiles during preliminary analyses, the youngest and oldest age groups were collapsed with their neighbours due to small cell sizes at the extremes, forming six age brackets, namely 16–34, 35–44, 45–54, 55–64, 65–74, and 75+. Collapsing these categories improved model stability without obscuring theoretically relevant distinctions. After adjustment, the age distribution remained moderately skewed but acceptable for analysis.
 
 ```{r vars.ad, out.width='80%',,fig.show='hold',fig.align='center', fig.cap='Distribution of adult responses for each motive on the Likert scale.'}
 
@@ -210,8 +208,6 @@ gg.ch.eth
 
 `r prettyNum(prop.table(table(child.lik$gender))[[2]]*100, big.mark=",", digits = 2)`% of the sample are female, and `r prettyNum(prop.table(table(child.lik$eth))[[1]]*100, big.mark=",", digits = 2)`% are White British. Although 16-year-olds represent a small proportion of the sample (4.63%), they were not collapsed with the 15-year-olds. The transition from age 15 to 16 marks a distinct developmental and social stage, such as reaching legal thresholds, completing compulsory schooling, and gaining increased autonomy. Retaining this distinction allows examination of possible developmental turning points.
 
-
-
 ```{r vars.ch,out.width="80%", fig.show='hold',fig.align='center', fig.cap='Distribution of youth responses for each motive on the Likert scale.'}
 
 gg.vars.ch
@@ -238,9 +234,9 @@ kable(list(adult.summary.bi, child.summary.bi),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-To account for differences in Likert scales between adults and youths, all motive items were dichotomized into “strongly agree” and “not strongly agree”. The distributions of positive responses exhibit a left skew in both adults and youths, suggesting that participants were less likely to choose the highest agreement category across items. Adults were grouped into age ranges (16–34, 35–44, 45–54, 55–64, 65–74, 75+) because exact ages were unavailable. A cap of 1,680 minutes per week was applied to reported PA to minimize the influence of extreme values or potential data entry errors. `r prettyNum(nrow(adult.bi), big.mark=",")` adult and `r prettyNum(nrow(child.bi), big.mark=",")` youth respondents were included. 
+To account for differences in Likert scales between adults and youths, all motive items were dichotomized into “strongly agree” and “not strongly agree”. The distributions of positive responses exhibit a left skew in both adults and youths, suggesting that participants were less likely to choose the highest agreement category across items. A cap of 1,680 minutes per week was applied to reported PA to minimize the influence of extreme values or potential data entry errors. `r prettyNum(nrow(adult.bi), big.mark=",")` adult and `r prettyNum(nrow(child.bi), big.mark=",")` youth respondents were included. 
 
-A freely estimated model was first fitted, followed by a series of constrained models in which individual or all motive pathways were fixed to equality across groups. This stepwise approach allowed assessment of whether the predictive strength of specific motives differed significantly between youths and adults.
+A freely estimated model was first fitted, followed by a series of constrained models in which individual or all motive pathways were fixed to equality across groups. This stepwise approach allowed assessment of whether the predictive strength of specific motives differed significantly between youths and adults. Ethnicity, gender, and age were controlled for in all models.
 
 Prior to fitting the SEM models, assumptions were assessed. Moderate correlations were observed among the motivational predictors in both youth and adult samples, with most values ranging between 0.2 and 0.5. The highest correlations were between enjoyment and ability in youths (r = 0.656) and between enjoyment and perceived importance in adults (r = 0.674), slightly exceeding the conventional threshold of r = 0.6 for concern about multicollinearity. Given the conceptual similarity of these motive items, a level of correlation is expected and largely unavoidable. Standardized residual correlations were also examined to evaluate local fit for both youth and adult SEMs. Most residuals were below 0.35, indicating generally acceptable correspondence between observed and model-implied correlations. The largest residuals occurred among closely related motive items (enjoyment, fitness, opportunity, and relaxation), exceeding 0.4. This misfit likely reflects conceptual overlap and the use of dichotomized indicators. Nevertheless, residuals involving demographics and PA minutes were consistently low. These localized discrepancies do not affect the primary purpose, which is to test whether the strengths of associations, rather than the predictive power of motives on PA, differ across groups.
 
@@ -248,7 +244,7 @@ Prior to fitting the SEM models, assumptions were assessed. Moderate correlation
 
 ## Latent Profile Analysis
 
-LCA was used to identify distinct motivational profiles within youths and adults, with the original Likert-scale motive items serving as indicators. Ethnicity, gender, and age were included as covariates. Ten random starts were used per class model to ensure solution stability, and `r prettyNum(nrow(adult.lik), big.mark=",")` adult and `r prettyNum(nrow(child.lik), big.mark=",")` youth respondents were included.
+LCA was used to identify distinct motivational profiles within youths and adults, with the Likert-scale motive items serving as indicators. Ethnicity and gender were included as covariates. Ten random starts were used per class model to ensure solution stability. `r prettyNum(nrow(adult.lik), big.mark=",")` adult and `r prettyNum(nrow(child.lik), big.mark=",")` youth respondents were included.
 
 The optimal number of classes was determined based on BIC elbow plots, relative entropy, bootstrap Vuong-Lo-Mendell-Rubin likelihood ratio tests (BLRT), class proportions, and substantive interpretability. Multinomial logistic regression with age as a predictor was then applied, and odds ratios with 95% confidence intervals were calculated by exponentiating the estimated coefficients. This approach directly addresses Hypothesis 2 by testing whether the probability of belonging to lower-agreement profiles increases with age among adults (H2a) and youths (H2b).
 
@@ -263,11 +259,6 @@ All analyses were conducted in R (version 4.4.3). Multigroup SEM was performed u
 
 # Results
   
-• Present the results of the analysis.
-• Try to focus on how the results answer your research questions and hypotheses.
-• Try to focus on substantive interpretation of the results (and not just if something is significant or not). Are the effects large? Are they substantively important?
-
-
 ## Multigroup SEM
 
 Significant age-related differences were observed in the strength of associations between motivational factors and weekly PA. Because motive variables were binary, coefficients represent the estimated change in weekly PA minutes associated with strong agreement for each motive.

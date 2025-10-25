@@ -220,7 +220,6 @@ fit.ad <- multinom(class ~ age,
                    data = adult.lik)
 # odds ratio
 or.ad <- exp(coef(fit.ad))
-or.ad
 
 sum.fit.ad <- summary(fit.ad)
 se.ad <- sum.fit.ad$standard.errors
@@ -241,7 +240,7 @@ colnames(or.ci.ad) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
                         "Age5.L","Age6.L","Intercept.U","Age2.U", "Age3.U", "Age4.U",
                         "Age5.U","Age6.U")
 
-# adeck class distribution per age
+# class distribution per age
 
 tb.byage.ad <- adult.lik %>%
   count(age, class) %>%
