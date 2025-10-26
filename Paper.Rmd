@@ -133,9 +133,9 @@ While these studies collectively demonstrate heterogeneity in motivation, they v
 
 Hypothesis 2 (H2): Distinct motivational profiles exist within youths and within adults.
 
-* H2(a). With increasing age, the likelihood of adults belonging to classes with lower overall agreement across motive items increases, reflecting a gradual decline in motivation, with the oldest adults showing the steepest decrease.
+* H2(a). With increasing age, adults are more likely to belong to classes characterized by lower motivation.
 
-* H2(b). With increasing age, the likelihood of youths belonging to classes with lower overall agreement across motive items increases, reflecting a gradual decline in motivation.
+* H2(b). With increasing age, youths are more likely to belong to classes characterized by lower motivation.
 
 \newpage 
 
@@ -257,11 +257,11 @@ All analyses were conducted in R (version 4.4.3). Multigroup SEM was performed u
 
 \newpage 
 
-# Results
+# Results & Discussion
   
 ## Multigroup SEM
 
-Significant age-related differences were observed in the strength of associations between motivational factors and weekly PA. Because motive variables were binary, coefficients represent the estimated change in weekly PA minutes associated with strong agreement for each motive.
+Significant differences between adults and youths were observed in the strength of associations between motive items and weekly PA. Coefficients (Table 2) represent the estimated change in weekly PA minutes associated with strong agreement for each binary motive. 
 
 ```{r slopes.diff, fig.align='center',tab.cap="Estimated slopes of each motivational factor in the SEM, with differences calculated as youth minus adult values. All differences were statistically significant (p < 0.05)."}
 opts <- options(knitr.kable.NA = '')
@@ -271,9 +271,12 @@ kable(list(slopes.diff),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-Enjoyment and guilt motive items both had a stronger effect in youths than in adults, with differences of 24 and 17 minutes, respectively. However, social motive had a larger effect in adults than in youths, with a difference of 24 minutes. These results partially support H1(a) and are somewhat unexpected, as youths were anticipated to place greater importance on the social aspects of PA. Fitness was a stronger predictor among adults than among youths, showing a difference of 25 minutes, whereas relaxation was more influential in youths. Thus, H1(b) is only partially supported. This finding is counterintuitive, as one might assume adults would place greater value on stress-relief methods. Environmental opportunity had a stronger effect among adults, with a difference of 63 minutes, contradicting the hypothesis that it would affect both groups similarly. This discrepancy may be due to youths having more consistent access to facilities such as school gyms and playgrounds, while adults are more likely required to pay for private gym memberships.
+Enjoyment and guilt both have a stronger effect in youths than in adults, although the magnitude of these effects remains modest at 24 and 17 minutes, respectively. While this supports H1(a), social motive has a larger effect in adults instead at a difference of 24 minutes. The observed discrepancy may be attributed to several methodological and conceptual factors. Variations in survey question wording could influence how respondents interpret and respond to items assessing social motives. For instance, Geller (2018) defines social motives as the extrinsic drive to socially interact and meet new people during physical activities, emphasizing the external nature of this motivation. In contrast, Bragg (2018) categorizes social motive as "social influence", encompassing the impact of friends, parents, family members, coaches, and health professionals on an individual's PA choices. These differing definitions may lead to variations in how social motives are perceived and reported across studies. In addition, the conflation of various forms of PA in survey instruments can obscure the specific motives associated with different activities. For example, Vuckovic (2024) found that social motives were less influential in fitness activities but more significant in sport participation. However, in surveys that combines all types of PA without distinguishing between them, such as the one used for this dissertation, the unique impact of social motives on each activity type may be masked.
 
-These findings demonstrate clear age-related shifts in motivational drivers. Youths are more responsive to internalized motives, whereas external factors play a larger role in adults. Notably, the effect of opportunity is far larger than that of any other motive, suggesting that adults’ engagement in PA is strongly contingent on factors such as access, time, and environmental support. Within the SDT framework, this would suggest that as youths transition to adulthood, intrinsic (enjoyment), identified regulation (relaxation), and introjected regulation (guilt) tend to weaken, while contextual factors (opportunity) become increasingly salient. The social motive may be an exception because it helps fulfill needs that are less satisfied by intrinsic enjoyment in adulthood. Alternatively, it may be interpreted that the determinants of intention appear to shift with age. Applying the TPB, the results imply personal valuation (enjoyment and relaxation) and perceived social expectations (guilt) have a stronger influence on youths and decreases with age. However, despite these patterns, the differences for most motives are weak to moderate in magnitude, suggesting that the overall motivational structure may be largely similar.
+Fitness was a stronger predictor among adult, with a difference of 25 minutes. Though it was assumed that adults would place greater value on stress-relief methods, relaxation was more influential in youths. Similar to H1(a), not all elements of H1(b) are supported. Nevertheless, several developmental and contextual factors may provide insight. Not only was achieving relaxation was one of the most commonly reported motives for participation of PA in adolescents aged 16 and older (Ashfold, 1993), it's also a key determinant of fun in youth sports that promotes sustained engagement (Visek, 2015). In addition, Teuber (2024) reported that engagement in PA not only reduced stress but also enhanced perceived academic performance in university students. While this sample is older than the youths in the present study, the academic pressure context is analogous. On the other hand, elevated momentary stress was found to predicts lower subsequent PA (Do et al., ). Since the present study does not assess causality, there is the possibility that relaxation drive higher PA rather than the reverse. More broadly, personal experiences appear to foster understanding of the benefits of PA, which may in turn drive PA engagement (Kostamo, 2019). Although relaxation serves as a more prominent motive for females (Kondric, 2013), the fairly balanced gender distribution in our youth sample suggests this factor does not meaningfully influence the overall pattern observed.
+
+Contrary to H1(c), environmental opportunity had a stronger effect among adults, with the biggest difference among all motives at 63 minutes. This discrepancy may be due to youths having more consistent access to facilities such as school gyms and playgrounds, while adults are limited by the rising opportunity costs associated with PA participation. This is particularly true among highly educated adults who are aware of the health benefits, but often hold sedentary (Brown & Roberts, 2011). Furthermore, women often face fewer chances to engage in PA than men, particularly in cultural contexts where they are primarily responsible for household caretaking, which restricts access to outdoor or leisure-based activity (Jalaluddin, 2024). 
+These findings demonstrate clear shifts in motivational drivers. Youths appear more responsive to internalized motives, whereas external factors play a larger role in adults. Notably, the effect of opportunity is far larger than that of any other motive, suggesting that adult engagement in PA is strongly contingent on factors such as access, time, and environmental support. Within the SDT framework, this would suggest that as youths transition to adulthood, intrinsic, identified, and introjected regulation tend to weaken. The social motive may be an exception because it helps fulfill needs that are less satisfied by intrinsic enjoyment in adulthood. Alternatively, it may be interpreted that the determinants of intention appear to shift with age. In the context of the TPB, the results imply personal valuation and perceived social expectations have a stronger influence on youths and decreases with age. However, despite these patterns, the differences for most motives are weak to moderate in magnitude, suggesting that the overall motivational structure may be largely similar.
 
 \newpage 
 
@@ -281,15 +284,14 @@ These findings demonstrate clear age-related shifts in motivational drivers. You
 
 ### Adults
 
-```{r elbow.llik.ad, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Elbow plot showing AIC and BIC values, and maximum likelihood plot, across different numbers of latent classes in adults.'}
+```{r elbow.llik.ad, out.width='66%',fig.show='hold',fig.align='center', fig.cap='Elbow curve of AIC and BIC values across different numbers of latent classes in adults.'}
 
 gg.elbow.ad
-gg.llik.ad
 
 ```
 
-Latent class models ranging from 3 to 6 classes all demonstrated relatively high likelihoods, low AIC and BIC values, and reasonable average posterior entropy per class. From the elbow plot, the 4-class model appeared to show diminishing returns, suggesting that adding more than three classes did not provide a substantial improvement in model fit. However, the 3-class model displayed significantly higher relative entropy, indicating a more nuanced classification of individuals. While they both have good entropy values at  `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]`, the 4-class solution resulted in two groups with nearly identical endorsement patterns, effectively splitting the moderate group without introducing meaningful differentiation. Hence, the 3-class model is favored for its balance between simplicity and the ability to distinguish meaningful motivational profiles.
-
+Latent class models ranging from 3 to 6 classes all demonstrated relatively high likelihoods, low AIC and BIC values, and reasonable average posterior entropy per class. Starting form the 4-class model, there appears to be diminishing returns in lowering AIC and BIC values (Figure 5), suggesting that adding more than 4 classes did not provide a substantial improvement in model fit. While both the 3-class and 4-class models have adequate relative entropy values at  `r LCAE.ad$output[2,6]` and `r LCAE.ad$output[3,6]`, respectively, the 4-class solution contains two groups with nearly identical response patterns, which undermines substantive interpretation. The bootstrap likelihood ratio test was used to assess the significance of performance differences. All models except the 7-class were found to be significant, with a preference for the 6-class solution. Nevertheless, the 3-class model is selected for its balance between simplicity and the ability to distinguish meaningful motivational profiles. Fit indices for all models can be found in Appendix D.
+ 
 
 ```{r distr.ad, fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
 
@@ -300,16 +302,15 @@ plot(LCAE.ad, nclass = 2)
 
 #### Class 1
 
-Class 1 represents adults who consistently report strong agreement across a broad range of motivations. Members show high probabilities of strongly agreeing with motives related to enjoyment, fitness, ability, opportunity, and importance. They also moderately endorse social, challenge, and guilt motives, and express relatively high agreement with relaxation. This group is labeled the High Engagement class.
+ represents adults who consistently report strong agreement across a broad range of motivations. Members show high probabilities of strongly agreeing with enjoyment, fitness, ability, opportunity, importance, and relaxation, and moderately agreeing with social, challenge, and guilt motives. This group is labeled the High Motivation class.
 
 #### Class 2
 
-Class 2 is characterized by very low probabilities of strongly agreeing with enjoyment and ability, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward PA. Labelled the Low Engagement class, it represents a relatively small proportion of the sample (~6%). Despite its size, this class aligns with the raw data, where very few respondents selected negative responses.
+ is characterized by very low probabilities of strongly agreeing with opportunity and ability, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward PA. This group is labelled the Low Motivation class. It represents a relatively small proportion of the sample (~6%), which corresponds to the patterns observed in the raw data, where very few respondents selected negative responses in general.
 
 #### Class 3
 
-Class 3 exhibits a mixed attitude toward various motives, with moderate positive endorsements of enjoyment, fitness, opportunity, ability, and importance. It represents adults who show more ambivalent responses overall. This group is labeled the Mixed Motivation class.
-
+ exhibits a mixed attitude toward various motives, with an almost even mix of positive and negative endorsement across the board. It represents adults who show more ambivalent responses overall. This group is labeled the Mixed Motivation class.
 
 ```{r mins.ad, out.width='66%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for adults by class.'}
 
@@ -317,7 +318,7 @@ gg.mins.ad
 
 ```
  
-Analysis of weekly minutes of PA across the adult latent classes highlights substantial differences in exercise behaviour. The High Engagement class exhibits the highest levels, with a weighted median of 445 minutes per week and a wide interquartile range of 180 to 840 minutes, indicating considerable variability even among this highly active group. The Mixed Motivation class reports intermediate activity, with a median of 182.5 minutes per week and an IQR of 30 to 457.5 minutes, reflecting both moderate overall engagement and substantial individual differences. In contrast, the Low Engagement class shows markedly lower activity, with a median of only 45 minutes per week and an IQR from 0 to 225.25 minutes, highlighting that while most members are minimally active, some still achieve higher levels. Overall, the broad IQRs across all classes indicate that even within latent classes defined by motivation, actual exercise behaviour varies considerably.
+There exists substantial differences in the median of weekly PA minutes. The High Motivation class exhibits the highest levels (445), followed by the Mixed Motivation class (182.5), and finally the Low Motivation class (45). Notably, the interquartile range is positively associated with activity level, highlighting considerable variability, particularly among the most highly active class. 
 
 ```{r byage.ad, out.width='66%',fig.show='hold',fig.align='center', fig.cap='Proportion of adults in each class across age groups.'}
 
@@ -325,7 +326,7 @@ gg.byage.ad
 
 ```
 
-The distribution of age groups across the three latent classes highlights notable differences in motivational profiles. The High Engagement class is consistently the second most populous across age groups, though its representation declines gradually with increasing age. The Low Engagement class remains the smallest in all age groups, representing a relatively rare subgroup with low endorsement of motives, and its relative size is largely stable across ages. In contrast, the Mixed Motivation class contains the largest number of adults in every age group, with membership increasing steadily as age rises, suggesting that some individuals may shift from high engagement to mixed motivation over time.
+The distribution of age groups highlights notable patterns in motivational profiles. The High Motivation class is consistently the second most populous across age groups, gradually declining with increasing age. The Low Motivation class remains the smallest in all age groups, with its relative size largely stable across ages. In contrast, the Mixed Motivation class contains the largest number of adults in every age group, with membership increasing steadily as age rises, suggesting that some individuals may shift from high to mixed motivation over time.
 
 ```{r or.ad, fig.align='center',tab.cap="Odds ratios for adult class membership across age groups, with the youngest group (16–34 years) as the reference."}
 opts <- options(knitr.kable.NA = '')
@@ -335,23 +336,20 @@ kable(list(or.ad),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-Multinomial logistic regression examined the association between age and motivation profile, with the High Engagement class as reference. Examination of the odds of latent class membership across adult age groups, using the youngest group (16–34 years) as the reference, reveals clear age-related patterns. Adults in the youngest age group are over 6.6 times more likely to belong to the High Engagement class than to the Low Engagement class. Conversely, a slightly higher proportion of young adults belong to the Mixed Motivation class, which may partly reflect the overall larger size of this class. For the Low Engagement class, older age groups generally show modestly higher odds of membership compared with the reference, though the differences for age groups 35–44 and 55–64 are not statistically significant. The highest odds are observed in the oldest age group (75+), suggesting that adults in this group are 1.5 times more likely to belong to the Low Engagement class than younger adults. In the Mixed Motivation class, the odds of membership increase consistently with age, with adults aged 65–74 being 1.45 times, and those 75+ being 1.93 times more likely than 16–34-year-olds to belong to this class rather than High Engagement. 
+Multinomial logistic regression was applied to directly examine the relatioship between age groups and class membership, with the High Motivation class and youngest group (16–34) as reference (Table 3). The youngest adults are more than 6.6 times as likely to belong to the High Motivation class compared to the Low Motivation class. Although their odds of falling into the Mixed Motivation group are 15% higher, this may be due to the larger size of that group. For the Low Motivation category, no statistically significant differences are found between the 35–44 and 55–64 age groups and the reference category. Other age groups show similar odds, except for those aged 75 and above, who are 1.5 times more likely to be in the Low Motivation class. Meanwhile, the likelihood of being in the Mixed Motivation group rises with age, with adults aged 65–74 being 1.45 times and those aged 75+ being 1.93 times more likely than the youngest adults. These patterns suggest that older adults are more likely to belong to lower motivation classes, which is consistent with H2(a).
 
-As adults age, external motivations, such as maintaining health, improving fitness, or fulfilling social obligations, may take precedence over purely intrinsic factors. This gradual shift from intrinsic to extrinsic regulation is partially reflected in the Mixed Motivation class, which shows a combination of both internally driven motives (e.g., enjoyment, personal challenge) and externally oriented motives (e.g., fitness, opportunity, social engagement). In contrast, the Low Engagement class, characterized by low motivation across both intrinsic and extrinsic domains and correspondingly low PA, becomes increasingly prominent among older adults, suggesting that some individuals may experience an overall decline in motivational drivers with age. This class potentially reflects amotivation in SDT, where individuals lack both intrinsic and extrinsic reasons to engage in PA.  From a TPB perspective, this trend may be explained by age-related changes in the determinants of intention. Older adults may experience lower PBC due to physical limitations, reduced access to exercise opportunities, or decreased social support. Additionally, normative beliefs and subjective norms may weaken as individuals move beyond life stages where social expectations strongly influence behaviour. Consequently, behavioural intention lowers, which in turn contributes to lower engagement in PA. These theoretical considerations help explain why older adults are significantly more likely to be classified in the Low Engagement group and underscore the substantive decline in overall motivation.
-
+As adults age, external motivations, such as maintaining health, improving fitness, or fulfilling social obligations, may take precedence over purely intrinsic factors. This gradual shift from intrinsic to extrinsic regulation is partially reflected in the Mixed Motivation class, which shows a combination of both internally driven motives (e.g., enjoyment, personal challenge) and less autonomous motives (e.g., opportunity, social engagement). In contrast, the Low Motivation class, characterized by low motivation across both intrinsic and extrinsic domains and correspondingly low PA, becomes increasingly prominent among older adults, suggesting that some individuals may experience an overall decline in motivational drivers with age. The characteristics of this class, along with its lowest weekly PA minutes, may indicate amotivation, where individuals have neither intrinsic nor extrinsic reasons to engage in PA. This trend may also be explained by changes in the determinants of intention. Older adults may experience lower PBC due to physical limitations or decreased social support. Existing health conditions, physical fitness, "feeling too old", and safety were major barriers, especially for the oldest adults (Kilgour, 2024). Normative beliefs and subjective norms may weaken as individuals move beyond life stages where social expectations strongly influence behaviour.
 
 \newpage 
 
 ### Youths
-
-```{r elbow.llik.ch, out.width='49%',fig.show='hold',fig.align='center', fig.cap='Elbow plot showing AIC and BIC values, and maximum likelihood plot, across different numbers of latent classes in youths.'}
+ 
+```{r elbow.llik.ch, out.width='66%',fig.show='hold',fig.align='center', fig.cap='Elbow curve of AIC and BIC values across different numbers of latent classes in youths.'}
 
 gg.elbow.ch
-gg.llik.ch
-
 ```
 
-The AIC/BIC plot did not show the typical elbow shape, as adding more classes beyond four actually resulted in a decrease in model fit. This could be due to the log-likelihood not increasing significantly with the addition of more classes, causing BIC’s penalty for model complexity to outweigh any improvement in fit. Nevertheless, both the 3-class and 4-class solutions resulted in the most substantial reductions in BIC. The Bootstrap Likelihood Ratio Test (BLRT) preferred the 4-class model. However, when considering relative entropy values, which were `r LCAE.ch$output[2,6]` for the 3-class model and `r LCAE.ch$output[3,6]` for the 4-class model, the 3-class solution provided better separation between classes. The likelihood values for the 3-class and 4-class models were similar, but the average posterior probabilities were higher in the 3-class model, with all classes exhibiting a posterior probability greater than 0.80. Additionally, the 4-class model resulted in two very similar classes, suggesting that the additional class did not add meaningful differentiation. Given these considerations, the 3-class model was selected for its better separation and more parsimonious structure.
+Increasing the number of classes beyond 4 led to a decrease, as evidenced by a sharp increase in AIC and BIC. The penalty for model complexity likely outweighed any improvements in fit. Consequently, the 3-class and 4-class solutions were the only viable candidates. The BLRT further supports this, indicating significance only for these two models, with a preference for the 4-class solution. Both models show acceptable relative entropy values at `r LCAE.ch$output[2,6]` and `r LCAE.ch$output[3,6]`, but the higher relative entropy for the 3-class model suggests it offers a more nuanced classification of individuals. Similar to the adults, the 4-class model also resulted in two very similar classes, suggesting that the additional class did not add meaningful differentiation. Given these considerations, the 3-class model was selected.
 
 
 ```{r distr.ch, out.width='100%',fig.show='hold',fig.align='center', fig.cap='Frequency of adult responses for each motive by class membership.'}
@@ -362,15 +360,16 @@ plot(LCAE.ch, nclass = 2)
 
 #### Class 1
 
-Class 1 represents youths who consistently report strong agreement across a broad range of motivations. Members show high probabilities of strongly agreeing with motives related to enjoyment, fitness, opportunity, importance, and ability. They also moderately endorse social, challenge, and relaxation motives, and express relatively high agreement with guilt. This group is characterized by consistently positive attitudes toward a wide range of motives. This class is labeled the High Engagement class.
+ represents youths who consistently report positive attitudes toward a wide range of motives. Members show high probabilities of strongly agreeing with motives related to enjoyment, fitness, opportunity, importance, and ability. They also moderately endorse social, challenge, and relaxation motives, and express relatively high agreement with guilt. This class is labeled the High Motivation class.
 
 #### Class 2
 
-Class 2 is characterized by very low probabilities of strongly agreeing with any motives, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward PA. Labeled the Low Engagement class, this group represents a relatively small proportion of the sample, aligning with the raw data in which very few respondents selected negative responses.
+ is characterized by very low probabilities of strongly agreeing with any motives, and by a higher prevalence of neutral or negative responses across most other items. Members tend to express the least favorable attitudes toward PA. This class is labeled the Low Motivation class, and represents a relatively small proportion of the sample. This is consistent with the raw data, where few respondents selected negative responses.
+
 
 #### Class 3
 
-Class 3 exhibits a mixed attitude toward various motives, with moderate positive endorsements of enjoyment, fitness, opportunity, ability, and importance. Disagreement is relatively uncommon, but strong agreement is also less prevalent than in the High Engagement class. This group falls between the other two, representing generally positive but not strongly emphatic motivation toward PA. This class is labeled the Moderate Engagement class.
+ exhibits a moderate attitude toward most motives, with moderate positive endorsements of enjoyment, fitness, opportunity, ability, and importance. Disagreement and strong agreement are both uncommon. This group falls in the middle, representing generally positive but not strongly emphatic motivation toward PA. This class is labeled the Moderate Engagement class.
 
 ```{r mins.ch, out.width='66%', fig.show='hold',fig.align='center', fig.cap='Weighted median and interquartile range of minutes exercised per week for youths by class.'}
 
@@ -378,7 +377,7 @@ gg.mins.ch
 
 ```
 
-Analysis of weekly minutes of PA across the youth latent classes reveals meaningful differences in exercise behaviour. The High Engagement class reports the highest levels, with a weighted median of 405 minutes per week and an interquartile range of 185 to 745 minutes, indicating substantial variability even among the most motivated youths. The Mixed Motivation class shows intermediate activity, with a median of 235 minutes per week and an IQR from 90 to 455 minutes, reflecting moderate engagement with considerable individual differences. The Low Engagement class exhibits the lowest activity, with a median of 125 minutes per week and an interquartile range of 30 to 300 minutes, suggesting that while most members are less active, some still achieve moderate levels. These patterns imply that, similar to adults, class membership captures meaningful distinctions in motivation that are associated with actual PA.
+Similar to adults, significant differences in the median weekly PA minutes are observed across the classes, along with substantial variability within each class. The High Motivation class boasts the highest number (405) and highest interquartile range, followed by the Mixed Motivation class (235), and then the Low Motivation class(125). 
 
 ```{r byage.ch, out.width='66%',fig.show='hold',fig.align='center', fig.cap='Proportion of youths in each class by age.'}
 
@@ -386,7 +385,8 @@ gg.byage.ch
 
 ```
 
-The distribution of age groups across the three latent classes highlights notable differences in motivational profiles among youths. The High Engagement and Mixed Motivation classes are roughly similar in size, with the High Engagement class generally decreasing across age groups but showing a sudden increase at age 16. The Low Engagement class is smaller than the other two but not as rare as in the adult sample; it increases steadily with age, with a slight dip at age 16. These patterns suggest that while high engagement may decline during adolescence, a substantial portion of youths maintain strong or mixed motivation, and low engagement gradually becomes more common over time. The sudden increase in High Engagement at age 16 indicates that some youths may experience a late boost in motivation during this stage of adolescence.
+The distribution of age groups highlights notable differences in motivational profiles. The High and Mixed Motivation classes are roughly similar in size, with the latter decreasing with age, except for the sudden increase at age 16. The Low Motivation class is smaller than the other two but still larger than in the adult sample. It steadily gains size with age, with a slight dip at age 16. These patterns suggest that while motivation generally declines during adolescence, a significant portion of youths maintain strong or mixed motivation throughout. Additionally, some youths may experience a boost in motivation during late adolescence.
+
 
 ```{r or.ch, fig.align='center',tab.cap="Odds ratios for youth class membership across ages, with 11-year-olds as the reference."}
 opts <- options(knitr.kable.NA = '')
@@ -396,9 +396,14 @@ kable(list(or.ch),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
-Examination of the odds of latent class membership across youth age groups, using 11-year-olds as the reference, reveals distinct developmental patterns. At age 11, youths are approximately 5 times less likely to belong to the Low Engagement class compared with High Engagement, whereas they are about equal in odds to belong to the Mixed Motivation class. For the Low Engagement class, the odds of membership increase steadily with age, with 12-year-olds about 1.2 times more likely, 13-year-olds 1.6 times more likely, 14-year-olds 1.7 times more likely, and 15-year-olds 2 times more likely than 11-year-olds to belong to this class, before slightly declining at age 16 (1.4 times more likely). In the Mixed Motivation class, the odds of membership increase modestly from ages 12–15, ranging from 1.0 to 1.2 times more likely than 11-year-olds, before declining slightly at age 16 (0.9 times as likely). These patterns indicate that as youths age, they increasingly shift from High Engagement toward Low Engagement or Mixed Motivation, with a subtle rise in motivation at age 16 suggesting that some youths regain or consolidate engagement in PA.
 
-The trends indicate a gradual decline in motivation throughout adolescence, with older youths increasingly represented in classes showing moderate or lower endorsement of motive items, consistent with H2(b). Between ages 12 and 15, there is a notable shift toward mixed motivation and greater reliance on external regulation. This pattern may reflect a reduction in perceived autonomy as youths encounter heightened external pressures, such as academic demands and peer expectations.  As autonomy decreases, youths may depend more on external motivators, such as social influence or structured opportunities, to maintain engagement in PA. Interestingly, the sudden surge in membership in the High Motivation class at age 16 suggests developmental and social factors unique to this stage. At 16, adolescents gain more control over how they allocate their time, alongside legal permissions that expand opportunities to engage in activities outside of school. This increase in autonomy likely enhances intrinsic motivation, particularly for activities that are personally enjoyable or socially rewarding. Social considerations, including peer influence and preparation for post-compulsory schooling or exams, may further reinforce participation in structured PA, increasing its perceived relevance. From a TPB perspective, this may reflect higher PBC and stronger alignment between attitudes and intentions, supporting the sudden spike in high-motivation membership.
+The multinomial logistic regression revealed statistically significant differences across all age groups and classes, with the reference group being 11-year-olds in the High Motivation class. At age 11, youths are approximately 5 times less likely to belong to the Low Motivation class compared to the reference group, while their odds of belonging to the Mixed Motivation class are about the same. For the Low Motivation class, the odds of membership increase steadily with age, peaking at age 15, before slightly decreasing at age 16, from twice as likely to 1.36 times as likely. This supports the pattern observed in Figure 12, suggesting that these individuals may have shifted to the High Motivation class. In contrast, the odds for the Moderate Motivation class remain relatively stable across ages, with a slight decrease at age 11 and 16. These findings highlight a shift toward lower motivation as youths age, with the slight exception of 16-year-olds, generally supporting H2(b).
+
+```
+Between ages 12 and 15, there is a notable shift toward mixed motivation and greater reliance on external regulation. This pattern may reflect a reduction in perceived autonomy as youths encounter heightened external pressures, such as academic demands and peer expectations.  As autonomy decreases, youths may depend more on external motivators, such as social influence or structured opportunities, to maintain engagement in PA. Interestingly, the sudden surge in membership in the High Motivation class at age 16 suggests developmental and social factors unique to this stage. At 16, adolescents gain more control over how they allocate their time, alongside legal permissions that expand opportunities to engage in activities outside of school. This increase in autonomy likely enhances intrinsic motivation, particularly for activities that are personally enjoyable or socially rewarding. Social considerations, including peer influence and preparation for post-compulsory schooling or exams, may further reinforce participation in structured PA, increasing its perceived relevance. From a TPB perspective, this may reflect higher PBC and stronger alignment between attitudes and intentions, supporting the sudden spike in high-motivation membership.
+
+The sudden increase in motivation for PA around age 16 may reflect several developmental and social factors, although direct empirical evidence is limited. Adolescents gain greater autonomy over how they allocate their time, including extracurricular and leisure activities, enhancing intrinsic motivation. Legal and social transitions, such as eligibility for independent travel or part-time work, expand opportunities for engagement. Cognitive development supports a more sophisticated understanding of long-term health benefits, personal goals, and social identity, allowing adolescents to internalize the value of PA. Social influences, including peer norms and preparation for post-compulsory education, further reinforce participation. From a TPB perspective, increased PBC and more salient social norms help adolescents translate intentions into action. Taken together, these factors provide a plausible explanation for the sharp rise, though further research is required to confirm these hypotheses.
+```
 
 
 \newpage 
@@ -407,28 +412,20 @@ The trends indicate a gradual decline in motivation throughout adolescence, with
 
 This study examined how perceived exercise motives influence PA across developmental stages and how age shapes dominant motives within youth and adult groups. Specifically, it addressed the research questions: (1) Do perceived exercise motives influence PA differently in youths and adults? and (2) How do age differences shape dominant exercise motives within youth and adult groups? The findings provide some support for the proposed hypotheses. Results indicated that exercise motives do differ in their influence on PA across age groups, generally supporting Hypothesis 1. However, the patterns for social and relaxation motives did not align with predictions: social motives were stronger in adults rather than youths, and relaxation motives were stronger in youths rather than adults, meaning H1(a) and H1(b) are only partially supported. Hypothesis 2 was largely supported. Distinct motivational profiles were identified within both youths and adults. Consistent with H2(a), motivation among adults gradually declined with age, with the oldest adults exhibiting the steepest drop to low motivation. H2(b) was only partially supported, as a similar gradual decline in high motivation class membership was observed among youths, but a sharp increase occurred in the oldest youth group.
 
-The observed discrepancy in the significance of the social motive between adults and youths, which diverges from the hypothesised pattern in H1(a), may be attributed to several methodological and conceptual factors. Variations in survey question wording could influence how respondents interpret and respond to items assessing social motives. For instance, Geller (2018) defines social motives as the extrinsic drive to socially interact and meet new people during physical activities, emphasizing the external nature of this motivation. In contrast, Bragg (2018) categorizes social motive as "social influence", encompassing the impact of friends, parents, family members, coaches, and health professionals on an individual's PA choices. These differing definitions may lead to variations in how social motives are perceived and reported across studies. In addition, the conflation of various forms of PA in survey instruments can obscure the specific motives associated with different activities. For example, Vuckovic (2024) found that social motives were less influential in fitness activities but more significant in sport participation. However, in surveys that combines all types of PA without distinguishing between them, such as the one used for this dissertation, the unique impact of social motives on each activity type may be masked.
-
-The prominence of relaxation as a motive in youths, which diverges from the hypothesised pattern in H1(b), may be explained by several developmental and contextual factors. Unsurprisingly, Ashfold (1993) found that among adolescents aged 16 and older, achieving relaxation was one of the most commonly reported motives for participation, highlighting its general importance in this age group. PA has also been shown to reduce stress and enhance performance-related outcomes: Teuber (2024) reported that in university students, engagement in PA not only reduced stress but also enhanced perceived academic performance. While this sample is older than the youths in the present study, the academic pressure context is analogous. Relief of stress has also been identified as a key determinant of fun in youth sports, promoting sustained engagement (Visek, 2015). Notably, Do et al. (year) found that elevated momentary stress predicts lower subsequent PA. Since the present study does not assess causality, there is the possibility that relaxation motives drive higher activity rather than the reverse. More broadly, personal experiences of relaxation and stress relief appear to foster adolescents’ understanding of the benefits of exercise, which may in turn drive PA engagement (Kostamo, 2019). Moreover, although gender differences in relaxation motives have been reported where relaxation serves as a more prominent motive for females (Kondric, 2013), the fairly balanced gender distribution in our youth sample suggests this factor does not meaningfully influence the overall pattern observed.
-
-Contrary to H1(c), opportunity appears to play a more significant role in determining PA minutes among adults than youths, possibly due to contextual and structural constraints. Rising opportunity costs associated with PA participation can limit the frequency of engagement, particularly among highly educated adults who are aware of the health benefits of PA but often hold sedentary (Brown & Roberts, 2011). In addition, women often face fewer chances to engage in PA than males, particularly in cultural contexts where they are primarily responsible for household caretaking, restricting access to outdoor or leisure-based activity (Jalaluddin, 2024). 
-
-The sudden increase in motivation for PA around age 16 may reflect several developmental and social factors, although direct empirical evidence is limited. Adolescents gain greater autonomy over how they allocate their time, including extracurricular and leisure activities, enhancing intrinsic motivation. Legal and social transitions, such as eligibility for independent travel or part-time work, expand opportunities for engagement. Cognitive development supports a more sophisticated understanding of long-term health benefits, personal goals, and social identity, allowing adolescents to internalize the value of PA. Social influences, including peer norms and preparation for post-compulsory education, further reinforce participation. From a TPB perspective, increased PBC and more salient social norms help adolescents translate intentions into action. Taken together, these factors provide a plausible explanation for the sharp rise, though further research is required to confirm these hypotheses.
-
 
 ## Policy Implications
 
-For adolescents, policies should prioritise autonomy and intrinsic motivation. Choice in activity type, intensity, and scheduling can sustain engagement. Fun, low-pressure activities are recommended since relaxation and stress relief are key motives. Social interaction remains important but should focus on cooperative play without performance pressure. Around age 16, adolescents gain more control over their schedules. Policies should support this by providing access and guidance for self-directed activity to help translate newfound autonomy into sustained participation.
+For adolescents, policies should prioritize autonomy and intrinsic motivation. Choice in activity type, intensity, and scheduling can sustain engagement. Fun, low-pressure activities are recommended since relaxation and stress relief are key motives. Social interaction remains important but should focus on cooperative play without performance pressure. Around age 16, adolescents gain more control over their schedules. Policies should support this by providing access and guidance for self-directed activity to help translate newfound autonomy into sustained participation.
 
 For adults, structural and social opportunities strongly influence PA. Workplace initiatives, flexible scheduling, and accessible community facilities can reduce the opportunity cost of PA for those balancing work, family, and other responsibilities. As intrinsic motives like enjoyment may decline with age, social motives can sustain engagement through extrinsic reinforcement. Policies should also address differential access, particularly for women with domestic responsibilities, by providing inclusive, low-barrier options.
 
-In older adulthood, declines in intrinsic motivation and physical capacity necessitate targeted environmental and social support. Policies should prioritise safe, accessible spaces for light-to-moderate activity and structured programs that provide social interaction alongside exercise. Enhancing PBC through instruction, adapted exercises, and social encouragement can support continued participation. Community centres, walking groups, and low-impact classes that emphasise wellbeing, socialisation, and structured opportunity can mitigate age-related declines in PA engagement.
+In older adulthood, declines in intrinsic motivation and physical capacity necessitate targeted environmental and social support. Policies should prioritize safe, accessible spaces for light-to-moderate activity and structured programs that provide social interaction, alongside more facilities or green spaces (Kilgour, 2024). 
 
 The developmental patterns observed suggest that motivation toward PA is dynamic across the lifespan. Future research should examine longitudinal trajectories of motivation and investigate how interventions can effectively support intrinsic and extrinsic regulation across different age groups.
 
 ## Limitations
 
-Several limitations may affect the interpretation of these results. All data were self-reported and therefore susceptible to recall errors, comprehension difficulties, and social desirability bias, especially among students responding under teacher supervision. The adult sample, collected primarily online, may underrepresent individuals with limited digital literacy or internet access, such as older adults or lower-income households. Allowing up to two respondents per household could have increased intra-household similarity, and minor differences between online and paper formats may have affected reported PA or demographic details. To ensure comparability, only motive items with identical or near-identical wording were retained, possibly omitting relevant constructs. PA measures were highly skewed, though the use of medians and response collapsing mitigated non-normality. Analyses focused on moderate-to-vigorous PA, which may underestimate meaningful engagement among older adults who benefit from light activity. Finally, demographic factors such as socioeconomic status, weight, education, relationship status were not considered, and the cross-sectional design prevents causal inference about developmental changes in motivation or behaviour.
+Several limitations may affect the interpretation of these results. All data were self-reported and therefore susceptible to recall errors, comprehension difficulties, and social desirability bias, especially among students responding under teacher supervision. The adult sample, collected primarily online, may underrepresent individuals with limited digital literacy or internet access, such as older adults or lower-income households. Allowing up to two respondents per household could have increased intra-household similarity, and minor differences between online and paper formats may have affected reported PA or demographic details. To ensure comparability, only motive items with identical or near-identical wording were retained, possibly omitting relevant constructs. PA measures were highly skewed, though the use of medians and response collapsing mitigated non-normality. Analyses focused on moderate-to-vigorous PA, which may underestimate meaningful engagement among older adults who benefit from light activity. Finally, demographic factors such as socioeconomic status, weight, education, relationship status were not considered, and the cross-sectional design prevents causal inference about developmental changes in motivation or behaviour. Due to computational limitations, BLRT only had 5 reps.
 
 \newpage 
 
@@ -585,7 +582,7 @@ kable(list(vc),align='c',booktabs = T) %>%
 
 # Appendix B - Exercise Types
 
-## Adults
+## Adult
 
 The total minutes of exercise in this dissertation are calculated as the sum of vigorous (original variable: DUR_HVY_CAPPED_SPORTCOUNT_A01) and moderate plus (original variable: DUR_MOD_CAPPED_SPORTCOUNT_A01) activities.
 
@@ -710,7 +707,7 @@ Definition: Activity capped: Moderate intensity minutes per week: Sport (count d
 * Weights-based class (e.g. body pump kettlebell)
 * Wrestling
 
-## Youths
+## Youth
 
 Moderate and vigorous activities are encompassed under the same variable (original variable name: mins_modplus_outschool_Week_ALL). 
 Deinition: Mins spent in week (moderate plus mins) outside school: All activities
@@ -764,9 +761,51 @@ kable(list(child.summary),align='c',booktabs = T) %>%
                                   'hold_position'))
 ```
 
+
 \newpage
 
-# Appendix D - R Code (Data Cleaning)
+# Appendix D - LCA Models and Fit Indices
+
+## Adult
+
+```{r lca.indices.ad1, fig.align='center',tab.cap="LCA fit indices, adults."}
+opts <- options(knitr.kable.NA = '')
+kable(list(ad.lca.output),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+```{r lca.indices.ad2, fig.align='center',tab.cap="BLRT results, adults."}
+opts <- options(knitr.kable.NA = '')
+kable(list(blrt.ad$output),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+## Youth
+
+```{r lca.indices.ch1, fig.align='center',tab.cap="LCA fit indices, youths."}
+opts <- options(knitr.kable.NA = '')
+kable(list(ch.lca.output),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+```{r lca.indices.ch2, fig.align='center',tab.cap="BLRT results, youths."}
+opts <- options(knitr.kable.NA = '')
+kable(list(blrt.ch$output),align='c',booktabs = T) %>%
+  kable_styling(position = 'center', font_size = 10,
+                latex_options = c('striped',
+                                  'hold_position'))
+```
+
+
+\newpage
+
+# Appendix E - R Code (Data Cleaning)
 
 NOTE: The initial section of the code, which handles basic reading and processing of the raw data files, has been commented out since the data were saved as RDS objects to reduce computation time during report knitting.
 
@@ -777,7 +816,7 @@ source("data.R", echo = T, print.eval = F,
 
 \newpage
 
-# Appendix E - R Code (SEM)
+# Appendix F - R Code (SEM)
 ```{r SEM.R, comment = ""}
 source("SEM.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -785,7 +824,7 @@ source("SEM.R", echo = T, print.eval = F,
 
 \newpage
 
-# Appendix F - R Code (LCA)
+# Appendix G - R Code (LCA)
 ```{r LCA.R, comment = ""}
 source("LCA.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -793,7 +832,7 @@ source("LCA.R", echo = T, print.eval = F,
 
 \newpage
 
-# Appendix G - R Code (Visualization)
+# Appendix H - R Code (Visualization)
 ```{r Visualization.R, comment = ""}
 source("Visualization.R", echo = T, print.eval = F,
        max.deparse.length=Inf, keep.source=T)
@@ -801,7 +840,7 @@ source("Visualization.R", echo = T, print.eval = F,
 
 \newpage
 
-# Appendix H - R code (R Markdown)
+# Appendix I - R code (R Markdown)
 
 ```{r get-labels, echo=FALSE, eval=TRUE}
 labs = knitr::all_labels()

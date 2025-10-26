@@ -1,4 +1,3 @@
-################### LCA Process ###################
 # Libraries ---------------------------------------------------------------
 set.seed(2025)
 library(tidyverse)
@@ -28,9 +27,9 @@ load("LCAE.ch.RData")
 
 
 # bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
-# blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=10)
+# blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=5)
 # save(blrt.ch,file="blrt.ch.RData")
-# load("blrt.ch.RData")
+load("blrt.ch.RData")
 
 
 # Output
@@ -90,7 +89,8 @@ fit.ch <- multinom(class ~ age,
 
 # odds ratio
 or.ch <- exp(coef(fit.ch))
-or.ch
+colnames(or.ch) <- c("11 (ref)", "12", "13", "14", "15", "16")
+rownames(or.ch) <- c("Low Motivation","Moderate Motivation")
 
 sum.fit.ch <- summary(fit.ch)
 se <- sum.fit.ch$standard.errors
@@ -134,7 +134,7 @@ lca.f.adult <- adult.lik.y ~ gender + eth
 load(file="LCAE.ad.RData")
 
 ## bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
-# blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 10)
+# blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 5)
 # save(blrt.ad,file="blrt.ad.RData")
 load(file="blrt.ad.RData")
 
@@ -220,6 +220,8 @@ fit.ad <- multinom(class ~ age,
                    data = adult.lik)
 # odds ratio
 or.ad <- exp(coef(fit.ad))
+colnames(or.ad) <- c("16-34 (ref)", "35–44", "45–54", "55–64", "65–74", "75+")
+rownames(or.ad) <- c("Low Motivaation","Mixed Motivation")
 
 sum.fit.ad <- summary(fit.ad)
 se.ad <- sum.fit.ad$standard.errors

@@ -146,7 +146,7 @@ gg.elbow.ch <- ggplot(ch.lca.output, aes(x = nclass)) +
   geom_line(aes(y = AIC), color = "red") +
   geom_point(aes(y = AIC), color = "red") +
   labs(y = "Information Criterion", x = "Number of Classes",
-       title = "Elbow Plot, Youths",
+       title = "Elbow Curve, Youths",
        caption = "Blue = BIC, Red = AIC") +
   theme_clean()
 
@@ -228,7 +228,7 @@ gg.elbow.ad <- ggplot(ad.lca.output, aes(x = nclass)) +
   geom_line(aes(y = AIC), color = "red") +
   geom_point(aes(y = AIC), color = "red") +
   labs(y = "Information Criterion", x = "Number of Classes",
-       title = "Elbow Plot, Adults",
+       title = "Elbow Curve, Adults",
        caption = "Blue = BIC, Red = AIC") +
   theme_clean()
 
