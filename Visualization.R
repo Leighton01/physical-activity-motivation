@@ -183,8 +183,8 @@ gg.mins.ch <- ggplot(mins.child, aes(x = factor(Class), y = Weighted.Median)) +
   geom_point(size = 3, color = "blue") +                 # median as a point
   geom_errorbar(aes(ymin = Weighted.Q25, ymax = Weighted.Q75),
                 width = 0.2, color = "darkblue") +      # IQR as error bars
-  labs(x = "Class", y = "Minutes (Weighted Median ± IQR)",
-       title = "Weighted Median and IQR per Class") +
+  labs(x = "Class", y = "Mins ± IQR)",
+       title = "Median PA by Class, Adults") +
   theme_clean()
 
 gg.med.ch <- ggplot(mins.child, aes(x = Class, y = Weighted.Median)) +
@@ -198,7 +198,7 @@ gg.byage.ch <- child.lik %>%
   mutate(prop = n / sum(n)) %>%
   ggplot(aes(x = factor(age), y = prop, fill = factor(class))) +
   geom_col() +
-  labs(x = "Age group", y = "Proportion", fill = "Class") +
+  labs(x = "Age group", y = "Proportion", fill = "Class", title = "Class Distributionss by Age, Youths") +
   scale_y_continuous(labels = scales::percent_format()) +
   theme_clean()
 
@@ -277,8 +277,8 @@ gg.mins.ad <- ggplot(mins.adult, aes(x = factor(Class), y = Weighted.Median)) +
   geom_point(size = 3, color = "blue") +                 # median as a point
   geom_errorbar(aes(ymin = Weighted.Q25, ymax = Weighted.Q75),
                 width = 0.2, color = "darkblue") +      # IQR as error bars
-  labs(x = "Class", y = "Minutes (Weighted Median ± IQR)",
-       title = "Weighted Median and IQR per Class") +
+  labs(x = "Class", y = "Mins ± IQR)",
+       title = "Median PA by Class, Adults") +
   theme_clean()
 
 gg.byage.ad <- adult.lik %>%
@@ -287,7 +287,7 @@ gg.byage.ad <- adult.lik %>%
   mutate(prop = n / sum(n)) %>%
   ggplot(aes(x = factor(age), y = prop, fill = factor(class))) +
   geom_col() +
-  labs(x = "Age group", y = "Proportion", fill = "Class") +
+  labs(x = "Age group", y = "Proportion", fill = "Class", title = "Class Distributionss by Age, Adults") +
   scale_y_continuous(labels = scales::percent_format()) +
   theme_clean()
 
