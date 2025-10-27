@@ -82,7 +82,7 @@ Despite the valuable insights provided by these frameworks, existing research of
 
 1. Do perceived exercise motives influence physical activity differently in youths and adults?
 
-2. How do age differences shape dominant exercise motives within youth and adult groups?
+2. Does age influence motivational profiles of physical activity differently in adults compared with youths?
 
 To answer these questions, multigroup structural equation modeling (SEM) to test whether the relationships between motives and PA differ by age, and latent class analysis (LCA) will be employed to identify unobserved motivational profiles within each age group.
 
@@ -128,7 +128,7 @@ In adults, Ostendorf et al. (2021) identified three primary motivational profile
 
 In youths, Moreno-Murcia et al. (2013) found two primary motivational profiles in physical education students: a self-determined profile, with high intrinsic and identified motivation, and a non-self-determined profile, with elevated external, introjected, and amotivated scores. The self-determined profile was positively associated with higher levels of PA. Similarly, Heredia-León et al. (2023) identified youths in the higher motivation profiles demonstrated greater intention to be physically active and enjoyment in PE classes. 
 
-While these studies vary in sample characteristics, activity settings, and statistical methods for extracting latent profiles, heterogeneity in motivation is consistently demonstrated. Nevertheless, few studies have examined whether increasing age systematically influences profile membership across developmental stages. Investigating these patterns using comparable data across youths and adults will provide a clearer understanding of the role of age.
+While these studies vary in sample characteristics, activity settings, and statistical methods for extracting latent profiles, heterogeneity in motivation is consistently demonstrated. Nevertheless, few studies have examined whether increasing age systematically influences motivational profile similarly across developmental stages. Investigating these patterns using comparable data across youths and adults will provide a clearer understanding of the role of age.
 
 * H2(a). With increasing age, adults are more likely to belong to classes characterized by lower motivation.
 
@@ -240,7 +240,7 @@ Prior to fitting the multigroup SEM models, assumptions were assessed. Moderate 
 
 LCA was used to identify distinct motivational profiles within youths and adults, with the Likert-scale motive items serving as indicators. Ethnicity and gender were included as covariates. Ten random starts were used per class model to ensure solution stability. `r prettyNum(nrow(adult.lik), big.mark=",")` adult and `r prettyNum(nrow(child.lik), big.mark=",")` youth respondents were included.
 
-The optimal number of classes was determined based on AIC, BIC, relative entropy, the Lo-Mendell-Rubin (LMR) likelihood ratio test, the bootstrap likelihood ratio test (BLRT), class proportions, and substantive interpretability. Multinomial logistic regression with age as a predictor was then applied, and odds ratios with 95% confidence intervals were calculated by exponentiating the estimated coefficients. This approach directly addresses Hypothesis 2 by testing whether the probability of belonging to lower-agreement profiles increases with age among adults (H2a) and youths (H2b).
+The optimal number of classes was determined based on AIC, BIC, relative entropy, the Lo-Mendell-Rubin (LMR) likelihood ratio test, the bootstrap likelihood ratio test (BLRT), class proportions, and substantive interpretability. Multinomial logistic regression with age as a predictor was then applied, and odds ratios with 95% confidence intervals were calculated by exponentiating the estimated coefficients. This approach tests whether the probability of belonging to lower-agreement profiles increases with age among adults (H2a) and youths (H2b).
 
 Conditional independence among PA-related items was assessed using standardized bivariate chi-square statistics. Extremely sparse cells (<1% of observations) inflated these values, making them unreliable indicators of local dependence. Given that the key motive items represent conceptually distinct constructs, minor violations are less concerning than for highly overlapping indicators. Model evaluation relied on conventional LCA fit indices, including BIC and entropy, alongside substantive interpretability. These criteria indicated that the identified profiles were robust and meaningful despite the limitations of the conditional independence tests. 
 
