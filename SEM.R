@@ -1,5 +1,3 @@
-################### SEM Process ###################
-
 # Libraries ---------------------------------------------------------------
 set.seed(2025)
 library(tidyverse)
@@ -7,9 +5,9 @@ library(lavaan)
 
 # SEM ---------------------------------------------------------------------
 
-# Free model
+# Free model specs
 m0 <- '
-  # Mediators: controlling for age, gender, and ethnicity (group-specific coefficients)
+  # Mediators
   enjoyb ~ c(a1_adult, a1_youth)*age + c(g1_adult, g1_youth)*gender + c(e1_adult, e1_youth)*eth
   guiltb ~ c(a2_adult, a2_youth)*age + c(g2_adult, g2_youth)*gender + c(e2_adult, e2_youth)*eth
   oppb   ~ c(a3_adult, a3_youth)*age + c(g3_adult, g3_youth)*gender + c(e3_adult, e3_youth)*eth
@@ -17,7 +15,7 @@ m0 <- '
   socialb~ c(a5_adult, a5_youth)*age + c(g5_adult, g5_youth)*gender + c(e5_adult, e5_youth)*eth
   relxb~ c(a6_adult, a6_youth)*age + c(g6_adult, g6_youth)*gender + c(e6_adult, e6_youth)*eth
 
-  # Main outcome: motives predicting mins, controlling for demographics (group-specific coefficients)
+  # Main outcome
   mins ~ c(b1_adult, b1_youth)*enjoyb + c(b2_adult, b2_youth)*guiltb + c(b3_adult, b3_youth)*oppb +
           c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(b6_adult, b6_youth)*relxb
           + c(c_adult, c_youth)*age +
@@ -34,7 +32,6 @@ f.con <- sem(m0, dallb, group = "group",
 
 # Check if significantly different
 f0fcon <- anova(f0, f.con)
-f0fcon
 
 # Spec one constraint at a time
 m1 <- '
@@ -123,14 +120,13 @@ f4 <- sem(m4, data = dallb, group = "group", meanstructure = TRUE)
 f5 <- sem(m5, data = dallb, group = "group", meanstructure = TRUE)
 f6 <- sem(m6, data = dallb, group = "group", meanstructure = TRUE)
 
-# Check all models are significantly different from m0
-anova(f0, f1)
-anova(f0, f2)
-anova(f0, f3)
-anova(f0, f4)
-anova(f0, f5)
-anova(f0, f6)
-
+# # Check all models are significantly different from m0
+# anova(f0, f1)
+# anova(f0, f2)
+# anova(f0, f3)
+# anova(f0, f4)
+# anova(f0, f5)
+# anova(f0, f6)
 
 # Put slope diff. in a table
 params <- parameterEstimates(f0, standardized = T)
@@ -154,7 +150,6 @@ slopes.diff <- slopes.diff %>%
   filter(!var %in% c("gender","eth","age")) %>%
   dplyr::select(-se.youth, -se.adult)
 
-
-# check residual
-resid(f0, type = "cor")
+# # check residual
+# resid(f0, type = "cor")
 

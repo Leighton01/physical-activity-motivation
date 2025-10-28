@@ -8,8 +8,8 @@ library(tidyLPA)
 library(poLCA)
 library(poLCAExtra)
 
-
 # LCA, Youths -------------------------------------------------------------
+
 child.lik <- child.lik.back
 
 # Predictors (motives)
@@ -23,20 +23,19 @@ lca.f.child <- child.lik.y ~ gender + eth
 
 # Run LCA with 2-7 classes
 # LCAE.ch <- poLCA(lca.f.child, data = child.lik, nclass = 2:7)
-# save(LCAE.ch, file="LCAE.ch.RData")
+
+#### Saved LCA models to save computation time
 load("LCAE.ch.RData")
 
-
-# bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
 # blrt.ch <- poLCA.blrt(LCAE.ch,quick = T, nrep=5)
 # save(blrt.ch,file="blrt.ch.RData")
-load("blrt.ch.RData")
 
+# #### Saved blrt results to save computation time
+load("blrt.ch.RData")
 
 # Output
 ch.lca.output <- LCAE.ch$output %>% dplyr::select(nclass,llike,AIC,BIC,
                                                   Rel.Entropy,LMR,p)
-
 
 # Compare 3 and 4 class average posterior and class prop
 post4.ch <- LCAE.ch$LCA[[3]]$posterior
@@ -58,10 +57,8 @@ ave.pp3.ch <- sapply(1:ncol(post3.ch), function(k) {
 })
 
 # BEST CLASS
-# 3 classes is best
 lca.best.ch <- LCAE.ch$LCA[[2]]
 child.lik$class <- lca.best.ch$predclass
-
 
 # Calculate median minutes
 n.classes <- 3
@@ -78,7 +75,6 @@ for (k in 1:n.classes) {
   wmed.ch[k] <- q[2]
   wq75.ch[k] <- q[3]
 }
-
 
 # Regressions
 child.lik$age <- child.lik.back$age
@@ -132,18 +128,19 @@ lca.f.adult <- adult.lik.y ~ gender + eth
 
 # LCAE.ad <- poLCA(lca.f.adult, data = adult.lik, nclass = 2:7)
 # save(LCAE.ad, file="LCAE.ad.RData")
+
+#### Saved LCA models to save computation time
 load(file="LCAE.ad.RData")
 
-## bootstrapped Vuong-Lo-Mendell-Rubin likelihood ratio test
+## BLRT
 # blrt.ad <- poLCA.blrt(LCAE.ad, quick = T,nreps = 5)
-# save(blrt.ad,file="blrt.ad.RData")
-load(file="blrt.ad.RData")
 
+#### Saved blrt results to save computation time
+load("blrt.ad.RData")
 
 # Take relevant stats
 ad.lca.output <- LCAE.ad$output %>% dplyr::select(nclass,llike,AIC,BIC,
                                                   Rel.Entropy,LMR,p)
-
 
 # Compare class average posteriors and class prop
 
@@ -156,7 +153,6 @@ ave.pp6.ad <- sapply(1:ncol(post6.ad), function(k) {
   mean(post6.ad[inds, k])
 })
 
-ave.pp6.ad
 
 post5.ad <- LCAE.ad$LCA[[4]]$posterior
 class5.ad <- apply(post5.ad, 1, which.max)
@@ -167,7 +163,6 @@ ave.pp5.ad <- sapply(1:ncol(post5.ad), function(k) {
   mean(post5.ad[inds, k])
 })
 
-ave.pp5.ad
 
 post4.ad <- LCAE.ad$LCA[[3]]$posterior
 class4.ad <- apply(post4.ad, 1, which.max)
@@ -177,7 +172,7 @@ ave.pp4.ad <- sapply(1:ncol(post4.ad), function(k) {
   inds <- which(class4.ad == k)
   mean(post4.ad[inds, k])
 })
-ave.pp4.ad
+
 
 post3.ad <- LCAE.ad$LCA[[2]]$posterior
 class3.ad <- apply(post3.ad, 1, which.max)
@@ -187,7 +182,6 @@ ave.pp3.ad <- sapply(1:ncol(post3.ad), function(k) {
   inds <- which(class3.ad == k)
   mean(post3.ad[inds, k])
 })
-ave.pp3.ad
 
 # BEST CLASS decided
 # 3 classes is best
@@ -233,7 +227,6 @@ coefs.ad <- coef(fit.ad)
 ci.l.ad <- exp(coefs.ad - 1.96 * se.ad)
 ci.u.ad <- exp(coefs.ad + 1.96 * se.ad)
 
-
 # Combine into a table
 or.ci.ad <- data.frame(
   CI.lower = round(ci.l.ad, 3),
@@ -248,5 +241,3 @@ colnames(or.ci.ad) <- c("Intercept.L", "Age2.L", "Age3.L", "Age4.L",
 tb.byage.ad <- adult.lik %>%
   count(age, class) %>%
   pivot_wider(names_from = class, values_from = n, values_fill = 0)
-
-

@@ -1,5 +1,5 @@
-################### All visualizations used in final report ###################
 set.seed(2025)
+options(digits = 4)
 library(tidyverse)
 library(ggplot2)
 library(poLCA)
@@ -7,8 +7,8 @@ library(poLCAExtra)
 library(scales)
 library(ggthemes)
 
-options(digits = 4)
 # Descriptive -------------------------------------------------------------
+# Summary of binary stats
 child.summary.bi <- data.frame(colMeans(
   child.bi[, setdiff(names(child.bi),
                      c("gender", "eth", "age", "mins"))], na.rm = TRUE))
@@ -19,6 +19,7 @@ adult.summary.bi <- data.frame(colMeans(
                      c("gender", "eth", "age","mins"))], na.rm = TRUE))
 colnames(adult.summary.bi) <- ("Proportion")
 
+# correlation
 cor.ie <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,1]
 cor.if <- cor(adult.lik.back0 %>% dplyr::select(-gender,-eth), method = "pearson")[6,3]
 cor.imp <- data.frame("Imp,Enjoy"=cor.ie, "Imp,Fit"=cor.if)
@@ -78,6 +79,7 @@ child.summary <- child.var %>%
   pivot_longer(everything(), names_to = c("Variable", "Stat"), names_sep = "_") %>%
   pivot_wider(names_from = Stat, values_from = value)
 
+# PA mins summary
 c.mins <- child.var %>%
   summarise(Variable = "Minutes.Exercised",
             Mean = mean(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0 ], na.rm = TRUE),
@@ -150,6 +152,7 @@ gg.elbow.ch <- ggplot(ch.lca.output, aes(x = nclass)) +
        caption = "Blue = BIC, Red = AIC") +
   theme_clean()
 
+# likelihood graph
 gg.llik.ch <- ggplot(ch.lca.output, aes(x = nclass)) +
   geom_line(aes(y = llike), color = "blue") +
   geom_point(aes(y = llike), color = "blue") +
@@ -184,7 +187,7 @@ gg.mins.ch <- ggplot(mins.child, aes(x = factor(Class), y = Weighted.Median)) +
   geom_errorbar(aes(ymin = Weighted.Q25, ymax = Weighted.Q75),
                 width = 0.2, color = "darkblue") +      # IQR as error bars
   labs(x = "Class", y = "Mins ± IQR)",
-       title = "Median PA by Class, Adults") +
+       title = "Median PA by Class, Youths") +
   theme_clean()
 
 gg.med.ch <- ggplot(mins.child, aes(x = Class, y = Weighted.Median)) +
