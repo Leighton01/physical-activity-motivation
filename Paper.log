@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  30 OCT 2025 01:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  30 OCT 2025 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,24 +706,24 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [21]
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1445--1451
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1450
 \T1/lmr/m/n/10 physical _ exercise _ Di^^[erences _ between _ people _ who _ do _ regular _ physical _ exercise _ and _ those _ who _
  []
 
 
 
 [23]
-Underfull \hbox (badness 1616) in paragraph at lines 1510--1515
+Underfull \hbox (badness 1616) in paragraph at lines 1509--1514
 []\T1/lmr/m/n/10 Sahin, E., Top-kaya, N., & Kurkcu, R. (2016). `Sex and age dif-fer-ences in achieve-ment goal
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 1510--1515
-\T1/lmr/m/n/10 ori-en-ta-tions in Turk-ish ado-les-cents', \T1/lmr/m/it/10 Jour-nal of Ed-u-ca-tion and Prac-tice\T1/lmr/m/n/10 , 27(7), 149--156. []$https :
+Underfull \hbox (badness 1701) in paragraph at lines 1509--1514
+\T1/lmr/m/n/10 ori-en-ta-tions in Turk-ish ado-les-cents', \T1/lmr/m/it/10 Jour-nal of Ed-u-ca-tion and Prac-tice\T1/lmr/m/n/10 , 27(7), 149-156. []$https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1510--1515
+Underfull \hbox (badness 10000) in paragraph at lines 1509--1514
 \T1/lmr/m/n/10 / / www . researchgate . net / publication / 317721737 _ Sex _ and _ Age _ Di^^[erences _ in _ Achievement _ Goal _
  []
 
@@ -732,19 +732,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 1510--1515
 [24]
 
 [25]
-Overfull \hbox (65.44066pt too wide) in alignment at lines 1628--1644
+Overfull \hbox (65.44066pt too wide) in alignment at lines 1627--1643
  [] [] [] 
  []
 
 
 
 [26]
-Underfull \hbox (badness 1496) in paragraph at lines 1676--1680
+Underfull \hbox (badness 1496) in paragraph at lines 1675--1679
 \T1/lmr/m/n/10 The to-tal min-utes of ex-er-cise in this dis-ser-ta-tion are cal-cu-lated as the sum of vig-or-ous (orig-i-
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 1676--1680
+Underfull \hbox (badness 2005) in paragraph at lines 1675--1679
 \T1/lmr/m/n/10 nal vari-able: DUR_HVY_CAPPED_SPORTCOUNT_A01) and mod-er-ate plus (orig-i-nal vari-able:
  []
 
@@ -753,12 +753,12 @@ Underfull \hbox (badness 2005) in paragraph at lines 1676--1680
 [27]
 
 [28]
-Underfull \hbox (badness 2573) in paragraph at lines 1917--1923
+Underfull \hbox (badness 2573) in paragraph at lines 1916--1922
 \T1/lmr/m/n/10 Moderate and vig-or-ous ex-er-cises were com-bined into a sin-gle vari-able (orig-i-nal vari-able name:
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 1917--1923
+Underfull \hbox (badness 1596) in paragraph at lines 1916--1922
 \T1/lmr/m/n/10 mins_modplus_outschool_Week_ALL). Ac-cord-ing to Sport Eng-land (2024), mod-er-ate ac-tiv-ity in-
  []
 
@@ -769,7 +769,7 @@ Underfull \hbox (badness 1596) in paragraph at lines 1917--1923
 [30]
 
 [31]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2114.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2113.
 (c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -785,47 +785,47 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [36]
 
 [37]
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   enjoyb ~ c(a1_adult, a1_youth)*age + c(g1_adult, g1_youth)*gender + c(e1_adult, e1_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   guiltb ~ c(a2_adult, a2_youth)*age + c(g2_adult, g2_youth)*gender + c(e2_adult, e2_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   oppb   ~ c(a3_adult, a3_youth)*age + c(g3_adult, g3_youth)*gender + c(e3_adult, e3_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   fitb   ~ c(a4_adult, a4_youth)*age + c(g4_adult, g4_youth)*gender + c(e4_adult, e4_youth)*eth[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   socialb~ c(a5_adult, a5_youth)*age + c(g5_adult, g5_youth)*gender + c(e5_adult, e5_youth)*eth[] 
  []
 
 
-Overfull \hbox (28.99353pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   relxb~ c(a6_adult, a6_youth)*age + c(g6_adult, g6_youth)*gender + c(e6_adult, e6_youth)*eth[] 
  []
 
 
-Overfull \hbox (60.49344pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (60.49344pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +   mins ~ c(b1_adult, b1_youth)*enjoyb + c(b2_adult, b2_youth)*guiltb + c(b3_adult, b3_youth)*oppb +[] 
  []
 
 
-Overfull \hbox (55.24345pt too wide) in paragraph at lines 2422--2422
+Overfull \hbox (55.24345pt too wide) in paragraph at lines 2421--2421
 []\T1/lmtt/m/n/10 +           c(b4_adult, b4_youth)*fitb + c(b5_adult, b5_youth)*socialb + c(b6_adult, b6_youth)*relxb[] 
  []
 
 
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 2519--2519
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 2518--2518
 []\T1/lmtt/m/n/10 +   mins ~ c("a1","a1")*enjoyb + guiltb + oppb + fitb + socialb + age + gender + eth + relxb[] 
  []
 
@@ -852,17 +852,17 @@ Overfull \hbox (13.24358pt too wide) in paragraph at lines 2519--2519
 [47]
 
 [48]
-Overfull \hbox (112.99329pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (112.99329pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +             Mean = mean(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0 ], na.rm = TRUE),[] 
  []
 
 
-Overfull \hbox (128.74324pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (128.74324pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +             Median = median(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0], na.rm = TRUE),[] 
  []
 
 
-Overfull \hbox (86.74336pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (86.74336pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +             SD = sd(mins_modplus_outschool_Week_ALL[mins_modplus_outschool_Week_ALL > 0], na.rm = TRUE),[] 
  []
 
@@ -871,47 +871,47 @@ Overfull \hbox (86.74336pt too wide) in paragraph at lines 3274--3274
 [49]
 
 [50]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3274.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3273.
 (c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 [51]
-Overfull \hbox (97.24333pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (97.24333pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +   labs(x = "Age group", y = "Proportion", fill = "Class", title = "Class Distributionss by Age, Youths") +[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 > gg.vars.ch <- ggplot(child.lik_long, aes(x = factor(age), y = prop, fill = factor(score))) +[] 
  []
 
 
 
 [52]
-Overfull \hbox (97.24333pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (97.24333pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +   labs(x = "Age group", y = "Proportion", fill = "Class", title = "Class Distributionss by Age, Adults") +[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 > gg.vars.ad <- ggplot(adult.lik_long, aes(x = factor(age), y = prop, fill = factor(score))) +[] 
  []
 
 
 
 [53]
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 > va3 <- c("Motivation for sport/exercise: I find sport/exercise enjoyable and satisfying.",[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +          "Motivation for sport/exercise: I feel guilty when I don't do sport/exercise.",[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 3273--3273
 []\T1/lmtt/m/n/10 +          "Motivation for sport/exercise: It's important to me to do sport/exercise regularly.",[] 
  []
 
@@ -919,9 +919,9 @@ Overfull \hbox (39.4935pt too wide) in paragraph at lines 3274--3274
 
 [54]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3283.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3282.
 
-Overfull \vbox (1.23935pt too high) detected at line 3383
+Overfull \vbox (1.23935pt too high) detected at line 3382
  []
 
 
@@ -943,10 +943,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  89i,10n,93p,691b,590s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Paper.pdf (56 pages, 430145 bytes).
+Output written on Paper.pdf (56 pages, 429744 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
- 648 compressed objects within 7 object streams
+ 762 PDF objects out of 1000 (max. 8388607)
+ 647 compressed objects within 7 object streams
  125 named destinations out of 1000 (max. 500000)
  409 words of extra memory for PDF output out of 10000 (max. 10000000)
 
