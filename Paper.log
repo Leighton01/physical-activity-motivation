@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  30 OCT 2025 18:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.4)  31 OCT 2025 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -589,22 +589,22 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <Paper_files/figure-latex/gg.ad.demo1-1.pdf, id=126, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-1.pdf  used on input line 495.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-1.pdf  used on input line 494.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/gg.ad.demo1-2.pdf, id=127, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-2.pdf  used on input line 495.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-2.pdf  used on input line 494.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/gg.ad.demo1-3.pdf, id=128, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ad.demo1-3.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ad.demo1-3.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-3.pdf  used on input line 495.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ad.demo1-3.pdf  used on input line 494.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/vars.ad-1.pdf, id=129, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/vars.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/vars.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/vars.ad-1.pdf  used on input line 514.
+Package pdftex.def Info: Paper_files/figure-latex/vars.ad-1.pdf  used on input line 513.
 (pdftex.def)             Requested size: 375.80544pt x 225.48369pt.
 
 
@@ -612,22 +612,22 @@ Package pdftex.def Info: Paper_files/figure-latex/vars.ad-1.pdf  used on input l
 <Paper_files/figure-latex/gg.ch.demo-1.pdf, id=150, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-1.pdf  used on input line 554.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-1.pdf  used on input line 553.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/gg.ch.demo-2.pdf, id=151, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-2.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-2.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-2.pdf  used on input line 554.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-2.pdf  used on input line 553.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/gg.ch.demo-3.pdf, id=152, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/gg.ch.demo-3.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/gg.ch.demo-3.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-3.pdf  used on input line 554.
+Package pdftex.def Info: Paper_files/figure-latex/gg.ch.demo-3.pdf  used on input line 553.
 (pdftex.def)             Requested size: 150.32504pt x 90.19612pt.
 <Paper_files/figure-latex/vars.ch-1.pdf, id=153, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/vars.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/vars.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/vars.ch-1.pdf  used on input line 571.
+Package pdftex.def Info: Paper_files/figure-latex/vars.ch-1.pdf  used on input line 570.
 (pdftex.def)             Requested size: 375.80544pt x 225.48369pt.
 
 
@@ -641,12 +641,12 @@ Package pdftex.def Info: Paper_files/figure-latex/vars.ch-1.pdf  used on input l
 <Paper_files/figure-latex/elbow.llik.ad-1.pdf, id=203, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-1.pdf  used on input line 834.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ad-1.pdf  used on input line 833.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 <Paper_files/figure-latex/distr.ad-1.pdf, id=204, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/distr.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/distr.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/distr.ad-1.pdf  used on input line 859.
+Package pdftex.def Info: Paper_files/figure-latex/distr.ad-1.pdf  used on input line 858.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
@@ -654,12 +654,12 @@ Package pdftex.def Info: Paper_files/figure-latex/distr.ad-1.pdf  used on input 
 <Paper_files/figure-latex/mins.ad-1.pdf, id=217, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/mins.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/mins.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/mins.ad-1.pdf  used on input line 894.
+Package pdftex.def Info: Paper_files/figure-latex/mins.ad-1.pdf  used on input line 893.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 <Paper_files/figure-latex/byage.ad-1.pdf, id=218, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/byage.ad-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/byage.ad-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/byage.ad-1.pdf  used on input line 911.
+Package pdftex.def Info: Paper_files/figure-latex/byage.ad-1.pdf  used on input line 910.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 
 
@@ -667,7 +667,7 @@ Package pdftex.def Info: Paper_files/figure-latex/byage.ad-1.pdf  used on input 
 <Paper_files/figure-latex/elbow.llik.ch-1.pdf, id=237, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/elbow.llik.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/elbow.llik.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-1.pdf  used on input line 981.
+Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-1.pdf  used on input line 980.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 
 
@@ -675,7 +675,7 @@ Package pdftex.def Info: Paper_files/figure-latex/elbow.llik.ch-1.pdf  used on i
 <Paper_files/figure-latex/distr.ch-1.pdf, id=250, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/distr.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/distr.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/distr.ch-1.pdf  used on input line 1004.
+Package pdftex.def Info: Paper_files/figure-latex/distr.ch-1.pdf  used on input line 1003.
 (pdftex.def)             Requested size: 328.82707pt x 197.2974pt.
 
 
@@ -683,12 +683,12 @@ Package pdftex.def Info: Paper_files/figure-latex/distr.ch-1.pdf  used on input 
 <Paper_files/figure-latex/mins.ch-1.pdf, id=269, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/mins.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/mins.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/mins.ch-1.pdf  used on input line 1041.
+Package pdftex.def Info: Paper_files/figure-latex/mins.ch-1.pdf  used on input line 1040.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 <Paper_files/figure-latex/byage.ch-1.pdf, id=270, 361.35pt x 216.81pt>
 File: Paper_files/figure-latex/byage.ch-1.pdf Graphic file (type pdf)
 <use Paper_files/figure-latex/byage.ch-1.pdf>
-Package pdftex.def Info: Paper_files/figure-latex/byage.ch-1.pdf  used on input line 1057.
+Package pdftex.def Info: Paper_files/figure-latex/byage.ch-1.pdf  used on input line 1056.
 (pdftex.def)             Requested size: 234.8775pt x 140.92813pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -943,7 +943,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  89i,10n,93p,691b,590s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Leighton/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Paper.pdf (56 pages, 429744 bytes).
+Output written on Paper.pdf (56 pages, 429601 bytes).
 PDF statistics:
  762 PDF objects out of 1000 (max. 8388607)
  647 compressed objects within 7 object streams
