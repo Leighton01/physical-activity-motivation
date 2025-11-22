@@ -6,12 +6,12 @@ This project uses Sport England survey data to examine how age moderates the rel
 
 File guide:
 
-11484265_Dissertation.pdf final report
+11484265_Dissertation.pdf contains the final report
 
-data.R data loading and cleaning
+data.R contains data loading and cleaning
 
-SEM.R SEM specification and estimation
+SEM.R SEM contains model specification and estimation
 
-LCA.R latent profile modelling
+LCA.R contains latent profile modelling
 
-Visualization.R tables and figures used in the report
+Visualization.R contains all tables and figures used in the report
